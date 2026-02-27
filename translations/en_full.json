@@ -2,12 +2,14 @@
   "page": {
     "title": "bob-lab | Enterprise AI Development Workshop",
     "walkthrough_title": "Walkthrough - bob-lab",
-    "narrative_title": "Seller Conversation Guide - bob-lab"
+    "narrative_title": "Seller Conversation Guide - bob-lab",
+    "workshop_title": "Bob-a-thon Workshop - bob-lab"
   },
   "nav": {
     "home": "Home",
     "conversations": "Conversations",
     "walkthrough": "Walkthrough",
+    "workshop": "Workshop",
     "bobathon": "Bobathon/Pilot"
   },
   "hero": {
@@ -18,13 +20,16 @@
     "btn_walkthrough": "Capability Walkthrough"
   },
   "intro": {
-    "title": "Two Ways to Explore Bob",
+    "title": "Three Ways to Explore Bob",
     "conversations_title": "Conversations",
     "conversations_desc": "Chat-style guide for customer discussions. Explore typical questions, talking points, and how to address common concerns about IBM Bob.",
     "btn_conversations": "View Conversations",
     "walkthrough_title": "Walkthrough",
     "walkthrough_desc": "Capability-based journey through Bob's key features. See demos, understand business value, and review real-world proof points.",
-    "btn_walkthrough": "Start Walkthrough"
+    "btn_walkthrough": "Start Walkthrough",
+    "workshop_title": "Workshop",
+    "workshop_desc": "Experience Bob's enterprise capabilities through our hands-on Bob-a-thon workshop. Transform 7-8 weeks into 10 minutes.",
+    "btn_workshop": "Start Workshop"
   },
   "engagement": {
     "title": "Interested in a Bobathon or Pilot?",

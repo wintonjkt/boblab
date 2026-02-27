@@ -2439,3 +2439,110 @@
     width: 100%;
   }
 }
+
+/* ============================================
+   WORKSHOP PAGE STYLES
+   ============================================ */
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.metric-card {
+  background: white;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  padding: var(--spacing-xl);
+  text-align: center;
+  border-top: 4px solid var(--primary-color);
+}
+
+.metric-value {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+.metric-label {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.metric-comparison {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Comparison Table */
+.comparison-table {
+  margin: var(--spacing-xl) 0;
+}
+
+.comparison-table h3 {
+  margin-bottom: var(--spacing-lg);
+}
+
+.comparison-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.comparison-table thead {
+  background: var(--primary-color);
+  color: white;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.comparison-table th {
+  font-weight: 400;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.comparison-table tbody tr:hover {
+  background: var(--bg-alt);
+}
+
+.comparison-table tbody tr:last-child {
+  font-weight: 400;
+  background: #d0e2ff;
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive Design for Workshop Elements */
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .metric-value {
+    font-size: 2rem;
+  }
+  
+  .comparison-table {
+    overflow-x: auto;
+  }
+  
+  .comparison-table table {
+    min-width: 600px;
+  }
+}
