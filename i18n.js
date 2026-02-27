@@ -92,23 +92,11 @@ const i18n = {
         // Handle different element types
         if (element.tagName === 'INPUT' && element.placeholder) {
           element.placeholder = translation;
-        } else if (element.tagName === 'TITLE') {
-          element.textContent = translation;
         } else {
           element.textContent = translation;
         }
       }
     });
-
-    // Update page title if it has data-i18n attribute
-    const titleElement = document.querySelector('title[data-i18n]');
-    if (titleElement) {
-      const titleKey = titleElement.getAttribute('data-i18n');
-      const titleTranslation = this.getTranslation(titleKey);
-      if (titleTranslation) {
-        titleElement.textContent = titleTranslation;
-      }
-    }
 
     // Update language selector text
     const selector = document.getElementById('language-selector');
