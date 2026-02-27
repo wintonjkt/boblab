@@ -682,6 +682,81 @@ a:focus {
   margin: 0;
 }
 
+/* Intro Cards */
+.intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.intro-card {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.1s ease;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.intro-card h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-color);
+}
+
+.intro-card p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+  flex: 1;
+}
+
+.intro-card .btn {
+  align-self: flex-start;
+}
+
+/* Engagement CTA */
+.engagement-cta {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  background: white;
+  border-radius: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.engagement-cta h2 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-color);
+}
+
+.engagement-cta p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+  max-width: 100%;
+}
+
+.engagement-cta .btn {
+  margin-top: var(--spacing-md);
+}
+
 /* ============================================
    CODE BLOCKS (with copy button)
    ============================================ */
