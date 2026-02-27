@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Home",
+    "conversations": "Conversations",
+    "walkthrough": "Walkthrough"
+  },
+  "hero": {
+    "title": "Enterprise AI Development Workshop",
+    "subtitle": "Transform 7-8 weeks of enterprise development into 10 minutes of AI-powered orchestration",
+    "tagline": "Learn how IBM Bob handles multi-repo changes, compliance automation, and security inline",
+    "btn_conversations": "Seller Conversations",
+    "btn_walkthrough": "Capability Walkthrough"
+  },
+  "intro": {
+    "title": "Two Ways to Explore Bob",
+    "conversations_title": "Conversations",
+    "conversations_desc": "Chat-style guide for customer discussions. Explore typical questions, talking points, and how to address common concerns about IBM Bob.",
+    "btn_conversations": "View Conversations",
+    "walkthrough_title": "Walkthrough",
+    "walkthrough_desc": "Capability-based journey through Bob's key features. See demos, understand business value, and review real-world proof points.",
+    "btn_walkthrough": "Start Walkthrough"
+  },
+  "engagement": {
+    "title": "Interested in a Bobathon or Pilot?",
+    "description": "Contact IBM Client Engineering to discuss engagement opportunities and see how Bob can transform your development workflow.",
+    "btn_learn_more": "Learn More about IBM Client Engineering"
+  },
+  "footer": {
+    "title": "bob-lab",
+    "description": "Enterprise AI development made simple",
+    "links": "Links",
+    "attribution": "Built by IBM Client Engineering with bob"
+  },
+  "walkthrough": {
+    "page_title": "Walkthrough",
+    "title": "Bob Capabilities Walkthrough",
+    "subtitle": "Experience Bob's Enterprise-Scale Features",
+    "description": "Learn how Bob transforms enterprise development through hands-on demonstrations",
+    "sidebar_title": "Capabilities",
+    "nav_overview": "Overview",
+    "nav_requirements": "Business Requirements",
+    "nav_compliance": "Compliance Automation",
+    "nav_multirepo": "Multi-Repo Orchestration",
+    "nav_security": "Security Inline",
+    "nav_deployment": "Deployment Planning",
+    "nav_bobalytics": "Bobalytics Transparency",
+    "github_link": "Get Source Code",
+    "overview_title": "What You'll Experience",
+    "overview_desc": "This walkthrough demonstrates Bob's key capabilities through a realistic scenario: implementing SSO + MFA across 3 legacy systems to pass a SOC 2 audit.",
+    "estimated_time": "Estimated Time:",
+    "estimated_time_value": "10-15 minutes to complete all capability demos",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "prompt_to_bob": "Prompt to Bob"
+  },
+  "narrative": {
+    "page_title": "Seller Conversation Guide",
+    "title": "Customer Conversation Guide",
+    "subtitle": "Talk Tracks for Bob Sales Discussions",
+    "description": "Common customer questions and recommended responses based on Bob's unique capabilities",
+    "topics_title": "Conversation Topics",
+    "topic_intro": "Introduction",
+    "topic_productivity": "Productivity Gains",
+    "topic_security": "Security & Compliance",
+    "topic_multirepo": "Multi-Repository",
+    "topic_cost": "Cost Transparency",
+    "topic_integration": "Integration",
+    "topic_competition": "vs Competitors",
+    "topic_proof": "Proof Points"
+  }
+}
