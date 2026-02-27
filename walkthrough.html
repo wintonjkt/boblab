@@ -35,9 +35,26 @@
     </div>
   </header>
 
-  <main class="walkthrough-content">
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>Capabilities</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#requirements" class="capability-link">Business Requirements</a>
+        <a href="#compliance" class="capability-link">Compliance Automation</a>
+        <a href="#multi-repo" class="capability-link">Multi-Repo Orchestration</a>
+        <a href="#security" class="capability-link">Security Inline</a>
+        <a href="#deployment" class="capability-link">Deployment Planning</a>
+        <a href="#bobalytics" class="capability-link">Bobalytics Transparency</a>
+      </nav>
+    </aside>
+
+    <div class="walkthrough-main">
     <!-- Overview -->
-    <section class="section">
+    <section id="overview" class="section">
       <div class="container">
         <div class="info-card compliance">
           <h2>What You'll Experience</h2>
@@ -76,7 +93,7 @@
     </section>
 
     <!-- Capability 1: Business Requirements Analysis -->
-    <section class="section section-alt">
+    <section id="requirements" class="section section-alt">
       <div class="container">
         <div class="capability-header">
           <span class="capability-number">1</span>
@@ -162,7 +179,7 @@
     </section>
 
     <!-- Capability 2: Compliance Automation -->
-    <section class="section">
+    <section id="compliance" class="section">
       <div class="container">
         <div class="capability-header">
           <span class="capability-number">2</span>
@@ -266,7 +283,7 @@
     </section>
 
     <!-- Capability 3: Multi-Repo Orchestration -->
-    <section class="section section-alt">
+    <section id="multi-repo" class="section section-alt">
       <div class="container">
         <div class="capability-header">
           <span class="capability-number">3</span>
@@ -354,7 +371,7 @@ and deployment order with reasoning.</pre>
     </section>
 
     <!-- Capability 4: Security Inline -->
-    <section class="section">
+    <section id="security" class="section">
       <div class="container">
         <div class="capability-header">
           <span class="capability-number">4</span>
@@ -449,7 +466,7 @@ res.cookie('token', token, {
     </section>
 
     <!-- Capability 5: Deployment Planning -->
-    <section class="section section-alt">
+    <section id="deployment" class="section section-alt">
       <div class="container">
         <div class="capability-header">
           <span class="capability-number">5</span>
@@ -559,7 +576,7 @@ and cutover strategy.</pre>
     </section>
 
     <!-- Capability 6: Bobalytics Transparency -->
-    <section class="section">
+    <section id="bobalytics" class="section">
       <div class="container">
         <div class="capability-header">
           <span class="capability-number">6</span>
@@ -698,6 +715,7 @@ and cutover strategy.</pre>
         </div>
       </div>
     </section>
+    </div>
   </main>
 
   <footer class="footer">
