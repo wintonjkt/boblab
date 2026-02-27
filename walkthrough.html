@@ -4,6 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="walkthrough.page_title">Walkthrough - bob-lab</title>
+  
+  <!-- Translation Preloader - Runs first -->
+  <script src="translation-preloader.js"></script>
+  
+  <!-- Critical CSS to prevent FOUT -->
+  <style>
+    [data-i18n]:not([data-i18n-translated]) {
+      opacity: 0 !important;
+      transition: opacity 0.2s ease-in-out;
+    }
+    [data-i18n-translated] {
+      opacity: 1 !important;
+    }
+    /* Show critical content immediately */
+    .page-header h1,
+    .page-header p,
+    .walkthrough-sidebar,
+    .capability-header h2,
+    .capability-header span {
+      opacity: 1 !important;
+    }
+  </style>
+  
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="narrative.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
@@ -193,9 +216,9 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="i18n-walkthrough.js"></script>
   <script src="components/component-loader.js"></script>
   <script src="components/walkthrough/walkthrough-loader.js"></script>
-  <script src="i18n.js"></script>
   <script src="script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>

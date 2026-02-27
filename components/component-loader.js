@@ -70,8 +70,8 @@ class ComponentLoader {
     await this.loadAll();
 
     // Re-initialize i18n for new content
-    if (window.i18n) {
-      window.i18n.translate();
+    if (window.i18n && window.i18n.translateNewContent) {
+      window.i18n.translateNewContent();
     }
 
     // Re-initialize event handlers

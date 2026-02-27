@@ -110,11 +110,8 @@ class WalkthroughComponentLoader {
     await this.loadComponentsWithData();
 
     // Re-initialize i18n for new content
-    if (window.i18n) {
-      // Wait for demo content to be loaded before translating
-      setTimeout(() => {
-        window.i18n.translate();
-      }, 100);
+    if (window.i18n && window.i18n.translateNewContent) {
+      window.i18n.translateNewContent();
     }
 
     // Initialize walkthrough-specific event handlers
