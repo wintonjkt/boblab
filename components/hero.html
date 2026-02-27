@@ -1,0 +1,36 @@
+<!-- Hero Component -->
+<section class="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title" data-i18n="hero.title">Enterprise AI Development Workshop</h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">Transform 7-8 weeks of enterprise development into 10 minutes of AI-powered orchestration</p>
+      <p class="hero-tagline" data-i18n="hero.tagline">Learn how IBM Bob handles multi-repo changes, compliance automation, and security inline</p>
+      <div class="hero-buttons">
+        <a href="narrative.html" class="btn btn-primary" data-i18n="hero.btn_conversations">Seller Conversations</a>
+        <a href="walkthrough.html" class="btn btn-secondary" data-i18n="hero.btn_walkthrough">Capability Walkthrough</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="code-window">
+        <div class="code-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+        </div>
+        <div class="code-content">
+          <pre><span class="code-comment">// Bob reads business requirements</span>
+<span class="code-keyword">const</span> result = <span class="code-keyword">await</span> bob.analyze({
+  <span class="code-string">spec:</span> <span class="code-string">'SOC2_Compliance.pdf'</span>,
+  <span class="code-string">repos:</span> [<span class="code-string">'auth-service'</span>, <span class="code-string">'user-service'</span>, <span class="code-string">'frontend'</span>],
+  <span class="code-string">requirements:</span> [<span class="code-string">'SSO'</span>, <span class="code-string">'MFA'</span>]
+});
+
+<span class="code-comment">// Generated in 10 minutes</span>
+<span class="code-comment">// - 17+ files across 3 repos</span>
+<span class="code-comment">// - 94% test coverage</span>
+<span class="code-comment">// - SOC 2 compliance docs</span></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

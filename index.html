@@ -7,122 +7,16 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <span class="logo-text">bob-lab</span>
-      </div>
-      <ul class="nav-menu">
-        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-        <li><a href="narrative.html" data-i18n="nav.conversations">Conversations</a></li>
-        <li><a href="walkthrough.html" data-i18n="nav.walkthrough">Walkthrough</a></li>
-        <li>
-          <select id="language-selector" class="language-selector">
-            <option value="en">English</option>
-            <option value="ko">한국어</option>
-            <option value="zh-TW">繁體中文</option>
-            <option value="vi">Tiếng Việt</option>
-            <option value="th">ไทย</option>
-            <option value="id">Bahasa Indonesia</option>
-          </select>
-        </li>
-      </ul>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </nav>
+  <!-- Components will be loaded here -->
+  <div data-component="navbar"></div>
+  <div data-component="hero"></div>
+  <div data-component="intro"></div>
+  <div data-component="engagement"></div>
+  <div data-component="footer"></div>
 
-  <section class="hero">
-    <div class="hero-container">
-      <div class="hero-content">
-        <h1 class="hero-title">Enterprise AI Development Workshop</h1>
-        <p class="hero-subtitle">Transform 7-8 weeks of enterprise development into 10 minutes of AI-powered orchestration</p>
-        <p class="hero-tagline">Learn how IBM Bob handles multi-repo changes, compliance automation, and security inline</p>
-        <div class="hero-buttons">
-          <a href="narrative.html" class="btn btn-primary">Seller Conversations</a>
-          <a href="walkthrough.html" class="btn btn-secondary">Capability Walkthrough</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="code-window">
-          <div class="code-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-          </div>
-          <div class="code-content">
-            <pre><span class="code-comment">// Bob reads business requirements</span>
-<span class="code-keyword">const</span> result = <span class="code-keyword">await</span> bob.analyze({
-  <span class="code-string">spec:</span> <span class="code-string">'SOC2_Compliance.pdf'</span>,
-  <span class="code-string">repos:</span> [<span class="code-string">'auth-service'</span>, <span class="code-string">'user-service'</span>, <span class="code-string">'frontend'</span>],
-  <span class="code-string">requirements:</span> [<span class="code-string">'SSO'</span>, <span class="code-string">'MFA'</span>]
-});
-
-<span class="code-comment">// Generated in 10 minutes</span>
-<span class="code-comment">// - 17+ files across 3 repos</span>
-<span class="code-comment">// - 94% test coverage</span>
-<span class="code-comment">// - SOC 2 compliance docs</span></pre>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="intro-content">
-        <h2 class="section-title">Two Ways to Explore Bob</h2>
-        <div class="intro-cards">
-          <div class="intro-card">
-            <h3>Conversations</h3>
-            <p>Chat-style guide for customer discussions. Explore typical questions, talking points, and how to address common concerns about IBM Bob.</p>
-            <a href="narrative.html" class="btn btn-secondary">View Conversations</a>
-          </div>
-          <div class="intro-card">
-            <h3>Walkthrough</h3>
-            <p>Capability-based journey through Bob's key features. See demos, understand business value, and review real-world proof points.</p>
-            <a href="walkthrough.html" class="btn btn-secondary">Start Walkthrough</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt">
-    <div class="container">
-      <div class="engagement-cta">
-        <h2>Interested in a Bobathon or Pilot?</h2>
-        <p>Contact IBM Client Engineering to discuss engagement opportunities and see how Bob can transform your development workflow.</p>
-        <a href="https://www.ibm.com/client-engineering" target="_blank" class="btn btn-primary">Learn More about IBM Client Engineering</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>bob-lab</h4>
-          <p>Enterprise AI development made simple</p>
-        </div>
-        <div class="footer-section">
-          <h4>Links</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="narrative.html">Conversations</a></li>
-            <li><a href="walkthrough.html">Walkthrough</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>Built by IBM Client Engineering with bob</p>
-      </div>
-    </div>
-  </footer>
-
+  <!-- Scripts -->
+  <script src="components/component-loader.js"></script>
+  <script src="i18n.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
