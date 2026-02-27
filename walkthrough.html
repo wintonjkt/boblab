@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Walkthrough - bob-lab</title>
+  <title data-i18n="walkthrough.page_title">Walkthrough - bob-lab</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="narrative.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
@@ -14,9 +14,9 @@
 
   <header class="page-header">
     <div class="container">
-      <h1>Bob Capabilities Walkthrough</h1>
-      <p class="page-subtitle">Experience Bob's Enterprise-Scale Features</p>
-      <p class="page-description">Learn how Bob transforms enterprise development through hands-on demonstrations</p>
+      <h1 data-i18n="walkthrough.title">Bob Capabilities Walkthrough</h1>
+      <p class="page-subtitle" data-i18n="walkthrough.subtitle">Experience Bob's Enterprise-Scale Features</p>
+      <p class="page-description" data-i18n="walkthrough.description">Learn how Bob transforms enterprise development through hands-on demonstrations</p>
     </div>
   </header>
 
@@ -24,20 +24,20 @@
     <!-- Sidebar Navigation -->
     <aside class="walkthrough-sidebar">
       <div class="sidebar-header">
-        <h3>Capabilities</h3>
+        <h3 data-i18n="walkthrough.sidebar_title">Capabilities</h3>
       </div>
       <nav class="capability-nav">
-        <a href="#overview" class="capability-link active">Overview</a>
-        <a href="#requirements" class="capability-link">Business Requirements</a>
-        <a href="#compliance" class="capability-link">Compliance Automation</a>
-        <a href="#multi-repo" class="capability-link">Multi-Repo Orchestration</a>
-        <a href="#security" class="capability-link">Security Inline</a>
-        <a href="#deployment" class="capability-link">Deployment Planning</a>
-        <a href="#bobalytics" class="capability-link">Bobalytics Transparency</a>
+        <a href="#overview" class="capability-link active" data-i18n="walkthrough.nav_overview">Overview</a>
+        <a href="#requirements" class="capability-link" data-i18n="walkthrough.nav_requirements">Business Requirements</a>
+        <a href="#compliance" class="capability-link" data-i18n="walkthrough.nav_compliance">Compliance Automation</a>
+        <a href="#multi-repo" class="capability-link" data-i18n="walkthrough.nav_multirepo">Multi-Repo Orchestration</a>
+        <a href="#security" class="capability-link" data-i18n="walkthrough.nav_security">Security Inline</a>
+        <a href="#deployment" class="capability-link" data-i18n="walkthrough.nav_deployment">Deployment Planning</a>
+        <a href="#bobalytics" class="capability-link" data-i18n="walkthrough.nav_bobalytics">Bobalytics Transparency</a>
       </nav>
       <div class="sidebar-footer">
         <a href="https://github.ibm.com/Subramaniam-J/seller_deep_dive" target="_blank" class="sidebar-github-link">
-          <span class="github-text">Get Source Code</span>
+          <span class="github-text" data-i18n="walkthrough.github_link">Get Source Code</span>
           <span class="github-arrow">&rarr;</span>
         </a>
       </div>
@@ -48,37 +48,37 @@
     <section id="overview" class="section">
       <div class="container">
         <div class="info-card compliance">
-          <h2>What You'll Experience</h2>
-          <p>This walkthrough demonstrates Bob's key capabilities through a realistic scenario: implementing SSO + MFA across 3 legacy systems to pass a SOC 2 audit.</p>
+          <h2 data-i18n="walkthrough.overview_title">What You'll Experience</h2>
+          <p data-i18n="walkthrough.overview_desc">This walkthrough demonstrates Bob's key capabilities through a realistic scenario: implementing SSO + MFA across 3 legacy systems to pass a SOC 2 audit.</p>
 
           <div class="capabilities-overview">
             <div class="cap-card">
-              <h4>Business Requirements Analysis</h4>
+              <h4 data-i18n="walkthrough.capability_business_requirements">Business Requirements Analysis</h4>
               <p>Bob reads 20-page specs and extracts technical requirements</p>
             </div>
             <div class="cap-card">
-              <h4>Compliance Automation</h4>
+              <h4 data-i18n="walkthrough.capability_compliance">Compliance Automation</h4>
               <p>Maps SOC 2 findings to code and generates audit evidence</p>
             </div>
             <div class="cap-card">
-              <h4>Multi-Repo Orchestration</h4>
+              <h4 data-i18n="walkthrough.capability_multirepo">Multi-Repo Orchestration</h4>
               <p>Coordinates changes across Java, Node.js, and React</p>
             </div>
             <div class="cap-card">
-              <h4>Security Inline</h4>
+              <h4 data-i18n="walkthrough.capability_security">Security Inline</h4>
               <p>Catches vulnerabilities during generation, not days later</p>
             </div>
             <div class="cap-card">
-              <h4>Deployment Planning</h4>
+              <h4 data-i18n="walkthrough.capability_deployment">Deployment Planning</h4>
               <p>Zero-downtime strategies with rollback procedures</p>
             </div>
             <div class="cap-card">
-              <h4>Bobalytics Transparency</h4>
+              <h4 data-i18n="walkthrough.capability_bobalytics">Bobalytics Transparency</h4>
               <p>Full visibility into costs, model routing, and productivity</p>
             </div>
           </div>
 
-          <p><strong>Estimated Time:</strong> 10-15 minutes to complete all capability demos</p>
+          <p><strong data-i18n="walkthrough.estimated_time">Estimated Time:</strong> <span data-i18n="walkthrough.estimated_time_value">10-15 minutes to complete all capability demos</span></p>
         </div>
       </div>
     </section>
@@ -88,28 +88,30 @@
       <div class="container">
         <div class="capability-header">
           <span class="capability-number">1</span>
-          <h2>Business Requirements Analysis</h2>
-          <span class="capability-badge">Unique to Bob</span>
+          <h2 data-i18n="walkthrough.capability_business_requirements">Business Requirements Analysis</h2>
+          <span class="capability-badge" data-i18n="walkthrough.capability_unique">Unique to Bob</span>
         </div>
 
         <div class="capability-content">
           <div class="objective-box">
-            <h3>The Challenge</h3>
+            <h3 data-i18n="walkthrough.challenge">The Challenge</h3>
             <p>Most AI coding tools work at the code level. Developers spend days translating business requirements into technical specs. Bob reads the business requirements document directly.</p>
           </div>
 
           <div class="demo-flow">
-            <h3>Try It Yourself</h3>
+            <h3 data-i18n="walkthrough.try_yourself">Try It Yourself</h3>
 
             <div class="step-item">
               <div class="step-number">1</div>
               <div class="step-content">
-                <h4>Upload a Requirements Document</h4>
-                <p>In Bob, upload a PDF, Word doc, or text file containing business requirements.</p>
+                <h4 data-i18n="walkthrough.upload_document">Upload a Requirements Document</h4>
+                <p data-i18n="walkthrough.upload_document_desc">In Bob, upload a PDF, Word doc, or text file containing business requirements.</p>
                 <div class="prompt-box">
                   <div class="prompt-content">
-                    <p>Example: "UseCase1_SSO_MFA_Integration.pdf" - a 20-page SOC 2 compliance spec</p>
+                    <p data-i18n="walkthrough.example_upload">Example: "UseCase1_SSO_MFA_Integration.pdf" - a 20-page SOC 2 compliance spec</p>
                   </div>
+                </div>
+              </div>
                 </div>
               </div>
             </div>
@@ -117,15 +119,15 @@
             <div class="step-item">
               <div class="step-number">2</div>
               <div class="step-content">
-                <h4>Ask Bob to Analyze</h4>
+                <h4 data-i18n="walkthrough.ask_bob">Ask Bob to Analyze</h4>
                 <div class="code-block-wrapper">
                   <div class="code-block-header">
-                    <span class="code-block-language">Prompt to Bob</span>
+                    <span class="code-block-language" data-i18n="walkthrough.prompt_to_bob">Prompt to Bob</span>
                     <button class="copy-button">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                       </svg>
-                      Copy
+                      <span data-i18n="walkthrough.copy">Copy</span>
                     </button>
                   </div>
                   <pre><code>Read this business requirements document and analyze:
@@ -140,8 +142,8 @@
             <div class="step-item">
               <div class="step-number">3</div>
               <div class="step-content">
-                <h4>Review Bob's Analysis</h4>
-                <p>Bob returns a comprehensive breakdown including:</p>
+                <h4 data-i18n="walkthrough.review_analysis">Review Bob's Analysis</h4>
+                <p data-i18n="walkthrough.review_analysis_desc">Bob returns a comprehensive breakdown including:</p>
                 <div class="result-box">
                   <ul>
                     <li><strong>3 Repositories Identified:</strong> user-service (Java), auth-service (Node.js), frontend (React)</li>
@@ -150,18 +152,19 @@
                   </ul>
                 </div>
               </div>
+              </div>
             </div>
           </div>
 
           <div class="business-value">
-            <h3>Business Value</h3>
+            <h3 data-i18n="walkthrough.business_value">Business Value</h3>
             <div class="value-comparison">
               <div class="value-traditional">
-                <strong>Traditional Approach:</strong>
+                <strong data-i18n="walkthrough.traditional_approach">Traditional Approach:</strong>
                 <p>1 day - read spec, research systems, map requirements manually</p>
               </div>
               <div class="value-bob">
-                <strong>With Bob:</strong>
+                <strong data-i18n="walkthrough.with_bob">With Bob:</strong>
                 <p>30 seconds - Bob reads, analyzes, and maps everything</p>
               </div>
             </div>
@@ -169,7 +172,7 @@
           </div>
 
           <div class="real-world-proof">
-            <h3>Real-World Proof</h3>
+            <h3 data-i18n="walkthrough.real_world_proof">Real-World Proof</h3>
             <p><strong>IBM Guardium</strong> reported 85% productivity gains, completing work that previously took 4 weeks in just 1 day.</p>
           </div>
         </div>
