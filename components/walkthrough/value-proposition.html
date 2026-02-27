@@ -1,0 +1,32 @@
+<!-- Value Proposition Component -->
+<div class="value-proposition">
+  <div class="value-header">
+    <h3>{{title}}</h3>
+    <span class="value-badge">{{badge}}</span>
+  </div>
+  
+  <div class="value-comparison">
+    <div class="traditional">
+      <h4>Traditional Approach</h4>
+      <p>{{traditional}}</p>
+      <span class="time-traditional">{{time_traditional}}</span>
+    </div>
+    
+    <div class="with-bob">
+      <h4>With Bob</h4>
+      <p>{{bob_approach}}</p>
+      <span class="time-bob">{{time_bob}}</span>
+    </div>
+  </div>
+  
+  <div class="value-highlight">
+    <p>{{{highlight}}}</p>
+  </div>
+  
+  {{#proof}}
+  <div class="proof-section">
+    <h4>Real-World Proof</h4>
+    <p>{{{proof}}}</p>
+  </div>
+  {{/proof}}
+</div>
