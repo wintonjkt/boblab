@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workshop Narrative - IBM Bob Workshop</title>
+  <title>Workshop Narrative - bob-lab</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="narrative.css">
 </head>
@@ -11,111 +11,287 @@
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">
-        <span class="logo-icon">🤖</span>
-        <span class="logo-text">IBM Bob Workshop</span>
+        <span class="logo-icon">🧪</span>
+        <span class="logo-text">bob-lab</span>
       </div>
       <ul class="nav-menu">
         <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#demo">Demo</a></li>
+        <li><a href="narrative.html">Narrative</a></li>
         <li><a href="walkthrough.html">Walkthrough</a></li>
+        <li><a href="index.html#demo">Demo</a></li>
         <li><a href="https://github.com" class="btn-nav">GitHub</a></li>
       </ul>
     </div>
   </nav>
 
-  <header class="page-header">
-    <div class="container">
-      <h1>Bob-a-thon: Hands-On Workshop Guide</h1>
-      <p class="page-subtitle">From Project Kickoff to Production-Ready Code</p>
-      <p class="page-description">A realistic journey: You just received a project. Let's build it together with Bob.</p>
-    </div>
-  </header>
+  <div class="lab-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h3>Lab Progress</h3>
+      </div>
+      <div class="sidebar-content">
+        <div class="progress-section">
+          <div class="progress-section-title">Getting Started</div>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="setup" data-step="read-scenario">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Read the scenario</span>
+          </label>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="setup" data-step="understand-repos">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Understand existing codebase</span>
+          </label>
+        </div>
 
-  <main class="narrative-content">
-    <!-- The Scenario -->
-    <section class="scenario-section">
-      <div class="container">
-        <div class="scenario-card">
-          <div class="scenario-icon">🎬</div>
-          <h2>The Scenario</h2>
-          <p class="scenario-text">You arrive at work Monday morning. Your VP of Product sends you this:</p>
-          <blockquote class="scenario-quote">
-            "We need SSO + MFA implemented across our systems to pass the SOC 2 audit. Business requirements doc attached. We have 72 days. Can you scope this out?"
-          </blockquote>
-          <p class="scenario-text">You open the attachment: <code>UseCase1_SSO_MFA_Integration.pdf</code> - a 20-page business requirements document.</p>
-          <p class="scenario-highlight">Let's see how Bob helps you tackle this.</p>
+        <div class="progress-section">
+          <div class="progress-section-title">Stage 1: Analysis</div>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="stage1" data-step="analyze-spec">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Analyze requirements spec</span>
+          </label>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="stage1" data-step="identify-systems">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Identify systems involved</span>
+          </label>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="stage1" data-step="find-gaps">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Find security gaps</span>
+          </label>
+        </div>
+
+        <div class="progress-section">
+          <div class="progress-section-title">Stage 2: Compliance</div>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="stage2" data-step="map-findings">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Map SOC 2 findings</span>
+          </label>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="stage2" data-step="plan-evidence">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Plan audit evidence</span>
+          </label>
+        </div>
+
+        <div class="progress-section">
+          <div class="progress-section-title">Stage 3: Planning</div>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="stage3" data-step="create-plan">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Create implementation plan</span>
+          </label>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="stage3" data-step="review-deployment">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Review deployment order</span>
+          </label>
+        </div>
+
+        <div class="progress-section">
+          <div class="progress-section-title">Stage 4: Implementation</div>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="stage4" data-step="generate-mfa">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Generate MFA controller</span>
+          </label>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="stage4" data-step="generate-oauth">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Generate OAuth config</span>
+          </label>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="stage4" data-step="update-frontend">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Update frontend</span>
+          </label>
+        </div>
+
+        <div class="progress-section">
+          <div class="progress-section-title">Stage 5: Security</div>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="stage5" data-step="review-issues">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Review security issues</span>
+          </label>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="stage5" data-step="verify-fixes">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Verify fixes applied</span>
+          </label>
+        </div>
+
+        <div class="progress-section">
+          <div class="progress-section-title">Stage 6: Completion</div>
+          <label class="progress-item">
+            <span class="progress-item-checkbox">
+              <input type="checkbox" data-section="stage6" data-step="review-metrics">
+              <span class="checkbox-custom"></span>
+            </span>
+            <span class="progress-item-text">Review Bobalytics</span>
+          </label>
         </div>
       </div>
-    </section>
 
-    <!-- Stage 0 -->
-    <section class="stage-section">
-      <div class="container">
-        <div class="stage-header">
-          <span class="stage-number">0</span>
-          <h2>Project Setup</h2>
+      <div class="progress-summary">
+        <div class="progress-summary-title">Your Progress</div>
+        <div class="progress-bar">
+          <div class="progress-bar-fill" style="width: 0%"></div>
         </div>
+        <div class="progress-summary-text">0 of 17 steps completed (0%)</div>
+      </div>
+    </aside>
 
-        <div class="stage-content">
-          <h3>What You Start With</h3>
-          <div class="code-block">
-            <pre>Your workspace/
+    <div class="sidebar-overlay"></div>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+      <header class="page-header">
+        <div class="container">
+          <h1>Bob-a-thon: Hands-On Workshop Guide</h1>
+          <p class="page-subtitle">From Project Kickoff to Production-Ready Code</p>
+          <p class="page-description">A realistic journey: You just received a project. Let's build it together with Bob.</p>
+        </div>
+      </header>
+
+      <main class="narrative-content">
+        <!-- The Scenario -->
+        <section class="scenario-section">
+          <div class="container">
+            <div class="scenario-card">
+              <div class="scenario-icon">🎬</div>
+              <h2>The Scenario</h2>
+              <p class="scenario-text">You arrive at work Monday morning. Your VP of Product sends you this:</p>
+              <blockquote class="scenario-quote">
+                "We need SSO + MFA implemented across our systems to pass the SOC 2 audit. Business requirements doc attached. We have 72 days. Can you scope this out?"
+              </blockquote>
+              <p class="scenario-text">You open the attachment: <code>UseCase1_SSO_MFA_Integration.pdf</code> - a 20-page business requirements document.</p>
+              <p class="scenario-highlight">Let's see how Bob helps you tackle this.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Stage 0 -->
+        <section class="stage-section">
+          <div class="container">
+            <div class="stage-header">
+              <span class="stage-number">0</span>
+              <h2>Project Setup</h2>
+            </div>
+
+            <div class="stage-content">
+              <h3>What You Start With</h3>
+              <div class="code-block-wrapper">
+                <div class="code-block-header">
+                  <span class="code-block-language">Workspace</span>
+                  <button class="copy-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <div class="code-block">
+                  <pre>Your workspace/
 └── UseCase1_SSO_MFA_Integration.pdf    ← The only file you have</pre>
-          </div>
-
-          <div class="check-list">
-            <div class="check-item success">✅ A business requirements document</div>
-            <div class="check-item success">✅ Bob installed in VS Code</div>
-            <div class="check-item missing">❌ No code yet</div>
-            <div class="check-item missing">❌ No architecture diagram</div>
-            <div class="check-item missing">❌ No implementation plan</div>
-          </div>
-
-          <h3>Your First Questions</h3>
-          <ul class="question-list">
-            <li>What systems are involved?</li>
-            <li>How complex is this?</li>
-            <li>How long will this take?</li>
-            <li>Where do I even start?</li>
-          </ul>
-
-          <div class="instruction-box">
-            <h4>📝 Open VS Code</h4>
-            <ol>
-              <li>Create a new folder: <code>sso-project/</code></li>
-              <li>Put the PDF in it</li>
-              <li>Open VS Code in this folder</li>
-              <li>Click the Bob icon in the sidebar</li>
-            </ol>
-            <p class="ready-text">You're ready.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stage 0.5 -->
-    <section class="stage-section alt">
-      <div class="container">
-        <div class="stage-header">
-          <span class="stage-number">0.5</span>
-          <h2>The Existing Codebase</h2>
-        </div>
-
-        <div class="stage-content">
-          <h3>What Your Company Actually Has</h3>
-          <p class="stage-intro">The spec mentions "3 existing systems." Let's see what they look like.</p>
-
-          <div class="repo-grid">
-            <!-- Repository 1 -->
-            <div class="repo-card">
-              <div class="repo-header">
-                <span class="repo-icon">📦</span>
-                <h3>auth-service/</h3>
-                <span class="repo-badge">Node.js</span>
+                </div>
               </div>
-              <div class="repo-content">
-                <pre class="tree-view">auth-service/
+
+              <div class="check-list">
+                <div class="check-item success">✅ A business requirements document</div>
+                <div class="check-item success">✅ Bob installed in VS Code</div>
+                <div class="check-item missing">❌ No code yet</div>
+                <div class="check-item missing">❌ No architecture diagram</div>
+                <div class="check-item missing">❌ No implementation plan</div>
+              </div>
+
+              <h3>Your First Questions</h3>
+              <ul class="question-list">
+                <li>What systems are involved?</li>
+                <li>How complex is this?</li>
+                <li>How long will this take?</li>
+                <li>Where do I even start?</li>
+              </ul>
+
+              <div class="instruction-box">
+                <h4>📝 Open VS Code</h4>
+                <ol>
+                  <li>Create a new folder: <code>sso-project/</code></li>
+                  <li>Put the PDF in it</li>
+                  <li>Open VS Code in this folder</li>
+                  <li>Click the Bob icon in the sidebar</li>
+                </ol>
+                <p class="ready-text">You're ready.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Stage 0.5 -->
+        <section class="stage-section alt">
+          <div class="container">
+            <div class="stage-header">
+              <span class="stage-number">0.5</span>
+              <h2>The Existing Codebase</h2>
+            </div>
+
+            <div class="stage-content">
+              <h3>What Your Company Actually Has</h3>
+              <p class="stage-intro">The spec mentions "3 existing systems." Let's see what they look like.</p>
+
+              <div class="repo-grid">
+                <!-- Repository 1 -->
+                <div class="repo-card">
+                  <div class="repo-header">
+                    <span class="repo-icon">📦</span>
+                    <h3>auth-service/</h3>
+                    <span class="repo-badge">Node.js</span>
+                  </div>
+                  <div class="repo-content">
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Structure</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <div class="code-block">
+                        <pre>auth-service/
 ├── package.json
 ├── .env.example
 ├── README.md
@@ -127,27 +303,40 @@
     ├── routes/
     │   └── auth.js
     └── server.js</pre>
+                      </div>
+                    </div>
 
-                <div class="status-list">
-                  <div class="status-item success">✅ Basic OAuth 2.0 JWT token generation</div>
-                  <div class="status-item success">✅ Express server with CORS, helmet</div>
-                  <div class="status-item error">❌ Missing: MFA enrollment/verification endpoints</div>
-                  <div class="status-item error">❌ Problem: Hardcoded JWT secret</div>
-                  <div class="status-item error">❌ Problem: No session timeout enforcement</div>
-                  <div class="status-item error">❌ Problem: No audit logging</div>
+                    <div class="status-list">
+                      <div class="status-item success">✅ Basic OAuth 2.0 JWT token generation</div>
+                      <div class="status-item success">✅ Express server with CORS, helmet</div>
+                      <div class="status-item error">❌ Missing: MFA enrollment/verification endpoints</div>
+                      <div class="status-item error">❌ Problem: Hardcoded JWT secret</div>
+                      <div class="status-item error">❌ Problem: No session timeout enforcement</div>
+                      <div class="status-item error">❌ Problem: No audit logging</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <!-- Repository 2 -->
-            <div class="repo-card">
-              <div class="repo-header">
-                <span class="repo-icon">📦</span>
-                <h3>user-service/</h3>
-                <span class="repo-badge">Java Spring Boot</span>
-              </div>
-              <div class="repo-content">
-                <pre class="tree-view">user-service/
+                <!-- Repository 2 -->
+                <div class="repo-card">
+                  <div class="repo-header">
+                    <span class="repo-icon">📦</span>
+                    <h3>user-service/</h3>
+                    <span class="repo-badge">Java Spring Boot</span>
+                  </div>
+                  <div class="repo-content">
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Structure</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <div class="code-block">
+                        <pre>user-service/
 ├── pom.xml
 ├── application.properties
 ├── README.md
@@ -163,26 +352,39 @@
         │   └── UserRepository.java
         └── service/
             └── AuthenticationService.java</pre>
+                      </div>
+                    </div>
 
-                <div class="status-list">
-                  <div class="status-item success">✅ Working user management (since 2014)</div>
-                  <div class="status-item success">✅ Spring Boot 2.5.14, Spring Security</div>
-                  <div class="status-item error">❌ Problem: Spring Security 5.x (outdated)</div>
-                  <div class="status-item error">❌ Problem: CSRF protection disabled</div>
-                  <div class="status-item error">❌ Problem: No OAuth 2.0 client configuration</div>
+                    <div class="status-list">
+                      <div class="status-item success">✅ Working user management (since 2014)</div>
+                      <div class="status-item success">✅ Spring Boot 2.5.14, Spring Security</div>
+                      <div class="status-item error">❌ Problem: Spring Security 5.x (outdated)</div>
+                      <div class="status-item error">❌ Problem: CSRF protection disabled</div>
+                      <div class="status-item error">❌ Problem: No OAuth 2.0 client configuration</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <!-- Repository 3 -->
-            <div class="repo-card">
-              <div class="repo-header">
-                <span class="repo-icon">📦</span>
-                <h3>frontend/</h3>
-                <span class="repo-badge">React</span>
-              </div>
-              <div class="repo-content">
-                <pre class="tree-view">frontend/
+                <!-- Repository 3 -->
+                <div class="repo-card">
+                  <div class="repo-header">
+                    <span class="repo-icon">📦</span>
+                    <h3>frontend/</h3>
+                    <span class="repo-badge">React</span>
+                  </div>
+                  <div class="repo-content">
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Structure</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <div class="code-block">
+                        <pre>frontend/
 ├── package.json
 ├── README.md
 ├── public/
@@ -199,456 +401,240 @@
     ├── App.css
     ├── index.js
     └── index.css</pre>
+                      </div>
+                    </div>
 
-                <div class="status-list">
-                  <div class="status-item success">✅ Working React application</div>
-                  <div class="status-item success">✅ React Router for navigation</div>
-                  <div class="status-item error">❌ Problem: Direct password POST (insecure)</div>
-                  <div class="status-item error">❌ Problem: Tokens in localStorage (XSS risk)</div>
-                  <div class="status-item error">❌ Missing: OAuth 2.0 authorization flow</div>
+                    <div class="status-list">
+                      <div class="status-item success">✅ Working React application</div>
+                      <div class="status-item success">✅ React Router for navigation</div>
+                      <div class="status-item error">❌ Problem: Direct password POST (insecure)</div>
+                      <div class="status-item error">❌ Problem: Tokens in localStorage (XSS risk)</div>
+                      <div class="status-item error">❌ Missing: OAuth 2.0 authorization flow</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <!-- Stage 1 -->
-    <section class="stage-section">
-      <div class="container">
-        <div class="stage-header">
-          <span class="stage-number">1</span>
-          <h2>Analyze the Spec</h2>
-          <span class="stage-time">⏱️ ~30 seconds</span>
-        </div>
-
-        <div class="stage-content">
-          <h3>Your Goal</h3>
-          <p class="stage-intro">Understand what the business is asking for and how it maps to your technical systems.</p>
-
-          <div class="prompt-box">
-            <div class="prompt-header">
-              <span class="prompt-icon">💬</span>
-              <h4>Ask Bob:</h4>
+        <!-- Stage 1 -->
+        <section class="stage-section">
+          <div class="container">
+            <div class="stage-header">
+              <span class="stage-number">1</span>
+              <h2>Analyze the Spec</h2>
+              <span class="stage-time">⏱️ ~30 seconds</span>
             </div>
-            <div class="prompt-content">
-              <pre>Please analyze the SSO_MFA_Integration.pdf spec and tell me:
+
+            <div class="stage-content">
+              <h3>Your Goal</h3>
+              <p class="stage-intro">Understand what the business is asking for and how it maps to your technical systems.</p>
+
+              <div class="prompt-box">
+                <div class="prompt-header">
+                  <span class="prompt-icon">💬</span>
+                  <h4>Ask Bob:</h4>
+                </div>
+                <div class="prompt-content">
+                  <pre>Please analyze the SSO_MFA_Integration.pdf spec and tell me:
 1. What systems are involved?
 2. What are the current security gaps?
 3. What are the SOC 2 compliance requirements?
 4. What technology stacks are we working with?</pre>
-            </div>
-          </div>
-
-          <h3>What Bob Returns</h3>
-
-          <div class="info-card">
-            <h4>📊 Systems Overview</h4>
-            <p><strong>3 repositories identified:</strong></p>
-            <ul>
-              <li><strong>auth-service</strong> (Node.js/Express) - OAuth token issuance</li>
-              <li><strong>user-service</strong> (Java/Spring Boot) - User management, authentication</li>
-              <li><strong>frontend</strong> (React) - Customer portal UI</li>
-            </ul>
-          </div>
-
-          <div class="info-card warning">
-            <h4>⚠️ Security Vulnerabilities Found</h4>
-            <ul>
-              <li>Hardcoded JWT secret in tokenController.js</li>
-              <li>CSRF protection disabled in SecurityConfig.java</li>
-              <li>Authentication tokens stored in localStorage (XSS vulnerable)</li>
-              <li>No MFA enforcement (SOC 2 CC6.1 requirement)</li>
-              <li>No session timeout (SOC 2 CC6.6 requirement)</li>
-            </ul>
-          </div>
-
-          <div class="info-card compliance">
-            <h4>📋 SOC 2 Compliance Requirements</h4>
-            <ul>
-              <li>CC6.1-2026-01: Implement MFA for all users</li>
-              <li>CC6.6-2026-03: Enforce 15-minute session timeout</li>
-              <li>CC7.2-2026-04: Add authentication event logging</li>
-              <li>CC8.1-2026-05: Remove hardcoded secrets</li>
-            </ul>
-          </div>
-
-          <div class="seller-takeaway">
-            <h4>💡 Seller Takeaway: Understanding Before Action</h4>
-            <p><strong>What Just Happened:</strong></p>
-            <p>Bob read a 20-page business requirements document and gave you a technical breakdown of 3 systems, their current state, required changes, and compliance gaps - in 30 seconds.</p>
-
-            <div class="comparison-table">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Traditional Approach</th>
-                    <th>With Bob</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Read 20-page spec: 1 hour</td>
-                    <td rowspan="4" class="bob-cell">30 seconds</td>
-                  </tr>
-                  <tr>
-                    <td>Research codebases: 4 hours</td>
-                  </tr>
-                  <tr>
-                    <td>Identify integration points: 2 hours</td>
-                  </tr>
-                  <tr>
-                    <td>Map compliance requirements: 3 hours</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Total: ~1 day</strong></td>
-                    <td><strong>Time Saved: ~99%</strong></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="verification-box">
-            <h4>✅ Verification</h4>
-            <p>You should now know:</p>
-            <ul>
-              <li>✓ 3 systems (React, Java, Node.js)</li>
-              <li>✓ 5 SOC 2 findings to fix</li>
-              <li>✓ Current vs. required state for each system</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stage 2 -->
-    <section class="stage-section alt">
-      <div class="container">
-        <div class="stage-header">
-          <span class="stage-number">2</span>
-          <h2>Map Compliance to Code</h2>
-          <span class="stage-time">⏱️ ~20 seconds</span>
-        </div>
-
-        <div class="stage-content">
-          <h3>Your Goal</h3>
-          <p class="stage-intro">Understand exactly which code changes address which audit findings.</p>
-
-          <div class="prompt-box">
-            <div class="prompt-header">
-              <span class="prompt-icon">💬</span>
-              <h4>Ask Bob:</h4>
-            </div>
-            <div class="prompt-content">
-              <pre>For each of the 5 SOC 2 audit findings, show me:
-- What the finding means
-- Why we failed
-- What code/config will fix it
-- What evidence we'll show the auditor
-
-Format as a table.</pre>
-            </div>
-          </div>
-
-          <h3>Compliance Mapping Table</h3>
-
-          <div class="table-responsive">
-            <table class="compliance-table">
-              <thead>
-                <tr>
-                  <th>Finding ID</th>
-                  <th>What It Means</th>
-                  <th>Why We Failed</th>
-                  <th>Fix Required</th>
-                  <th>Evidence</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>CC6.1-2026-01</td>
-                  <td>MFA required for all users</td>
-                  <td>Only password auth</td>
-                  <td>Add TOTP enrollment endpoints + QR code generation</td>
-                  <td>mfaController.js + test results</td>
-                </tr>
-                <tr>
-                  <td>CC6.6-2026-03</td>
-                  <td>15-min session timeout</td>
-                  <td>Sessions never expire</td>
-                  <td>Add session timeout middleware</td>
-                  <td>sessionTimeout.js config</td>
-                </tr>
-                <tr>
-                  <td>CC7.2-2026-04</td>
-                  <td>Log all auth events</td>
-                  <td>No logging</td>
-                  <td>Add audit logger with IP/timestamp</td>
-                  <td>auditLogger.js + log samples</td>
-                </tr>
-                <tr>
-                  <td>CC8.1-2026-05</td>
-                  <td>No hardcoded secrets</td>
-                  <td>DB password in code</td>
-                  <td>Move to environment variables</td>
-                  <td>.env.example + deployment doc</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="seller-takeaway">
-            <h4>💡 Seller Takeaway: Compliance Automation</h4>
-            <p><strong>Traditional timeline:</strong></p>
-            <ul>
-              <li>Understand SOC 2 controls: 2 days</li>
-              <li>Map findings to technical requirements: 3 days</li>
-              <li>Create evidence collection plan: 2 days</li>
-              <li>Document for auditor: 3 days</li>
-            </ul>
-            <p><strong>Total: ~2 weeks of manual compliance work</strong></p>
-            <p class="bob-highlight"><strong>With Bob: 20 seconds</strong></p>
-            <p class="bob-highlight"><strong>Time Saved: ~99% on compliance mapping</strong></p>
-          </div>
-
-          <div class="verification-box">
-            <h4>✅ Verification</h4>
-            <p>You can now answer:</p>
-            <ul>
-              <li>✓ What each compliance finding requires</li>
-              <li>✓ Which files will implement each fix</li>
-              <li>✓ What evidence you'll give the auditor</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stage 3 -->
-    <section class="stage-section">
-      <div class="container">
-        <div class="stage-header">
-          <span class="stage-number">3</span>
-          <h2>Plan the Implementation</h2>
-          <span class="stage-time">⏱️ ~45 seconds</span>
-        </div>
-
-        <div class="stage-content">
-          <h3>Your Goal</h3>
-          <p class="stage-intro">Get a concrete implementation plan across all 3 repositories.</p>
-
-          <div class="prompt-box">
-            <div class="prompt-header">
-              <span class="prompt-icon">💬</span>
-              <h4>Ask Bob:</h4>
-            </div>
-            <div class="prompt-content">
-              <pre>Create an implementation plan for all 3 systems.
-
-For each system, show:
-- Files to create (with purpose)
-- Files to modify (with what changes)
-- Dependencies to add
-- Deployment order and why
-
-Be specific about file paths.</pre>
-            </div>
-          </div>
-
-          <h3>Implementation Plan</h3>
-
-          <div class="implementation-plan">
-            <!-- System 1 -->
-            <div class="system-plan">
-              <div class="system-header">
-                <h4>SYSTEM 1: auth-service (Node.js)</h4>
-                <span class="deploy-order">DEPLOY FIRST</span>
-              </div>
-              <p class="system-reason">Why first: Other systems depend on these new endpoints</p>
-
-              <div class="plan-grid">
-                <div class="plan-section">
-                  <h5>Files to CREATE:</h5>
-                  <ul>
-                    <li><code>src/controllers/mfaController.js</code> → MFA enrollment + verification</li>
-                    <li><code>src/services/totpService.js</code> → TOTP secret generation, QR codes</li>
-                    <li><code>src/middleware/sessionTimeout.js</code> → 15-minute timeout enforcement</li>
-                    <li><code>src/utils/auditLogger.js</code> → Auth event logging</li>
-                  </ul>
-                </div>
-                <div class="plan-section">
-                  <h5>Files to MODIFY:</h5>
-                  <ul>
-                    <li><code>src/controllers/tokenController.js</code> → Add MFA claim to JWT</li>
-                    <li><code>src/routes/auth.js</code> → Add /enroll-mfa, /verify-mfa routes</li>
-                    <li><code>package.json</code> → Add: speakeasy, qrcode libraries</li>
-                  </ul>
                 </div>
               </div>
-            </div>
 
-            <!-- System 2 -->
-            <div class="system-plan">
-              <div class="system-header">
-                <h4>SYSTEM 2: user-service (Java)</h4>
-                <span class="deploy-order">DEPLOY SECOND</span>
+              <h3>What Bob Returns</h3>
+
+              <div class="info-card">
+                <h4>📊 Systems Overview</h4>
+                <p><strong>3 repositories identified:</strong></p>
+                <ul>
+                  <li><strong>auth-service</strong> (Node.js/Express) - OAuth token issuance</li>
+                  <li><strong>user-service</strong> (Java/Spring Boot) - User management, authentication</li>
+                  <li><strong>frontend</strong> (React) - Customer portal UI</li>
+                </ul>
               </div>
-              <p class="system-reason">Why second: Needs auth-service endpoints to exist first</p>
 
-              <div class="plan-grid">
-                <div class="plan-section">
-                  <h5>Files to CREATE:</h5>
-                  <ul>
-                    <li><code>config/OAuth2Config.java</code></li>
-                    <li><code>controller/MFAController.java</code></li>
-                    <li><code>security/TokenValidator.java</code></li>
-                  </ul>
-                </div>
-                <div class="plan-section">
-                  <h5>Files to MODIFY:</h5>
-                  <ul>
-                    <li><code>config/SecurityConfig.java</code> → Replace JDBC with OAuth 2.0</li>
-                    <li><code>pom.xml</code> → Add spring-boot-starter-oauth2-client</li>
-                  </ul>
+              <div class="info-card warning">
+                <h4>⚠️ Security Vulnerabilities Found</h4>
+                <ul>
+                  <li>Hardcoded JWT secret in tokenController.js</li>
+                  <li>CSRF protection disabled in SecurityConfig.java</li>
+                  <li>Authentication tokens stored in localStorage (XSS vulnerable)</li>
+                  <li>No MFA enforcement (SOC 2 CC6.1 requirement)</li>
+                  <li>No session timeout (SOC 2 CC6.6 requirement)</li>
+                </ul>
+              </div>
+
+              <div class="info-card compliance">
+                <h4>📋 SOC 2 Compliance Requirements</h4>
+                <ul>
+                  <li>CC6.1-2026-01: Implement MFA for all users</li>
+                  <li>CC6.6-2026-03: Enforce 15-minute session timeout</li>
+                  <li>CC7.2-2026-04: Add authentication event logging</li>
+                  <li>CC8.1-2026-05: Remove hardcoded secrets</li>
+                </ul>
+              </div>
+
+              <div class="seller-takeaway">
+                <h4>💡 Seller Takeaway: Understanding Before Action</h4>
+                <p><strong>What Just Happened:</strong></p>
+                <p>Bob read a 20-page business requirements document and gave you a technical breakdown of 3 systems, their current state, required changes, and compliance gaps - in 30 seconds.</p>
+
+                <div class="comparison-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Traditional Approach</th>
+                        <th>With Bob</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Read 20-page spec: 1 hour</td>
+                        <td rowspan="4" class="bob-cell">30 seconds</td>
+                      </tr>
+                      <tr>
+                        <td>Research each system's codebase: 4 hours</td>
+                      </tr>
+                      <tr>
+                        <td>Identify integration points: 2 hours</td>
+                      </tr>
+                      <tr>
+                        <td>Map compliance requirements: 3 hours</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Total: ~1 day</strong></td>
+                        <td><strong>Time Saved: ~99%</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
-            </div>
 
-            <!-- System 3 -->
-            <div class="system-plan">
-              <div class="system-header">
-                <h4>SYSTEM 3: frontend (React)</h4>
-                <span class="deploy-order">DEPLOY LAST</span>
-              </div>
-              <p class="system-reason">Why last: Backend must support OAuth before frontend uses it</p>
-
-              <div class="plan-grid">
-                <div class="plan-section">
-                  <h5>Files to CREATE:</h5>
-                  <ul>
-                    <li><code>src/components/OAuthFlow.jsx</code></li>
-                    <li><code>src/components/MFAEnrollment.jsx</code></li>
-                    <li><code>src/components/OAuthCallback.jsx</code></li>
-                    <li><code>src/services/oauthService.js</code></li>
-                  </ul>
-                </div>
-                <div class="plan-section">
-                  <h5>Files to MODIFY:</h5>
-                  <ul>
-                    <li><code>src/components/Login.jsx</code> → Remove direct POST</li>
-                    <li><code>src/services/authService.js</code> → Use OAuth flow</li>
-                  </ul>
-                </div>
+              <div class="verification-box">
+                <h4>✅ Verification</h4>
+                <p>You should now know:</p>
+                <ul>
+                  <li>✓ 3 systems (React, Java, Node.js)</li>
+                  <li>✓ 5 SOC 2 findings to fix</li>
+                  <li>✓ Current vs. required state for each system</li>
+                </ul>
               </div>
             </div>
           </div>
+        </section>
 
-          <div class="seller-takeaway">
-            <h4>💡 Seller Takeaway: Architecture Planning</h4>
-            <p><strong>Traditional timeline:</strong> ~1 week of architecture planning</p>
-            <p class="bob-highlight"><strong>With Bob: 45 seconds</strong></p>
-            <p class="bob-highlight"><strong>Time Saved: ~99%</strong></p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <!-- More Stages Summary -->
+        <section class="stages-summary">
+          <div class="container">
+            <h2>Workshop Journey Continues...</h2>
+            <p class="summary-intro">The full workshop includes 9 stages covering:</p>
 
-    <!-- More Stages Summary -->
-    <section class="stages-summary">
-      <div class="container">
-        <h2>Workshop Journey Continues...</h2>
-        <p class="summary-intro">The full workshop includes 9 stages covering:</p>
+            <div class="stages-grid">
+              <div class="stage-summary-card completed">
+                <span class="stage-num">0</span>
+                <h4>Project Setup</h4>
+                <p>Initial workspace configuration</p>
+              </div>
+              <div class="stage-summary-card completed">
+                <span class="stage-num">0.5</span>
+                <h4>Codebase Analysis</h4>
+                <p>Understanding existing systems</p>
+              </div>
+              <div class="stage-summary-card completed">
+                <span class="stage-num">1</span>
+                <h4>Spec Analysis</h4>
+                <p>Analyze requirements document</p>
+              </div>
+              <div class="stage-summary-card">
+                <span class="stage-num">2</span>
+                <h4>Compliance Mapping</h4>
+                <p>Map SOC 2 findings to code</p>
+              </div>
+              <div class="stage-summary-card">
+                <span class="stage-num">3</span>
+                <h4>Implementation Plan</h4>
+                <p>Create deployment strategy</p>
+              </div>
+              <div class="stage-summary-card">
+                <span class="stage-num">4</span>
+                <h4>Code Generation</h4>
+                <p>Generate production code</p>
+              </div>
+              <div class="stage-summary-card">
+                <span class="stage-num">5</span>
+                <h4>Security Scanning</h4>
+                <p>Catch vulnerabilities inline</p>
+              </div>
+              <div class="stage-summary-card">
+                <span class="stage-num">6</span>
+                <h4>Deployment Planning</h4>
+                <p>Zero-downtime strategy</p>
+              </div>
+              <div class="stage-summary-card">
+                <span class="stage-num">7</span>
+                <h4>Compliance Docs</h4>
+                <p>Generate audit evidence</p>
+              </div>
+              <div class="stage-summary-card">
+                <span class="stage-num">8</span>
+                <h4>Test Coverage</h4>
+                <p>94% test coverage achieved</p>
+              </div>
+              <div class="stage-summary-card">
+                <span class="stage-num">9</span>
+                <h4>Bobalytics Dashboard</h4>
+                <p>Show results to leadership</p>
+              </div>
+            </div>
 
-        <div class="stages-grid">
-          <div class="stage-summary-card completed">
-            <span class="stage-num">0</span>
-            <h4>Project Setup</h4>
-            <p>Initial workspace configuration</p>
+            <div class="cta-box">
+              <h3>Ready to Experience the Full Workshop?</h3>
+              <p>Try the interactive demo or follow the self-serve walkthrough.</p>
+              <div class="cta-buttons">
+                <a href="index.html#demo" class="btn btn-primary">Try Demo</a>
+                <a href="walkthrough.html" class="btn btn-secondary">View Walkthrough</a>
+              </div>
+            </div>
           </div>
-          <div class="stage-summary-card completed">
-            <span class="stage-num">0.5</span>
-            <h4>Codebase Analysis</h4>
-            <p>Understanding existing systems</p>
-          </div>
-          <div class="stage-summary-card completed">
-            <span class="stage-num">1</span>
-            <h4>Spec Analysis</h4>
-            <p>Analyze requirements document</p>
-          </div>
-          <div class="stage-summary-card completed">
-            <span class="stage-num">2</span>
-            <h4>Compliance Mapping</h4>
-            <p>Map SOC 2 findings to code</p>
-          </div>
-          <div class="stage-summary-card completed">
-            <span class="stage-num">3</span>
-            <h4>Implementation Plan</h4>
-            <p>Create deployment strategy</p>
-          </div>
-          <div class="stage-summary-card">
-            <span class="stage-num">4</span>
-            <h4>Code Generation</h4>
-            <p>Generate production code</p>
-          </div>
-          <div class="stage-summary-card">
-            <span class="stage-num">5</span>
-            <h4>Security Scanning</h4>
-            <p>Catch vulnerabilities inline</p>
-          </div>
-          <div class="stage-summary-card">
-            <span class="stage-num">6</span>
-            <h4>Deployment Planning</h4>
-            <p>Zero-downtime strategy</p>
-          </div>
-          <div class="stage-summary-card">
-            <span class="stage-num">7</span>
-            <h4>Compliance Docs</h4>
-            <p>Generate audit evidence</p>
-          </div>
-          <div class="stage-summary-card">
-            <span class="stage-num">8</span>
-            <h4>Test Coverage</h4>
-            <p>94% test coverage achieved</p>
-          </div>
-          <div class="stage-summary-card">
-            <span class="stage-num">9</span>
-            <h4>Bobalytics Dashboard</h4>
-            <p>Show results to leadership</p>
-          </div>
-        </div>
+        </section>
+      </main>
+    </div>
+  </div>
 
-        <div class="cta-box">
-          <h3>Ready to Experience the Full Workshop?</h3>
-          <p>Try the interactive demo or follow the self-serve walkthrough.</p>
-          <div class="cta-buttons">
-            <a href="index.html#demo" class="btn btn-primary">Try Demo</a>
-            <a href="walkthrough.html" class="btn btn-secondary">View Walkthrough</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+  <button class="sidebar-toggle" aria-label="Toggle sidebar">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
 
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
-          <h4>IBM Bob Workshop</h4>
+          <h4>bob-lab</h4>
           <p>Enterprise AI development made simple</p>
         </div>
         <div class="footer-section">
           <h4>Links</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="walkthrough.html">Walkthrough</a></li>
+            <li><a href="narrative.html">Workshop Narrative</a></li>
+            <li><a href="walkthrough.html">Self-Serve Walkthrough</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2025 IBM Bob Team. Built with ❤️</p>
+        <p>&copy; 2025 bob-lab. Built with ❤️</p>
       </div>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

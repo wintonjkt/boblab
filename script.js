@@ -1,19 +1,148 @@
+// ============================================
+// BOB LAB - CARBON DESIGN SYSTEM
+// Interactive JavaScript
+// ============================================
+
+// Progress tracking for lab exercises
+const LAB_PROGRESS_KEY = 'bob-lab-progress';
+
+// Save progress to localStorage
+function saveProgress(sectionId, stepId, completed) {
+  const progress = JSON.parse(localStorage.getItem(LAB_PROGRESS_KEY) || '{}');
+  if (!progress[sectionId]) {
+    progress[sectionId] = {};
+  }
+  progress[sectionId][stepId] = completed;
+  localStorage.setItem(LAB_PROGRESS_KEY, JSON.stringify(progress));
+  updateProgressSummary();
+}
+
+// Load progress from localStorage
+function loadProgress() {
+  const progress = JSON.parse(localStorage.getItem(LAB_PROGRESS_KEY) || '{}');
+  Object.keys(progress).forEach(sectionId => {
+    Object.keys(progress[sectionId]).forEach(stepId => {
+      const checkbox = document.querySelector(`[data-section="${sectionId}"][data-step="${stepId}"]`);
+      if (checkbox && progress[sectionId][stepId]) {
+        checkbox.checked = true;
+        const item = checkbox.closest('.progress-item');
+        if (item) item.classList.add('completed');
+      }
+    });
+  });
+  updateProgressSummary();
+}
+
+// Update progress summary
+function updateProgressSummary() {
+  const allCheckboxes = document.querySelectorAll('.progress-item-checkbox input');
+  const checkedCheckboxes = document.querySelectorAll('.progress-item-checkbox input:checked');
+
+  const total = allCheckboxes.length;
+  const completed = checkedCheckboxes.length;
+  const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+  const progressBar = document.querySelector('.progress-bar-fill');
+  const progressText = document.querySelector('.progress-summary-text');
+
+  if (progressBar) {
+    progressBar.style.width = percentage + '%';
+  }
+
+  if (progressText) {
+    progressText.textContent = `${completed} of ${total} steps completed (${percentage}%)`;
+  }
+}
+
+// Initialize progress tracking
+function initProgressTracking() {
+  // Add event listeners to checkboxes
+  document.querySelectorAll('.progress-item-checkbox input').forEach(checkbox => {
+    checkbox.addEventListener('change', (e) => {
+      const sectionId = e.target.dataset.section;
+      const stepId = e.target.dataset.step;
+      const item = e.target.closest('.progress-item');
+
+      if (e.target.checked) {
+        item.classList.add('completed');
+      } else {
+        item.classList.remove('completed');
+      }
+
+      saveProgress(sectionId, stepId, e.target.checked);
+    });
+  });
+
+  // Load saved progress
+  loadProgress();
+}
+
+// Copy to clipboard functionality
+function initCopyButtons() {
+  document.querySelectorAll('.copy-button').forEach(button => {
+    button.addEventListener('click', async (e) => {
+      const codeBlock = e.target.closest('.code-block-wrapper').querySelector('code, pre');
+      const text = codeBlock.textContent;
+
+      try {
+        await navigator.clipboard.writeText(text);
+        button.classList.add('copied');
+        const originalText = button.innerHTML;
+        button.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          Copied!
+        `;
+
+        setTimeout(() => {
+          button.classList.remove('copied');
+          button.innerHTML = originalText;
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy:', err);
+      }
+    });
+  });
+}
+
 // Mobile menu toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  navMenu.classList.toggle('active');
-});
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('mobile-open');
+  });
+}
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-menu a').forEach(link => {
   link.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
+    navMenu.classList.remove('mobile-open');
   });
 });
+
+// Sidebar toggle (mobile)
+const sidebarToggle = document.querySelector('.sidebar-toggle');
+const sidebar = document.querySelector('.sidebar');
+const sidebarOverlay = document.querySelector('.sidebar-overlay');
+
+if (sidebarToggle && sidebar) {
+  sidebarToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    if (sidebarOverlay) {
+      sidebarOverlay.classList.toggle('show');
+    }
+  });
+}
+
+if (sidebarOverlay && sidebar) {
+  sidebarOverlay.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+    sidebarOverlay.classList.remove('show');
+  });
+}
 
 // Demo tabs functionality
 function showDemo(demoName) {
@@ -28,17 +157,26 @@ function showDemo(demoName) {
   });
 
   // Show selected demo content
-  document.getElementById(`demo-${demoName}`).classList.add('active');
+  const demoContent = document.getElementById(`demo-${demoName}`);
+  if (demoContent) {
+    demoContent.classList.add('active');
+  }
 
   // Add active class to clicked tab
-  event.target.classList.add('active');
+  const activeTab = event?.target;
+  if (activeTab && activeTab.classList.contains('demo-tab')) {
+    activeTab.classList.add('active');
+  }
 }
+
+// Make showDemo available globally
+window.showDemo = showDemo;
 
 // Handle login form submission
 function handleLogin(event) {
   event.preventDefault();
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+  const email = document.getElementById('email')?.value;
+  const password = document.getElementById('password')?.value;
 
   if (email && password) {
     // Show loading state
@@ -53,13 +191,20 @@ function handleLogin(event) {
       document.querySelectorAll('.demo-content').forEach(content => {
         content.classList.remove('active');
       });
-      document.getElementById('demo-dashboard').classList.add('active');
+
+      const dashboardDemo = document.getElementById('demo-dashboard');
+      if (dashboardDemo) {
+        dashboardDemo.classList.add('active');
+      }
 
       // Update tabs
       document.querySelectorAll('.demo-tab').forEach(tab => {
         tab.classList.remove('active');
       });
-      document.querySelectorAll('.demo-tab')[1].classList.add('active');
+      const tabs = document.querySelectorAll('.demo-tab');
+      if (tabs[1]) {
+        tabs[1].classList.add('active');
+      }
 
       // Reset button
       button.textContent = originalText;
@@ -68,12 +213,18 @@ function handleLogin(event) {
   }
 }
 
+// Make handleLogin available globally
+window.handleLogin = handleLogin;
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+
+    const target = document.querySelector(href);
     if (target) {
+      e.preventDefault();
       target.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
@@ -98,15 +249,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe cards for animation
-document.querySelectorAll('.card').forEach(card => {
-  card.style.opacity = '0';
-  card.style.transform = 'translateY(20px)';
-  card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(card);
-});
-
-// Observe metric cards
-document.querySelectorAll('.metric-card').forEach(card => {
+document.querySelectorAll('.card, .stage-summary-card, .metric').forEach(card => {
   card.style.opacity = '0';
   card.style.transform = 'translateY(20px)';
   card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -137,32 +280,45 @@ const bobalyticsObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const metrics = entry.target.querySelectorAll('.metric-value');
       metrics.forEach(metric => {
-        const value = parseInt(metric.textContent);
-        if (!isNaN(value) && metric.textContent.includes('%')) {
-          // Skip percentage animation
+        const valueText = metric.textContent;
+        const value = parseInt(valueText);
+
+        // Skip percentage animations or if contains non-numeric
+        if (valueText.includes('%') || valueText.includes('$') || isNaN(value)) {
           return;
         }
-        if (!isNaN(value)) {
-          animateCounter(metric, value);
-        }
+
+        animateCounter(metric, value);
       });
       bobalyticsObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.5 });
 
-const bobalyticsDemo = document.querySelector('.bobalytics-demo');
+const bobalyticsDemo = document.querySelector('.bobalytics-demo, .final-summary');
 if (bobalyticsDemo) {
   bobalyticsObserver.observe(bobalyticsDemo);
 }
 
-// Add parallax effect to hero
+// Add scroll progress indicator
+const progressBar = document.createElement('div');
+progressBar.className = 'scroll-progress';
+progressBar.style.cssText = `
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--primary-color);
+  z-index: 9999;
+  transition: width 0.1s ease;
+`;
+document.body.appendChild(progressBar);
+
 window.addEventListener('scroll', () => {
-  const scrolled = window.pageYOffset;
-  const hero = document.querySelector('.hero');
-  if (hero && scrolled < window.innerHeight) {
-    hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
-  }
+  const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (window.scrollY / windowHeight) * 100;
+  progressBar.style.width = scrolled + '%';
 });
 
 // Form validation feedback
@@ -196,34 +352,28 @@ document.addEventListener('keydown', (e) => {
   const currentIndex = Array.from(tabs).indexOf(currentTab);
 
   if (e.key === 'ArrowRight' && currentIndex < tabs.length - 1) {
-    tabs[currentIndex + 1].click();
+    tabs[currentIndex + 1]?.click();
   } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
-    tabs[currentIndex - 1].click();
+    tabs[currentIndex - 1]?.click();
   }
 });
 
-// Initialize - hide loading spinner if any
-window.addEventListener('load', () => {
-  document.body.classList.add('loaded');
+// Initialize on page load
+window.addEventListener('DOMContentLoaded', () => {
+  initProgressTracking();
+  initCopyButtons();
+
+  // Mark current section in sidebar
+  const currentPath = window.location.pathname;
+  document.querySelectorAll('.progress-item').forEach(item => {
+    const link = item.querySelector('a');
+    if (link && link.getAttribute('href') === currentPath) {
+      item.classList.add('active');
+    }
+  });
 });
 
-// Add scroll progress indicator
-const progressBar = document.createElement('div');
-progressBar.className = 'scroll-progress';
-progressBar.style.cssText = `
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary-color), var(--success-color));
-  z-index: 9999;
-  transition: width 0.1s ease;
-`;
-document.body.appendChild(progressBar);
-
-window.addEventListener('scroll', () => {
-  const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const scrolled = (window.scrollY / windowHeight) * 100;
-  progressBar.style.width = scrolled + '%';
+// Add loaded class to body
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
 });

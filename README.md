@@ -1,6 +1,6 @@
-# IBM Bob Workshop - GitHub Pages Site
+# bob-lab
 
-A modern, responsive static website showcasing the IBM Bob Enterprise AI Development Workshop, built as a GitHub Pages site.
+A modern, responsive static website showcasing the IBM Bob Enterprise AI Development Workshop as an interactive lab experience with progress tracking, built as a GitHub Pages site.
 
 ## 🌐 Live Demo
 
@@ -8,39 +8,43 @@ Visit the site at: `https://[your-username].github.io/boblab/`
 
 ## 📖 About
 
-This website demonstrates the capabilities of IBM Bob through an interactive workshop experience. It showcases how Bob transforms enterprise development from weeks to minutes through:
+**bob-lab** is an interactive learning platform demonstrating how IBM Bob handles enterprise-scale development challenges through hands-on lab exercises with progress tracking.
 
-- Multi-repo orchestration
-- Security inline vulnerability detection
-- Compliance automation (SOC 2, HIPAA, etc.)
-- Bobalytics transparency dashboard
+The workshop covers a realistic scenario: implementing SSO + MFA across 3 legacy systems to pass a SOC 2 audit. With Bob, you'll complete it in ~10 minutes instead of 7-8 weeks.
 
-## 🚀 Features
+## ✨ Features
 
-### Static Website
-- **Pure HTML/CSS/JS** - No build tools required
-- **Responsive Design** - Works on all devices
-- **Modern UI** - Clean, professional design
-- **Interactive Demo** - Live demo of Bob capabilities
+### Lab Experience
+- **Progress Tracking** - Checkbox-based sidebar to track your completion
+- **Copy-Paste Friendly** - One-click copy for all code snippets and prompts
+- **Carbon Design System** - IBM's design language for consistent UI
+- **Responsive Layout** - Works on desktop, tablet, and mobile
 
-### Sections
-1. **Hero** - Eye-catching introduction with code preview
-2. **About** - Workshop overview and learning objectives
-3. **Features** - Comparison with traditional AI tools
-4. **Demo** - Interactive tabs showing:
-   - Legacy login portal (with security issues)
-   - Dashboard view
-   - Bobalytics analytics dashboard
-5. **Resources** - Links to documentation and case studies
-6. **CTA** - Call-to-action for getting started
+### Content Pages
+1. **Home** - Landing page with overview and interactive demo
+2. **Narrative** - Stage-by-stage workshop guide with sidebar progress
+3. **Walkthrough** - Self-paced learning with verification checkpoints
+4. **Demo** - Interactive tabs showing legacy vs. transformed systems
+
+## 🎨 Design System
+
+This site uses the **Carbon Design System** - IBM's open-source design system:
+
+- **Typography**: IBM Plex Sans & IBM Plex Mono
+- **Colors**: Carbon Design System color palette
+- **Spacing**: Carbon's 4px visual rhythm scale
+- **Components**: Consistent with IBM design patterns
 
 ## 📁 Project Structure
 
 ```
 boblab/
-├── index.html          # Main landing page
-├── styles.css          # All styling
-├── script.js           # Interactive functionality
+├── index.html          # Landing page with demo
+├── narrative.html      # Stage-by-stage guide with sidebar
+├── walkthrough.html    # Self-paced walkthrough
+├── styles.css          # Carbon Design System styles
+├── narrative.css       # Additional page styles
+├── script.js           # Progress tracking & interactivity
 ├── README.md           # This file
 └── .github/
     └── workflows/
@@ -71,53 +75,57 @@ php -S localhost:8000
 
 ## 🚢 Deployment to GitHub Pages
 
-### Option 1: Automatic Deployment (Recommended)
+### Automatic Deployment (Recommended)
 
 1. Push to the `main` branch
 2. GitHub Actions will automatically deploy to GitHub Pages
-3. Visit your repository settings > Pages to configure source
+3. Visit your repository Settings > Pages to configure source
 
-### Option 2: Manual Deployment
+### Manual Deployment
 
 1. Go to repository Settings > Pages
 2. Select source: Deploy from a branch
 3. Select branch: `main` and folder: `/root`
 4. Click Save
-5. Your site will be available at `https://[your-username].github.io/boblab/`
 
 ## 🎨 Customization
 
-### Colors
+### Update Branding
+
+Search and replace "bob-lab" with your preferred name across all HTML files.
+
+### Modify Lab Steps
+
+Edit the sidebar progress items in `narrative.html` and `walkthrough.html`:
+
+```html
+<label class="progress-item">
+  <span class="progress-item-checkbox">
+    <input type="checkbox" data-section="stage1" data-step="your-step">
+    <span class="checkbox-custom"></span>
+  </span>
+  <span class="progress-item-text">Your step description</span>
+</label>
+```
+
+### Update Colors
+
 Edit the CSS variables in `styles.css`:
 
 ```css
 :root {
-  --primary-color: #0f62fe;
-  --primary-hover: #0353e9;
-  --secondary-color: #393939;
-  /* ... more variables */
+  --cds-interactive-01: #0f62fe;  /* Primary blue */
+  --cds-support-01: #da1e28;      /* Error red */
+  --cds-support-02: #198038;      /* Success green */
+  /* ... more Carbon colors */
 }
 ```
 
-### Content
-Edit `index.html` to update:
-- Hero section text
-- Feature descriptions
-- Demo content
-- Resource links
-
-### Interactive Features
-Edit `script.js` to modify:
-- Tab switching behavior
-- Form interactions
-- Animations
-- Counter effects
-
 ## 📱 Responsive Breakpoints
 
-- Desktop: > 968px
-- Tablet: 640px - 968px
-- Mobile: < 640px
+- Desktop: > 968px (Full sidebar visible)
+- Tablet: 640px - 968px (Collapsible sidebar)
+- Mobile: < 640px (Hidden sidebar with toggle)
 
 ## 🌐 Browser Support
 
@@ -131,16 +139,21 @@ Edit `script.js` to modify:
 - Lighthouse Score: 95+
 - First Contentful Paint: < 1s
 - Time to Interactive: < 2s
-- No JavaScript frameworks = Fast load times
+- No JavaScript frameworks required
+
+## 🔐 Privacy
+
+Progress tracking uses localStorage only - no data is sent to external servers. All progress remains on your device.
 
 ## 🤝 Contributing
 
 Contributions are welcome! Feel free to:
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
 ## 📝 License
 
@@ -148,15 +161,16 @@ MIT License - feel free to use this for your own projects.
 
 ## 🔗 Links
 
-- [IBM Bob Documentation](https://internal.bob.ibm.com/docs/ide)
-- [Original Workshop Repository](https://github.com/IBM/bob-a-thon)
+- [Carbon Design System](https://carbondesignsystem.com/)
+- [IBM Plex Fonts](https://www.ibm.com/plex/)
+- [GitHub Pages Documentation](https://docs.github.com/en/pages)
 
 ## 📞 Support
 
 For issues or questions:
 - Open a GitHub issue
-- Contact: bob-support@ibm.com
+- Check the [Troubleshooting Guide](https://github.com/IBM/bob-a-thon)
 
 ---
 
-**Built with ❤️ for the IBM Bob Team**
+**Built with ❤️ using Carbon Design System**
