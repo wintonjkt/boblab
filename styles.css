@@ -381,7 +381,7 @@ a:focus {
 }
 
 .logo-icon {
-  font-size: 1.25rem;
+  display: none;
 }
 
 .logo-text {
@@ -667,8 +667,7 @@ a:focus {
 }
 
 .card-icon {
-  font-size: 2rem;
-  margin-bottom: var(--spacing-md);
+  display: none;
 }
 
 .card h3 {
