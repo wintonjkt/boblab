@@ -229,6 +229,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         behavior: 'smooth',
         block: 'start'
       });
+
+      // Update active state for walkthrough/appmod sidebar navigation
+      if (this.classList.contains('capability-link')) {
+        document.querySelectorAll('.capability-link').forEach(link => {
+          link.classList.remove('active');
+        });
+        this.classList.add('active');
+      }
     }
   });
 });
