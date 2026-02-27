@@ -852,7 +852,23 @@ a:focus {
   font-size: 0.8125rem;
   line-height: 1.6;
   margin: 0;
-  color: var(--code-green);
+  color: #f4f4f4;
+}
+
+.code-block-wrapper pre {
+  font-family: 'IBM Plex Mono', 'Monaco', 'Menlo', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+  padding: var(--spacing-md);
+  color: #f4f4f4;
+  background: transparent;
+  overflow-x: auto;
+}
+
+.code-block-wrapper pre code {
+  color: #f4f4f4;
+  font-family: 'IBM Plex Mono', 'Monaco', 'Menlo', monospace;
 }
 
 /* Inline Code */
@@ -868,6 +884,7 @@ pre code {
   background: transparent;
   padding: 0;
   border-radius: 0;
+  color: inherit;
 }
 
 /* ============================================

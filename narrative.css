@@ -1014,6 +1014,30 @@
   padding: var(--spacing-md);
 }
 
+.prompt-content p {
+  color: #f4f4f4;
+  margin: 0;
+}
+
+.prompt-content a,
+.prompt-content .requirements-download-link {
+  color: #78a9ff;
+  text-decoration: underline;
+  transition: color 0.15s ease;
+}
+
+.prompt-content a:hover,
+.prompt-content .requirements-download-link:hover {
+  color: #a6c8ff;
+  text-decoration: underline;
+}
+
+.prompt-content a:focus,
+.prompt-content .requirements-download-link:focus {
+  outline: 2px solid #78a9ff;
+  outline-offset: 2px;
+}
+
 .prompt-content pre {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.875rem;
