@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IBM Bob Workshop - Enterprise AI Development</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-icon">🤖</span>
+        <span class="logo-text">IBM Bob Workshop</span>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="https://github.com" class="btn-nav">GitHub</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">Enterprise AI Development Workshop</h1>
+        <p class="hero-subtitle">Transform 7-8 weeks of enterprise development into 10 minutes of AI-powered orchestration</p>
+        <p class="hero-tagline">Learn how IBM Bob handles multi-repo changes, compliance automation, and security inline</p>
+        <div class="hero-buttons">
+          <a href="#demo" class="btn btn-primary">Try Demo</a>
+          <a href="#about" class="btn btn-secondary">Learn More</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="code-window">
+          <div class="code-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="code-content">
+            <pre><span class="code-comment">// Bob reads business requirements</span>
+<span class="code-keyword">const</span> result = <span class="code-keyword">await</span> bob.analyze({
+  <span class="code-string">spec:</span> <span class="code-string">'SOC2_Compliance.pdf'</span>,
+  <span class="code-string">repos:</span> [<span class="code-string">'auth-service'</span>, <span class="code-string">'user-service'</span>, <span class="code-string">'frontend'</span>],
+  <span class="code-string">requirements:</span> [<span class="code-string">'SSO'</span>, <span class="code-string">'MFA'</span>]
+});
+
+<span class="code-comment">// ✅ Generated in 10 minutes</span>
+<span class="code-comment">// - 17+ files across 3 repos</span>
+<span class="code-comment">// - 94% test coverage</span>
+<span class="code-comment">// - SOC 2 compliance docs</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">What Is This Workshop?</h2>
+      <p class="section-description">
+        A hands-on workshop demonstrating how IBM Bob handles enterprise-scale development challenges.
+        You'll start with a realistic scenario: implementing SSO + MFA across 3 legacy systems to pass a SOC 2 audit in 72 days. With Bob, you'll complete it in ~10 minutes.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <div class="card-icon">📖</div>
+          <h3>Business Requirements</h3>
+          <p>Bob reads 20-page specs and maps them to technical architecture automatically</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔄</div>
+          <h3>Multi-Repo Orchestration</h3>
+          <p>Coordinate changes across Java, Node.js, and React repositories simultaneously</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔒</div>
+          <h3>Security Inline</h3>
+          <p>Catch vulnerabilities during generation, not days later in security reviews</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📋</div>
+          <h3>Compliance Automation</h3>
+          <p>SOC 2 evidence generated automatically, audit-ready documentation</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚀</div>
+          <h3>Deployment Planning</h3>
+          <p>Zero-downtime strategies with rollback procedures included</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3>Bobalytics Transparency</h3>
+          <p>Full visibility into costs, model routing, and productivity metrics</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">What Makes Bob Different</h2>
+
+      <div class="comparison">
+        <div class="comparison-column">
+          <h3>Traditional AI Tools</h3>
+          <ul class="comparison-list">
+            <li>❌ Write individual functions</li>
+            <li>❌ Need you to architect solutions</li>
+            <li>❌ Security review happens days later</li>
+            <li>❌ No visibility into costs</li>
+            <li>❌ Black box usage</li>
+          </ul>
+        </div>
+        <div class="comparison-column comparison-highlight">
+          <h3>IBM Bob</h3>
+          <ul class="comparison-list">
+            <li>✅ Reads business requirements</li>
+            <li>✅ Orchestrates multi-repo changes</li>
+            <li>✅ Catches security issues inline</li>
+            <li>✅ Cost transparency: $8.47/task</li>
+            <li>✅ Full productivity metrics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo" class="section">
+    <div class="container">
+      <h2 class="section-title">Interactive Demo</h2>
+      <p class="section-description">Experience the legacy customer portal and see how Bob transforms it</p>
+
+      <div class="demo-container">
+        <div class="demo-tabs">
+          <button class="demo-tab active" onclick="showDemo('login')">Legacy Login</button>
+          <button class="demo-tab" onclick="showDemo('dashboard')">Dashboard</button>
+          <button class="demo-tab" onclick="showDemo('bobalytics')">Bobalytics</button>
+        </div>
+
+        <div id="demo-login" class="demo-content active">
+          <div class="login-demo">
+            <div class="login-card">
+              <h1>Customer Portal</h1>
+              <p class="subtitle">Sign in to your account</p>
+              <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" placeholder="you@company.com" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit">Sign In</button>
+              </form>
+              <div class="security-warning">
+                <strong>⚠️ Security Issues:</strong>
+                <ul>
+                  <li>No OAuth2 / SSO integration</li>
+                  <li>No MFA support</li>
+                  <li>Tokens stored in localStorage (XSS risk)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="demo-dashboard" class="demo-content">
+          <div class="dashboard-demo">
+            <div class="dashboard-card">
+              <h1>Welcome to Customer Portal</h1>
+              <p>Logged in as: demo@company.com</p>
+              <button onclick="window.location.href='#demo'">Logout</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="demo-bobalytics" class="demo-content">
+          <div class="bobalytics-demo">
+            <div class="bobalytics-header">
+              <h2>📊 Bobalytics Dashboard</h2>
+              <p>Task Completion: SSO + MFA Integration</p>
+            </div>
+            <div class="bobalytics-grid">
+              <div class="metric-card">
+                <div class="metric-value">10:23</div>
+                <div class="metric-label">Time to Complete</div>
+                <div class="metric-change">-99% vs traditional</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">$8.47</div>
+                <div class="metric-label">Total Cost</div>
+                <div class="metric-change">Transparent pricing</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">17</div>
+                <div class="metric-label">Files Generated</div>
+                <div class="metric-change">Across 3 repos</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-value">94%</div>
+                <div class="metric-label">Test Coverage</div>
+                <div class="metric-change">Production ready</div>
+              </div>
+            </div>
+            <div class="security-fixes">
+              <h3>🔒 Security Issues Fixed</h3>
+              <ul>
+                <li>✅ Hardcoded JWT secret → Environment variable</li>
+                <li>✅ CSRF protection disabled → Re-enabled</li>
+                <li>✅ Tokens in localStorage → httpOnly cookies</li>
+                <li>✅ Session timeout missing → 15-minute enforcement</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Workshop Resources</h2>
+
+      <div class="resource-list">
+        <div class="resource-item">
+          <h3>📚 Documentation</h3>
+          <ul>
+            <li><a href="#">Bob Official Docs</a></li>
+            <li><a href="#">Installation Guide</a></li>
+            <li><a href="#">API Reference</a></li>
+          </ul>
+        </div>
+        <div class="resource-item">
+          <h3>🎓 Learning Paths</h3>
+          <ul>
+            <li><a href="#">Self-Paced Workshop</a></li>
+            <li><a href="#">Advanced Challenges</a></li>
+            <li><a href="#">Facilitator Guide</a></li>
+          </ul>
+        </div>
+        <div class="resource-item">
+          <h3>🏢 IBM Case Studies</h3>
+          <ul>
+            <li><a href="#">IBM Concert: FedRAMP Compliance</a></li>
+            <li><a href="#">IBM Instana: Multi-Repo Coordination</a></li>
+            <li><a href="#">IBM Guardium: Architecture Documentation</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Transform Your Development?</h2>
+        <p>Join thousands of developers using IBM Bob to ship faster, safer, and with full compliance</p>
+        <div class="cta-buttons">
+          <a href="#" class="btn btn-primary btn-large">Get Started with Bob</a>
+          <a href="#" class="btn btn-secondary btn-large">Download Workshop</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>IBM Bob Workshop</h4>
+          <p>Enterprise AI development made simple</p>
+        </div>
+        <div class="footer-section">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#demo">Demo</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 IBM Bob Team. Built with ❤️</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
