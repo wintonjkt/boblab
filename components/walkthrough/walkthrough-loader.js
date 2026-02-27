@@ -11,6 +11,34 @@ class WalkthroughComponentLoader {
     this.loadedComponents = new Set();
   }
 
+  // Render demo content with proper i18n support
+  renderDemoContent(content) {
+    if (!content) return '';
+    
+    if (typeof content === 'string') {
+      return content;
+    }
+    
+    if (content.steps && Array.isArray(content.steps)) {
+      let html = '';
+      content.steps.forEach(step => {
+        html += `
+          <div class="step-item">
+            <div class="step-number">${step.number}</div>
+            <div class="step-content">
+              <h4 data-i18n="${step.title}">${step.title}</h4>
+              ${step.description ? `<p data-i18n="${step.description}">${step.description}</p>` : ''}
+              ${step.content || ''}
+            </div>
+          </div>
+        `;
+      });
+      return html;
+    }
+    
+    return '';
+  }
+
   // Register a walkthrough component
   register(name, url) {
     this.components.set(name, url);
@@ -83,7 +111,10 @@ class WalkthroughComponentLoader {
 
     // Re-initialize i18n for new content
     if (window.i18n) {
-      window.i18n.translate();
+      // Wait for demo content to be loaded before translating
+      setTimeout(() => {
+        window.i18n.translate();
+      }, 100);
     }
 
     // Initialize walkthrough-specific event handlers
@@ -263,7 +294,7 @@ class WalkthroughComponentLoader {
     if (demoElement) {
       const demoVariables = {
         ...capability.demo,
-        content: window.demoContent && window.demoContent[capability.id] ? window.demoContent[capability.id] : ''
+        content: this.renderDemoContent(window.demoContent && window.demoContent[capability.id] ? window.demoContent[capability.id] : null)
       };
       await this.loadWithVariables('demo-flow', demoVariables, selector);
     }
