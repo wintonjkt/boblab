@@ -70,25 +70,12 @@ class ComponentLoader {
     await this.loadAll();
 
     // Re-initialize i18n for new content
-    if (window.i18n && window.i18n.translateNewContent) {
-      window.i18n.translateNewContent();
+    if (window.i18n) {
+      window.i18n.translate();
     }
 
     // Re-initialize event handlers
     this.reinitializeEventHandlers();
-
-    // Initialize walkthrough components if on walkthrough page
-    if (document.querySelector('.walkthrough-container')) {
-      this.initializeWalkthroughComponents();
-    }
-  }
-
-  // Initialize walkthrough components
-  initializeWalkthroughComponents() {
-    // Load walkthrough component loader script
-    const script = document.createElement('script');
-    script.src = 'components/walkthrough/walkthrough-loader.js';
-    document.head.appendChild(script);
   }
 
   // Re-initialize event handlers for dynamically loaded content
