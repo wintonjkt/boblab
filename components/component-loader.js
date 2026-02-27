@@ -76,6 +76,19 @@ class ComponentLoader {
 
     // Re-initialize event handlers
     this.reinitializeEventHandlers();
+
+    // Initialize walkthrough components if on walkthrough page
+    if (document.querySelector('.walkthrough-container')) {
+      this.initializeWalkthroughComponents();
+    }
+  }
+
+  // Initialize walkthrough components
+  initializeWalkthroughComponents() {
+    // Load walkthrough component loader script
+    const script = document.createElement('script');
+    script.src = 'components/walkthrough/walkthrough-loader.js';
+    document.head.appendChild(script);
   }
 
   // Re-initialize event handlers for dynamically loaded content
