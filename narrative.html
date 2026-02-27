@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workshop Narrative - bob-lab</title>
+  <title>Seller Conversation Guide - bob-lab</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="narrative.css">
 </head>
@@ -15,7 +15,7 @@
       </div>
       <ul class="nav-menu">
         <li><a href="index.html">Home</a></li>
-        <li><a href="narrative.html">Narrative</a></li>
+        <li><a href="narrative.html">Conversations</a></li>
         <li><a href="walkthrough.html">Walkthrough</a></li>
         <li><a href="index.html#demo">Demo</a></li>
         <li><a href="index.html#resources">Resources</a></li>
@@ -29,594 +29,522 @@
     </div>
   </nav>
 
-  <div class="lab-layout">
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <h3>Lab Progress</h3>
-      </div>
-      <div class="sidebar-content">
-        <div class="progress-section">
-          <div class="progress-section-title">Getting Started</div>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="setup" data-step="read-scenario">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Read the scenario</span>
-          </label>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="setup" data-step="understand-repos">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Understand existing codebase</span>
-          </label>
-        </div>
+  <header class="page-header">
+    <div class="container">
+      <h1>Customer Conversation Guide</h1>
+      <p class="page-subtitle">Talk Tracks for Bob Sales Discussions</p>
+      <p class="page-description">Common customer questions and recommended responses based on Bob's unique capabilities</p>
+    </div>
+  </header>
 
-        <div class="progress-section">
-          <div class="progress-section-title">Stage 1: Analysis</div>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="stage1" data-step="analyze-spec">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Analyze requirements spec</span>
-          </label>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="stage1" data-step="identify-systems">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Identify systems involved</span>
-          </label>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="stage1" data-step="find-gaps">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Find security gaps</span>
-          </label>
-        </div>
-
-        <div class="progress-section">
-          <div class="progress-section-title">Stage 2: Compliance</div>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="stage2" data-step="map-findings">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Map SOC 2 findings</span>
-          </label>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="stage2" data-step="plan-evidence">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Plan audit evidence</span>
-          </label>
-        </div>
-
-        <div class="progress-section">
-          <div class="progress-section-title">Stage 3: Planning</div>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="stage3" data-step="create-plan">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Create implementation plan</span>
-          </label>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="stage3" data-step="review-deployment">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Review deployment order</span>
-          </label>
-        </div>
-
-        <div class="progress-section">
-          <div class="progress-section-title">Stage 4: Implementation</div>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="stage4" data-step="generate-mfa">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Generate MFA controller</span>
-          </label>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="stage4" data-step="generate-oauth">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Generate OAuth config</span>
-          </label>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="stage4" data-step="update-frontend">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Update frontend</span>
-          </label>
-        </div>
-
-        <div class="progress-section">
-          <div class="progress-section-title">Stage 5: Security</div>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="stage5" data-step="review-issues">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Review security issues</span>
-          </label>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="stage5" data-step="verify-fixes">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Verify fixes applied</span>
-          </label>
-        </div>
-
-        <div class="progress-section">
-          <div class="progress-section-title">Stage 6: Completion</div>
-          <label class="progress-item">
-            <span class="progress-item-checkbox">
-              <input type="checkbox" data-section="stage6" data-step="review-metrics">
-              <span class="checkbox-custom"></span>
-            </span>
-            <span class="progress-item-text">Review Bobalytics</span>
-          </label>
-        </div>
-      </div>
-
-      <div class="progress-summary">
-        <div class="progress-summary-title">Your Progress</div>
-        <div class="progress-bar">
-          <div class="progress-bar-fill" style="width: 0%"></div>
-        </div>
-        <div class="progress-summary-text">0 of 17 steps completed (0%)</div>
-      </div>
+  <main class="chat-container">
+    <!-- Conversation Topics -->
+    <aside class="chat-topics">
+      <h3>Conversation Topics</h3>
+      <nav class="topic-nav">
+        <a href="#intro" class="topic-link active">Introduction</a>
+        <a href="#productivity" class="topic-link">Productivity Gains</a>
+        <a href="#security" class="topic-link">Security & Compliance</a>
+        <a href="#multi-repo" class="topic-link">Multi-Repository</a>
+        <a href="#cost" class="topic-link">Cost Transparency</a>
+        <a href="#integration" class="topic-link">Integration</a>
+        <a href="#competition" class="topic-link">vs Competitors</a>
+        <a href="#proof" class="topic-link">Proof Points</a>
+      </nav>
     </aside>
 
-    <div class="sidebar-overlay"></div>
+    <!-- Chat History -->
+    <div class="chat-history">
 
-    <!-- Main Content -->
-    <div class="main-wrapper">
-      <header class="page-header">
-        <div class="container">
-          <h1>Bob-a-thon: Hands-On Workshop Guide</h1>
-          <p class="page-subtitle">From Project Kickoff to Production-Ready Code</p>
-          <p class="page-description">A realistic journey: You just received a project. Let's build it together with Bob.</p>
+      <!-- Topic: Introduction -->
+      <section id="intro" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Introduction to Bob</h2>
+          <p>Opening the conversation about enterprise AI development</p>
         </div>
-      </header>
 
-      <main class="narrative-content">
-        <!-- The Scenario -->
-        <section class="scenario-section">
-          <div class="container">
-            <div class="scenario-card">
-              <div class="scenario-icon"></div>
-              <h2>The Scenario</h2>
-              <p class="scenario-text">You arrive at work Monday morning. Your VP of Product sends you this:</p>
-              <blockquote class="scenario-quote">
-                "We need SSO + MFA implemented across our systems to pass the SOC 2 audit. Business requirements doc attached. We have 72 days. Can you scope this out?"
-              </blockquote>
-              <p class="scenario-text">You open the attachment: <code>UseCase1_SSO_MFA_Integration.pdf</code> - a 20-page business requirements document.</p>
-              <p class="scenario-highlight">Let's see how Bob helps you tackle this.</p>
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+              <span class="message-time">Opening</span>
             </div>
+            <p>What is Bob, and how is it different from other AI coding tools like Copilot?</p>
           </div>
-        </section>
+        </div>
 
-        <!-- Stage 0 -->
-        <section class="stage-section">
-          <div class="container">
-            <div class="stage-header">
-              <span class="stage-number">0</span>
-              <h2>Project Setup</h2>
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p>Great question. Bob is an <strong>enterprise-scale AI development platform</strong> that goes beyond code completion. While tools like Copilot help write individual functions, Bob orchestrates complex changes across your entire codebase.</p>
+
+            <div class="talk-points">
+              <h4>Key Differentiators:</h4>
+              <ul>
+                <li><strong>Reads business requirements</strong> - Upload a PDF spec, Bob understands what needs to be built</li>
+                <li><strong>Multi-repo orchestration</strong> - Coordinates changes across Java, Node.js, and React simultaneously</li>
+                <li><strong>Compliance automation</strong> - Generates SOC 2, PCI-DSS evidence as code is written</li>
+                <li><strong>Security inline</strong> - Catches vulnerabilities during generation, not days later</li>
+                <li><strong>Full transparency</strong> - Bobalytics shows exactly what you're spending and productivity gained</li>
+              </ul>
             </div>
 
-            <div class="stage-content">
-              <h3>What You Start With</h3>
-              <div class="code-block-wrapper">
-                <div class="code-block-header">
-                  <span class="code-block-language">Workspace</span>
-                  <button class="copy-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                    </svg>
-                    Copy
-                  </button>
-                </div>
-                <div class="code-block">
-                  <pre>Your workspace/
-└── UseCase1_SSO_MFA_Integration.pdf    ← The only file you have</pre>
-                </div>
-              </div>
+            <p><strong>Bottom line:</strong> We've seen 6,000+ IBM developers achieve 45% average productivity improvement. Projects that take 7-8 weeks traditionally get done in ~10 minutes with Bob.</p>
+          </div>
+        </div>
+      </section>
 
-              <div class="check-list">
-                <div class="check-item success"> A business requirements document</div>
-                <div class="check-item success"> Bob installed in VS Code</div>
-                <div class="check-item missing"> No code yet</div>
-                <div class="check-item missing"> No architecture diagram</div>
-                <div class="check-item missing"> No implementation plan</div>
-              </div>
+      <!-- Topic: Productivity Gains -->
+      <section id="productivity" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Productivity Gains</h2>
+          <p>Quantifying the value proposition</p>
+        </div>
 
-              <h3>Your First Questions</h3>
-              <ul class="question-list">
-                <li>What systems are involved?</li>
-                <li>How complex is this?</li>
-                <li>How long will this take?</li>
-                <li>Where do I even start?</li>
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>Those numbers sound too good to be true. 10 minutes vs 7-8 weeks? How is that possible?</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p>I understand the skepticism. Let me break down where that time savings comes from:</p>
+
+            <div class="time-breakdown">
+              <h4>Traditional Timeline (7-8 weeks):</h4>
+              <ul>
+                <li><strong>Week 1:</strong> Read business requirements, research existing systems</li>
+                <li><strong>Week 2:</strong> Map compliance requirements to technical implementation</li>
+                <li><strong>Week 3:</strong> Create implementation plan across teams</li>
+                <li><strong>Weeks 4-6:</strong> Write code across 3 repos (backend + frontend)</li>
+                <li><strong>Week 7:</strong> Security review finds issues → rework</li>
+                <li><strong>Week 8:</strong> Deployment planning and compliance documentation</li>
               </ul>
 
-              <div class="instruction-box">
-                <h4> Open VS Code</h4>
-                <ol>
-                  <li>Create a new folder: <code>sso-project/</code></li>
-                  <li>Put the PDF in it</li>
-                  <li>Open VS Code in this folder</li>
-                  <li>Click the Bob icon in the sidebar</li>
-                </ol>
-                <p class="ready-text">You're ready.</p>
-              </div>
+              <h4>With Bob (~10 minutes):</h4>
+              <ul>
+                <li><strong>0:30</strong> - Upload spec, Bob analyzes and identifies systems + gaps</li>
+                <li><strong>0:20</strong> - Bob maps SOC 2 findings to code implementation</li>
+                <li><strong>0:45</strong> - Bob creates multi-repo implementation plan</li>
+                <li><strong>8:00</strong> - Bob generates production code with security built in</li>
+                <li><strong>0:30</strong> - Bob generates deployment runbook and compliance docs</li>
+                <li><strong>No rework</strong> - Security issues caught during generation</li>
+              </ul>
+            </div>
+
+            <div class="proof-box">
+              <h4>Real-World Proof:</h4>
+              <p><strong>IBM Guardium:</strong> Completed work in 1 day that previously took 4 weeks (85% productivity gain)</p>
+              <p><strong>IBM Concert:</strong> Saved $84K per compliance project</p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- Stage 0.5 -->
-        <section class="stage-section alt">
-          <div class="container">
-            <div class="stage-header">
-              <span class="stage-number">0.5</span>
-              <h2>The Existing Codebase</h2>
+      <!-- Topic: Security & Compliance -->
+      <section id="security" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Security & Compliance</h2>
+          <p>Addressing security concerns and compliance requirements</p>
+        </div>
+
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>We're in a regulated industry. How do we know Bob's generated code is secure? What about SOC 2 compliance?</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
             </div>
 
-            <div class="stage-content">
-              <h3>What Your Company Actually Has</h3>
-              <p class="stage-intro">The spec mentions "3 existing systems." Let's see what they look like.</p>
+            <div class="security-response">
+              <h4>Security: Built-in, Not Bolted-on</h4>
+              <p>Bob has <strong>shift-left security</strong> - vulnerabilities are caught during code generation, not in security reviews weeks later. Here's how:</p>
+              <ul>
+                <li><strong>Real-time scanning:</strong> As Bob generates code, it simultaneously checks for vulnerabilities</li>
+                <li><strong>Auto-correction:</strong> If Bob generates code with a hardcoded secret, it self-corrects to use environment variables</li>
+                <li><strong>Prisma AIRS integration:</strong> AI-specific security scanning that catches issues traditional tools miss</li>
+                <li><strong>Zero security debt:</strong> No accumulation of vulnerabilities that need fixing later</li>
+              </ul>
 
-              <div class="repo-grid">
-                <!-- Repository 1 -->
-                <div class="repo-card">
-                  <div class="repo-header">
-                    <span class="repo-icon"></span>
-                    <h3>auth-service/</h3>
-                    <span class="repo-badge">Node.js</span>
+              <div class="security-example-box">
+                <h5>Example:</h5>
+                <div class="code-comparison-mini">
+                  <div class="code-bad-mini">
+                    <span class="code-label-mini">Initial Generation</span>
+                    <code>jwt.sign(payload, 'secret-key')</code>
                   </div>
-                  <div class="repo-content">
-                    <div class="code-block-wrapper">
-                      <div class="code-block-header">
-                        <span class="code-block-language">Structure</span>
-                        <button class="copy-button">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                          </svg>
-                          Copy
-                        </button>
-                      </div>
-                      <div class="code-block">
-                        <pre>auth-service/
-├── package.json
-├── .env.example
-├── README.md
-└── src/
-    ├── controllers/
-    │   └── tokenController.js
-    ├── middleware/
-    │   └── errorHandler.js
-    ├── routes/
-    │   └── auth.js
-    └── server.js</pre>
-                      </div>
-                    </div>
-
-                    <div class="status-list">
-                      <div class="status-item success"> Basic OAuth 2.0 JWT token generation</div>
-                      <div class="status-item success"> Express server with CORS, helmet</div>
-                      <div class="status-item error"> Missing: MFA enrollment/verification endpoints</div>
-                      <div class="status-item error"> Problem: Hardcoded JWT secret</div>
-                      <div class="status-item error"> Problem: No session timeout enforcement</div>
-                      <div class="status-item error"> Problem: No audit logging</div>
-                    </div>
+                  <div class="code-good-mini">
+                    <span class="code-label-mini">Bob Self-Corrected</span>
+                    <code>jwt.sign(payload, process.env.JWT_SECRET)</code>
                   </div>
                 </div>
-
-                <!-- Repository 2 -->
-                <div class="repo-card">
-                  <div class="repo-header">
-                    <span class="repo-icon"></span>
-                    <h3>user-service/</h3>
-                    <span class="repo-badge">Java Spring Boot</span>
-                  </div>
-                  <div class="repo-content">
-                    <div class="code-block-wrapper">
-                      <div class="code-block-header">
-                        <span class="code-block-language">Structure</span>
-                        <button class="copy-button">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                          </svg>
-                          Copy
-                        </button>
-                      </div>
-                      <div class="code-block">
-                        <pre>user-service/
-├── pom.xml
-├── application.properties
-├── README.md
-└── src/main/java/
-    └── com/company/
-        ├── config/
-        │   └── SecurityConfig.java
-        ├── controller/
-        │   └── AuthController.java
-        ├── model/
-        │   └── User.java
-        ├── repository/
-        │   └── UserRepository.java
-        └── service/
-            └── AuthenticationService.java</pre>
-                      </div>
-                    </div>
-
-                    <div class="status-list">
-                      <div class="status-item success"> Working user management (since 2014)</div>
-                      <div class="status-item success"> Spring Boot 2.5.14, Spring Security</div>
-                      <div class="status-item error"> Problem: Spring Security 5.x (outdated)</div>
-                      <div class="status-item error"> Problem: CSRF protection disabled</div>
-                      <div class="status-item error"> Problem: No OAuth 2.0 client configuration</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Repository 3 -->
-                <div class="repo-card">
-                  <div class="repo-header">
-                    <span class="repo-icon"></span>
-                    <h3>frontend/</h3>
-                    <span class="repo-badge">React</span>
-                  </div>
-                  <div class="repo-content">
-                    <div class="code-block-wrapper">
-                      <div class="code-block-header">
-                        <span class="code-block-language">Structure</span>
-                        <button class="copy-button">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                          </svg>
-                          Copy
-                        </button>
-                      </div>
-                      <div class="code-block">
-                        <pre>frontend/
-├── package.json
-├── README.md
-├── public/
-│   └── index.html
-└── src/
-    ├── components/
-    │   ├── Login.jsx
-    │   ├── Login.css
-    │   ├── Dashboard.jsx
-    │   └── Dashboard.css
-    ├── services/
-    │   └── authService.js
-    ├── App.js
-    ├── App.css
-    ├── index.js
-    └── index.css</pre>
-                      </div>
-                    </div>
-
-                    <div class="status-list">
-                      <div class="status-item success"> Working React application</div>
-                      <div class="status-item success"> React Router for navigation</div>
-                      <div class="status-item error"> Problem: Direct password POST (insecure)</div>
-                      <div class="status-item error"> Problem: Tokens in localStorage (XSS risk)</div>
-                      <div class="status-item error"> Missing: OAuth 2.0 authorization flow</div>
-                    </div>
-                  </div>
-                </div>
+                <p class="security-note">Bob detected hardcoded secret and fixed it immediately, explaining why it was a risk.</p>
               </div>
+
+              <h4>Compliance: Automated Evidence Generation</h4>
+              <p>For SOC 2, PCI-DSS, HIPAA - Bob generates compliance evidence <strong>as it writes code</strong>:</p>
+              <ul>
+                <li>Upload audit findings → Bob maps each finding to specific code changes</li>
+                <li>Bob generates the code AND the evidence you'll show auditors</li>
+                <li>No last-minute scramble to gather documentation</li>
+                <li><strong>IBM Concert proof:</strong> Saved $84K per compliance project by automating this</li>
+              </ul>
+
+              <p><strong>The key difference:</strong> Most AI tools help you write code. Bob helps you stay compliant while writing code.</p>
             </div>
           </div>
-        </section>
+        </div>
 
-        <!-- Stage 1 -->
-        <section class="stage-section">
-          <div class="container">
-            <div class="stage-header">
-              <span class="stage-number">1</span>
-              <h2>Analyze the Spec</h2>
-              <span class="stage-time"> ~30 seconds</span>
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>But what about data privacy? Does Bob send our code to external models?</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p>Great question - this is critical for enterprises. Bob offers:</p>
+            <ul>
+              <li><strong>Client-zero proof at IBM:</strong> 30,000 IBM developers use Bob daily on IBM's internal codebase</li>
+              <li><strong>Deployment options:</strong> Can run in your environment (Linux partitions on IBM systems with Spyre AI accelerator)</li>
+              <li><strong>Governance controls:</strong> Admin control over what code can be shared, model selection, cost limits per team</li>
+              <li><strong>Audit trail:</strong> Bobalytics shows every interaction for compliance tracking</li>
+            </ul>
+            <p>We understand that for enterprise customers, data sovereignty and governance aren't features - they're requirements.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Topic: Multi-Repository -->
+      <section id="multi-repo" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Multi-Repository Orchestration</h2>
+          <p>Handling complex, distributed codebases</p>
+        </div>
+
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>We have microservices across 20+ repositories. Can Bob really handle that complexity?</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p><strong>Yes - this is exactly what Bob was built for.</strong></p>
+
+            <p>Most AI coding tools work on single files or single repos. They can't understand that a change in your auth-service requires updates to your user-service (Java), frontend (React), and API gateway.</p>
+
+            <div class="multi-repo-example">
+              <h4>Real Example: SSO + MFA Implementation</h4>
+              <p><strong>The task:</strong> Add SSO and MFA across 3 systems to pass SOC 2 audit</p>
+
+              <p><strong>Bob's approach:</strong></p>
+              <ol>
+                <li>Upload the 20-page requirements spec</li>
+                <li>Bob identifies all 3 affected repos: auth-service (Node.js), user-service (Java), frontend (React)</li>
+                <li>Bob creates implementation plan with deployment order (auth → user → frontend)</li>
+                <li>Bob generates 17+ files across all 3 repos with proper integration points</li>
+                <li>Bob includes API contracts between services</li>
+              </ol>
+
+              <p><strong>Time:</strong> 10 minutes. Traditional approach: 7-8 weeks with coordination across teams.</p>
             </div>
 
-            <div class="stage-content">
-              <h3>Your Goal</h3>
-              <p class="stage-intro">Understand what the business is asking for and how it maps to your technical systems.</p>
+            <p><strong>For your 20+ repos:</strong> Bob scales because it maintains context across your entire codebase, not just the files currently open in your IDE.</p>
+          </div>
+        </div>
+      </section>
 
-              <div class="prompt-box">
-                <div class="prompt-header">
-                  <span class="prompt-icon"></span>
-                  <h4>Ask Bob:</h4>
-                </div>
-                <div class="prompt-content">
-                  <pre>Please analyze the SSO_MFA_Integration.pdf spec and tell me:
-1. What systems are involved?
-2. What are the current security gaps?
-3. What are the SOC 2 compliance requirements?
-4. What technology stacks are we working with?</pre>
-                </div>
-              </div>
+      <!-- Topic: Cost Transparency -->
+      <section id="cost" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Cost Transparency</h2>
+          <p>Bobalytics and ROI visibility</p>
+        </div>
 
-              <h3>What Bob Returns</h3>
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>AI tools can get expensive quickly. How do we track costs? My CFO will ask for ROI justification.</p>
+          </div>
+        </div>
 
-              <div class="info-card">
-                <h4> Systems Overview</h4>
-                <p><strong>3 repositories identified:</strong></p>
-                <ul>
-                  <li><strong>auth-service</strong> (Node.js/Express) - OAuth token issuance</li>
-                  <li><strong>user-service</strong> (Java/Spring Boot) - User management, authentication</li>
-                  <li><strong>frontend</strong> (React) - Customer portal UI</li>
-                </ul>
-              </div>
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p><strong>Bobalytics is unique to Bob</strong> - no other AI tool provides this level of transparency:</p>
 
-              <div class="info-card warning">
-                <h4> Security Vulnerabilities Found</h4>
-                <ul>
-                  <li>Hardcoded JWT secret in tokenController.js</li>
-                  <li>CSRF protection disabled in SecurityConfig.java</li>
-                  <li>Authentication tokens stored in localStorage (XSS vulnerable)</li>
-                  <li>No MFA enforcement (SOC 2 CC6.1 requirement)</li>
-                  <li>No session timeout (SOC 2 CC6.6 requirement)</li>
-                </ul>
-              </div>
+            <div class="bobalytics-features">
+              <ul>
+                <li><strong>Task-level costing:</strong> See exactly what each task cost (e.g., "$8.47 for SSO implementation")</li>
+                <li><strong>Team dashboards:</strong> Leadership can see productivity metrics, cost per team, usage patterns</li>
+                <li><strong>Budget controls:</strong> Set spending limits per team or project</li>
+                <li><strong>ROI calculator:</strong> Compare traditional cost vs Bob cost for every project</li>
+              </ul>
+            </div>
 
-              <div class="info-card compliance">
-                <h4> SOC 2 Compliance Requirements</h4>
-                <ul>
-                  <li>CC6.1-2026-01: Implement MFA for all users</li>
-                  <li>CC6.6-2026-03: Enforce 15-minute session timeout</li>
-                  <li>CC7.2-2026-04: Add authentication event logging</li>
-                  <li>CC8.1-2026-05: Remove hardcoded secrets</li>
-                </ul>
-              </div>
+            <div class="roi-example">
+              <h4>Example ROI for SSO Project:</h4>
+              <table class="roi-table">
+                <tr>
+                  <td><strong>Traditional:</strong></td>
+                  <td>4 engineers × 8 weeks × $150/hr = <strong>$192,000</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>With Bob:</strong></td>
+                  <td><strong>$8.47</strong></td>
+                </tr>
+                <tr class="success-row">
+                  <td><strong>Savings:</strong></td>
+                  <td><strong>$191,991.53 (99.996%)</strong></td>
+                </tr>
+              </table>
+            </div>
 
-              <div class="seller-takeaway">
-                <h4> Seller Takeaway: Understanding Before Action</h4>
-                <p><strong>What Just Happened:</strong></p>
-                <p>Bob read a 20-page business requirements document and gave you a technical breakdown of 3 systems, their current state, required changes, and compliance gaps - in 30 seconds.</p>
+            <p><strong>Your CFO gets:</strong></p>
+            <ul>
+              <li>Transparent line-item for AI costs</li>
+              <li>Productivity metrics (45% average improvement across 6,000 IBM devs)</li>
+              <li>Time-to-market acceleration numbers</li>
+            </ul>
+            <p>No other AI tool gives you this level of visibility into what you're spending and what you're getting for it.</p>
+          </div>
+        </div>
+      </section>
 
-                <div class="comparison-table">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>Traditional Approach</th>
-                        <th>With Bob</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Read 20-page spec: 1 hour</td>
-                        <td rowspan="4" class="bob-cell">30 seconds</td>
-                      </tr>
-                      <tr>
-                        <td>Research each system's codebase: 4 hours</td>
-                      </tr>
-                      <tr>
-                        <td>Identify integration points: 2 hours</td>
-                      </tr>
-                      <tr>
-                        <td>Map compliance requirements: 3 hours</td>
-                      </tr>
-                      <tr>
-                        <td><strong>Total: ~1 day</strong></td>
-                        <td><strong>Time Saved: ~99%</strong></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+      <!-- Topic: Integration -->
+      <section id="integration" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Integration & Deployment</h2>
+          <p>How Bob fits into existing workflows</p>
+        </div>
 
-              <div class="verification-box">
-                <h4> Verification</h4>
-                <p>You should now know:</p>
-                <ul>
-                  <li> 3 systems (React, Java, Node.js)</li>
-                  <li> 5 SOC 2 findings to fix</li>
-                  <li> Current vs. required state for each system</li>
-                </ul>
-              </div>
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>What tools does Bob integrate with? We use GitHub, Jenkins, and have strict deployment processes.</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p>Bob is designed to fit into enterprise workflows, not replace them:</p>
+
+            <div class="integration-list">
+              <h4>Supported Integrations:</h4>
+              <ul>
+                <li><strong>Source Control:</strong> GitHub, GitLab, Bitbucket</li>
+                <li><strong>IDEs:</strong> VS Code, JetBrains (IntelliJ, PyCharm, etc.)</li>
+                <li><strong>CI/CD:</strong> Jenkins, GitLab CI, GitHub Actions, Tekton</li>
+                <li><strong>Issue Tracking:</strong> Jira, GitHub Issues</li>
+              </ul>
+            </div>
+
+            <p><strong>How it works in your workflow:</strong></p>
+            <ol>
+              <li>Developer uses Bob in their IDE to generate code</li>
+              <li>Code goes through your normal PR review process</li>
+              <li>Bob integrates with your CI/CD pipeline for testing</li>
+              <li>Deploy using your existing tools and processes</li>
+            </ol>
+            <p>Bob doesn't bypass your governance - it accelerates within it.</p>
+
+            <div class="deployment-box">
+              <h4>Bonus: Deployment Planning</h4>
+              <p>Bob also generates deployment runbooks with zero-downtime strategies and rollback procedures - tailored to your infrastructure.</p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- More Stages Summary -->
-        <section class="stages-summary">
-          <div class="container">
-            <h2>Workshop Journey Continues...</h2>
-            <p class="summary-intro">The full workshop includes 9 stages covering:</p>
+      <!-- Topic: Competition -->
+      <section id="competition" class="chat-section">
+        <div class="chat-section-header">
+          <h2>vs Competitors</h2>
+          <p>Differentiating from other AI coding tools</p>
+        </div>
 
-            <div class="stages-grid">
-              <div class="stage-summary-card completed">
-                <span class="stage-num">0</span>
-                <h4>Project Setup</h4>
-                <p>Initial workspace configuration</p>
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>We're already using Copilot. Why would we add Bob?</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p><strong>Copilot is great for individual developer productivity.</strong> If your goal is to help developers write functions faster, Copilot works well.</p>
+
+            <p><strong>Bob is for enterprise-scale challenges.</strong> Here's when you need Bob:</p>
+
+            <div class="comparison-grid">
+              <div class="compare-use-copilot">
+                <h4>Use Copilot For:</h4>
+                <ul>
+                  <li>Writing individual functions</li>
+                  <li>Code completion in an IDE</li>
+                  <li>Single-file or single-repo changes</li>
+                  <li>Developer productivity (individual level)</li>
+                </ul>
               </div>
-              <div class="stage-summary-card completed">
-                <span class="stage-num">0.5</span>
-                <h4>Codebase Analysis</h4>
-                <p>Understanding existing systems</p>
-              </div>
-              <div class="stage-summary-card completed">
-                <span class="stage-num">1</span>
-                <h4>Spec Analysis</h4>
-                <p>Analyze requirements document</p>
-              </div>
-              <div class="stage-summary-card">
-                <span class="stage-num">2</span>
-                <h4>Compliance Mapping</h4>
-                <p>Map SOC 2 findings to code</p>
-              </div>
-              <div class="stage-summary-card">
-                <span class="stage-num">3</span>
-                <h4>Implementation Plan</h4>
-                <p>Create deployment strategy</p>
-              </div>
-              <div class="stage-summary-card">
-                <span class="stage-num">4</span>
-                <h4>Code Generation</h4>
-                <p>Generate production code</p>
-              </div>
-              <div class="stage-summary-card">
-                <span class="stage-num">5</span>
-                <h4>Security Scanning</h4>
-                <p>Catch vulnerabilities inline</p>
-              </div>
-              <div class="stage-summary-card">
-                <span class="stage-num">6</span>
-                <h4>Deployment Planning</h4>
-                <p>Zero-downtime strategy</p>
-              </div>
-              <div class="stage-summary-card">
-                <span class="stage-num">7</span>
-                <h4>Compliance Docs</h4>
-                <p>Generate audit evidence</p>
-              </div>
-              <div class="stage-summary-card">
-                <span class="stage-num">8</span>
-                <h4>Test Coverage</h4>
-                <p>94% test coverage achieved</p>
-              </div>
-              <div class="stage-summary-card">
-                <span class="stage-num">9</span>
-                <h4>Bobalytics Dashboard</h4>
-                <p>Show results to leadership</p>
+              <div class="compare-use-bob">
+                <h4>Use Bob For:</h4>
+                <ul>
+                  <li>Multi-repo orchestration</li>
+                  <li>Compliance automation (SOC 2, PCI-DSS)</li>
+                  <li>Reading business requirements documents</li>
+                  <li>Zero-downtime deployment planning</li>
+                  <li>Cost transparency and leadership dashboards</li>
+                  <li>Enterprise governance and control</li>
+                </ul>
               </div>
             </div>
 
-            <div class="cta-box">
-              <h3>Ready to Experience the Full Workshop?</h3>
-              <p>Try the interactive demo or follow the self-serve walkthrough.</p>
-              <div class="cta-buttons">
-                <a href="index.html#demo" class="btn btn-primary">Try Demo</a>
-                <a href="walkthrough.html" class="btn btn-secondary">View Walkthrough</a>
-              </div>
+            <p><strong>Many IBM teams use both:</strong> Copilot for daily coding, Bob for the complex enterprise initiatives that span teams and require compliance oversight.</p>
+
+            <div class="unique-to-bob">
+              <h4>Unique to Bob - Copilot Can't Do:</h4>
+              <ul>
+                <li>Read a 20-page business requirements PDF and map to code</li>
+                <li>Coordinate changes across 20+ repos automatically</li>
+                <li>Generate SOC 2 audit evidence as code is written</li>
+                <li>Show you exactly what you're spending (Bobalytics)</li>
+                <li>Catch security vulnerabilities during generation (not after)</li>
+              </ul>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      <!-- Topic: Proof Points -->
+      <section id="proof" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Proof Points</h2>
+          <p>Real-world evidence and case studies</p>
+        </div>
+
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>This all sounds great, but who's actually using this in production? I need real references.</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+
+            <div class="proof-points">
+              <h4>Client-Zero Proof at IBM</h4>
+              <p>Before any external customer, Bob was battle-tested inside IBM:</p>
+              <ul>
+                <li><strong>6,000+ IBM developers</strong> using Bob daily</li>
+                <li><strong>30,000 developers</strong> in the IBM deployment ecosystem</li>
+                <li><strong>45% average productivity improvement</strong> across all users</li>
+                <li><strong>95% activation rate</strong> - developers voluntarily adopt it</li>
+              </ul>
+
+              <h4>Specific IBM Product Success Stories:</h4>
+
+              <div class="case-study">
+                <h5>IBM Guardium (Security Product)</h5>
+                <p><strong>Challenge:</strong> Modernizing legacy security code</p>
+                <p><strong>Result:</strong> 85% productivity gain - completed in 1 day what previously took 4 weeks</p>
+              </div>
+
+              <div class="case-study">
+                <h5>IBM Concert (Compliance Platform)</h5>
+                <p><strong>Challenge:</strong> SOC 2 compliance automation</p>
+                <p><strong>Result:</strong> Saved $84,000 per compliance project by automating evidence generation</p>
+              </div>
+
+              <div class="case-study">
+                <h5>IBM Instana (APM Product)</h5>
+                <p><strong>Challenge:</strong> Multi-repo coordination for complex features</p>
+                <p><strong>Result:</strong> Accelerated feature delivery across distributed teams</p>
+              </div>
+            </div>
+
+            <p><strong>For references:</strong> We can connect you with IBM product teams who are using Bob in production. They can speak directly to the productivity gains and how they've integrated it into their workflows.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="chat-cta">
+        <h2>Ready to Continue the Conversation?</h2>
+        <p>Explore Bob's capabilities hands-on or dive deeper into any topic</p>
+        <div class="cta-buttons">
+          <a href="walkthrough.html" class="btn btn-primary">View Capability Walkthrough</a>
+          <a href="index.html#demo" class="btn btn-secondary">Try Interactive Demo</a>
+        </div>
+      </section>
     </div>
-  </div>
-
-  <button class="sidebar-toggle" aria-label="Toggle sidebar">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-  </button>
+  </main>
 
   <footer class="footer">
     <div class="container">
@@ -629,7 +557,7 @@
           <h4>Links</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="narrative.html">Narrative</a></li>
+            <li><a href="narrative.html">Conversations</a></li>
             <li><a href="walkthrough.html">Walkthrough</a></li>
             <li><a href="index.html#demo">Demo</a></li>
           </ul>
