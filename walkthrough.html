@@ -9,23 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <span class="logo-text">bob-lab</span>
-      </div>
-      <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="narrative.html">Conversations</a></li>
-        <li><a href="walkthrough.html">Walkthrough</a></li>
-      </ul>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </nav>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
 
   <header class="page-header">
     <div class="container">
@@ -806,6 +791,9 @@ and cutover strategy.</code></pre>
     </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="components/component-loader.js"></script>
+  <script src="i18n.js"></script>
   <script src="script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>

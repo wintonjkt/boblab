@@ -2,7 +2,8 @@
   "nav": {
     "home": "홈",
     "conversations": "대화",
-    "walkthrough": "워크스루"
+    "walkthrough": "워크스루",
+    "bobathon": "Bobathon/파일럿"
   },
   "hero": {
     "title": "엔터프라이즈 AI 개발 워크샵",

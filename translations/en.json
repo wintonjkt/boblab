@@ -2,7 +2,8 @@
   "nav": {
     "home": "Home",
     "conversations": "Conversations",
-    "walkthrough": "Walkthrough"
+    "walkthrough": "Walkthrough",
+    "bobathon": "Bobathon/Pilot"
   },
   "hero": {
     "title": "Enterprise AI Development Workshop",

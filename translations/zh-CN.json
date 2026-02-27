@@ -2,7 +2,8 @@
   "nav": {
     "home": "首页",
     "conversations": "对话",
-    "walkthrough": "演示"
+    "walkthrough": "演示",
+    "bobathon": "Bobathon/试点"
   },
   "hero": {
     "title": "企业AI开发工作坊",

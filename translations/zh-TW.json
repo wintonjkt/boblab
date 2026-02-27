@@ -2,7 +2,8 @@
   "nav": {
     "home": "首頁",
     "conversations": "對話",
-    "walkthrough": "逐步說明"
+    "walkthrough": "逐步說明",
+    "bobathon": "Bobathon/試點"
   },
   "hero": {
     "title": "企業 AI 開發工作坊",

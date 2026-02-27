@@ -417,6 +417,25 @@ a:focus {
   outline-offset: 0;
 }
 
+.nav-cta {
+  background: var(--primary-color) !important;
+  color: white !important;
+  font-weight: 500 !important;
+  border-radius: 4px !important;
+  transition: background 0.1s ease !important;
+}
+
+.nav-cta:hover {
+  background: var(--primary-hover) !important;
+  color: white !important;
+  text-decoration: none;
+}
+
+.nav-cta:focus {
+  outline: 2px solid white !important;
+  outline-offset: 2px !important;
+}
+
 .btn-nav {
   background: var(--primary-color);
   color: white !important;
