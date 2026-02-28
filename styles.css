@@ -69,21 +69,7 @@
   --code-red: #f44747;
 }
 
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --cds-ui-01: #161616;
-    --cds-ui-02: #262626;
-    --cds-ui-03: #353535;
-    --cds-ui-04: #ffffff;
-    --cds-ui-05: #ffffff;
-    --cds-text-01: #f4f4f4;
-    --cds-text-02: #c6c6c6;
-    --cds-text-03: #6f6f6f;
-    --cds-text-04: #393939;
-    --cds-text-05: #161616;
-  }
-}
+/* Light Theme Only - Dark mode disabled */
 
 body {
   font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
