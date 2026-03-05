@@ -249,17 +249,16 @@
         </div>
       </div>
     </section>
-
-    <!-- Global Instructions -->
-    <section id="global-instructions" class="section">
+    <!-- Configuration Methods -->
+    <section id="configuration-methods" class="section">
       <div class="container">
         <div class="step-card">
-          <h2>Global Custom Instructions</h2>
-          <p>Global instructions apply to all modes and interactions with Bob. Use them to enforce coding standards, documentation requirements, and general best practices across your entire project.</p>
+          <h2>Configuration Methods</h2>
+          <p>Bob supports multiple ways to configure custom rules, from simple file-based configuration to organized directory structures.</p>
 
           <div class="demo-window">
             <div class="window-header">
-              <span class="window-title">Global Instructions Example</span>
+              <span class="window-title">File-Based Configuration</span>
               <div class="window-controls">
                 <span class="control close"></span>
                 <span class="control minimize"></span>
@@ -268,10 +267,12 @@
             </div>
             <div class="window-content">
               <div class="demo-flow">
-                <h3>Coding Standards Example</h3>
+                <h3>Simple File-Based Rules</h3>
+                <p>Create files in your workspace root to define rules:</p>
+                
                 <div class="code-block-wrapper">
                   <div class="code-block-header">
-                    <span class="code-block-language">Global Instructions</span>
+                    <span class="code-block-language">File Configuration</span>
                     <button class="copy-button">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
@@ -279,23 +280,236 @@
                       Copy
                     </button>
                   </div>
-                  <pre><code>Always:
-- Use TypeScript with strict mode enabled
-- Include comprehensive error handling with try-catch blocks
-- Write unit tests for all new functions
-- Follow ESLint rules defined in .eslintrc
-- Add JSDoc comments for all public APIs
-- Use async/await instead of promises
-- Prefer functional programming patterns
-- Keep functions under 50 lines of code</code></pre>
+                  <pre><code>.bobrules              # General workspace rules
+.bobrules-code         # Rules for Code mode
+.bobrules-plan         # Rules for Plan mode
+.bobrules-{modeSlug}   # Rules for any custom mode</code></pre>
+                </div>
+
+                <h4 style="margin-top: 20px;">Example: Creating a .bobrules file</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">bash</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>echo "Use 4 spaces for indentation" > .bobrules</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Directory-Based Configuration</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <div class="demo-flow">
+                <h3>Workspace Directory Structure</h3>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Workspace Structure</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>.bob/
+├── rules/              # General rules for all modes
+│   └── coding-style.md
+└── rules-code/         # Code mode specific rules
+    └── typescript.md</code></pre>
+                </div>
+
+                <h4 style="margin-top: 20px;">Global Directory Structure</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Global Structure</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Linux/macOS
+~/.bob/rules/
+
+# Windows
+%USERPROFILE%\.bob\rules\</code></pre>
+                </div>
+
+                <h4 style="margin-top: 20px;">Creating Workspace Rules</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">bash</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>mkdir -p .bob/rules
+echo "# Coding Standards" > .bob/rules/coding-style.md
+echo "- Use TypeScript strict mode" >> .bob/rules/coding-style.md</code></pre>
+                </div>
+
+                <h4 style="margin-top: 20px;">Creating Global Rules</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">bash</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>mkdir -p ~/.bob/rules
+echo "# Personal Preferences" > ~/.bob/rules/preferences.md
+echo "- Always explain reasoning before code" >> ~/.bob/rules/preferences.md</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>💡 Tip:</strong> Directory-based configuration is more flexible and allows you to organize rules into multiple files for better maintainability.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rule Priority -->
+    <section id="rule-priority" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Rule Priority</h2>
+          <p>Understanding how Bob combines and prioritizes rules is essential for effective configuration.</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Rule Loading Order</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <div class="demo-flow">
+                <h3>How Rules Are Combined</h3>
+                <p>Bob loads rules in the following order:</p>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Priority Order</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>1. Global rules (~/.bob/rules/)
+   ↓
+2. Workspace rules (.bob/rules/)
+
+Within each level:
+- Mode-specific rules load before general rules
+- Workspace rules can override global rules</code></pre>
+                </div>
+
+                <h4 style="margin-top: 20px;">Example Scenario</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Rule Combination Example</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Global rule says: "Use 2 spaces for indentation"
+~/.bob/rules/style.md
+
+# Workspace rule says: "Use 4 spaces for indentation"
+.bob/rules/style.md
+
+# Result: Bob uses 4 spaces (workspace overrides global)</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>⚡ Key Point:</strong> Workspace rules take precedence over global rules, allowing you to customize behavior for specific projects while maintaining organization-wide defaults.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Writing Effective Rules -->
+    <section id="writing-effective" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Writing Effective Rules</h2>
+          <p>Well-written rules are specific, actionable, and clearly structured. Follow these guidelines to create rules that Bob can effectively follow.</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Rule Writing Best Practices</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <div class="demo-flow">
+                <h3>Be Specific and Actionable</h3>
+                
+                <div class="example-comparison">
+                  <div class="bad-example">
+                    <strong>❌ Vague:</strong>
+                    <code>"Format code nicely"</code>
+                  </div>
+                  <div class="good-example">
+                    <strong>✅ Specific:</strong>
+                    <code>"Use 4 spaces for indentation in JavaScript files"</code>
+                  </div>
+                </div>
+
+                <div class="example-comparison" style="margin-top: 15px;">
+                  <div class="bad-example">
+                    <strong>❌ Vague:</strong>
+                    <code>"Write good tests"</code>
+                  </div>
+                  <div class="good-example">
+                    <strong>✅ Specific:</strong>
+                    <code>"Write unit tests for all public functions using Jest"</code>
+                  </div>
                 </div>
               </div>
 
               <div class="demo-flow">
-                <h3>Documentation Requirements</h3>
+                <h3>Use Clear Structure</h3>
                 <div class="code-block-wrapper">
                   <div class="code-block-header">
-                    <span class="code-block-language">Documentation Rules</span>
+                    <span class="code-block-language">Well-Structured Rules</span>
                     <button class="copy-button">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
@@ -303,21 +517,28 @@
                       Copy
                     </button>
                   </div>
-                  <pre><code>Documentation Standards:
-- Every module must have a README.md
-- All functions must have JSDoc with @param and @returns
+                  <pre><code># Code Style
+- Use camelCase for variables
+- Use PascalCase for classes
+- Use UPPER_CASE for constants
+
+# Testing
+- Write unit tests for all public functions
+- Use Jest for testing framework
+- Aim for 80% code coverage
+
+# Documentation
+- Add JSDoc comments for public APIs
 - Include usage examples in documentation
-- Document all environment variables
-- Maintain CHANGELOG.md for version history
-- Add inline comments for complex logic</code></pre>
+- Document all environment variables</code></pre>
                 </div>
               </div>
 
               <div class="demo-flow">
-                <h3>Security & Performance</h3>
+                <h3>Examples of Effective Rules</h3>
                 <div class="code-block-wrapper">
                   <div class="code-block-header">
-                    <span class="code-block-language">Security Rules</span>
+                    <span class="code-block-language">Effective Rule Examples</span>
                     <button class="copy-button">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
@@ -325,37 +546,34 @@
                       Copy
                     </button>
                   </div>
-                  <pre><code>Security & Performance:
-- Never commit secrets or API keys
-- Use environment variables for configuration
-- Validate all user inputs
-- Sanitize data before database operations
-- Implement rate limiting for APIs
-- Use prepared statements for SQL queries
-- Optimize database queries with indexes
-- Implement caching where appropriate</code></pre>
+                  <pre><code>✅ "Always use spaces for indentation, with a width of 4 spaces"
+✅ "Use camelCase for variable names"
+✅ "Write unit tests for all new functions"
+✅ "Explain your reasoning before providing code"
+✅ "When adding features to websites, ensure they are responsive and accessible"
+✅ "Use async/await instead of promise chains"
+✅ "Include error handling in all API calls"</code></pre>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="info-box">
-            <strong>📝 Note:</strong> Global instructions are always active and apply to every interaction with Bob, regardless of the current mode.
+            <strong>📝 Remember:</strong> The more specific and actionable your rules are, the better Bob can follow them consistently across your project.
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Mode-Specific Instructions -->
-    <section id="mode-specific" class="section section-alt">
+    <!-- Advanced Configuration -->
+    <section id="advanced-config" class="section section-alt">
       <div class="container">
         <div class="step-card">
-          <h2>Mode-Specific Custom Instructions</h2>
-          <p>Mode-specific instructions apply only when Bob is in a particular mode (Code, Plan, Ask, Debug, or custom modes). This allows you to tailor Bob's behavior for specific tasks.</p>
+          <h2>Advanced Configuration</h2>
+          <p>Take your custom rules to the next level with advanced configuration options including mode-specific directories, AGENTS.md files, and understanding file behavior.</p>
 
           <div class="demo-window">
             <div class="window-header">
-              <span class="window-title">Mode-Specific Instructions</span>
+              <span class="window-title">Mode-Specific Rules Directories</span>
               <div class="window-controls">
                 <span class="control close"></span>
                 <span class="control minimize"></span>
@@ -364,10 +582,12 @@
             </div>
             <div class="window-content">
               <div class="demo-flow">
-                <h3>Code Mode Instructions</h3>
+                <h3>Organizing Rules by Mode</h3>
+                <p>Create separate directories for different modes to keep rules organized:</p>
+                
                 <div class="code-block-wrapper">
                   <div class="code-block-header">
-                    <span class="code-block-language">Code Mode Rules</span>
+                    <span class="code-block-language">Mode-Specific Directories</span>
                     <button class="copy-button">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
@@ -375,22 +595,59 @@
                       Copy
                     </button>
                   </div>
-                  <pre><code>When in Code mode:
-- Always show a summary of changes before applying
-- Maintain backward compatibility
-- Include migration notes if breaking changes are needed
-- Run tests after making changes
-- Update related documentation
-- Check for unused imports and remove them
-- Ensure code formatting matches project style</code></pre>
+                  <pre><code>.bob/
+├── rules/          # General rules for all modes
+├── rules-code/     # Code mode only
+├── rules-plan/     # Plan mode only
+├── rules-debug/    # Debug mode only
+└── rules-{mode}/   # Any custom mode</code></pre>
+                </div>
+
+                <h4 style="margin-top: 20px;">Example: Creating Mode-Specific Rules</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">bash</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>mkdir -p .bob/rules-code
+echo "# Code Mode Rules" > .bob/rules-code/standards.md
+echo "- Always run tests after changes" >> .bob/rules-code/standards.md
+echo "- Update documentation for API changes" >> .bob/rules-code/standards.md</code></pre>
                 </div>
               </div>
+            </div>
+          </div>
 
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Using AGENTS.md Files</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
               <div class="demo-flow">
-                <h3>Debug Mode Instructions</h3>
+                <h3>AGENTS.md for Team Standardization</h3>
+                <p>The AGENTS.md file provides a standardized way to define rules that are automatically loaded by Bob:</p>
+                
+                <ul style="line-height: 2; margin: 15px 0;">
+                  <li><strong>Location:</strong> Place in workspace root</li>
+                  <li><strong>Automatic loading:</strong> Loaded by default without configuration</li>
+                  <li><strong>Version control:</strong> Commit with your project for team consistency</li>
+                  <li><strong>Priority:</strong> Loaded after mode-specific rules but before general workspace rules</li>
+                </ul>
+
+                <h4 style="margin-top: 20px;">Example AGENTS.md</h4>
                 <div class="code-block-wrapper">
                   <div class="code-block-header">
-                    <span class="code-block-language">Debug Mode Rules</span>
+                    <span class="code-block-language">markdown</span>
                     <button class="copy-button">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
@@ -398,22 +655,85 @@
                       Copy
                     </button>
                   </div>
-                  <pre><code>When in Debug mode:
-- Start with the most likely causes
-- Check logs and error messages first
-- Suggest adding debug logging if needed
-- Provide step-by-step debugging approach
-- Recommend using debugger breakpoints
-- Check for common pitfalls (null checks, async issues)
-- Suggest relevant debugging tools</code></pre>
+                  <pre><code># Team Development Standards
+
+## Code Quality
+- Use TypeScript strict mode
+- Maintain 80% test coverage
+- Follow ESLint configuration
+
+## Documentation
+- Update README for new features
+- Add JSDoc for public APIs
+- Document breaking changes in CHANGELOG
+
+## Git Workflow
+- Use conventional commits
+- Create feature branches from main
+- Require PR reviews before merge</code></pre>
+                </div>
+
+                <h4 style="margin-top: 20px;">Disabling AGENTS.md</h4>
+                <p>If needed, you can disable AGENTS.md loading in VS Code settings:</p>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">json</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>{
+  "bob-cline.useAgentRules": false
+}</code></pre>
                 </div>
               </div>
+            </div>
+          </div>
 
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">File Behavior</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
               <div class="demo-flow">
-                <h3>Plan Mode Instructions</h3>
+                <h3>Understanding How Bob Processes Rule Files</h3>
+                
+                <div class="capabilities-overview">
+                  <div class="cap-card">
+                    <h4>📂 Recursive Reading</h4>
+                    <p>Reads all files in rules directories, including subdirectories</p>
+                  </div>
+                  <div class="cap-card">
+                    <h4>🔤 Alphabetical Order</h4>
+                    <p>Files are processed alphabetically by filename</p>
+                  </div>
+                  <div class="cap-card">
+                    <h4>🗑️ Automatic Filtering</h4>
+                    <p>Excludes cache files (.DS_Store, *.bak, *.cache, *.log, *.tmp, Thumbs.db)</p>
+                  </div>
+                  <div class="cap-card">
+                    <h4>🔗 Symbolic Links</h4>
+                    <p>Supported with maximum depth of 5 levels</p>
+                  </div>
+                  <div class="cap-card">
+                    <h4>📄 Empty Files</h4>
+                    <p>Silently skipped without errors</p>
+                  </div>
+                </div>
+
+                <h4 style="margin-top: 20px;">Organizing Rules with Prefixes</h4>
+                <p>Use numeric prefixes to control loading order:</p>
                 <div class="code-block-wrapper">
                   <div class="code-block-header">
-                    <span class="code-block-language">Plan Mode Rules</span>
+                    <span class="code-block-language">File Organization</span>
                     <button class="copy-button">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
@@ -421,25 +741,221 @@
                       Copy
                     </button>
                   </div>
-                  <pre><code>When in Plan mode:
-- Break down tasks into small, actionable steps
-- Estimate time for each step
-- Identify dependencies between tasks
-- Consider edge cases and error scenarios
-- Suggest testing strategies
-- Highlight potential risks
-- Recommend architectural patterns when relevant</code></pre>
+                  <pre><code>.bob/rules/
+├── 01-security.md      # Loaded first (highest priority)
+├── 02-code-style.md    # Loaded second
+├── 03-testing.md       # Loaded third
+└── 99-preferences.md   # Loaded last (lowest priority)</code></pre>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="info-box">
-            <strong>🎯 Strategy:</strong> Use mode-specific instructions to create specialized workflows that activate only when needed, keeping Bob focused on the task at hand.
+            <strong>💡 Pro Tip:</strong> Use subdirectories and numeric prefixes to organize complex rule sets while maintaining clear priority and loading order.
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Team Standardization -->
+    <section id="team-standardization" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Team Standardization</h2>
+          <p>Ensure consistency across your team by sharing and standardizing custom rules at both project and organization levels.</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Project-Level Standards</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <div class="demo-flow">
+                <h3>Version Control Your Rules</h3>
+                <p>Keep workspace rules in version control to ensure all team members use the same standards:</p>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">bash</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Add rules to version control
+git add .bob/rules/
+git add AGENTS.md
+git commit -m "Add team coding standards"
+git push</code></pre>
+                </div>
+
+                <h4 style="margin-top: 20px;">Recommended Project Structure</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Project Structure</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>project-root/
+├── .bob/
+│   ├── rules/
+│   │   ├── 01-security.md
+│   │   ├── 02-code-style.md
+│   │   └── 03-testing.md
+│   └── rules-code/
+│       └── implementation.md
+├── AGENTS.md
+└── README.md</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Organization-Wide Standards</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <div class="demo-flow">
+                <h3>Distributing Global Rules</h3>
+                <p>Share organization-wide standards by distributing global rules to all team members:</p>
+                
+                <h4>Option 1: Shared Rules Repository</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">bash</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Create a shared rules repository
+git clone https://github.com/your-org/bob-rules.git
+cd bob-rules
+
+# Team members clone to their global rules directory
+git clone https://github.com/your-org/bob-rules.git ~/.bob/rules
+
+# Update periodically
+cd ~/.bob/rules
+git pull</code></pre>
+                </div>
+
+                <h4 style="margin-top: 20px;">Option 2: Setup Script</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">bash</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>#!/bin/bash
+# setup-bob-rules.sh
+
+mkdir -p ~/.bob/rules
+curl -o ~/.bob/rules/org-standards.md \
+  https://raw.githubusercontent.com/your-org/bob-rules/main/standards.md
+
+echo "Organization rules installed successfully!"</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Hybrid Approach</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <div class="demo-flow">
+                <h3>Combining Global and Workspace Rules</h3>
+                <p>Use a hybrid approach for maximum flexibility:</p>
+                
+                <div class="capabilities-overview">
+                  <div class="cap-card">
+                    <h4>🌍 Global Rules</h4>
+                    <p>Organization-wide standards that apply to all projects</p>
+                    <ul style="margin-top: 10px;">
+                      <li>Security policies</li>
+                      <li>Code quality standards</li>
+                      <li>Documentation requirements</li>
+                    </ul>
+                  </div>
+                  <div class="cap-card">
+                    <h4>📁 Workspace Rules</h4>
+                    <p>Project-specific requirements and customizations</p>
+                    <ul style="margin-top: 10px;">
+                      <li>Technology stack preferences</li>
+                      <li>Project workflows</li>
+                      <li>Team conventions</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h4 style="margin-top: 20px;">Example Hybrid Configuration</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Hybrid Setup</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Global rules (organization standards)
+~/.bob/rules/
+├── security.md          # "Never commit secrets"
+├── code-quality.md      # "Use type hints"
+└── documentation.md     # "Document all APIs"
+
+# Workspace rules (project-specific)
+.bob/rules/
+├── tech-stack.md        # "Use React with TypeScript"
+├── testing.md           # "Use Jest and React Testing Library"
+└── deployment.md        # "Deploy to AWS ECS"
+
+# Result: Both sets of rules apply, workspace can override global</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>🤝 Team Success:</strong> Regular communication and updates ensure everyone stays aligned. Schedule periodic reviews of your rules to keep them relevant and effective.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
 
     <!-- Real-World Examples -->
     <section id="examples" class="section">

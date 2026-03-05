@@ -945,56 +945,129 @@ exit 0</code></pre>
 
         <div class="capability-content">
           <div class="objective-box">
-            <h3>Bob Shell in Your IDE</h3>
-            <p>Bob Shell can be launched directly from your IDE, making it easy to access AI assistance without leaving your development environment.</p>
+            <h3>Connect Bob Shell to Your Code Editor</h3>
+            <p>Connect Bob Shell directly to your code editor for a seamless development experience. This integration enhances Bob Shell's capabilities by providing real-time workspace awareness and enabling powerful features like in-editor diff viewing.</p>
           </div>
 
+          <!-- Overview Table -->
+          <div class="info-card">
+            <h3>Overview</h3>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+              <thead>
+                <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Feature</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Description</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Benefit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Workspace awareness</strong></td>
+                  <td style="padding: 12px;">Bob Shell sees your recent files and cursor position</td>
+                  <td style="padding: 12px;">More contextually relevant assistance</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Native diff viewing</strong></td>
+                  <td style="padding: 12px;">Review code changes in your editor's diff tool</td>
+                  <td style="padding: 12px;">Easier code review and modification</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Command integration</strong></td>
+                  <td style="padding: 12px;">Access Bob Shell features from editor commands</td>
+                  <td style="padding: 12px;">Streamlined workflow</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px;"><strong>Seamless file editing</strong></td>
+                  <td style="padding: 12px;">Accept changes directly in your editor</td>
+                  <td style="padding: 12px;">Faster implementation of suggestions</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="margin-top: 1rem; padding: 12px; background-color: #e8f4fd; border-left: 4px solid #0f62fe; border-radius: 4px;">
+              <strong>Note:</strong> Currently, Bob IDE and compatible editors are supported. Additional editor support may be added in future releases.
+            </p>
+          </div>
+
+          <!-- Getting Started -->
+          <div class="integration-card">
+            <h4>Getting Started</h4>
+            <div class="integration-content">
+              <ol style="line-height: 1.8;">
+                <li>Start Bob Shell from your Bob IDE terminal</li>
+                <li>Accept the automatic integration prompt when it appears</li>
+                <li>Use Bob Shell normally - it now has access to your workspace context</li>
+                <li>When Bob Shell suggests code changes, they'll appear in Bob IDE's diff viewer</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Benefits of IDE Integration -->
+          <div class="info-card">
+            <h3>Benefits of IDE Integration</h3>
+            
+            <h4>Enhanced Context Awareness</h4>
+            <p>Without IDE integration, Bob Shell only knows about files you explicitly reference. With integration enabled, Bob Shell automatically gains:</p>
+            <ul style="line-height: 1.8;">
+              <li>Access to your 10 most recently accessed files</li>
+              <li>Knowledge of your current cursor position</li>
+              <li>Visibility of your selected text (up to 16KB)</li>
+            </ul>
+            <p style="margin-top: 1rem; padding: 12px; background-color: #f4f4f4; border-radius: 4px;">
+              This contextual awareness allows Bob Shell to provide more relevant assistance without requiring you to manually reference files.
+            </p>
+
+            <h4 style="margin-top: 2rem;">Seamless Code Modifications</h4>
+            <p>When Bob Shell suggests code changes:</p>
+            <div class="code-block-wrapper">
+              <pre><code>┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│                 │     │                 │     │                 │
+│  Bob Shell      │────▶│  Bob IDE        │────▶│  Your codebase  │
+│  suggests       │     │  diff viewer    │     │  with changes   │
+│  changes        │     │  shows changes  │     │  applied        │
+│                 │     │                 │     │                 │
+└─────────────────┘     └─────────────────┘     └─────────────────┘</code></pre>
+            </div>
+            <p>This workflow allows you to:</p>
+            <ul style="line-height: 1.8;">
+              <li>Review changes in your familiar editor environment</li>
+              <li>Edit the suggested changes before accepting them</li>
+              <li>Accept or reject changes using standard editor commands</li>
+              <li>Keep your hands on the keyboard throughout the process</li>
+            </ul>
+          </div>
+
+          <!-- Installation Methods -->
           <div class="integration-grid">
             <div class="integration-card">
-              <h4>VS Code Integration</h4>
+              <h4>Method 1: Automatic Setup (Recommended)</h4>
               <div class="integration-content">
-                <h5>Launch from Command Palette</h5>
-                <p>If you have Bob IDE installed, you can start Bob Shell directly from VS Code:</p>
+                <p>When you run Bob Shell inside Bob IDE's integrated terminal, it automatically detects the environment and offers to set up integration:</p>
                 <div class="code-block-wrapper">
-                  <div class="code-block-header">
-                    <span class="code-block-language">VS Code Command Palette</span>
-                    <button class="copy-button">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                      </svg>
-                      Copy
-                    </button>
-                  </div>
-                  <pre><code># Open Command Palette
-# Windows/Linux: Ctrl+Shift+P
-# macOS: Cmd+Shift+P
-
-# Type and select:
-run bobshell
-
-# This will open Bob Shell in the integrated terminal
-# with your current workspace context</code></pre>
+                  <pre><code>┌─────────────────────────────────────────────────────────────────────────────┐
+│ > Do you want to connect Bob IDE to Bob Shell?                               │
+│ If you select Yes, we'll install an extension that allows the CLI to ac ... │
+│                                                                             │
+│   1. Yes                                                                    │
+│   2. No                                                                     │
+│   3. No, don't ask again                                                    │
+└─────────────────────────────────────────────────────────────────────────────┘</code></pre>
                 </div>
-                
-                <h5>Integrated Terminal</h5>
-                <p>Bob Shell runs in VS Code's integrated terminal, giving you:</p>
-                <ul>
-                  <li>Access to your workspace files using @ references</li>
-                  <li>Automatic context awareness of your project</li>
-                  <li>Seamless integration with your development workflow</li>
-                  <li>Ability to use Bob Shell alongside other terminal commands</li>
+                <p>Selecting "Yes" will:</p>
+                <ul style="line-height: 1.8;">
+                  <li>Install the Bob Shell Companion extension</li>
+                  <li>Configure the necessary connection settings</li>
+                  <li>Establish the connection automatically</li>
                 </ul>
               </div>
             </div>
 
             <div class="integration-card">
-              <h4>Terminal Integration</h4>
+              <h4>Method 2: Command-Line Installation</h4>
               <div class="integration-content">
-                <h5>Use in Any Terminal</h5>
-                <p>Bob Shell works in any terminal environment:</p>
+                <p>If you dismissed the automatic prompt or need to reinstall, use the built-in command:</p>
                 <div class="code-block-wrapper">
                   <div class="code-block-header">
-                    <span class="code-block-language">Terminal Usage</span>
+                    <span class="code-block-language">Bob Shell Command</span>
                     <button class="copy-button">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
@@ -1002,36 +1075,309 @@ run bobshell
                       Copy
                     </button>
                   </div>
-                  <pre><code># Standard terminal (bash, zsh, fish, PowerShell)
-cd /path/to/your/project
-bob -p "Analyze @src/main.js"
-
-# Works with your project files
-bob -p "What dependencies are in @package.json?"
-
-# Interactive mode
-bob
-
-# Combine with other commands
-bob -p "List API endpoints in @routes/" > api-docs.txt</code></pre>
+                  <pre><code>/ide install</code></pre>
                 </div>
+                <p>This command:</p>
+                <ul style="line-height: 1.8;">
+                  <li>Detects your current IDE</li>
+                  <li>Finds the appropriate extension</li>
+                  <li>Installs it automatically</li>
+                  <li>Provides setup instructions</li>
+                </ul>
               </div>
             </div>
           </div>
 
-          <div class="business-value">
-            <h3>Integration Benefits</h3>
-            <div class="value-comparison">
-              <div class="value-traditional">
-                <strong>Context Switching:</strong>
-                <p>Leave IDE → Open terminal → Navigate to project → Run commands</p>
+          <!-- Managing the Connection -->
+          <div class="info-card">
+            <h3>Managing the Connection</h3>
+            
+            <h4>Connection Commands</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+              <thead>
+                <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Command</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Purpose</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><code>/ide enable</code></td>
+                  <td style="padding: 12px;">Activate the IDE connection</td>
+                  <td style="padding: 12px;"><code>/ide enable</code></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><code>/ide disable</code></td>
+                  <td style="padding: 12px;">Deactivate the IDE connection</td>
+                  <td style="padding: 12px;"><code>/ide disable</code></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><code>/ide status</code></td>
+                  <td style="padding: 12px;">Check connection status and context</td>
+                  <td style="padding: 12px;"><code>/ide status</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px;"><code>/ide install</code></td>
+                  <td style="padding: 12px;">Install the companion extension</td>
+                  <td style="padding: 12px;"><code>/ide install</code></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 style="margin-top: 2rem;">Checking Connection Status</h4>
+            <p>To verify your connection and see what context Bob Shell has access to:</p>
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-language">Bob Shell Command</span>
+                <button class="copy-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  Copy
+                </button>
               </div>
-              <div class="value-bob">
-                <strong>Bob Shell Integration:</strong>
-                <p>Stay in IDE → Launch from Command Palette → Instant access with context</p>
-              </div>
+              <pre><code>/ide status</code></pre>
             </div>
-            <p class="highlight">"<strong>Seamless Workflow</strong> - Bob Shell integrates naturally into your development environment, providing AI assistance exactly where and when you need it.</p>
+            <p>Example output:</p>
+            <div class="code-block-wrapper">
+              <pre><code>🟢 Connected to Bob IDE
+Recent files:
+- src/components/Header.tsx
+- src/utils/api.js
+- package.json</code></pre>
+            </div>
+          </div>
+
+          <!-- Working with Code Changes -->
+          <div class="info-card">
+            <h3>Working with Code Changes</h3>
+            <p>When Bob Shell suggests code modifications, you'll see them in your editor's diff viewer.</p>
+
+            <h4>Accepting Changes</h4>
+            <p>You have multiple ways to accept suggested changes:</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+              <thead>
+                <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Method</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Editor UI</strong></td>
+                  <td style="padding: 12px;">Click the ✓ checkmark in the diff editor's title bar</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Keyboard</strong></td>
+                  <td style="padding: 12px;">Press Cmd+S (macOS) or Ctrl+S (Windows/Linux)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Command Palette</strong></td>
+                  <td style="padding: 12px;">Run Bob Shell: Accept Diff</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px;"><strong>Bob Shell CLI</strong></td>
+                  <td style="padding: 12px;">Type <code>yes</code> when prompted</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 style="margin-top: 2rem;">Rejecting Changes</h4>
+            <p>To reject suggested changes:</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+              <thead>
+                <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Method</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Editor UI</strong></td>
+                  <td style="padding: 12px;">Click the ✗ icon in the diff editor's title bar</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Keyboard</strong></td>
+                  <td style="padding: 12px;">Close the diff editor tab</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Command Palette</strong></td>
+                  <td style="padding: 12px;">Run Bob Shell: Close Diff Editor</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px;"><strong>Bob Shell CLI</strong></td>
+                  <td style="padding: 12px;">Type <code>no</code> when prompted</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 style="margin-top: 2rem;">Modifying Suggestions</h4>
+            <p>You can edit the suggested code directly in the diff editor before accepting it. This allows you to:</p>
+            <ul style="line-height: 1.8;">
+              <li>Fix minor issues in the suggestion</li>
+              <li>Adapt the code to your specific needs</li>
+              <li>Add comments or additional logic</li>
+              <li>Ensure the changes match your coding style</li>
+            </ul>
+            <p style="margin-top: 1rem; padding: 12px; background-color: #e8f4fd; border-left: 4px solid #0f62fe; border-radius: 4px;">
+              <strong>Tip:</strong> For frequently repeated changes, select "Yes, allow always" in Bob Shell to auto-accept similar changes in the future.
+            </p>
+          </div>
+
+          <!-- Advanced Usage -->
+          <div class="info-card">
+            <h3>Advanced Usage</h3>
+            
+            <h4>Bob IDE Commands</h4>
+            <p>Access Bob Shell features directly from Bob IDE's Command Palette (Cmd+Shift+P or Ctrl+Shift+P):</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+              <thead>
+                <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Command</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Function</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Bob Shell: Run</strong></td>
+                  <td style="padding: 12px;">Start a new Bob Shell session in the terminal</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Bob Shell: Accept Diff</strong></td>
+                  <td style="padding: 12px;">Accept changes in the active diff editor</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Bob Shell: Close Diff Editor</strong></td>
+                  <td style="padding: 12px;">Reject changes and close the diff editor</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px;"><strong>Bob Shell: View Third-Party Notices</strong></td>
+                  <td style="padding: 12px;">Show third-party notices</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 style="margin-top: 2rem;">Using with Sandboxed Environments</h4>
+            
+            <h5>macOS Sandboxing</h5>
+            <p>When using Bob Shell with macOS Seatbelt sandboxing:</p>
+            <ul style="line-height: 1.8;">
+              <li>The IDE integration requires network access</li>
+              <li>Use a Seatbelt profile that allows network connections</li>
+              <li>The default permissive-open profile works with IDE integration</li>
+            </ul>
+
+            <h5 style="margin-top: 1rem;">Docker Containers</h5>
+            <p>When running Bob Shell in a Docker container:</p>
+            <ul style="line-height: 1.8;">
+              <li>The integration can still connect to Bob IDE on your host machine</li>
+              <li>Bob Shell automatically finds the IDE server via host.docker.internal</li>
+              <li>Ensure your Docker networking allows container-to-host connections</li>
+            </ul>
+          </div>
+
+          <!-- Troubleshooting -->
+          <div class="info-card">
+            <h3>Troubleshooting</h3>
+            
+            <h4>Common Issues and Solutions</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+              <thead>
+                <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Issue</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Possible Causes</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Solution</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;">Connection fails</td>
+                  <td style="padding: 12px;">Extension not installed or running</td>
+                  <td style="padding: 12px;">Install extension and run <code>/ide enable</code></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;">Directory mismatch</td>
+                  <td style="padding: 12px;">Bob Shell running outside workspace</td>
+                  <td style="padding: 12px;">cd to your workspace directory</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;">Connection lost</td>
+                  <td style="padding: 12px;">Network issue or IDE restart</td>
+                  <td style="padding: 12px;">Run <code>/ide enable</code> to reconnect</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px;">No workspace open</td>
+                  <td style="padding: 12px;">Missing workspace in IDE</td>
+                  <td style="padding: 12px;">Open a folder/workspace in your IDE</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 style="margin-top: 2rem;">Error Message Reference</h4>
+            
+            <h5>Connection Errors</h5>
+            <div style="margin-top: 1rem; padding: 12px; background-color: #fff1f1; border-left: 4px solid #da1e28; border-radius: 4px;">
+              <strong>🔴 Disconnected: Failed to connect to IDE companion extension in [IDE Name]</strong>
+              <p style="margin-top: 0.5rem;"><strong>Solution:</strong></p>
+              <ul style="line-height: 1.8;">
+                <li>Verify the Bob Shell Companion extension is installed and enabled</li>
+                <li>Open a new terminal in your IDE</li>
+                <li>Run <code>/ide enable</code></li>
+              </ul>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 12px; background-color: #fff1f1; border-left: 4px solid #da1e28; border-radius: 4px;">
+              <strong>🔴 Disconnected: IDE connection error. The connection was lost unexpectedly</strong>
+              <p style="margin-top: 0.5rem;"><strong>Solution:</strong></p>
+              <ul style="line-height: 1.8;">
+                <li>Run <code>/ide enable</code> to reconnect</li>
+                <li>If the issue persists, restart your IDE</li>
+              </ul>
+            </div>
+
+            <h5 style="margin-top: 1.5rem;">Configuration Errors</h5>
+            <div style="margin-top: 1rem; padding: 12px; background-color: #fff1f1; border-left: 4px solid #da1e28; border-radius: 4px;">
+              <strong>🔴 Disconnected: Directory mismatch</strong>
+              <p style="margin-top: 0.5rem;"><strong>Solution:</strong></p>
+              <ul style="line-height: 1.8;">
+                <li>Navigate to the same directory that's open in your IDE</li>
+                <li>Restart Bob Shell</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 12px; background-color: #fff1f1; border-left: 4px solid #da1e28; border-radius: 4px;">
+              <strong>🔴 Disconnected: To use this feature, please open a workspace folder</strong>
+              <p style="margin-top: 0.5rem;"><strong>Solution:</strong></p>
+              <ul style="line-height: 1.8;">
+                <li>Open a folder or workspace in your IDE</li>
+                <li>Restart Bob Shell</li>
+              </ul>
+            </div>
+
+            <h5 style="margin-top: 1.5rem;">General Errors</h5>
+            <div style="margin-top: 1rem; padding: 12px; background-color: #fff1f1; border-left: 4px solid #da1e28; border-radius: 4px;">
+              <strong>IDE integration is not supported in your current environment</strong>
+              <p style="margin-top: 0.5rem;"><strong>Solution:</strong> Run Bob Shell from within a supported IDE's integrated terminal</p>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 12px; background-color: #fff1f1; border-left: 4px solid #da1e28; border-radius: 4px;">
+              <strong>No installer is available for IDE</strong>
+              <p style="margin-top: 0.5rem;"><strong>Solution:</strong> Install the Bob Shell Companion extension manually from your IDE's marketplace</p>
+            </div>
+          </div>
+
+          <!-- Best Practices -->
+          <div class="business-value">
+            <h3>Best Practices</h3>
+            <ul style="line-height: 1.8;">
+              <li>Start Bob Shell from your IDE's terminal for automatic integration</li>
+              <li>Keep your workspace focused on relevant files for better context</li>
+              <li>Review diffs carefully before accepting changes</li>
+              <li>Use keyboard shortcuts for faster workflow</li>
+              <li>Check connection status if Bob Shell seems to be missing context</li>
+            </ul>
+            <p class="highlight" style="margin-top: 1.5rem;"><strong>Seamless Workflow</strong> - Bob Shell integrates naturally into your development environment, providing AI assistance with enhanced context awareness and native diff viewing capabilities.</p>
           </div>
         </div>
       </div>
