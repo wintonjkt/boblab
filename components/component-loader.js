@@ -59,12 +59,17 @@ class ComponentLoader {
 
   // Initialize the component system
   async init() {
+    // Detect if we're in a subdirectory and adjust paths accordingly
+    const currentPath = window.location.pathname;
+    const isInSubdirectory = currentPath.includes('/labs/');
+    const basePath = isInSubdirectory ? '../' : '';
+    
     // Register default components
-    this.register('navbar', 'components/navbar.html');
-    this.register('hero', 'components/hero.html');
-    this.register('intro', 'components/intro.html');
-    this.register('engagement', 'components/engagement.html');
-    this.register('footer', 'components/footer.html');
+    this.register('navbar', `${basePath}components/navbar.html`);
+    this.register('hero', `${basePath}components/hero.html`);
+    this.register('intro', `${basePath}components/intro.html`);
+    this.register('engagement', `${basePath}components/engagement.html`);
+    this.register('footer', `${basePath}components/footer.html`);
 
     // Load all components
     await this.loadAll();
