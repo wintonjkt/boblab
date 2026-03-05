@@ -21,10 +21,16 @@ The workshop covers a realistic scenario: implementing SSO + MFA across 3 legacy
 - **Responsive Layout** - Works on desktop, tablet, and mobile
 
 ### Content Pages
-1. **Home** - Landing page with overview and interactive demo
-2. **Narrative** - Stage-by-stage workshop guide with sidebar progress
-3. **Walkthrough** - Self-paced learning with verification checkpoints
-4. **Demo** - Interactive tabs showing legacy vs. transformed systems
+1. **Home** - Landing page with component-based architecture
+2. **Narrative** - Customer conversation guide with talk tracks
+3. **Labs** - 13 interactive lab exercises covering Bob capabilities
+
+### Component Architecture
+The site uses a modular component system for maintainability:
+- **Reusable Components** - Navbar, footer, breadcrumb, progress tracking
+- **Dynamic Loading** - Components loaded via [`component-loader.js`](components/component-loader.js:1)
+- **Consistent Structure** - All lab pages use standardized component layout
+- **Theme Support** - Dark/light mode with [`theme-manager.js`](components/theme-manager.js:1)
 
 ## 🎨 Design System
 
@@ -39,16 +45,40 @@ This site uses the **Carbon Design System** - IBM's open-source design system:
 
 ```
 boblab/
-├── index.html          # Landing page with demo
-├── narrative.html      # Stage-by-stage guide with sidebar
-├── walkthrough.html    # Self-paced walkthrough
-├── styles.css          # Carbon Design System styles
-├── narrative.css       # Additional page styles
-├── script.js           # Progress tracking & interactivity
-├── README.md           # This file
-└── .github/
-    └── workflows/
-        └── deploy.yml  # GitHub Pages deployment
+├── index.html              # Landing page
+├── narrative.html          # Customer conversation guide
+├── styles.css              # Carbon Design System styles
+├── narrative.css           # Additional page styles
+├── script.js               # Progress tracking & interactivity
+├── i18n.js                 # Internationalization support
+├── README.md               # This file
+├── components/             # Reusable UI components
+│   ├── navbar.html         # Navigation bar
+│   ├── breadcrumb.html     # Breadcrumb navigation
+│   ├── footer.html         # Page footer
+│   ├── enhanced-progress.html  # Progress tracking sidebar
+│   ├── table-of-contents.html  # Table of contents
+│   ├── theme-toggle.html   # Dark/light theme toggle
+│   ├── component-loader.js # Component loading system
+│   ├── search.js           # Search functionality
+│   ├── theme-manager.js    # Theme management
+│   └── collapsible-sections.js  # Collapsible sections
+├── labs/                   # Interactive lab exercises
+│   ├── getting-started.html
+│   ├── walkthrough.html
+│   ├── bob-rules.html
+│   ├── custom-modes.html
+│   ├── mcp.html
+│   ├── carbon-react.html
+│   ├── spec-driven-development.html
+│   ├── cobol2java.html
+│   ├── ibmi.html
+│   ├── appmod.html
+│   ├── sdlc.html
+│   ├── bobshell.html
+│   └── wxo-orchestrate.html
+├── translations/           # i18n translation files
+└── samples/                # Sample code and resources
 ```
 
 ## 🛠️ Local Development
@@ -94,19 +124,14 @@ php -S localhost:8000
 
 Search and replace "bob-lab" with your preferred name across all HTML files.
 
-### Modify Lab Steps
+### Add New Lab Pages
 
-Edit the sidebar progress items in `narrative.html` and `walkthrough.html`:
+All lab pages use the standardized component structure. Create new labs by:
 
-```html
-<label class="progress-item">
-  <span class="progress-item-checkbox">
-    <input type="checkbox" data-section="stage1" data-step="your-step">
-    <span class="checkbox-custom"></span>
-  </span>
-  <span class="progress-item-text">Your step description</span>
-</label>
-```
+1. Copy an existing lab file from [`labs/`](labs/) directory
+2. Update the content within the `<main>` section
+3. Components (navbar, breadcrumb, progress, footer) load automatically
+4. Add the new lab to [`components/navbar.html`](components/navbar.html:1) dropdown menu
 
 ### Update Colors
 
@@ -144,6 +169,18 @@ Edit the CSS variables in `styles.css`:
 ## 🔐 Privacy
 
 Progress tracking uses localStorage only - no data is sent to external servers. All progress remains on your device.
+
+## 🗂️ Project Maintenance
+
+### Excluded Files
+The following files are excluded from version control (see [`.gitignore`](.gitignore:1)):
+- **Temporary files**: `*.tmp`, `*.temp`, `*.swp`, `*.swo`
+- **Editor files**: `.vscode/`, `.idea/`, `*.sublime-*`
+- **OS files**: `.DS_Store`, `Thumbs.db`, `desktop.ini`
+- **Build artifacts**: `dist/`, `build/`, `*.log`
+- **Dependencies**: `node_modules/`, `package-lock.json`
+
+These exclusions keep the repository clean and focused on source files.
 
 ## 🤝 Contributing
 
