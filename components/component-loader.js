@@ -25,6 +25,9 @@ class ComponentLoader {
       const response = await fetch(url);
       const html = await response.text();
       
+      // Detect if we're in a subdirectory for link adjustment
+      const currentPath = window.location.pathname;
+      
       // Create a temporary container to parse the HTML
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = html;
@@ -35,6 +38,21 @@ class ComponentLoader {
       elements.forEach(element => {
         // Clone the component content
         const componentContent = tempDiv.firstElementChild.cloneNode(true);
+        
+        // Adjust relative links if we're in a subdirectory
+        if (currentPath && currentPath.includes('/labs/')) {
+          const links = componentContent.querySelectorAll('a[href^="labs/"], a[href^="index.html"], a[href^="narrative.html"]');
+          links.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href.startsWith('labs/')) {
+              // Already has labs/ prefix, remove it since we're already in labs
+              link.setAttribute('href', href.replace('labs/', ''));
+            } else if (href === 'index.html' || href === 'narrative.html') {
+              // Need to go up one level
+              link.setAttribute('href', '../' + href);
+            }
+          });
+        }
         
         // Clear the target element
         element.innerHTML = '';
