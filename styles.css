@@ -1514,9 +1514,23 @@ a:focus {
 
 .intro-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--spacing-xl);
   margin-top: var(--spacing-xl);
+}
+
+/* 3-column grid for desktop */
+@media (min-width: 968px) {
+  .intro-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 2-column grid for tablet */
+@media (min-width: 640px) and (max-width: 967px) {
+  .intro-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .intro-card {
@@ -1550,6 +1564,27 @@ a:focus {
 
 .intro-card .btn {
   align-self: flex-start;
+}
+
+/* Featured lab cards styling */
+.intro-card.featured {
+  border: 2px solid var(--primary-color);
+  position: relative;
+}
+
+.intro-card.featured::before {
+  content: 'Featured';
+  position: absolute;
+  top: -1px;
+  right: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 0 0 4px 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Engagement CTA */

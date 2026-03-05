@@ -32,12 +32,19 @@ class ComponentLoader {
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = html;
       
+      // Find the first actual element (not a comment)
+      let componentContent = null;
+      for (let node of tempDiv.childNodes) {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          componentContent = node.cloneNode(true);
+          break;
+        }
+      }
+      
       // Find elements with data-component attribute
       const elements = document.querySelectorAll(`[data-component="${name}"]`);
       
       elements.forEach(element => {
-        // Clone the component content
-        const componentContent = tempDiv.firstElementChild.cloneNode(true);
         
         // Adjust relative links if we're in a subdirectory
         if (currentPath && currentPath.includes('/labs/')) {
@@ -57,8 +64,12 @@ class ComponentLoader {
         // Clear the target element
         element.innerHTML = '';
         
-        // Append the component content
-        element.appendChild(componentContent);
+        // Append the component content if it was found
+        if (componentContent) {
+          element.appendChild(componentContent);
+        } else {
+          console.error(`No valid element found in component ${name}`);
+        }
       });
 
       this.loadedComponents.add(name);
