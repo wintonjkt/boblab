@@ -77,15 +77,15 @@
           <p><strong>Estimated Time:</strong> 15-20 minutes to complete the full SDLC workflow</p>
           
           <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #0f62fe 0%, #0353e9 100%); border-radius: 8px; text-align: center;">
-            <h3 style="color: white; margin: 0 0 0.5rem 0; font-size: 1.25rem;">📦 Download Repository Materials</h3>
-            <p style="color: rgba(255, 255, 255, 0.9); margin: 0 0 1rem 0;">Get the complete source code, examples, and documentation to follow along</p>
-            <a href="" target="_blank" style="display: inline-block; padding: 0.75rem 2rem; background: white; color: #0f62fe; text-decoration: none; border-radius: 4px; font-weight: 600; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+            <h3 style="color: white; margin: 0 0 0.5rem 0; font-size: 1.25rem;">📦 Download Sample Application</h3>
+            <p style="color: rgba(255, 255, 255, 0.9); margin: 0 0 1rem 0;">Get the ModResorts WebSphere Traditional (tWAS) Java 8 application to follow along</p>
+            <a href="../samples/modresorts-twas-j8.zip" download style="display: inline-block; padding: 0.75rem 2rem; background: white; color: #0f62fe; text-decoration: none; border-radius: 4px; font-weight: 600; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 0.5rem;">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>
               </svg>
-              Download Repository
+              Download modresorts-twas-j8.zip
             </a>
           </div>
         </div>
@@ -114,10 +114,10 @@
               <div class="step-number">1</div>
               <div class="step-content">
                 <h4>Provide Your Codebase</h4>
-                <p>Point Bob to your repository or upload your code.</p>
+                <p>Point Bob to your repository or upload your code. For this lab, we'll use the ModResorts sample application.</p>
                 <div class="prompt-box">
                   <div class="prompt-content">
-                    <p>Example: A Node.js microservice with 50+ files, Express routes, MongoDB integration, and authentication logic</p>
+                    <p>Example: ModResorts - A WebSphere Application Server Traditional (tWAS) Java 8 application with servlets, JSP views, JMX MBeans, and JDBC connections. Download from <a href="../samples/modresorts-twas-j8.zip" download style="color: #0f62fe; text-decoration: underline;">samples/modresorts-twas-j8.zip</a></p>
                   </div>
                 </div>
               </div>
@@ -158,31 +158,31 @@
                   <div class="repo-phase">
                     <span class="phase-label">Architecture Overview</span>
                     <ul>
-                      <li>3-tier architecture: API Layer → Business Logic → Data Access</li>
-                      <li>RESTful API with Express.js framework</li>
-                      <li>MongoDB for data persistence with Mongoose ODM</li>
-                      <li>JWT-based authentication with refresh tokens</li>
+                      <li>J2EE monolithic application with servlet-based architecture</li>
+                      <li>WebSphere Application Server Traditional (tWAS) runtime</li>
+                      <li>JMX MBeans for management and monitoring</li>
+                      <li>Custom security implementations and filters</li>
                     </ul>
                   </div>
 
                   <div class="repo-phase">
                     <span class="phase-label">Key Components</span>
                     <ul>
-                      <li><strong>routes/</strong> - API endpoint definitions (users, auth, products)</li>
-                      <li><strong>controllers/</strong> - Business logic handlers</li>
-                      <li><strong>models/</strong> - MongoDB schemas and data models</li>
-                      <li><strong>middleware/</strong> - Auth, validation, error handling</li>
-                      <li><strong>services/</strong> - External integrations (email, payment)</li>
+                      <li><strong>servlets/</strong> - WelcomeServlet, WeatherServlet, AvailabilityCheckerServlet</li>
+                      <li><strong>filters/</strong> - FirstFilter, SecondFilter for request processing</li>
+                      <li><strong>mbean/</strong> - JMX beans for reservation management and app info</li>
+                      <li><strong>security/</strong> - Custom permission handling and SSL utilities</li>
+                      <li><strong>db/</strong> - Customer information and data access layer</li>
                     </ul>
                   </div>
 
                   <div class="repo-phase">
-                    <span class="phase-label">API Endpoints</span>
+                    <span class="phase-label">Key Features</span>
                     <ul>
-                      <li>POST /api/auth/login - User authentication</li>
-                      <li>GET /api/users/:id - Retrieve user profile</li>
-                      <li>POST /api/products - Create new product</li>
-                      <li>GET /api/orders - List user orders</li>
+                      <li>Resort booking and availability checking</li>
+                      <li>Weather data integration for resort locations</li>
+                      <li>User authentication and session management</li>
+                      <li>JMX-based reservation management</li>
                     </ul>
                   </div>
 
@@ -191,8 +191,8 @@
                     <ul>
                       <li>README.md - Project overview and quick start</li>
                       <li>ARCHITECTURE.md - Detailed system design</li>
-                      <li>API.md - Complete API documentation</li>
-                      <li>SETUP.md - Environment setup guide</li>
+                      <li>API.md - Servlet endpoints documentation</li>
+                      <li>SETUP.md - WebSphere setup guide</li>
                     </ul>
                   </div>
                 </div>

@@ -82,15 +82,15 @@
           <p><strong>Estimated Time:</strong> 15-20 minutes to complete the full modernization workflow</p>
           
           <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #0f62fe 0%, #0353e9 100%); border-radius: 8px; text-align: center;">
-            <h3 style="color: white; margin: 0 0 0.5rem 0; font-size: 1.25rem;">📦 Download Repository Materials</h3>
-            <p style="color: rgba(255, 255, 255, 0.9); margin: 0 0 1rem 0;">Get the complete source code, examples, and documentation to follow along</p>
-            <a href="" target="_blank" style="display: inline-block; padding: 0.75rem 2rem; background: white; color: #0f62fe; text-decoration: none; border-radius: 4px; font-weight: 600; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+            <h3 style="color: white; margin: 0 0 0.5rem 0; font-size: 1.25rem;">📦 Download Sample Application</h3>
+            <p style="color: rgba(255, 255, 255, 0.9); margin: 0 0 1rem 0;">Get the ModResorts WebSphere Traditional (tWAS) Java 8 application to follow along</p>
+            <a href="../samples/modresorts-twas-j8.zip" download style="display: inline-block; padding: 0.75rem 2rem; background: white; color: #0f62fe; text-decoration: none; border-radius: 4px; font-weight: 600; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 0.5rem;">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>
               </svg>
-              Download Repository
+              Download modresorts-twas-j8.zip
             </a>
           </div>
         </div>
@@ -119,10 +119,10 @@
               <div class="step-number">1</div>
               <div class="step-content">
                 <h4>Provide Your Legacy Codebase</h4>
-                <p>Upload or point Bob to your legacy application repository.</p>
+                <p>Upload or point Bob to your legacy application repository. For this lab, we'll use the ModResorts sample application.</p>
                 <div class="prompt-box">
                   <div class="prompt-content">
-                    <p>Example: A 10-year-old Java monolith with 200K+ lines of code, JSP views, and JDBC connections</p>
+                    <p>Example: ModResorts - A WebSphere Application Server Traditional (tWAS) Java 8 application with servlets, JSP views, JMX MBeans, and JDBC connections. Download from <a href="../samples/modresorts-twas-j8.zip" download style="color: #0f62fe; text-decoration: underline;">samples/modresorts-twas-j8.zip</a></p>
                   </div>
                 </div>
               </div>
@@ -157,15 +157,15 @@
               <div class="step-number">3</div>
               <div class="step-content">
                 <h4>Review Bob's Analysis</h4>
-                <p>Bob provides comprehensive insights:</p>
+                <p>Bob provides comprehensive insights for the ModResorts application:</p>
                 <div class="result-box">
                   <ul>
-                    <li><strong>Architecture:</strong> Monolithic 3-tier application (Presentation → Business Logic → Data Access)</li>
-                    <li><strong>Tech Stack:</strong> Java 8, Spring 4.x, JSP, JDBC, Oracle DB, Apache Tomcat</li>
-                    <li><strong>Dependencies:</strong> 47 libraries (23 outdated, 8 with known vulnerabilities)</li>
-                    <li><strong>Technical Debt:</strong> High coupling, no unit tests, hardcoded configurations</li>
-                    <li><strong>Code Quality:</strong> Cyclomatic complexity avg 15, duplicated code 23%</li>
-                    <li><strong>Security Issues:</strong> SQL injection risks, no input validation, plaintext passwords</li>
+                    <li><strong>Architecture:</strong> Monolithic J2EE application with servlets, filters, and JMX MBeans</li>
+                    <li><strong>Tech Stack:</strong> Java 8, WebSphere Application Server Traditional (tWAS), JSP, servlets, JMX, Maven</li>
+                    <li><strong>Dependencies:</strong> WebSphere-specific APIs, custom security implementations, legacy patterns</li>
+                    <li><strong>Technical Debt:</strong> Tight coupling to WebSphere, custom trust managers, hardcoded configurations</li>
+                    <li><strong>Code Quality:</strong> Mixed patterns, some deprecated APIs, opportunity for modernization</li>
+                    <li><strong>Security Issues:</strong> Custom SSL implementations, permission handling that needs review</li>
                   </ul>
                 </div>
               </div>
