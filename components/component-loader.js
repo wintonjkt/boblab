@@ -96,6 +96,7 @@ class ComponentLoader {
     // Register default components
     this.register('navbar', `${basePath}components/navbar.html`);
     this.register('breadcrumb', `${basePath}components/breadcrumb.html`);
+    this.register('theme-toggle', `${basePath}components/theme-toggle.html`);
     this.register('enhanced-progress', `${basePath}components/enhanced-progress.html`);
     this.register('table-of-contents', `${basePath}components/table-of-contents.html`);
     this.register('hero', `${basePath}components/hero.html`);
@@ -229,7 +230,7 @@ class ComponentLoader {
     });
   }
 
-  // Initialize search functionality
+  // Initialize additional scripts
   initializeSearch() {
     // Load search script
     const isInSubdirectory = window.location.pathname.includes('/labs/');
@@ -260,6 +261,14 @@ class ComponentLoader {
       collapsibleScript.src = `${isInSubdirectory ? '../' : ''}components/collapsible-sections.js`;
       collapsibleScript.async = true;
       document.head.appendChild(collapsibleScript);
+    }
+    
+    // Load theme manager script if theme toggle is present
+    if (document.querySelector('[data-component="theme-toggle"]')) {
+      const themeScript = document.createElement('script');
+      themeScript.src = `${isInSubdirectory ? '../' : ''}components/theme-manager.js`;
+      themeScript.async = true;
+      document.head.appendChild(themeScript);
     }
   }
 }
