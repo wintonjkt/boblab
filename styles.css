@@ -813,7 +813,6 @@ a:focus {
     overflow: hidden;
   }
 }
-}
 
 .logo-icon {
   display: none;
@@ -1878,6 +1877,35 @@ a:focus {
 /* ============================================
    CODE BLOCKS (with copy button)
    ============================================ */
+
+/* Code Comparison Layout (Before & After) */
+.code-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.code-comparison .code-block-wrapper {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.code-comparison .code-block-wrapper pre {
+  flex: 1;
+  overflow-y: auto;
+  margin: 0;
+}
+
+/* Responsive: Stack on smaller screens */
+@media (max-width: 768px) {
+  .code-comparison {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
 
 .code-block-wrapper {
   position: relative;
