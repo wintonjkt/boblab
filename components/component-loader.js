@@ -265,6 +265,55 @@ class ComponentLoader {
       themeScript.async = true;
       document.head.appendChild(themeScript);
     }
+    
+    // Load Mermaid.js for diagram rendering
+    this.initializeMermaid();
+  }
+
+  // Initialize Mermaid.js for diagram rendering
+  initializeMermaid() {
+    // Load Mermaid from CDN
+    const mermaidScript = document.createElement('script');
+    mermaidScript.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+    mermaidScript.async = true;
+    
+    mermaidScript.onload = () => {
+      // Initialize Mermaid with configuration
+      if (window.mermaid) {
+        window.mermaid.initialize({
+          startOnLoad: true,
+          theme: document.body.classList.contains('dark-theme') ? 'dark' : 'default',
+          securityLevel: 'loose',
+          fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif'
+        });
+        
+        // Re-render Mermaid diagrams when theme changes
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'class') {
+              const isDark = document.body.classList.contains('dark-theme');
+              window.mermaid.initialize({
+                startOnLoad: true,
+                theme: isDark ? 'dark' : 'default',
+                securityLevel: 'loose',
+                fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif'
+              });
+              // Re-render all Mermaid diagrams
+              document.querySelectorAll('.mermaid').forEach((element, index) => {
+                const graphDefinition = element.textContent;
+                element.removeAttribute('data-processed');
+                element.innerHTML = graphDefinition;
+              });
+              window.mermaid.run();
+            }
+          });
+        });
+        
+        observer.observe(document.body, { attributes: true });
+      }
+    };
+    
+    document.head.appendChild(mermaidScript);
   }
 }
 
