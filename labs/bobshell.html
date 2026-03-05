@@ -11,7 +11,10 @@
 <body>
   <!-- Shared Navigation Component -->
   <div data-component="navbar"></div>
-
+  
+  <!-- Breadcrumb Navigation -->
+  <div data-component="breadcrumb"></div>
+  
   <header class="page-header">
     <div class="container">
       <h1>Master BobShell</h1>
@@ -35,8 +38,8 @@
         <a href="#integrations" class="capability-link">IDE & CI/CD Integration</a>
       </nav>
       <div class="sidebar-footer">
-        <a href="https://github.ibm.com/bob-ide/bobshell" target="_blank" class="sidebar-github-link">
-          <span class="github-text">BobShell Repo</span>
+        <a href="https://www.ibm.com/docs/en/bob-ide/latest?topic=bobshell" target="_blank" class="sidebar-link">
+          <span class="github-text">Documentation</span>
           <span class="github-arrow">&rarr;</span>
         </a>
       </div>
@@ -1476,6 +1479,10 @@ Recent files:
 
   <!-- Scripts -->
   <script src="../components/component-loader.js"></script>
+  <script src="../components/breadcrumb-helper.js"></script>
+  <script>
+    initBreadcrumb('BobShell');
+  </script>
   <script src="../i18n.js"></script>
   <script src="../script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -1484,5 +1491,27 @@ Recent files:
       hljs.highlightAll();
     });
   </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>bob-lab</h4>
+          <p>Master IBM Bob through hands-on labs</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#labs">All Labs</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Built by IBM Client Engineering with bob</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
