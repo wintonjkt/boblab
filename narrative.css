@@ -905,6 +905,360 @@
 }
 
 /* ============================================
+   SELLER CONVERSATION STYLES
+   ============================================ */
+
+/* Conversation Topics */
+.conversation-topics {
+  margin: var(--spacing-lg) 0;
+}
+
+.conversation-topics h4 {
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+}
+
+.topic-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.topic-pill {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-alt);
+  border: 1px solid var(--border-color);
+  border-radius: 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.topic-pill:hover {
+  background: var(--ui-02);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.topic-pill.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+/* Conversation Content */
+.conversation-content {
+  margin-top: var(--spacing-lg);
+}
+
+.topic-content {
+  display: none;
+  background: white;
+  border-radius: 0;
+  padding: var(--spacing-xl);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.topic-content.active {
+  display: block;
+}
+
+.conversation-example {
+  margin-bottom: var(--spacing-lg);
+}
+
+.conversation-example h5 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.125rem;
+  font-weight: 400;
+}
+
+.recommended-response h6 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1rem;
+}
+
+.recommended-response p {
+  margin-bottom: var(--spacing-md);
+}
+
+.key-points {
+  background: var(--bg-alt);
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin: var(--spacing-lg) 0;
+}
+
+.key-points h6 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.key-points ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+.key-points li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.closing-statement {
+  background: #d0e2ff;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin-top: var(--spacing-lg);
+  border-left: 4px solid var(--primary-color);
+}
+
+.time-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.traditional-timeline,
+.bob-timeline {
+  background: var(--bg-alt);
+  padding: var(--spacing-lg);
+  border-radius: 0;
+}
+
+.traditional-timeline h6,
+.bob-timeline h6 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.traditional-timeline ul,
+.bob-timeline ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+.traditional-timeline li,
+.bob-timeline li {
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.875rem;
+}
+
+.proof-points {
+  background: #defbe6;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin: var(--spacing-lg) 0;
+  border-left: 4px solid var(--success-color);
+}
+
+.proof-points h6 {
+  color: var(--success-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.proof-points p {
+  margin-bottom: var(--spacing-sm);
+}
+
+.security-features {
+  margin-bottom: var(--spacing-lg);
+}
+
+.security-features ul {
+  margin-bottom: var(--spacing-lg);
+  padding-left: var(--spacing-lg);
+}
+
+.security-features li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.security-example {
+  background: #ffd7d9;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin: var(--spacing-lg) 0;
+}
+
+.security-example h6 {
+  color: var(--danger-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.code-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.code-before,
+.code-after {
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.code-before {
+  border: 2px solid var(--danger-color);
+}
+
+.code-after {
+  border: 2px solid var(--success-color);
+}
+
+.code-before span,
+.code-after span {
+  display: block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: 0.75rem;
+}
+
+.code-before span {
+  background: var(--danger-color);
+  color: white;
+}
+
+.code-after span {
+  background: var(--success-color);
+  color: white;
+}
+
+.code-before code,
+.code-after code {
+  display: block;
+  padding: var(--spacing-sm);
+  background: var(--code-bg);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: #f4f4f4;
+}
+
+.real-example {
+  background: var(--bg-alt);
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin: var(--spacing-lg) 0;
+}
+
+.real-example h6 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.real-example ol {
+  padding-left: var(--spacing-lg);
+}
+
+.real-example li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.bobalytics-features {
+  margin-bottom: var(--spacing-lg);
+}
+
+.bobalytics-features ul {
+  margin-bottom: var(--spacing-lg);
+  padding-left: var(--spacing-lg);
+}
+
+.bobalytics-features li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.roi-calculation {
+  background: #defbe6;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin: var(--spacing-lg) 0;
+}
+
+.roi-calculation h6 {
+  color: var(--success-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.roi-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--spacing-md);
+}
+
+.roi-table td {
+  padding: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.roi-table tr.success-row {
+  background: var(--success-color);
+  color: white;
+  font-weight: 400;
+}
+
+.roi-table tr.success-row td {
+  border-bottom: none;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.copilot-use,
+.bob-use {
+  background: var(--bg-alt);
+  padding: var(--spacing-lg);
+  border-radius: 0;
+}
+
+.bob-use {
+  border: 2px solid var(--primary-color);
+}
+
+.copilot-use h6,
+.bob-use h6 {
+  margin-bottom: var(--spacing-md);
+}
+
+.copilot-use ul,
+.bob-use ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+.copilot-use li,
+.bob-use li {
+  margin-bottom: var(--spacing-xs);
+  font-size: 0.875rem;
+}
+
+.unique-to-bob {
+  background: #defbe6;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin: var(--spacing-lg) 0;
+}
+
+.unique-to-bob h6 {
+  color: var(--success-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.unique-to-bob ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+.unique-to-bob li {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================
    END OF NARRATIVE STYLES
    ============================================ */
 
