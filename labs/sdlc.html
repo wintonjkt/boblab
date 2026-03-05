@@ -187,6 +187,121 @@
                 </div>
               </div>
             </div>
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Generate Architecture Diagrams</h4>
+                <p>Bob can create visual diagrams to help understand system architecture and data flows:</p>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Generate an architecture diagram for this application showing:
+- Component relationships and dependencies
+- Data flow between layers
+- External integrations
+Use Mermaid format so it can be embedded in documentation.</code></pre>
+                </div>
+
+                <div class="result-box">
+                  <h5>Bob's Response:</h5>
+                  <p>Bob generates a Mermaid diagram that can be embedded directly in your documentation:</p>
+                  
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Generated Mermaid Diagram</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>```mermaid
+graph TB
+    subgraph "Client Layer"
+        Browser[Web Browser]
+    end
+    
+    subgraph "Presentation Layer"
+        JSP[JSP Views]
+        WelcomeServlet[WelcomeServlet]
+        WeatherServlet[WeatherServlet]
+        AvailabilityServlet[AvailabilityCheckerServlet]
+    end
+    
+    subgraph "Security Layer"
+        FirstFilter[FirstFilter]
+        SecondFilter[SecondFilter]
+        CustomSecurity[Custom Security]
+    end
+    
+    subgraph "Business Logic"
+        ReservationMBean[Reservation MBean]
+        AppInfoMBean[AppInfo MBean]
+        DateChecker[Date Checker]
+    end
+    
+    subgraph "Data Layer"
+        CustomerDB[Customer Information]
+        ReservationData[Reservation Data]
+    end
+    
+    subgraph "External Services"
+        WeatherAPI[Weather API]
+    end
+    
+    Browser --> FirstFilter
+    FirstFilter --> SecondFilter
+    SecondFilter --> WelcomeServlet
+    SecondFilter --> WeatherServlet
+    SecondFilter --> AvailabilityServlet
+    
+    WelcomeServlet --> JSP
+    WeatherServlet --> WeatherAPI
+    AvailabilityServlet --> ReservationMBean
+    
+    ReservationMBean --> DateChecker
+    ReservationMBean --> ReservationData
+    WelcomeServlet --> CustomerDB
+    
+    CustomSecurity -.-> FirstFilter
+    CustomSecurity -.-> SecondFilter
+```</code></pre>
+                  </div>
+
+                  <div class="info-card" style="margin-top: 1rem;">
+                    <h5>Diagram Formats Supported:</h5>
+                    <ul>
+                      <li><strong>Mermaid:</strong> Best for embedding in Markdown/GitHub - supports flowcharts, sequence diagrams, class diagrams, and more</li>
+                      <li><strong>PlantUML:</strong> Comprehensive UML diagrams with detailed syntax</li>
+                      <li><strong>ASCII Art:</strong> Simple text-based diagrams for quick visualization</li>
+                      <li><strong>DOT/Graphviz:</strong> Advanced graph layouts and complex relationships</li>
+                    </ul>
+                    <p style="margin-top: 0.5rem;"><em>Tip: Mermaid diagrams render automatically in GitHub, GitLab, and many documentation tools!</em></p>
+                  </div>
+                </div>
+
+                <div class="prompt-box" style="margin-top: 1rem;">
+                  <div class="prompt-content">
+                    <h5>Other Diagram Examples:</h5>
+                    <ul>
+                      <li><strong>Sequence Diagram:</strong> "Generate a sequence diagram showing the user login flow"</li>
+                      <li><strong>Data Flow:</strong> "Create a data flow diagram for the reservation process"</li>
+                      <li><strong>Class Diagram:</strong> "Generate a class diagram for the MBean hierarchy"</li>
+                      <li><strong>Deployment Diagram:</strong> "Show the deployment architecture on WebSphere"</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="business-value">
