@@ -96,6 +96,27 @@ class ComponentLoader {
         navMenu?.classList.remove('mobile-open');
       };
     });
+
+    // Initialize dropdown toggle for mobile
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+      // Remove existing listeners to avoid duplicates
+      const newToggle = toggle.cloneNode(true);
+      toggle.parentNode.replaceChild(newToggle, toggle);
+      
+      // Add click handler for mobile
+      newToggle.addEventListener('click', (e) => {
+        if (window.innerWidth <= 968) {
+          e.preventDefault();
+          const dropdownMenu = newToggle.nextElementSibling;
+          if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+            // Toggle dropdown visibility
+            const isVisible = dropdownMenu.style.display === 'block';
+            dropdownMenu.style.display = isVisible ? 'none' : 'block';
+          }
+        }
+      });
+    });
   }
 }
 
