@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bob Rules - bob-lab</title>
+  <title>Using Custom Rules - bob-lab</title>
   <meta name="theme-color" content="#ffffff">
   <meta name="color-scheme" content="light dark">
   <link rel="stylesheet" href="../styles.css">
@@ -14,11 +14,14 @@
   <!-- Shared Navigation Component -->
   <div data-component="navbar"></div>
   
+  <!-- Breadcrumb Navigation -->
+  <div data-component="breadcrumb"></div>
+  
   <header class="page-header">
     <div class="container">
-      <h1>Bob Rules & Custom Instructions</h1>
+      <h1>Using Custom Rules</h1>
       <p class="page-subtitle">Tailor Bob's Behavior to Your Needs</p>
-      <p class="page-description">Learn how to use custom instructions to enforce coding standards, workflows, and best practices</p>
+      <p class="page-description">Custom rules influence how Bob responds to your requests, aligning output with your specific preferences and project requirements.</p>
     </div>
   </header>
 
@@ -26,20 +29,21 @@
     <!-- Sidebar Navigation -->
     <aside class="walkthrough-sidebar">
       <div class="sidebar-header">
-        <h3>Bob Rules Guide</h3>
+        <h3>Custom Rules Guide</h3>
       </div>
       <nav class="capability-nav">
-        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#introduction" class="capability-link active">Introduction</a>
         <a href="#what-are-rules" class="capability-link">What Are Custom Rules</a>
         <a href="#adding-rules" class="capability-link">Adding Custom Rules</a>
         <a href="#rule-scopes" class="capability-link">Rule Scopes</a>
         <a href="#configuration-methods" class="capability-link">Configuration Methods</a>
         <a href="#rule-priority" class="capability-link">Rule Priority</a>
-        <a href="#examples" class="capability-link">Real-World Examples</a>
-        <a href="#best-practices" class="capability-link">Best Practices</a>
+        <a href="#writing-effective-rules" class="capability-link">Writing Effective Rules</a>
+        <a href="#advanced-configuration" class="capability-link">Advanced Configuration</a>
+        <a href="#team-standardization" class="capability-link">Team Standardization</a>
       </nav>
       <div class="sidebar-footer">
-        <a href="https://www.ibm.com/docs/en/bob-ide/latest?topic=custom-instructions" target="_blank" class="sidebar-link">
+        <a href="https://www.ibm.com/docs/en/bob-ide/latest?topic=custom-rules" target="_blank" class="sidebar-link">
           <span class="github-text">Documentation</span>
           <span class="github-arrow">&rarr;</span>
         </a>
@@ -47,33 +51,14 @@
     </aside>
 
     <div class="walkthrough-main">
-      <!-- Overview -->
-      <section id="overview" class="section">
+      <!-- Introduction -->
+      <section id="introduction" class="section">
         <div class="container">
           <div class="capability-content">
-            <h2>Bob Rules & Custom Instructions</h2>
-            <p>Custom instructions allow you to define rules and guidelines that shape Bob's behavior, ensuring consistency across your projects and teams.</p>
+            <h2>Introduction</h2>
+            <p>Custom rules influence how Bob responds to your requests, aligning output with your specific preferences and project requirements.</p>
             
-            <div class="capabilities-overview">
-              <div class="cap-card">
-                <h4>Enforce Standards</h4>
-                <p>Automatically apply coding standards and best practices</p>
-              </div>
-              <div class="cap-card">
-                <h4>Team Consistency</h4>
-                <p>Ensure all team members follow the same guidelines</p>
-              </div>
-              <div class="cap-card">
-                <h4>Context-Aware</h4>
-                <p>Different rules for different modes and scenarios</p>
-              </div>
-              <div class="cap-card">
-                <h4>Flexible Control</h4>
-                <p>Global or mode-specific instruction sets</p>
-              </div>
-            </div>
-
-            <p><strong>Estimated Time:</strong> 15-20 minutes to master custom instructions and create your first rule set</p>
+            <p><strong>Estimated Time:</strong> 20-30 minutes to understand and implement custom rules</p>
           </div>
         </div>
       </section>
@@ -87,49 +72,15 @@
             <span class="capability-badge">5 minutes</span>
           </div>
           <div class="capability-content">
-            <p>Custom rules extend Bob's default behavior by defining preferences, constraints, and guidelines that shape how Bob interacts with your code and responds to your requests.</p>
+            <p>Custom rules are instructions that guide Bob's behavior when working with your code. They help ensure consistency and adherence to your team's standards.</p>
             
-            <div class="demo-flow">
-              <h3>Understanding Custom Rules</h3>
-              
-              <div class="code-block-wrapper">
-                <div class="code-block-header">
-                  <span class="code-block-language">Example</span>
-                  <button class="copy-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                    </svg>
-                    Copy
-                  </button>
-                </div>
-                <pre><code class="language-plaintext">{
-  "name": "Java Style Guide",
-  "scope": "project",
-  "rules": [
-    {
-      "description": "Use proper naming conventions",
-      "pattern": "^[a-z][a-zA-Z0-9]*$",
-      "enforcement": "error"
-    },
-    {
-      "description": "Maximum method length",
-      "pattern": "^[a-zA-Z_][a-zA-Z0-9_]{1,50}$",
-      "enforcement": "warning"
-    }
-  ]
-}</code></pre>
-              
-              <div class="info-card info">
-                <h3>💡 Key Concepts</h3>
-                <p>Custom rules use JSON configuration with pattern matching and enforcement levels (error, warning, info).</p>
-              </div>
-            </div>
-            
-            <h3>Common Use Cases</h3>
+            <h3>Common Uses</h3>
             <ul>
-              <li><strong>Coding Standards:</strong> Enforce consistent formatting, naming, and structure</li>
-              <li><strong>Security Rules:</strong> Prevent dangerous patterns and enforce secure coding</li>
-              <li><strong>Project Guidelines:</strong> Ensure team-wide consistency in approaches</li>
+              <li><strong>Coding standards:</strong> Enforce specific formatting, naming conventions, or architectural patterns</li>
+              <li><strong>Framework preferences:</strong> Specify which libraries or frameworks to use</li>
+              <li><strong>Documentation requirements:</strong> Ensure code includes proper comments and documentation</li>
+              <li><strong>Testing practices:</strong> Define testing approaches and coverage requirements</li>
+              <li><strong>Security guidelines:</strong> Enforce security best practices and prevent common vulnerabilities</li>
             </ul>
           </div>
         </div>
@@ -140,63 +91,70 @@
         <div class="container">
           <div class="capability-header">
             <span class="capability-number">2</span>
-            <h2>Adding Custom Rules</h2>
+            <h2>Adding Custom Rules for a Mode</h2>
             <span class="capability-badge">10 minutes</span>
           </div>
           <div class="capability-content">
+            <p>You can add custom rules through the Bob interface:</p>
+            
             <div class="demo-flow">
-              <h3>Creating Your First Rule Set</h3>
+              <h3>Step-by-Step Process</h3>
               
               <div class="step-item">
                 <div class="step-number">1</div>
                 <div class="step-content">
                   <h4>Open Bob Settings</h4>
-                  <p>Navigate to Bob Settings → Custom Rules to create your first rule set.</p>
-                  
-                  <div class="code-block-wrapper">
-                    <div class="code-block-header">
-                      <span class="code-block-language">menu</span>
-                      <button class="copy-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                        </svg>
-                        Copy
-                      </button>
-                    </div>
-                    <pre><code>Settings → Bob Rules → Create Rule Set</code></pre>
-                  </div>
+                  <p>Click the settings icon in Bob's interface</p>
                 </div>
               </div>
               
               <div class="step-item">
                 <div class="step-number">2</div>
                 <div class="step-content">
-                  <h4>Define Rule Scope</h4>
-                  <p>Choose whether rules apply globally, to specific projects, or only in certain modes.</p>
-                  
-                  <div class="code-block-wrapper">
-                    <div class="code-block-header">
-                      <span class="code-block-language">json</span>
-                      <button class="copy-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                        </svg>
-                        Copy
-                      </button>
-                    </div>
-                    <pre><code class="language-json">{
-  "scope": "workspace",
-  "mode": "java",
-  "priority": 1
-}</code></pre>
-                  </div>
+                  <h4>Navigate to Custom Instructions</h4>
+                  <p>Select "Custom Instructions" from the settings menu</p>
                 </div>
               </div>
-            </div>
-            
-            <div class="info-card warning">
-              <h3>⚠️ Pro Tip</h3>
-              <p>Start with a small rule set and gradually expand as you understand Bob's behavior with your specific workflows.</p>
+              
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Choose Scope</h4>
+                  <p>Select either "Global" or "Workspace" scope for your rules</p>
+                </div>
+              </div>
+              
+              <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h4>Select Mode</h4>
+                  <p>Choose the mode you want to add rules for (e.g., Code, Architect, etc.)</p>
+                </div>
+              </div>
+              
+              <div class="step-item">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                  <h4>Write Your Rules</h4>
+                  <p>Enter your custom instructions in the text area</p>
+                </div>
+              </div>
+              
+              <div class="step-item">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                  <h4>Save</h4>
+                  <p>Click "Save" to apply your rules</p>
+                </div>
+              </div>
+              
+              <div class="step-item">
+                <div class="step-number">7</div>
+                <div class="step-content">
+                  <h4>Test</h4>
+                  <p>Verify that Bob follows your rules in the selected mode</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -211,26 +169,29 @@
             <span class="capability-badge">5 minutes</span>
           </div>
           <div class="capability-content">
-            <p>Custom rules can be applied at different levels to control when and where they take effect.</p>
+            <p>Custom rules can be applied at different scopes:</p>
             
-            <div class="capabilities-overview">
-              <div class="cap-card">
-                <h4>Global</h4>
-                <p>Apply to all files and projects regardless of location</p>
-              </div>
-              <div class="cap-card">
-                <h4>Workspace</h4>
-                <p>Apply to all files in the current workspace</p>
-              </div>
-              <div class="cap-card">
-                <h4>Project</h4>
-                <p>Apply only to files within specific project folders</p>
-              </div>
-              <div class="cap-card">
-                <h4>Mode-Specific</h4>
-                <p>Apply only when Bob is in specific modes</p>
-              </div>
-            </div>
+            <h3>Global Rules</h3>
+            <p>Global rules apply to all workspaces and projects. Use them for:</p>
+            <ul>
+              <li>Personal preferences that apply everywhere</li>
+              <li>Organization-wide standards</li>
+              <li>General coding practices</li>
+            </ul>
+            
+            <h3>Workspace Rules</h3>
+            <p>Workspace rules apply only to the current workspace. Use them for:</p>
+            <ul>
+              <li>Project-specific requirements</li>
+              <li>Team conventions</li>
+              <li>Technology stack preferences</li>
+            </ul>
+            
+            <h3>When to Use Each</h3>
+            <ul>
+              <li><strong>Global:</strong> For rules that should apply across all your work</li>
+              <li><strong>Workspace:</strong> For project-specific or team-specific rules that might differ between projects</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -241,14 +202,113 @@
           <div class="capability-header">
             <span class="capability-number">4</span>
             <h2>Configuration Methods</h2>
+            <span class="capability-badge">10 minutes</span>
+          </div>
+          <div class="capability-content">
+            <p>Besides the UI, you can configure rules using files:</p>
+            
+            <h3>File-Based Configuration</h3>
+            <p>Create rule files in your project root:</p>
+            
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-language">plaintext</span>
+                <button class="copy-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code class="language-plaintext">.bobrules              # General rules for all modes
+.bobrules-code         # Rules specific to Code mode
+.bobrules-{modeSlug}   # Rules for any specific mode</code></pre>
+            </div>
+            
+            <h3>Directory-Based Configuration</h3>
+            <p>Organize rules in directories:</p>
+            
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-language">plaintext</span>
+                <button class="copy-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code class="language-plaintext">.bob/rules/            # Workspace rules directory
+~/.bob/rules/          # Global rules directory</code></pre>
+            </div>
+            
+            <h3>Creating Rule Files</h3>
+            <p>Example of creating a workspace rule file:</p>
+            
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-language">bash</span>
+                <button class="copy-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code class="language-bash"># Create a general rules file
+echo "Always use TypeScript for new files" > .bobrules
+
+# Create a Code mode specific rules file
+echo "Follow the project's ESLint configuration" > .bobrules-code</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rule Priority -->
+      <section id="rule-priority" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">5</span>
+            <h2>Rule Priority</h2>
             <span class="capability-badge">5 minutes</span>
           </div>
           <div class="capability-content">
-            <p>Multiple ways to configure and manage custom rules:</p>
+            <p>When multiple rules exist, Bob applies them in this order:</p>
+            
+            <ol>
+              <li><strong>Global rules</strong> are applied first</li>
+              <li><strong>Workspace rules</strong> are applied second, potentially overriding global rules</li>
+            </ol>
+            
+            <p>Within each scope, mode-specific rules take precedence over general rules:</p>
+            <ul>
+              <li><code>.bobrules-code</code> overrides <code>.bobrules</code> when in Code mode</li>
+              <li><code>.bob/rules/code.md</code> overrides <code>.bob/rules/general.md</code> when in Code mode</li>
+            </ul>
+            
+            <div class="info-card info">
+              <h3>💡 Key Point</h3>
+              <p>Workspace rules can override global rules, allowing project-specific customization while maintaining organization-wide defaults.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Writing Effective Rules -->
+      <section id="writing-effective-rules" class="section">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">6</span>
+            <h2>Writing Effective Rules</h2>
+            <span class="capability-badge">10 minutes</span>
+          </div>
+          <div class="capability-content">
+            <h3>Be Specific and Actionable</h3>
+            <p>Write clear, concrete instructions rather than vague guidelines.</p>
             
             <div class="demo-flow">
-              <h3>Configuration Options</h3>
-              
+              <h4>❌ Bad Example</h4>
               <div class="code-block-wrapper">
                 <div class="code-block-header">
                   <span class="code-block-language">plaintext</span>
@@ -259,37 +319,13 @@
                     Copy
                   </button>
                 </div>
-                <pre><code class="language-plaintext">1. Bob IDE Settings → Custom Rules UI
-2. Project .bob/rules.json file
-3. Inline rule definitions in code comments
-4. Command line: bob rules add/remove/enable/disable</code></pre>
-              
-              <div class="info-card info">
-                <h3>🔧 Management Commands</h3>
-                <p>Use command line tools for advanced rule management in CI/CD pipelines:</p>
+                <pre><code class="language-plaintext">Write good code</code></pre>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Examples -->
-      <section id="examples" class="section section-alt">
-        <div class="container">
-          <div class="capability-header">
-            <span class="capability-number">5</span>
-            <h2>Real-World Examples</h2>
-            <span class="capability-badge">10 minutes</span>
-          </div>
-          <div class="capability-content">
-            <p>Practical examples of custom rules used in enterprise environments:</p>
-            
-            <div class="demo-flow">
-              <h3>Security-Focused Rules</h3>
               
+              <h4>✅ Good Example</h4>
               <div class="code-block-wrapper">
                 <div class="code-block-header">
-                  <span class="code-block-language">json</span>
+                  <span class="code-block-language">plaintext</span>
                   <button class="copy-button">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
@@ -297,100 +333,194 @@
                     Copy
                   </button>
                 </div>
-                <pre><code class="language-json">{
-  "name": "Security Hardening",
-  "rules": [
-    {
-      "description": "Prevent SQL injection vulnerabilities",
-      "pattern": "\\b(SELECT|INSERT|UPDATE|DELETE)\\b",
-      "enforcement": "error",
-      "exceptions": ["prepared-statements", "parameterized-queries"]
-    },
-    {
-      "description": "Require secure authentication patterns",
-      "pattern": "(password|token|secret)",
-      "enforcement": "error",
-      "context": "auth"
-    }
-  ]
-}</code></pre>
-              
-              <div class="info-card success">
-                <h3>✅ Result</h3>
-                <p>These rules automatically detect and prevent common security vulnerabilities while allowing exceptions for legitimate use cases.</p>
+                <pre><code class="language-plaintext">Use camelCase for variable names and PascalCase for class names. 
+Add JSDoc comments for all public functions.</code></pre>
               </div>
             </div>
             
-            <h3>Performance Optimization Rules</h3>
+            <h3>Use Clear Structure</h3>
+            <p>Organize rules with headers and bullet points for readability:</p>
             
             <div class="code-block-wrapper">
               <div class="code-block-header">
-                <span class="code-block-language">json</span>
+                <span class="code-block-language">markdown</span>
                 <button class="copy-button">
-                  <svg xmlns="http://www.w3.org/2000/originalsvg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                   </svg>
                   Copy
                 </button>
               </div>
-              <pre><code class="language-json">{
-  "name": "Performance Guidelines",
-  "rules": [
-    {
-      "description": "Optimize for common patterns",
-      "patterns": [
-        {
-          "match": "for.*\\{.*\\}",
-          "suggest": "enhanced-for-loop"
-        },
-        {
-          "match": "String\\+.*String",
-          "suggest": "StringBuilder"
-        }
-      ],
-      "enforcement": "warning"
-    }
-  ]
-}</code></pre>
+              <pre><code class="language-markdown"># Naming Conventions
+- Use camelCase for variables and functions
+- Use PascalCase for classes and components
+- Use UPPER_SNAKE_CASE for constants
+
+# Documentation
+- Add JSDoc comments for all public APIs
+- Include examples in documentation
+- Document all parameters and return values</code></pre>
             </div>
             
-            <div class="info-card info">
-                <h3>🚀 Impact</h3>
-                <p>Automatically suggests performance optimizations while educating developers on best practices.</p>
+            <h3>Examples of Effective Rules</h3>
+            
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-language">markdown</span>
+                <button class="copy-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code class="language-markdown"># Example 1: Framework Preference
+Always use React hooks instead of class components. 
+Prefer functional components with useState and useEffect.
+
+# Example 2: Testing Requirements
+Write unit tests for all business logic functions.
+Aim for at least 80% code coverage.
+Use Jest for testing and React Testing Library for component tests.
+
+# Example 3: Error Handling
+Always use try-catch blocks for async operations.
+Log errors with context information.
+Never expose sensitive information in error messages.
+
+# Example 4: Code Organization
+Keep components under 200 lines.
+Extract complex logic into custom hooks.
+Use barrel exports (index.ts) for cleaner imports.
+
+# Example 5: Security
+Never commit API keys or secrets.
+Use environment variables for configuration.
+Sanitize all user inputs before processing.</code></pre>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Best Practices -->
-      <section id="best-practices" class="section">
+      <!-- Advanced Configuration -->
+      <section id="advanced-configuration" class="section section-alt">
         <div class="container">
           <div class="capability-header">
-            <span class="capability-number">6</span>
-            <h2>Best Practices</h2>
+            <span class="capability-number">7</span>
+            <h2>Advanced Configuration</h2>
+            <span class="capability-badge">10 minutes</span>
+          </div>
+          <div class="capability-content">
+            <h3>Mode-Specific Rules</h3>
+            <p>Create separate rule files for different modes:</p>
+            
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-language">plaintext</span>
+                <button class="copy-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code class="language-plaintext">.bob/rules/code.md       # Rules for Code mode
+.bob/rules/architect.md  # Rules for Architect mode
+.bob/rules/ask.md        # Rules for Ask mode</code></pre>
+            </div>
+            
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+              <thead>
+                <tr style="background-color: var(--color-bg-secondary);">
+                  <th style="padding: 12px; text-align: left; border: 1px solid var(--color-border);">Directory</th>
+                  <th style="padding: 12px; text-align: left; border: 1px solid var(--color-border);">Scope</th>
+                  <th style="padding: 12px; text-align: left; border: 1px solid var(--color-border);">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 12px; border: 1px solid var(--color-border);"><code>~/.bob/rules/</code></td>
+                  <td style="padding: 12px; border: 1px solid var(--color-border);">Global</td>
+                  <td style="padding: 12px; border: 1px solid var(--color-border);">Rules that apply to all workspaces</td>
+                </tr>
+                <tr style="background-color: var(--color-bg-secondary);">
+                  <td style="padding: 12px; border: 1px solid var(--color-border);"><code>.bob/rules/</code></td>
+                  <td style="padding: 12px; border: 1px solid var(--color-border);">Workspace</td>
+                  <td style="padding: 12px; border: 1px solid var(--color-border);">Rules specific to current workspace</td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <h3>Using AGENTS.md Files</h3>
+            <p>For more complex configurations, you can use <code>AGENTS.md</code> files:</p>
+            
+            <ul>
+              <li>Place <code>AGENTS.md</code> in your project root</li>
+              <li>Define detailed instructions for different aspects of your project</li>
+              <li>Include examples and context</li>
+              <li>Reference other documentation</li>
+            </ul>
+            
+            <h3>File Behavior</h3>
+            <ul>
+              <li>Bob automatically detects and loads rule files when you open a workspace</li>
+              <li>Changes to rule files take effect immediately</li>
+              <li>You can have multiple rule files that are combined</li>
+              <li>Mode-specific rules override general rules</li>
+              <li>Workspace rules override global rules</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Standardization -->
+      <section id="team-standardization" class="section">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">8</span>
+            <h2>Team Standardization</h2>
             <span class="capability-badge">5 minutes</span>
           </div>
           <div class="capability-content">
-            <p>Guidelines for effective custom rule management:</p>
+            <h3>Project-Level Standards</h3>
+            <p>Commit rule files to your repository:</p>
             
-            <div class="capabilities-overview">
-              <div class="cap-card">
-                <h4>Start Small</h4>
-                <p>Begin with focused, high-impact rules</p>
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-language">bash</span>
+                <button class="copy-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  Copy
+                </button>
               </div>
-              <div class="cap-card">
-                <h4>Iterate and Refine</h4>
-                <p>Continuously improve rules based on team feedback</p>
-              </div>
-              <div class="cap-card">
-                <h4>Document Everything</h4>
-                <p>Create clear documentation for rule purposes and examples</p>
-              </div>
-              <div class="cap-card">
-                <h4>Version Control</h4>
-                <p>Track rule changes in Git for team visibility</p>
-              </div>
+              <pre><code class="language-bash">git add .bobrules .bob/
+git commit -m "Add Bob custom rules for team"
+git push</code></pre>
             </div>
+            
+            <p>This ensures all team members use the same rules when working on the project.</p>
+            
+            <h3>Organization-Wide Standards</h3>
+            <p>For organization-wide standards:</p>
+            
+            <ol>
+              <li>Create a shared repository for Bob rules</li>
+              <li>Document the rules and their purpose</li>
+              <li>Have team members copy rules to their <code>~/.bob/rules/</code> directory</li>
+              <li>Update rules centrally and communicate changes</li>
+            </ol>
+            
+            <h3>Hybrid Approach</h3>
+            <p>Combine global and workspace rules:</p>
+            
+            <ul>
+              <li><strong>Global rules:</strong> Organization-wide standards that apply everywhere</li>
+              <li><strong>Workspace rules:</strong> Project-specific requirements that may differ</li>
+            </ul>
+            
+            <p>This allows flexibility while maintaining consistency where it matters.</p>
           </div>
         </div>
       </section>
@@ -399,16 +529,16 @@
       <section id="summary" class="section section-alt">
         <div class="container">
           <div class="info-card compliance">
-            <h2>You've Mastered Custom Instructions!</h2>
-            <p>Custom instructions give you powerful control over Bob's behavior, ensuring consistency across your development workflow. These skills will enhance team productivity and code quality.</p>
+            <h2>You've Mastered Custom Rules!</h2>
+            <p>Custom rules give you powerful control over Bob's behavior, ensuring consistency across your development workflow. These skills will enhance team productivity and code quality.</p>
             
             <div class="next-steps">
               <h3>Continue Your Journey</h3>
               <ol>
-                <li>Apply custom rules to your current projects</li>
-                <li>Create rule sets for different development scenarios</li>
-                <li>Share rule configurations with your team</li>
-                <li>Combine with custom modes for specialized workflows</li>
+                <li>Create your first custom rule file</li>
+                <li>Test rules with different modes</li>
+                <li>Share rules with your team</li>
+                <li>Explore advanced configurations with AGENTS.md</li>
               </ol>
             </div>
           </div>
@@ -437,5 +567,20 @@
         <p>Built by IBM Client Engineering with bob</p>
       </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="../components/component-loader.js"></script>
+    <script src="../components/breadcrumb-helper.js"></script>
+    <script>
+      initBreadcrumb('Using Custom Rules');
+    </script>
+    <script src="../i18n.js"></script>
+    <script src="../script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        hljs.highlightAll();
+      });
+    </script>
   </body>
 </html>
