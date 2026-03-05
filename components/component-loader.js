@@ -280,12 +280,16 @@ class ComponentLoader {
     mermaidScript.onload = () => {
       // Initialize Mermaid with configuration
       if (window.mermaid) {
+        const isDark = document.body.classList.contains('dark-theme');
         window.mermaid.initialize({
-          startOnLoad: true,
-          theme: document.body.classList.contains('dark-theme') ? 'dark' : 'default',
+          startOnLoad: false,  // Changed to false for manual control
+          theme: isDark ? 'dark' : 'default',
           securityLevel: 'loose',
           fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif'
         });
+        
+        // Manually render all Mermaid diagrams
+        this.renderMermaidDiagrams();
         
         // Re-render Mermaid diagrams when theme changes
         const observer = new MutationObserver((mutations) => {
@@ -293,18 +297,13 @@ class ComponentLoader {
             if (mutation.attributeName === 'class') {
               const isDark = document.body.classList.contains('dark-theme');
               window.mermaid.initialize({
-                startOnLoad: true,
+                startOnLoad: false,
                 theme: isDark ? 'dark' : 'default',
                 securityLevel: 'loose',
                 fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif'
               });
               // Re-render all Mermaid diagrams
-              document.querySelectorAll('.mermaid').forEach((element, index) => {
-                const graphDefinition = element.textContent;
-                element.removeAttribute('data-processed');
-                element.innerHTML = graphDefinition;
-              });
-              window.mermaid.run();
+              this.renderMermaidDiagrams();
             }
           });
         });
@@ -314,6 +313,29 @@ class ComponentLoader {
     };
     
     document.head.appendChild(mermaidScript);
+  }
+  
+  // Render all Mermaid diagrams
+  renderMermaidDiagrams() {
+    const mermaidElements = document.querySelectorAll('.mermaid');
+    mermaidElements.forEach((element) => {
+      // Store original content if not already stored
+      if (!element.hasAttribute('data-original-content')) {
+        element.setAttribute('data-original-content', element.textContent.trim());
+      }
+      
+      // Reset element for re-rendering
+      const originalContent = element.getAttribute('data-original-content');
+      element.removeAttribute('data-processed');
+      element.innerHTML = originalContent;
+    });
+    
+    // Run Mermaid rendering
+    if (window.mermaid && mermaidElements.length > 0) {
+      window.mermaid.run({
+        querySelector: '.mermaid'
+      });
+    }
   }
 }
 

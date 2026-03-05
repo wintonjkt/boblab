@@ -103,6 +103,86 @@ body.dark-theme {
   --code-bg: #0d1117;
 }
 
+/* Light Theme Syntax Highlighting */
+pre code.hljs {
+  background-color: #f6f8fa !important;
+  color: #24292f !important;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #6a737d !important;
+  font-style: italic !important;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #d73a49 !important;
+  font-weight: bold !important;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #005cc5 !important;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #032f62 !important;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #6f42c1 !important;
+  font-weight: bold !important;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #e36209 !important;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #22863a !important;
+  font-weight: normal !important;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #032f62 !important;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #6f42c1 !important;
+}
+
+.hljs-meta,
+.hljs-deletion {
+  color: #b31d28 !important;
+}
+
+.hljs-addition {
+  color: #22863a !important;
+}
+
+.hljs-emphasis {
+  font-style: italic !important;
+}
+
+.hljs-strong {
+  font-weight: bold !important;
+}
+
 /* Dark Theme Syntax Highlighting */
 body.dark-theme pre code.hljs {
   background-color: var(--code-bg) !important;
@@ -1979,7 +2059,7 @@ a:focus {
   font-size: 0.8125rem;
   line-height: 1.6;
   margin: 0;
-  color: #f4f4f4;
+  color: var(--text-primary);
 }
 
 .code-block-wrapper pre {
@@ -1988,23 +2068,24 @@ a:focus {
   line-height: 1.6;
   margin: 0;
   padding: var(--spacing-md);
-  color: #f4f4f4;
+  color: var(--text-primary);
   background: transparent;
   overflow-x: auto;
 }
 
 .code-block-wrapper pre code {
-  color: #f4f4f4;
+  color: var(--text-primary);
   font-family: 'IBM Plex Mono', 'Monaco', 'Menlo', monospace;
 }
 
 /* Inline Code */
 code {
   font-family: 'IBM Plex Mono', 'Monaco', 'Menlo', monospace;
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--bg-alt);
   padding: 0.125rem 0.25rem;
   border-radius: 2px;
   font-size: 0.875em;
+  color: var(--text-primary);
 }
 
 pre code {
