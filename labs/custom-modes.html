@@ -29,6 +29,7 @@
       <nav class="capability-nav">
         <a href="#overview" class="capability-link active">Overview</a>
         <a href="#what-are-modes" class="capability-link">What Are Custom Modes</a>
+        <a href="#built-in-modes" class="capability-link">Built-in Modes</a>
         <a href="#creating-modes" class="capability-link">Creating Custom Modes</a>
         <a href="#mode-configuration" class="capability-link">Mode Configuration</a>
         <a href="#examples" class="capability-link">Real-World Examples</a>
@@ -117,6 +118,560 @@
             </ul>
           </div>
         </div>
+
+    <!-- Built-in Modes -->
+    <section id="built-in-modes" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Understanding Built-in Modes</h2>
+          <p>Bob IDE comes with five powerful built-in modes, each optimized for specific workflows. Understanding when and how to use each mode is key to maximizing your productivity.</p>
+          
+          <div class="info-card compliance">
+            <h3>Why Use Different Modes?</h3>
+            <div class="capabilities-overview">
+              <div class="cap-card">
+                <h4>Task Specialization</h4>
+                <p>Get precisely the type of assistance needed for your current task</p>
+              </div>
+              <div class="cap-card">
+                <h4>Safety Controls</h4>
+                <p>Prevent unintended file modifications with mode-specific restrictions</p>
+              </div>
+              <div class="cap-card">
+                <h4>Focused Interactions</h4>
+                <p>Responses optimized for your current activity</p>
+              </div>
+              <div class="cap-card">
+                <h4>Workflow Optimization</h4>
+                <p>Seamless transitions between planning, implementing, debugging, and learning</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Switching Between Modes</h3>
+            <p>Bob provides four convenient ways to switch modes:</p>
+            <ul>
+              <li><strong>Dropdown Menu:</strong> Click the mode selector to the left of the chat input</li>
+              <li><strong>Slash Commands:</strong> Type <code>/plan</code>, <code>/ask</code>, <code>/code</code>, <code>/advanced</code>, or <code>/orchestrator</code></li>
+              <li><strong>Keyboard Shortcut:</strong> Press <code>⌘+.</code> (macOS) or <code>Ctrl+.</code> (Windows/Linux) to toggle between modes</li>
+              <li><strong>Accept Suggestions:</strong> Click on mode switch suggestions that Bob offers during conversations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Built-in Modes Details -->
+    <section id="mode-details" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Built-in Modes Overview</h2>
+          <p>Each built-in mode is designed for specific scenarios. Here's a detailed look at each one:</p>
+          
+          <!-- Code Mode -->
+          <div class="mode-detail-card">
+            <div class="mode-header">
+              <h3>💻 Code Mode</h3>
+              <span class="mode-badge">General Purpose</span>
+            </div>
+            <div class="mode-content">
+              <div class="mode-description">
+                <p><strong>Role:</strong> Highly skilled software engineer</p>
+                <p><strong>Description:</strong> Write, modify, and refactor code efficiently</p>
+              </div>
+              <div class="mode-details-grid">
+                <div class="detail-item">
+                  <h4>Tool Access</h4>
+                  <ul>
+                    <li>Read files</li>
+                    <li>Edit files</li>
+                    <li>Execute commands</li>
+                  </ul>
+                </div>
+                <div class="detail-item">
+                  <h4>Best For</h4>
+                  <ul>
+                    <li>Day-to-day coding tasks</li>
+                    <li>Bug fixes and refactoring</li>
+                    <li>Cost-efficient development</li>
+                    <li>Most common use case</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Code Mode Example</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">User: Refactor this function to use async/await
+
+Bob: [Reading] function implementation...
+[Analyzing] current structure...
+[Refactoring] to async/await pattern...
+[Complete] Function refactored successfully!</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ask Mode -->
+          <div class="mode-detail-card">
+            <div class="mode-header">
+              <h3>❓ Ask Mode</h3>
+              <span class="mode-badge">Information</span>
+            </div>
+            <div class="mode-content">
+              <div class="mode-description">
+                <p><strong>Role:</strong> Knowledgeable technical assistant</p>
+                <p><strong>Description:</strong> Get answers and explanations without modifying files</p>
+              </div>
+              <div class="mode-details-grid">
+                <div class="detail-item">
+                  <h4>Tool Access</h4>
+                  <ul>
+                    <li>Read files</li>
+                    <li>Browser access</li>
+                    <li>MCP integrations</li>
+                    <li><em>No file editing</em></li>
+                  </ul>
+                </div>
+                <div class="detail-item">
+                  <h4>Best For</h4>
+                  <ul>
+                    <li>Understanding code</li>
+                    <li>Learning concepts</li>
+                    <li>Safe exploration</li>
+                    <li>Documentation research</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Ask Mode Example</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">User: Explain how this authentication flow works
+
+Bob: [Reading] authentication code...
+[Analyzing] flow structure...
+
+This authentication flow uses JWT tokens with a refresh mechanism:
+1. User submits credentials
+2. Server validates and generates access + refresh tokens
+3. Access token expires in 15 minutes
+4. Refresh token used to obtain new access token
+5. Refresh token rotates on each use for security</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plan Mode -->
+          <div class="mode-detail-card">
+            <div class="mode-header">
+              <h3>📝 Plan Mode</h3>
+              <span class="mode-badge">Strategy</span>
+            </div>
+            <div class="mode-content">
+              <div class="mode-description">
+                <p><strong>Role:</strong> Experienced technical leader, inquisitive, excellent planner</p>
+                <p><strong>Description:</strong> Plan and design before implementation</p>
+              </div>
+              <div class="mode-details-grid">
+                <div class="detail-item">
+                  <h4>Tool Access</h4>
+                  <ul>
+                    <li>Read files</li>
+                    <li>Edit markdown only</li>
+                    <li>Browser access</li>
+                    <li>MCP integrations</li>
+                  </ul>
+                </div>
+                <div class="detail-item">
+                  <h4>Best For</h4>
+                  <ul>
+                    <li>High-level planning</li>
+                    <li>Architecture design</li>
+                    <li>Technical leadership</li>
+                    <li>Big picture thinking</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Plan Mode Example</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">User: Help me plan a microservices migration
+
+Bob: [Analyzing] current monolith architecture...
+[Researching] microservices best practices...
+[Creating] migration plan...
+
+## Migration Strategy
+
+### Phase 1: Assessment (2 weeks)
+- Identify service boundaries
+- Map dependencies
+- Evaluate data separation
+
+### Phase 2: Infrastructure (3 weeks)
+- Set up container orchestration
+- Configure service mesh
+- Implement API gateway
+
+### Phase 3: Gradual Migration (12 weeks)
+- Extract user service first (lowest dependencies)
+- Implement event-driven communication
+- Migrate remaining services incrementally
+
+[Saved] plan to MIGRATION_PLAN.md</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advanced Mode -->
+          <div class="mode-detail-card">
+            <div class="mode-header">
+              <h3>🛠️ Advanced Mode</h3>
+              <span class="mode-badge">Power User</span>
+            </div>
+            <div class="mode-content">
+              <div class="mode-description">
+                <p><strong>Role:</strong> Highly skilled software engineer with unrestricted access</p>
+                <p><strong>Description:</strong> Advanced version of Code mode with all tools available</p>
+              </div>
+              <div class="mode-details-grid">
+                <div class="detail-item">
+                  <h4>Tool Access</h4>
+                  <ul>
+                    <li>Read files</li>
+                    <li>Edit files</li>
+                    <li>Browser access</li>
+                    <li>Execute commands</li>
+                    <li>MCP integrations</li>
+                    <li><strong>All tools enabled</strong></li>
+                  </ul>
+                </div>
+                <div class="detail-item">
+                  <h4>Best For</h4>
+                  <ul>
+                    <li>Complex integrations</li>
+                    <li>Tasks requiring MCP</li>
+                    <li>Browser-assisted coding</li>
+                    <li>Full flexibility needed</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Advanced Mode Example</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">User: Integrate with the GitHub API and update our deployment workflow
+
+Bob: [Browsing] GitHub API documentation...
+[Reading] current workflow files...
+[Connecting] to GitHub via MCP...
+[Implementing] API integration...
+[Updating] deployment scripts...
+[Testing] workflow execution...
+[Complete] GitHub integration ready!</code></pre>
+                </div>
+              </div>
+              <div class="info-card">
+                <p><strong>Special Features:</strong> No tool restrictions—full flexibility for power users who need access to all capabilities simultaneously.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Orchestrator Mode -->
+          <div class="mode-detail-card">
+            <div class="mode-header">
+              <h3>🔀 Orchestrator Mode</h3>
+              <span class="mode-badge">Multi-Domain</span>
+            </div>
+            <div class="mode-content">
+              <div class="mode-description">
+                <p><strong>Role:</strong> Strategic workflow orchestrator</p>
+                <p><strong>Description:</strong> Coordinate complex tasks across multiple modes</p>
+              </div>
+              <div class="mode-details-grid">
+                <div class="detail-item">
+                  <h4>Tool Access</h4>
+                  <ul>
+                    <li><em>No direct tools</em></li>
+                    <li>Delegates to other modes</li>
+                    <li>Coordinates workflows</li>
+                    <li>Manages subtasks</li>
+                  </ul>
+                </div>
+                <div class="detail-item">
+                  <h4>Best For</h4>
+                  <ul>
+                    <li>Complex projects</li>
+                    <li>Multi-step workflows</li>
+                    <li>Cross-domain tasks</li>
+                    <li>Strategic coordination</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Orchestrator Mode Example</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">User: Build a new feature: user authentication with email verification
+
+Bob: [Orchestrating] multi-phase feature development...
+
+## Task Breakdown:
+1. Planning phase (Plan mode)
+2. Database schema (Code mode)
+3. API endpoints (Code mode)
+4. Email service integration (Advanced mode)
+5. Frontend components (Code mode)
+6. Testing suite (Code mode)
+
+[Switching to Plan mode] for architecture design...
+[Plan mode] Creating technical specification...
+[Switching to Code mode] for database implementation...
+[Code mode] Implementing user schema...
+[Switching to Advanced mode] for email service...
+[Advanced mode] Integrating SendGrid API...
+
+[Complete] Feature implemented across 6 coordinated tasks!</code></pre>
+                </div>
+              </div>
+              <div class="info-card">
+                <p><strong>Special Features:</strong> Automatically switches modes based on task requirements, manages subtasks, and coordinates work across different specialties.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mode Comparison -->
+    <section id="mode-comparison" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Mode Comparison Table</h2>
+          <p>Quick reference guide to help you choose the right mode for your task.</p>
+          
+          <div class="table-container">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Mode</th>
+                  <th>Primary Purpose</th>
+                  <th>When to Use</th>
+                  <th>Key Capabilities</th>
+                  <th>Tool Access</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>💻 Code</strong></td>
+                  <td>General coding</td>
+                  <td>Day-to-day development tasks</td>
+                  <td>Write, modify, refactor code</td>
+                  <td>Read, Edit, Command</td>
+                </tr>
+                <tr>
+                  <td><strong>❓ Ask</strong></td>
+                  <td>Information & learning</td>
+                  <td>Understanding code without changes</td>
+                  <td>Explain, research, answer questions</td>
+                  <td>Read, Browser, MCP</td>
+                </tr>
+                <tr>
+                  <td><strong>📝 Plan</strong></td>
+                  <td>Strategic planning</td>
+                  <td>Architecture and design decisions</td>
+                  <td>Plan, design, document</td>
+                  <td>Read, Edit (MD only), Browser, MCP</td>
+                </tr>
+                <tr>
+                  <td><strong>🛠️ Advanced</strong></td>
+                  <td>Complex tasks</td>
+                  <td>Need all tools simultaneously</td>
+                  <td>Full flexibility, no restrictions</td>
+                  <td>All tools enabled</td>
+                </tr>
+                <tr>
+                  <td><strong>🔀 Orchestrator</strong></td>
+                  <td>Multi-domain coordination</td>
+                  <td>Complex, multi-step projects</td>
+                  <td>Coordinate across modes</td>
+                  <td>None (delegates to other modes)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mode Selection Guidelines -->
+    <section id="mode-guidelines" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Mode Selection Guidelines</h2>
+          <p>Follow these guidelines to choose the most effective mode for your workflow.</p>
+          
+          <div class="guidelines-grid">
+            <div class="guideline-card">
+              <div class="guideline-icon">🚀</div>
+              <h3>Starting New Projects</h3>
+              <p>Begin with <strong>Plan mode</strong> to establish architecture and design before diving into implementation.</p>
+              <div class="example-box">
+                <strong>Example:</strong> "I need to build a REST API for a todo application"
+                <br><em>→ Use Plan mode to design endpoints, data models, and architecture</em>
+              </div>
+            </div>
+
+            <div class="guideline-card">
+              <div class="guideline-icon">💼</div>
+              <h3>Daily Development</h3>
+              <p>Use <strong>Code mode</strong> for routine coding tasks—it's cost-efficient and handles most development needs.</p>
+              <div class="example-box">
+                <strong>Example:</strong> "Fix the bug in the login validation"
+                <br><em>→ Use Code mode for straightforward bug fixes</em>
+              </div>
+            </div>
+
+            <div class="guideline-card">
+              <div class="guideline-icon">📚</div>
+              <h3>Learning & Understanding</h3>
+              <p>Switch to <strong>Ask mode</strong> when you need explanations without risking file modifications.</p>
+              <div class="example-box">
+                <strong>Example:</strong> "How does this caching mechanism work?"
+                <br><em>→ Use Ask mode to safely explore and learn</em>
+              </div>
+            </div>
+
+            <div class="guideline-card">
+              <div class="guideline-icon">⚡</div>
+              <h3>Power User Tasks</h3>
+              <p>Use <strong>Advanced mode</strong> when you need unrestricted access to all tools, especially for MCP integrations.</p>
+              <div class="example-box">
+                <strong>Example:</strong> "Integrate Slack notifications with our CI/CD pipeline"
+                <br><em>→ Use Advanced mode for complex integrations</em>
+              </div>
+            </div>
+
+            <div class="guideline-card">
+              <div class="guideline-icon">🎯</div>
+              <h3>Complex Features</h3>
+              <p>Use <strong>Orchestrator mode</strong> for multi-step projects that span different domains and require coordination.</p>
+              <div class="example-box">
+                <strong>Example:</strong> "Build a complete user authentication system with email verification"
+                <br><em>→ Use Orchestrator mode to coordinate planning, implementation, and testing</em>
+              </div>
+            </div>
+
+            <div class="guideline-card">
+              <div class="guideline-icon">🔄</div>
+              <h3>Mode Switching</h3>
+              <p>Don't hesitate to switch modes mid-conversation—Bob will suggest switches when appropriate.</p>
+              <div class="example-box">
+                <strong>Example:</strong> Start in Ask mode to understand, then switch to Code mode to implement
+                <br><em>→ Seamless transitions optimize your workflow</em>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Pro Tips</h3>
+            <ul>
+              <li><strong>Trust Bob's suggestions:</strong> When Bob suggests switching modes, it's usually for good reason</li>
+              <li><strong>Start conservative:</strong> Begin with Ask or Plan mode, then move to Code or Advanced as needed</li>
+              <li><strong>Use keyboard shortcuts:</strong> <code>⌘+.</code> or <code>Ctrl+.</code> for quick mode toggling</li>
+              <li><strong>Experiment:</strong> Try different modes for the same task to find what works best for your workflow</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customizing Modes -->
+    <section id="customizing-built-in" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Beyond Built-in Modes</h2>
+          <p>While built-in modes cover most scenarios, you can create custom modes for specialized workflows.</p>
+          
+          <div class="info-card compliance">
+            <h3>When to Create Custom Modes</h3>
+            <ul>
+              <li><strong>Domain-specific tasks:</strong> Specialized workflows unique to your project or industry</li>
+              <li><strong>Team standardization:</strong> Ensure consistent approaches across your team</li>
+              <li><strong>Repeated patterns:</strong> Automate frequently used workflows and configurations</li>
+              <li><strong>Compliance requirements:</strong> Enforce specific guardrails and quality checks</li>
+            </ul>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Custom Mode Example</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-bash">User: Create a custom mode for COBOL to Java migration
+
+Bob: [Creating] specialized migration mode...
+[Configuring] COBOL analysis tools...
+[Adding] Java best practices...
+[Setting] migration-specific guardrails...
+
+Custom mode "COBOL Migration" created!
+- Analyzes COBOL code structure
+- Suggests Java equivalents
+- Validates migration patterns
+- Includes testing workflows
+
+Ready to use: /cobol-migration</code></pre>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <p><strong>Learn More:</strong> Continue reading the sections below to learn how to create and configure your own custom modes for specialized workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
       </div>
     </section>
 

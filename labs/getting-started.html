@@ -29,6 +29,7 @@
       <nav class="capability-nav">
         <a href="#overview" class="capability-link active">Overview</a>
         <a href="#installation" class="capability-link">Installation</a>
+        <a href="#prompt-engineering" class="capability-link">Prompt Engineering</a>
         <a href="#reading-documents" class="capability-link">Reading Documents</a>
         <a href="#code-generation" class="capability-link">Code Generation</a>
         <a href="#multi-file" class="capability-link">Multi-File Changes</a>
@@ -402,14 +403,341 @@ chmod +x Bob
           </div>
         </div>
       </section>
-        </div>
-      </section>
+        
+        <!-- Prompt Engineering Section -->
+        <section id="prompt-engineering" class="section">
+          <div class="container">
+            <div class="capability-header">
+              <span class="capability-number">1</span>
+              <h2>Prompt Engineering</h2>
+              <span class="capability-badge">Essential Skill</span>
+            </div>
 
-      <!-- Skill 1: Reading Documents -->
+            <div class="capability-content">
+              <div class="objective-box">
+                <h3>What You'll Learn</h3>
+                <p>Prompt engineering helps you get the most out of Bob by crafting clear, effective instructions. When you write better prompts, you spend less time clarifying your requests and more time getting the results you need.</p>
+              </div>
+
+              <div class="demo-flow">
+                <h3>General Principles</h3>
+
+                <div class="step-item">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>Be Clear and Specific</h4>
+                    <p>State exactly what you want Bob to do:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Ineffective vs. Effective</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code class="language-diff">- Ineffective: Fix the code.
++ Effective: Fix the bug in the calculateTotal function that causes it to return incorrect results.</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>Provide Context</h4>
+                    <p>Use Context Mentions to refer to specific files, folders, or problems:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Context Example</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>@/src/utils.ts Refactor the calculateTotal function to use async/await.</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>Break Down Tasks</h4>
+                    <p>Divide complex tasks into smaller, well-defined steps:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Task Breakdown</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Help me implement user authentication:
+1. First, analyze the current user model
+2. Then, create authentication middleware
+3. Finally, add protected routes</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4>Give Examples</h4>
+                    <p>Provide examples when you have a specific coding style or pattern in mind:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Example with Pattern</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Create a data validator following this pattern:
+const validateUser = (data) => {
+  const { error, value } = schema.validate(data);
+  if (error) return { isValid: false, errors: error.details };
+  return { isValid: true, value };
+};
+
+Now create a similar validator for product data.</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">5</div>
+                  <div class="step-content">
+                    <h4>Specify Output Format</h4>
+                    <p>Indicate if you need the output in a particular format:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Format Specification</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>List all API endpoints in this project.
+Return the response as a JSON array with this structure:
+[
+  {
+    "method": "GET",
+    "path": "/api/users",
+    "description": "Get all users"
+  }
+]</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Thinking vs. Doing</h3>
+                <p>Guide Bob through a "think-then-do" process for better results:</p>
+                
+                <div class="process-flow">
+                  <div class="process-step">
+                    <h4>Analyze</h4>
+                    <p>Ask Bob to analyze the current code, identify problems, or plan the approach:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Analyze Step</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>@/src/payment.js Analyze this code for potential bugs and security issues.
+Don't fix anything yet, just report what you find.</code></pre>
+                    </div>
+                  </div>
+                  
+                  <div class="process-step">
+                    <h4>Plan</h4>
+                    <p>Have Bob outline the steps it will take to complete the task:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Plan Step</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Based on the issues found, create a step-by-step plan to fix them.
+Prioritize security issues first.</code></pre>
+                    </div>
+                  </div>
+                  
+                  <div class="process-step">
+                    <h4>Execute</h4>
+                    <p>Instruct Bob to implement the plan, one step at a time:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Execute Step</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Now implement step 1 of the plan: fix the SQL injection vulnerability.</code></pre>
+                    </div>
+                  </div>
+                  
+                  <div class="process-step">
+                    <h4>Review</h4>
+                    <p>Review the results of each step before proceeding:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Review Step</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Good! Now continue with step 2: add input validation.</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Using Custom Instructions</h3>
+                <p>Custom instructions tailor Bob's behavior to your specific needs:</p>
+                
+                <div class="custom-instructions">
+                  <div class="instruction-type">
+                    <h4>Global Custom Instructions</h4>
+                    <p>Apply to all modes. Use these to enforce coding standards across your projects:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Global Instructions Example</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Always:
+- Use TypeScript with strict mode
+- Include comprehensive error handling
+- Write tests for new functions
+- Follow ESLint rules
+- Add JSDoc comments for public APIs</code></pre>
+                    </div>
+                  </div>
+                  
+                  <div class="instruction-type">
+                    <h4>Mode-Specific Custom Instructions</h4>
+                    <p>Apply only to a specific mode (Code, Plan, Ask, Debug, or a custom mode):</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Code Mode Instructions</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>When in Code mode:
+- Always show a summary of changes before applying
+- Maintain backward compatibility
+- Include migration notes if needed</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Handling Ambiguity</h3>
+                <p>When your request lacks sufficient detail, Bob might make assumptions or ask questions:</p>
+                
+                <div class="ambiguity-example">
+                  <h4>Ambiguous Prompt vs. Clear Prompt</h4>
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Prompt Comparison</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-diff">- Ambiguous: Update the user service
++ Clear: Update the user service to include profile picture upload functionality.
++ Use AWS S3 for storage, validate image format, and update the user model.</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Providing Feedback</h3>
+                <p>If Bob doesn't produce the desired results:</p>
+                
+                <div class="feedback-strategies">
+                  <div class="feedback-item">
+                    <h4>Reject Actions</h4>
+                    <p>Click the "Reject" button when Bob proposes an action you don't want</p>
+                  </div>
+                  
+                  <div class="feedback-item">
+                    <h4>Provide Explanations</h4>
+                    <p>When rejecting, explain why to help Bob learn from mistakes</p>
+                  </div>
+                  
+                  <div class="feedback-item">
+                    <h4>Reword Your Request</h4>
+                    <p>Try rephrasing your initial task or providing more specific instructions</p>
+                  </div>
+                  
+                  <div class="feedback-item">
+                    <h4>Manually Correct</h4>
+                    <p>For small issues, directly modify the code before accepting the changes</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="business-value">
+                <h3>Tips and Best Practices</h3>
+                <ul>
+                  <li><strong>Start broad, then narrow:</strong> Begin with a general description of what you want to accomplish, then add specific details</li>
+                  <li><strong>Use technical terminology:</strong> Bob understands programming concepts, so use proper technical terms</li>
+                  <li><strong>Mention constraints:</strong> State specific requirements or limitations upfront</li>
+                  <li><strong>Request explanations:</strong> Ask Bob to explain its reasoning or approach when solving complex problems</li>
+                  <li><strong>Provide relevant context:</strong> Include information about your project's architecture, dependencies, or requirements when necessary</li>
+                </ul>
+                <p class="highlight">"By following these guidelines, you can write effective prompts that get the most out of Bob's capabilities and help you accomplish your tasks more efficiently."</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      <!-- Skill 2: Reading Documents -->
       <section id="reading-documents" class="section section-alt">
         <div class="container">
           <div class="capability-header">
-            <span class="capability-number">1</span>
+            <span class="capability-number">2</span>
             <h2>Reading Documents</h2>
             <span class="capability-badge">Core Skill</span>
           </div>
@@ -496,11 +824,11 @@ chmod +x Bob
         </div>
       </section>
 
-      <!-- Skill 2: Code Generation -->
+      <!-- Skill 3: Code Generation -->
       <section id="code-generation" class="section">
         <div class="container">
           <div class="capability-header">
-            <span class="capability-number">2</span>
+            <span class="capability-number">3</span>
             <h2>Code Generation</h2>
             <span class="capability-badge">Foundation</span>
           </div>
@@ -642,11 +970,11 @@ exports.authenticate = async (req, res) => {
         </div>
       </section>
 
-      <!-- Skill 3: Multi-File Changes -->
+      <!-- Skill 4: Multi-File Changes -->
       <section id="multi-file" class="section section-alt">
         <div class="container">
           <div class="capability-header">
-            <span class="capability-number">3</span>
+            <span class="capability-number">4</span>
             <h2>Multi-File Changes</h2>
             <span class="capability-badge">Essential</span>
           </div>
@@ -734,11 +1062,11 @@ Follow existing patterns and conventions.</code></pre>
         </div>
       </section>
 
-      <!-- Skill 4: Context Awareness -->
+      <!-- Skill 5: Context Awareness -->
       <section id="context-awareness" class="section">
         <div class="container">
           <div class="capability-header">
-            <span class="capability-number">4</span>
+            <span class="capability-number">5</span>
             <h2>Context Awareness</h2>
             <span class="capability-badge">Intelligent</span>
           </div>
@@ -850,11 +1178,11 @@ Code Style:
         </div>
       </section>
 
-      <!-- Skill 5: Iterative Refinement -->
+      <!-- Skill 6: Iterative Refinement -->
       <section id="iterative-refinement" class="section section-alt">
         <div class="container">
           <div class="capability-header">
-            <span class="capability-number">5</span>
+            <span class="capability-number">6</span>
             <h2>Iterative Refinement</h2>
             <span class="capability-badge">Collaborative</span>
           </div>
@@ -1021,6 +1349,10 @@ module.exports = { validateEmail };</code></pre>
             <p>These core skills will accelerate your development on any project. Remember, Bob learns from your patterns and gets better over time.</p>
             
             <div class="achievement-badges">
+              <div class="badge">
+                <div class="badge-icon">📝</div>
+                <div class="badge-title">Prompt Engineer</div>
+              </div>
               <div class="badge">
                 <div class="badge-icon">📄</div>
                 <div class="badge-title">Document Reader</div>
