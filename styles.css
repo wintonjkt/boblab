@@ -109,70 +109,74 @@ pre code.hljs {
   color: #24292f !important;
 }
 
+/* VSCode Light+ Theme Syntax Highlighting */
 .hljs-comment,
 .hljs-quote {
-  color: #6a737d !important;
+  color: #008000 !important; /* VSCode Light+ green for comments */
   font-style: italic !important;
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-subst {
-  color: #d73a49 !important;
-  font-weight: bold !important;
+  color: #0000ff !important; /* VSCode Light+ blue for keywords */
+  font-weight: normal !important;
 }
 
 .hljs-number,
-.hljs-literal,
+.hljs-literal {
+  color: #098658 !important; /* VSCode Light+ teal for numbers */
+}
+
 .hljs-variable,
 .hljs-template-variable,
 .hljs-tag .hljs-attr {
-  color: #005cc5 !important;
+  color: #000000 !important; /* VSCode Light+ black for variables */
 }
 
 .hljs-string,
 .hljs-doctag {
-  color: #032f62 !important;
+  color: #a31515 !important; /* VSCode Light+ red for strings */
 }
 
 .hljs-title,
 .hljs-section,
 .hljs-selector-id {
-  color: #6f42c1 !important;
-  font-weight: bold !important;
+  color: #795e26 !important; /* VSCode Light+ brown for functions */
+  font-weight: normal !important;
 }
 
 .hljs-type,
 .hljs-class .hljs-title {
-  color: #e36209 !important;
+  color: #267f99 !important; /* VSCode Light+ cyan for classes */
 }
 
 .hljs-tag,
 .hljs-name,
 .hljs-attribute {
-  color: #22863a !important;
+  color: #0000ff !important; /* VSCode Light+ blue for tags */
   font-weight: normal !important;
 }
 
 .hljs-regexp,
 .hljs-link {
-  color: #032f62 !important;
+  color: #a31515 !important; /* VSCode Light+ red for regexp */
 }
 
 .hljs-symbol,
 .hljs-bullet,
 .hljs-built_in,
 .hljs-builtin-name {
-  color: #6f42c1 !important;
+  color: #795e26 !important; /* VSCode Light+ brown for built-ins */
 }
 
 .hljs-meta,
 .hljs-deletion {
-  color: #b31d28 !important;
+  color: #a31515 !important; /* VSCode Light+ red for meta */
 }
 
 .hljs-addition {
-  color: #22863a !important;
+  color: #008000 !important; /* VSCode Light+ green for additions */
 }
 
 .hljs-emphasis {
@@ -183,76 +187,79 @@ pre code.hljs {
   font-weight: bold !important;
 }
 
-/* Dark Theme Syntax Highlighting */
+/* VSCode Dark+ Theme Syntax Highlighting */
 body.dark-theme pre code.hljs {
   background-color: var(--code-bg) !important;
-  color: #e6edf3 !important;
+  color: #d4d4d4 !important; /* VSCode Dark+ text color */
 }
 
 body.dark-theme .hljs-comment,
 body.dark-theme .hljs-quote {
-  color: #6e7681 !important;
+  color: #6a9955 !important; /* VSCode Dark+ green for comments */
   font-style: italic !important;
 }
 
 body.dark-theme .hljs-keyword,
 body.dark-theme .hljs-selector-tag,
 body.dark-theme .hljs-subst {
-  color: #f47067 !important;
-  font-weight: bold !important;
+  color: #569cd6 !important; /* VSCode Dark+ light blue for keywords */
+  font-weight: normal !important;
 }
 
 body.dark-theme .hljs-number,
-body.dark-theme .hljs-literal,
+body.dark-theme .hljs-literal {
+  color: #b5cea8 !important; /* VSCode Dark+ light green for numbers */
+}
+
 body.dark-theme .hljs-variable,
 body.dark-theme .hljs-template-variable,
 body.dark-theme .hljs-tag .hljs-attr {
-  color: #79c0ff !important;
+  color: #d4d4d4 !important; /* VSCode Dark+ text color for variables */
 }
 
 body.dark-theme .hljs-string,
 body.dark-theme .hljs-doctag {
-  color: #9ecbff !important;
+  color: #ce9178 !important; /* VSCode Dark+ orange for strings */
 }
 
 body.dark-theme .hljs-title,
 body.dark-theme .hljs-section,
 body.dark-theme .hljs-selector-id {
-  color: #d2a8ff !important;
-  font-weight: bold !important;
+  color: #dcdcaa !important; /* VSCode Dark+ yellow for functions */
+  font-weight: normal !important;
 }
 
 body.dark-theme .hljs-type,
 body.dark-theme .hljs-class .hljs-title {
-  color: #ffab70 !important;
+  color: #4ec9b0 !important; /* VSCode Dark+ cyan for classes */
 }
 
 body.dark-theme .hljs-tag,
 body.dark-theme .hljs-name,
 body.dark-theme .hljs-attribute {
-  color: #7ee787 !important;
+  color: #569cd6 !important; /* VSCode Dark+ light blue for tags */
   font-weight: normal !important;
 }
 
 body.dark-theme .hljs-regexp,
 body.dark-theme .hljs-link {
-  color: #85e89d !important;
+  color: #ce9178 !important; /* VSCode Dark+ orange for regexp */
 }
 
 body.dark-theme .hljs-symbol,
 body.dark-theme .hljs-bullet,
 body.dark-theme .hljs-built_in,
 body.dark-theme .hljs-builtin-name {
-  color: #b392f0 !important;
+  color: #dcdcaa !important; /* VSCode Dark+ yellow for built-ins */
 }
 
 body.dark-theme .hljs-meta,
 body.dark-theme .hljs-deletion {
-  color: #ffd7d7 !important;
+  color: #ce9178 !important; /* VSCode Dark+ orange for meta */
 }
 
 body.dark-theme .hljs-addition {
-  color: #aff5b4 !important;
+  color: #6a9955 !important; /* VSCode Dark+ green for additions */
 }
 
 body.dark-theme .hljs-emphasis {
