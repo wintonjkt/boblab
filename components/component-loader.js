@@ -99,9 +99,6 @@ class ComponentLoader {
     this.register('theme-toggle', `${basePath}components/theme-toggle.html`);
     this.register('enhanced-progress', `${basePath}components/enhanced-progress.html`);
     this.register('table-of-contents', `${basePath}components/table-of-contents.html`);
-    this.register('hero', `${basePath}components/hero.html`);
-    this.register('intro', `${basePath}components/intro.html`);
-    this.register('engagement', `${basePath}components/engagement.html`);
     this.register('footer', `${basePath}components/footer.html`);
 
     // Load all components
@@ -252,22 +249,6 @@ class ComponentLoader {
     searchScript.src = `${isInSubdirectory ? '../' : ''}components/search.js`;
     searchScript.async = true;
     document.head.appendChild(searchScript);
-    
-    // Load table of contents script if component is present
-    if (document.querySelector('[data-component="table-of-contents"]')) {
-      const tocScript = document.createElement('script');
-      tocScript.src = `${isInSubdirectory ? '../' : ''}components/table-of-contents.js`;
-      tocScript.async = true;
-      document.head.appendChild(tocScript);
-    }
-    
-    // Load enhanced progress script if component is present
-    if (document.querySelector('[data-component="enhanced-progress"]')) {
-      const progressScript = document.createElement('script');
-      progressScript.src = `${isInSubdirectory ? '../' : ''}components/enhanced-progress.js`;
-      progressScript.async = true;
-      document.head.appendChild(progressScript);
-    }
     
     // Load collapsible sections script for lab pages
     if (window.location.pathname.includes('/labs/')) {
