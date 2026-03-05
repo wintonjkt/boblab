@@ -1,2 +1,0 @@
-{"id":"3ba611ba-414c-4e1e-821d-cb2513cf2ace","ts":"2026-03-05T21:57:55.681Z","path":"/Users/yingkitw/Desktop/ceproject/boblab/components/navbar.html","version":"1.0.0","taskID":"c628b9c3-37f5-4ebe-9e0f-2c73e5a7292d"}
-{"id":"87e32a4f-300b-4081-8a71-f369e8ce2409","ts":"2026-03-05T21:59:53.905Z","path":"/Users/yingkitw/Desktop/ceproject/boblab/index.html","version":"1.0.0","taskID":"c628b9c3-37f5-4ebe-9e0f-2c73e5a7292d"}
