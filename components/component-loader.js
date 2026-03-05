@@ -150,6 +150,20 @@ class ComponentLoader {
       }
     });
 
+    // Ensure mobile navigation is always accessible
+    hamburger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const isOpen = navMenu.classList.contains('mobile-open');
+        
+        if (isOpen) {
+          this.closeMobileMenu(navMenu, overlay, hamburger);
+        } else {
+          this.openMobileMenu(navMenu, overlay, hamburger);
+        }
+      }
+    });
+
     // Close menu when clicking overlay
     overlay.addEventListener('click', () => {
       this.closeMobileMenu(navMenu, overlay, hamburger);

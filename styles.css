@@ -2493,14 +2493,6 @@ pre code {
   }
 
   .nav-menu {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-menu.mobile-open {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -2510,6 +2502,20 @@ pre code {
     background: var(--cds-inverse-01);
     padding: var(--spacing-md);
     gap: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu.mobile-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
   }
 
   .nav-menu.mobile-open li {
