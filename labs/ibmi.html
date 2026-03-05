@@ -100,23 +100,6 @@
         </div>
       </div>
     </section>
-    </div>
-  </main>
-
-  <!-- Shared Footer Component -->
-  <div data-component="footer"></div>
-
-  <!-- Component Loader -->
-  <script src="../components/component-loader.js"></script>
-  
-  <!-- Highlight.js for syntax highlighting -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script>hljs.highlightAll();</script>
-
-  <!-- Smooth scrolling and copy functionality -->
-  <script src="../script.js"></script>
-</body>
-</html>
 
     <!-- Step 1: Legacy System Analysis -->
     <section id="legacy-analysis" class="section section-alt">
@@ -640,6 +623,21 @@ public class InventoryUpdateProcessor
 
           <div class="business-value">
             <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>6-12 months - manual conversion, extensive testing, multiple iterations</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>2-3 weeks - automated transformation with business logic preservation</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>95% faster conversion</strong> - Bob transforms RPG/COBOL to modern Java while maintaining exact business logic and adding modern capabilities."</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Step 4: Database Migration -->
     <section id="database-migration" class="section">
@@ -848,6 +846,28 @@ END $$;</code></pre>
                     <li><strong>Performance:</strong> 40% faster query execution on PostgreSQL</li>
                     <li><strong>Downtime:</strong> Zero - dual-write pattern enabled seamless cutover</li>
                   </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>3-4 months - manual schema conversion, data migration scripts, extensive testing</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>2-3 weeks - automated migration with validation and zero downtime</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>90% faster migration</strong> - Bob handles complex database migration with automated validation and zero data loss guarantee."</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Step 5: UI Modernization -->
     <section id="ui-modernization" class="section section-alt">
@@ -1160,42 +1180,6 @@ export const OrderEntry: React.FC<OrderEntryProps> = ({
         </div>
       </div>
     </section>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="business-value">
-            <h3>Business Value</h3>
-            <div class="value-comparison">
-              <div class="value-traditional">
-                <strong>Traditional Approach:</strong>
-                <p>3-4 months - manual schema conversion, data migration scripts, extensive testing</p>
-              </div>
-              <div class="value-bob">
-                <strong>With Bob:</strong>
-                <p>2-3 weeks - automated migration with validation and zero downtime</p>
-              </div>
-            </div>
-            <p class="highlight">"<strong>90% faster migration</strong> - Bob handles complex database migration with automated validation and zero data loss guarantee."</p>
-          </div>
-        </div>
-      </div>
-    </section>
-            <div class="value-comparison">
-              <div class="value-traditional">
-                <strong>Traditional Approach:</strong>
-                <p>6-12 months - manual conversion, extensive testing, multiple iterations</p>
-              </div>
-              <div class="value-bob">
-                <strong>With Bob:</strong>
-                <p>2-3 weeks - automated transformation with business logic preservation</p>
-              </div>
-            </div>
-            <p class="highlight">"<strong>95% faster conversion</strong> - Bob transforms RPG/COBOL to modern Java while maintaining exact business logic and adding modern capabilities."</p>
-          </div>
-        </div>
-      </div>
 
     <!-- Step 6: Platform Migration -->
     <section id="platform-migration" class="section">
@@ -1876,4 +1860,3 @@ performance_comparison:
   <script src="../script.js"></script>
 </body>
 </html>
-    </section>
