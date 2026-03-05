@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BobShell - bob-lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Master BobShell</h1>
+      <p class="page-subtitle">Command-Line Interface for Bob AI</p>
+      <p class="page-description">Learn to use BobShell for powerful terminal-based AI assistance, automation, and integration with your development workflow</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>BobShell Guide</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#installation" class="capability-link">Installation & Setup</a>
+        <a href="#basic-commands" class="capability-link">Basic Commands</a>
+        <a href="#interactive-mode" class="capability-link">Interactive Mode</a>
+        <a href="#automation" class="capability-link">Automation & Scripting</a>
+        <a href="#integrations" class="capability-link">IDE & CI/CD Integration</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="https://github.ibm.com/bob-ide/bobshell" target="_blank" class="sidebar-github-link">
+          <span class="github-text">BobShell Repo</span>
+          <span class="github-arrow">&rarr;</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="walkthrough-main">
+      <!-- Overview -->
+      <section id="overview" class="section">
+        <div class="container">
+          <div class="info-card compliance">
+            <h2>What is BobShell?</h2>
+            <p>BobShell is Bob's command-line interface that brings AI assistance directly to your terminal. It enables powerful automation, scripting, and seamless integration with your existing development tools.</p>
+
+            <div class="capabilities-overview">
+              <div class="cap-card">
+                <h4>Terminal Native</h4>
+                <p>AI assistance without leaving your terminal</p>
+              </div>
+              <div class="cap-card">
+                <h4>Scriptable</h4>
+                <p>Automate repetitive tasks with shell scripts</p>
+              </div>
+              <div class="cap-card">
+                <h4>Pipe Friendly</h4>
+                <p>Use with Unix pipes and standard tools</p>
+              </div>
+              <div class="cap-card">
+                <h4>IDE Integration</h4>
+                <p>Works with VS Code, JetBrains, and more</p>
+              </div>
+              <div class="cap-card">
+                <h4>CI/CD Ready</h4>
+                <p>Integrate into pipelines and workflows</p>
+              </div>
+              <div class="cap-card">
+                <h4>Context Aware</h4>
+                <p>Understands your project structure</p>
+              </div>
+            </div>
+
+            <p><strong>Estimated Time:</strong> 25-30 minutes to master BobShell fundamentals</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Installation & Setup -->
+      <section id="installation" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">1</span>
+            <h2>Installation & Setup</h2>
+            <span class="capability-badge">Getting Started</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="demo-flow">
+              <h3>Installing BobShell</h3>
+
+              <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Choose Your Installation Method</h4>
+                  <p>BobShell supports multiple installation methods:</p>
+                  
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Install via npm</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code># Global installation
+npm install -g @ibm/bobshell
+
+# Or install locally in your project
+npm install --save-dev @ibm/bobshell</code></pre>
+                  </div>
+
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Install via curl</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code># Download and install latest version
+curl -sSL https://get.bobshell.sh | bash
+
+# For specific version
+curl -sSL https://get.bobshell.sh | bash -s -- -v v1.2.0</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Initial Configuration</h4>
+                  <p>Set up BobShell with your credentials and preferences:</p>
+                  
+                  <div class="demo-window">
+                    <div class="window-header">
+                      <span class="window-title">BobShell Setup</span>
+                      <div class="window-controls">
+                        <span class="control close"></span>
+                        <span class="control minimize"></span>
+                        <span class="control maximize"></span>
+                      </div>
+                    </div>
+                    <div class="window-content">
+                      <pre><code class="language-bash">$ bob configure
+Bob Shell Configuration Wizard
+===========================
+
+? API Key: [hidden input]
+? Default model: gpt-4-turbo
+? Default project path: ~/projects
+? Enable telemetry: y
+? Configure aliases: y
+
+Configuration saved to: ~/.bob/config.json
+
+✅ BobShell is ready to use!</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Verify Installation</h4>
+                  <p>Test that BobShell is properly installed:</p>
+                  
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Verification Commands</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code># Check version
+bob --version
+
+# Test connection
+bob ping
+
+# View configuration
+bob config list
+
+# Show help
+bob --help</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Basic Commands -->
+      <section id="basic-commands" class="section">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">2</span>
+            <h2>Basic Commands</h2>
+            <span class="capability-badge">Essential Skills</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="demo-flow">
+              <h3>Core BobShell Commands</h3>
+
+              <div class="command-categories">
+                <div class="command-category">
+                  <h4>Document Processing</h4>
+                  
+                  <div class="command-example">
+                    <div class="command-line">
+                      <span class="prompt">$</span> bob read requirements.pdf
+                    </div>
+                    <p>Analyzes and summarizes PDF documents</p>
+                  </div>
+
+                  <div class="command-example">
+                    <div class="command-line">
+                      <span class="prompt">$</span> bob read spec.md --extract requirements
+                    </div>
+                    <p>Extracts specific information from documents</p>
+                  </div>
+
+                  <div class="command-example">
+                    <div class="command-line">
+                      <span class="prompt">$</span> bob read https://example.com/api-docs
+                    </div>
+                    <p>Reads and analyzes web pages</p>
+                  </div>
+                </div>
+
+                <div class="command-category">
+                  <h4>Code Generation</h4>
+                  
+                  <div class="command-example">
+                    <div class="command-line">
+                      <span class="prompt">$</span> bob create component UserForm --type react
+                    </div>
+                    <p>Creates React components with best practices</p>
+                  </div>
+
+                  <div class="command-example">
+                    <div class="command-line">
+                      <span class="prompt">$</span> bob generate api-endpoint --model User --methods CRUD
+                    </div>
+                    <p>Generates REST API endpoints</p>
+                  </div>
+
+                  <div class="command-example">
+                    <div class="command-line">
+                      <span class="prompt">$</span> bob refactor file.js --pattern callback-to-promise
+                    </div>
+                    <p>Refactors code following specified patterns</p>
+                  </div>
+                </div>
+
+                <div class="command-category">
+                  <h4>Analysis & Review</h4>
+                  
+                  <div class="command-example">
+                    <div class="command-line">
+                      <span class="prompt">$</span> bob analyze src/ --security
+                    </div>
+                    <p>Performs security analysis on codebase</p>
+                  </div>
+
+                  <div class="command-example">
+                    <div class="command-line">
+                      <span class="prompt">$</span> bob review pr #123
+                    </div>
+                    <p>Reviews pull requests with AI assistance</p>
+                  </div>
+
+                  <div class="command-example">
+                    <div class="command-line">
+                      <span class="prompt">$</span> bob explain function.js
+                    </div>
+                    <p>Explains code in plain language</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="real-world-example">
+                <h4>Real-World Example</h4>
+                <div class="demo-window">
+                  <div class="window-header">
+                    <span class="window-title">BobShell in Action</span>
+                    <div class="window-controls">
+                      <span class="control close"></span>
+                      <span class="control minimize"></span>
+                      <span class="control maximize"></span>
+                    </div>
+                  </div>
+                  <div class="window-content">
+                    <pre><code class="language-bash">$ cd my-project
+$ bob read feature-spec.pdf
+[Analyzing] feature-spec.pdf...
+[Summary] New user authentication feature with SSO integration
+[Requirements] • SSO integration (OAuth 2.0)
+              • Multi-factor authentication
+              • Session management
+              • Audit logging
+
+$ bob create auth-sso --express --mongo
+[Generating] SSO authentication module...
+[Creating] controllers/authController.js
+[Creating] middleware/ssoMiddleware.js
+[Creating] models/sessionModel.js
+[Creating] routes/ssoRoutes.js
+[Configuring] OAuth 2.0 providers (Google, Microsoft)
+[Testing] Basic functionality tests
+
+✅ SSO module created successfully
+📁 Files generated: 5
+🧪 Tests added: 12
+📋 Documentation: README.md
+
+$ bob test sso/ --coverage
+[Running] tests with coverage...
+✅ 12 tests passing
+📊 Coverage: 94%
+🔒 Security: No vulnerabilities found</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="business-value">
+              <h3>Benefits of BobShell</h3>
+              <div class="value-comparison">
+                <div class="value-traditional">
+                  <strong>Traditional Approach:</strong>
+                  <p>Switch between tools → Manual setup → Copy-paste code → Configure manually</p>
+                </div>
+                <div class="value-bob">
+                  <strong>With BobShell:</strong>
+                  <p>Single command → Auto-generated → Ready to integrate → Tested</p>
+                </div>
+              </div>
+              <p class="highlight">"<strong>Terminal-native workflow</strong> - Stay in your terminal while getting full AI assistance. No context switching, no copy-paste errors.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Mode -->
+      <section id="interactive-mode" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">3</span>
+            <h2>Interactive Mode</h2>
+            <span class="capability-badge">Advanced Usage</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>Interactive Conversational Mode</h3>
+              <p>BobShell's interactive mode provides a chat-like experience directly in your terminal. Perfect for complex tasks that require iteration.</p>
+            </div>
+
+            <div class="demo-flow">
+              <h3>Starting Interactive Mode</h3>
+
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">BobShell Interactive</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">$ bob interactive
+🤖 BobShell Interactive Mode v1.2.0
+Type 'exit' or press Ctrl+D to quit
+
+bob> I need to add caching to my Express.js API
+[Analyzing] your project structure...
+[Detected] Express.js application with Redis available
+[Planning] caching strategy implementation...
+
+bob> Use Redis for caching with 5-minute TTL
+✅ [Planning] Redis caching strategy confirmed
+📝 [Generating] caching middleware...
+
+bob> Show me the implementation
+[middleware/cache.js]
+const redis = require('redis');
+const client = redis.createClient({
+  host: process.env.REDIS_HOST || 'localhost',
+  port: process.env.REDIS_PORT || 6379
+});
+
+const cacheMiddleware = (ttl = 300) => {
+  return async (req, res, next) => {
+    const key = req.originalUrl;
+    
+    try {
+      const cached = await client.get(key);
+      if (cached) {
+        return res.json(JSON.parse(cached));
+      }
+      
+      res.locals.cache = { key, ttl };
+      next();
+    } catch (error) {
+      next();
+    }
+  };
+};
+
+const saveToCache = (data, key, ttl) => {
+  client.setex(key, ttl, JSON.stringify(data));
+};
+
+module.exports = { cacheMiddleware, saveToCache };
+
+bob> This looks good. Apply it to the user endpoints
+[Applying] to routes/userRoutes.js...
+[Adding] caching to GET /api/users
+[Adding] caching to GET /api/users/:id
+[Configuring] automatic cache invalidation
+
+✅ Caching implemented successfully
+🔄 Cache invalidation added for POST/PUT/DELETE operations
+
+bob> Exit
+👋 Goodbye! Your changes are saved.</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="interactive-features">
+              <h4>Interactive Mode Features</h4>
+              <div class="feature-grid">
+                <div class="feature-card">
+                  <h5>Context Persistence</h5>
+                  <p>Bob remembers your conversation context within the session</p>
+                </div>
+                <div class="feature-card">
+                  <h5>Code Preview</h5>
+                  <p>Preview generated code before applying changes</p>
+                </div>
+                <div class="feature-card">
+                  <h5>Incremental Changes</h5>
+                  <p>Make small adjustments through conversation</p>
+                </div>
+                <div class="feature-card">
+                  <h5>Auto-save</h5>
+                  <p>Changes are saved as you confirm them</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="business-value">
+              <h3>When to Use Interactive Mode</h3>
+              <div class="use-cases">
+                <div class="use-case">
+                  <strong>Complex Features:</strong>
+                  <p>When implementing features that require multiple iterations and refinements</p>
+                </div>
+                <div class="use-case">
+                  <strong>Exploratory Development:</strong>
+                  <p>When you're exploring approaches and want to discuss options</p>
+                </div>
+                <div class="use-case">
+                  <strong>Learning:</strong>
+                  <p>When you want to understand Bob's reasoning process</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Automation & Scripting -->
+      <section id="automation" class="section">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">4</span>
+            <h2>Automation & Scripting</h2>
+            <span class="capability-badge">Power Users</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>Automate with BobShell</h3>
+              <p>BobShell shines in automation scripts. Combine BobShell commands with traditional shell scripting to create powerful workflows.</p>
+            </div>
+
+            <div class="demo-flow">
+              <h3>Script Examples</h3>
+
+              <div class="script-example">
+                <h4>Automated Feature Creation Script</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">create-feature.sh</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>#!/bin/bash
+
+# Automated Feature Creation with BobShell
+# Usage: ./create-feature.sh <feature-name> <type>
+
+FEATURE_NAME=$1
+FEATURE_TYPE=${2:-"component"}
+
+if [ -z "$FEATURE_NAME" ]; then
+    echo "Usage: $0 <feature-name> [type]"
+    exit 1
+fi
+
+echo "🚀 Creating feature: $FEATURE_NAME"
+
+# 1. Read requirements document if exists
+if [ -f "specs/${FEATURE_NAME}.md" ]; then
+    echo "📖 Reading specifications..."
+    bob read "specs/${FEATURE_NAME}.md" --extract requirements > /tmp/requirements.txt
+    REQUIREMENTS=$(cat /tmp/requirements.txt)
+fi
+
+# 2. Generate feature code
+echo "💻 Generating feature code..."
+case $FEATURE_TYPE in
+    "component")
+        bob create component "$FEATURE_NAME" --framework react --typescript
+        ;;
+    "api")
+        bob generate api-endpoint --model "$FEATURE_NAME" --methods CRUD
+        ;;
+    "service")
+        bob create service "$FEATURE_NAME" --patterns repository,mapper
+        ;;
+    *)
+        echo "Unknown feature type: $FEATURE_TYPE"
+        exit 1
+        ;;
+esac
+
+# 3. Generate tests
+echo "🧪 Generating tests..."
+bob test generate --for "$FEATURE_NAME" --coverage 90
+
+# 4. Update documentation
+echo "📚 Updating documentation..."
+bob docs update --feature "$FEATURE_NAME"
+
+# 5. Run security check
+echo "🔒 Running security analysis..."
+bob analyze src/ --"$FEATURE_NAME" --security --format json > security-report.json
+
+# 6. Create PR template
+echo "📋 Creating PR template..."
+bob pr template --feature "$FEATURE_NAME" --requirements "$REQUIREMENTS" > pr-template.md
+
+echo "✅ Feature $FEATURE_NAME created successfully!"
+echo "📊 Security report: security-report.json"
+echo "📋 PR template: pr-template.md"</code></pre>
+                </div>
+              </div>
+
+              <div class="script-example">
+                <h4>CI/CD Pipeline Integration</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">ci-pipeline.sh</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>#!/bin/bash
+
+# CI/CD Pipeline with BobShell Integration
+set -e
+
+echo "🔄 Starting CI/CD pipeline..."
+
+# Pre-commit checks
+echo "🔍 Running pre-commit checks..."
+bob analyze . --security --performance
+STATUS=$?
+
+if [ $STATUS -ne 0 ]; then
+    echo "❌ Pre-commit checks failed"
+    exit 1
+fi
+
+# Run tests with Bob assistance
+echo "🧪 Running tests..."
+npm test
+
+# Generate test report with AI insights
+echo "📊 Generating test insights..."
+bob test analyze --report json > test-insights.json
+
+# Review pull request if exists
+if [ -n "$PR_NUMBER" ]; then
+    echo "👀 Reviewing PR #$PR_NUMBER..."
+    bob review pr "$PR_NUMBER" --suggest --format markdown > pr-review.md
+    
+    # Auto-fix minor issues
+    bob fix linting --auto
+    bob fix formatting --auto
+fi
+
+# Deploy to staging
+echo "🚀 Deploying to staging..."
+npm run deploy:staging
+
+# Run smoke tests
+echo "💨 Running smoke tests..."
+bob test smoke --url https://staging.example.com
+
+# Generate deployment report
+echo "📈 Generating deployment report..."
+bob deploy report --env staging --format html > deployment-report.html
+
+echo "✅ Pipeline completed successfully!"</code></pre>
+                </div>
+              </div>
+
+              <div class="script-example">
+                <h4>Bob Functions Library</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">bob-functions.sh</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>#!/bin/bash
+
+# Bob Functions Library - Reusable BobShell utilities
+
+# Create a new project with best practices
+create_project() {
+    local project_name=$1
+    local template=${2:-"express-typescript"}
+    
+    bob create project "$project_name" --template "$template"
+    cd "$project_name"
+    bob config set --key "project.name" --value "$project_name"
+    bob install dependencies --recommended
+    bob git init --initial-commit "Initial project setup"
+}
+
+# Add a new feature with full lifecycle support
+add_feature() {
+    local feature_name=$1
+    local type=${2:-"component"}
+    
+    # Generate feature
+    bob create feature "$feature_name" --type "$type"
+    
+    # Add tests
+    bob test generate --for "$feature_name" --coverage 85
+    
+    # Update documentation
+    bob docs update --feature "$feature_name"
+    
+    # Create changelog entry
+    bob changelog add --feature "$feature_name" --type "added"
+    
+    echo "✅ Feature $feature_name added"
+}
+
+# Smart commit with AI-generated message
+smart_commit() {
+    local message=$1
+    
+    if [ -z "$message" ]; then
+        # Generate commit message based on changes
+        message=$(bob git message --analyze-staged --conventional)
+    fi
+    
+    git add .
+    git commit -m "$message"
+}
+
+# Review current branch
+review_branch() {
+    local branch_name=${1:-$(git branch --show-current)}
+    
+    echo "🔍 Reviewing branch: $branch_name"
+    
+    # Analyze changes
+    bob analyze HEAD~..HEAD --security --performance
+    
+    # Review code quality
+    bob review branch "$branch_name" --suggest
+    
+    # Check for breaking changes
+    bob breaking-check --from main --to "$branch_name"
+}
+
+# Export all functions
+export -f create_project
+export -f add_feature
+export -f smart_commit
+export -f review_branch</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="business-value">
+              <h3>Power of Automation</h3>
+              <div class="value-comparison">
+                <div class="value-traditional">
+                  <strong>Manual Process:</strong>
+                  <p>30+ steps across multiple tools → High error rate → Inconsistent results</p>
+                </div>
+                <div class="value-bob">
+                  <strong>BobShell Automation:</strong>
+                  <p>1 command → Intelligent execution → Consistent, tested results</p>
+                </div>
+              </div>
+              <p class="highlight">"<strong>Reproducible workflows</strong> - Script once, use forever. BobShell ensures consistency across your team and projects.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Integrations -->
+      <section id="integrations" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">5</span>
+            <h2>IDE & CI/CD Integration</h2>
+            <span class="capability-badge">Ecosystem</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>Seamless Integration</h3>
+              <p>BobShell integrates with your existing development tools and workflows, enhancing rather than replacing your current setup.</p>
+            </div>
+
+            <div class="integration-grid">
+              <div class="integration-card">
+                <h4>VS Code Integration</h4>
+                <div class="integration-content">
+                  <h5>Terminal Integration</h5>
+                  <p>Use BobShell directly from VS Code's integrated terminal:</p>
+                  
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">tasks.json</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Bob: Create Component",
+      "type": "shell",
+      "command": "bob",
+      "args": ["create", "component", "${input:componentName}", "--type", "react"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Bob: Review Code",
+      "type": "shell",
+      "command": "bob",
+      "args": ["review", ".", "--suggest"],
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "componentName",
+      "description": "Component name",
+      "default": "NewComponent",
+      "type": "promptString"
+    }
+  ]
+}</code></pre>
+                  </div>
+                  
+                  <h5>Extension (Optional)</h5>
+                  <p>Install the BobShell VS Code extension for:</p>
+                  <ul>
+                    <li>Command palette integration</li>
+                    <li>Inline suggestions</li>
+                    <li>Real-time analysis</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="integration-card">
+                <h4>JetBrains IDEs</h4>
+                <div class="integration-content">
+                  <h5>Terminal Integration</h5>
+                  <p>BobShell works seamlessly with IntelliJ, WebStorm, PyCharm:</p>
+                  
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">IDE Configuration</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code># Add to .bashrc or .zshrc
+alias bob='bobshell'
+
+# Create IDE tool window commands
+# In IntelliJ IDEA: Settings → Tools → External Tools
+# Name: Bob Analyze
+# Program: bobshell
+# Arguments: analyze $FilePathRelativeToProjectRoot$ --format ide</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="integration-card">
+                <h4>GitHub Actions</h4>
+                <div class="integration-content">
+                  <h5>CI/CD Pipeline Integration</h5>
+                  
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">.github/workflows/bob.yml</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>name: Bob Integration
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  bob-analysis:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install BobShell
+      run: |
+        curl -sSL https://get.bobshell.sh | bash
+        echo "$HOME/.bob/bin" >> $GITHUB_PATH
+        
+    - name: Analyze changes
+      run: |
+        bob analyze origin/main..HEAD --security --performance --format json > bob-report.json
+        
+    - name: Review PR
+      run: |
+        bob review pr ${{ github.event.pull_request.number }} --suggest --format markdown > pr-review.md
+        
+    - name: Comment PR
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          const review = fs.readFileSync('pr-review.md', 'utf8');
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: review
+          });
+          
+    - name: Upload Bob report
+      uses: actions/upload-artifact@v3
+      with:
+        name: bob-analysis
+        path: bob-report.json</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="integration-card">
+                <h4>Git Hooks</h4>
+                <div class="integration-content">
+                  <h5>Pre-commit and Pre-push Hooks</h5>
+                  
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">husky config</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code># .husky/pre-commit
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔍 Running Bob pre-commit checks..."
+
+# Security analysis
+bob analyze . --security --staged-only
+SECURITY_CODE=$?
+
+if [ $SECURITY_CODE -ne 0 ]; then
+    echo "❌ Security issues found. Commit aborted."
+    exit 1
+fi
+
+# Code formatting
+bob format --staged --auto-fix
+
+# Linting
+bob lint --staged --fix
+LINT_CODE=$?
+
+if [ $LINT_CODE -ne 0 ]; then
+    echo "❌ Linting issues found. Commit aborted."
+    exit 1
+fi
+
+echo "✅ All checks passed!"
+
+# .husky/pre-push
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🧪 Running pre-push tests..."
+
+# Generate test coverage
+bob test --coverage --report json > coverage.json
+
+# Check coverage threshold
+bob coverage check --threshold 80
+COVERAGE_CODE=$?
+
+if [ $COVERAGE_CODE -ne 0 ]; then
+    echo "❌ Coverage below threshold. Push aborted."
+    exit 1
+fi
+
+echo "✅ Ready to push!"</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="business-value">
+              <h3>Integration Benefits</h3>
+              <div class="value-comparison">
+                <div class="value-traditional">
+                  <strong>Isolated Tools:</strong>
+                  <p>Switch between tools → Manual integration → Inconsistent experience</p>
+                </div>
+                <div class="value-bob">
+                  <strong>Integrated BobShell:</strong>
+                  <p>Unified experience → Automatic integration → Consistent quality</p>
+                </div>
+              </div>
+              <p class="highlight">"<strong>Bob everywhere</strong> - From your terminal to your IDE, CI/CD to Git hooks, BobShell enhances every part of your workflow.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Summary -->
+      <section id="summary" class="section">
+        <div class="container">
+          <div class="info-card">
+            <h2>BobShell Mastery!</h2>
+            <p>You've learned to leverage BobShell for powerful terminal-based AI assistance, automation, and integration with your development ecosystem.</p>
+            
+            <div class="achievement-badges">
+              <div class="badge">
+                <div class="badge-icon">🖥️</div>
+                <div class="badge-title">Terminal Pro</div>
+              </div>
+              <div class="badge">
+                <div class="badge-icon">⚡</div>
+                <div class="badge-title">Automation Expert</div>
+              </div>
+              <div class="badge">
+                <div class="badge-icon">🔗</div>
+                <div class="badge-title">Integration Master</div>
+              </div>
+              <div class="badge">
+                <div class="badge-icon">🛠️</div>
+                <div class="badge-title">Scripting Guru</div>
+              </div>
+              <div class="badge">
+                <div class="badge-icon">🚀</div>
+                <div class="badge-title">Workflow Optimizer</div>
+              </div>
+            </div>
+
+            <div class="next-steps">
+              <h3>Continue Your Journey</h3>
+              <ol>
+                <li>Create custom BobShell functions for your specific workflows</li>
+                <li>Integrate BobShell into your team's CI/CD pipeline</li>
+                <li>Build a library of reusable BobShell scripts</li>
+                <li>Share your automation scripts with the Bob community</li>
+              </ol>
+            </div>
+
+            <div class="resources-section">
+              <h3>Additional Resources</h3>
+              <div class="resource-links">
+                <div class="resource-card">
+                  <h4>Command Reference</h4>
+                  <p>Complete list of all BobShell commands and options</p>
+                  <a href="https://internal.bob.ibm.com/docs/shell/commands" target="_blank">View Commands →</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Script Library</h4>
+                  <p>Community-contributed scripts and automation templates</p>
+                  <a href="https://github.ibm.com/bob-ide/scripts" target="_blank">Browse Scripts →</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Integration Guide</h4>
+                  <p>Deep dive into IDE and CI/CD integrations</p>
+                  <a href="https://internal.bob.ibm.com/docs/shell/integrations" target="_blank">Learn More →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>bob-lab</h4>
+          <p>Master IBM Bob through hands-on labs</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#labs">All Labs</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Built by IBM Client Engineering with bob</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../components/component-loader.js"></script>
+  <script src="../i18n.js"></script>
+  <script src="../script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      hljs.highlightAll();
+    });
+  </script>
+</body>
+</html>

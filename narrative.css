@@ -1076,5 +1076,197 @@
 }
 
 /* ============================================
+   ACHIEVEMENT BADGES
+   ============================================ */
+
+.achievement-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  margin: var(--spacing-xl) 0;
+}
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-lg);
+  background: white;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  min-width: 120px;
+  transition: transform 0.2s ease;
+}
+
+.badge:hover {
+  transform: translateY(-4px);
+}
+
+.badge-icon {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.badge-title {
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Next Steps */
+.next-steps {
+  background: var(--bg-alt);
+  padding: var(--spacing-xl);
+  border-radius: 0;
+  margin: var(--spacing-xl) 0;
+}
+
+.next-steps h3 {
+  margin-top: 0;
+  color: var(--text-primary);
+}
+
+.next-steps ol {
+  padding-left: var(--spacing-lg);
+}
+
+.next-steps li {
+  margin-bottom: var(--spacing-md);
+  font-size: 1rem;
+}
+
+/* ============================================
+   BOBSHELL LAB STYLES
+   ============================================ */
+
+/* Command Categories */
+.command-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.command-category {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.command-category h4 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-lg);
+  color: var(--primary-color);
+}
+
+.command-example {
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: var(--bg-alt);
+  border-radius: 0;
+}
+
+.command-line {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.prompt {
+  color: var(--success-color);
+  margin-right: var(--spacing-sm);
+}
+
+.command-example p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Script Examples */
+.script-example {
+  margin: var(--spacing-xl) 0;
+}
+
+.script-example h4 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+}
+
+/* Integration Grid */
+.integration-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.integration-card {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.integration-card h4 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-color);
+}
+
+.integration-content h5 {
+  color: var(--text-primary);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.integration-content ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+.integration-content li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Use Cases */
+.use-cases {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.use-case {
+  padding: var(--spacing-md);
+  background: var(--bg-alt);
+  border-radius: 0;
+}
+
+.use-case strong {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.use-case p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* Resources Section */
+.resources-section {
+  margin-top: var(--spacing-xl);
+}
+
+.resources-section h3 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+}
+
+/* ============================================
    END OF STYLES
    ============================================ */
