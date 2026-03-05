@@ -848,6 +848,318 @@ END $$;</code></pre>
                     <li><strong>Performance:</strong> 40% faster query execution on PostgreSQL</li>
                     <li><strong>Downtime:</strong> Zero - dual-write pattern enabled seamless cutover</li>
                   </ul>
+
+    <!-- Step 5: UI Modernization -->
+    <section id="ui-modernization" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">5</span>
+          <h2>UI Modernization</h2>
+          <span class="capability-badge">Modern User Experience</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>5250 green screen interfaces are functional but outdated. Modern users expect intuitive, responsive web interfaces. Transforming character-based screens to modern UX requires understanding both the legacy workflow and modern design principles.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Watch Bob Modernize Your UI</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request UI Transformation</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Transform 5250 order entry screen to modern React UI:
+- Analyze screen flow and business logic
+- Design modern UX with Carbon Design System
+- Implement responsive React components
+- Add real-time validation and error handling
+- Maintain exact business workflow
+- Improve user productivity</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>5250 Screen Definition</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Legacy 5250 DDS</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>     A          R ORDENT
+     A                                      1  2'ORDER ENTRY'
+     A                                      3  2'Customer Number:'
+     A            CUSTNO         5Y 0B      3 20
+     A                                      4  2'Customer Name:'
+     A            CUSTNAME      30A  O      4 20
+     A                                      6  2'Item Number:'
+     A            ITEMNO         8Y 0B      6 20
+     A                                      7  2'Description:'
+     A            ITEMDESC      40A  O      7 20
+     A                                      8  2'Quantity:'
+     A            QTY            6Y 0B      8 20
+     A                                      9  2'Unit Price:'
+     A            PRICE          9Y 2O      9 20
+     A                                     10  2'Total:'
+     A            TOTAL          9Y 2O     10 20
+     A                                     23  2'F3=Exit F12=Cancel'</code></pre>
+                </div>
+                <p style="margin-top: 1rem;"><strong>User Experience:</strong> Character-based, keyboard-only navigation, function keys for actions, no real-time validation</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Modern React Component</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">React + TypeScript + Carbon</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-javascript">import React, { useState, useEffect } from 'react';
+import {
+  Form, TextInput, NumberInput, Button,
+  InlineNotification, Loading
+} from '@carbon/react';
+import { useOrderService } from '../services/orderService';
+
+interface OrderEntryProps {
+  onSubmit: (order: Order) => void;
+  onCancel: () => void;
+}
+
+export const OrderEntry: React.FC<OrderEntryProps> = ({ 
+  onSubmit, onCancel 
+}) => {
+  const [customerId, setCustomerId] = useState('');
+  const [customerName, setCustomerName] = useState('');
+  const [itemId, setItemId] = useState('');
+  const [itemDescription, setItemDescription] = useState('');
+  const [quantity, setQuantity] = useState(0);
+  const [unitPrice, setUnitPrice] = useState(0);
+  const [total, setTotal] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const orderService = useOrderService();
+
+  // Real-time customer lookup
+  useEffect(() => {
+    if (customerId.length === 5) {
+      setLoading(true);
+      orderService.getCustomer(customerId)
+        .then(customer => {
+          setCustomerName(customer.name);
+          setError('');
+        })
+        .catch(() => {
+          setCustomerName('');
+          setError('Customer not found');
+        })
+        .finally(() => setLoading(false));
+    }
+  }, [customerId]);
+
+  // Real-time item lookup
+  useEffect(() => {
+    if (itemId.length === 8) {
+      setLoading(true);
+      orderService.getItem(itemId)
+        .then(item => {
+          setItemDescription(item.description);
+          setUnitPrice(item.price);
+          setError('');
+        })
+        .catch(() => {
+          setItemDescription('');
+          setUnitPrice(0);
+          setError('Item not found');
+        })
+        .finally(() => setLoading(false));
+    }
+  }, [itemId]);
+
+  // Auto-calculate total
+  useEffect(() => {
+    setTotal(quantity * unitPrice);
+  }, [quantity, unitPrice]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!customerId || !itemId || quantity <= 0) {
+      setError('Please fill all required fields');
+      return;
+    }
+
+    try {
+      setLoading(true);
+      const order = await orderService.createOrder({
+        customerId,
+        itemId,
+        quantity,
+        unitPrice,
+        total
+      });
+      onSubmit(order);
+    } catch (err) {
+      setError('Failed to create order');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="order-entry">
+      <h2>Order Entry</h2>
+      
+      {error && (
+        <InlineNotification
+          kind="error"
+          title="Error"
+          subtitle={error}
+          onCloseButtonClick={() => setError('')}
+        />
+      )}
+
+      <Form onSubmit={handleSubmit}>
+        <TextInput
+          id="customer-id"
+          labelText="Customer Number"
+          value={customerId}
+          onChange={(e) => setCustomerId(e.target.value)}
+          maxLength={5}
+          required
+        />
+        
+        <TextInput
+          id="customer-name"
+          labelText="Customer Name"
+          value={customerName}
+          readOnly
+          disabled={loading}
+        />
+
+        <TextInput
+          id="item-id"
+          labelText="Item Number"
+          value={itemId}
+          onChange={(e) => setItemId(e.target.value)}
+          maxLength={8}
+          required
+        />
+
+        <TextInput
+          id="item-description"
+          labelText="Description"
+          value={itemDescription}
+          readOnly
+          disabled={loading}
+        />
+
+        <NumberInput
+          id="quantity"
+          label="Quantity"
+          value={quantity}
+          onChange={(e) => setQuantity(Number(e.target.value))}
+          min={1}
+          required
+        />
+
+        <NumberInput
+          id="unit-price"
+          label="Unit Price"
+          value={unitPrice}
+          readOnly
+          disabled
+        />
+
+        <NumberInput
+          id="total"
+          label="Total"
+          value={total}
+          readOnly
+          disabled
+        />
+
+        <div className="button-group">
+          <Button type="submit" disabled={loading}>
+            {loading ? <Loading small /> : 'Submit Order'}
+          </Button>
+          <Button kind="secondary" onClick={onCancel}>
+            Cancel
+          </Button>
+        </div>
+      </Form>
+    </div>
+  );
+};</code></pre>
+                </div>
+                <p style="margin-top: 1rem;"><strong>User Experience:</strong> Modern web interface, real-time validation, auto-lookup, responsive design, accessible, mobile-friendly</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>UI Transformation Results</h4>
+                <div class="result-box">
+                  <ul>
+                    <li><strong>Screens Modernized:</strong> 89 5250 screens → 34 React components</li>
+                    <li><strong>User Productivity:</strong> 45% faster data entry with real-time validation</li>
+                    <li><strong>Error Reduction:</strong> 60% fewer data entry errors</li>
+                    <li><strong>Accessibility:</strong> WCAG 2.1 AA compliant</li>
+                    <li><strong>Mobile Support:</strong> Responsive design works on all devices</li>
+                    <li><strong>User Satisfaction:</strong> 85% positive feedback from users</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>4-6 months - UX design, manual screen conversion, user testing</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>3-4 weeks - automated UI generation with modern UX patterns</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>85% faster UI modernization</strong> - Bob transforms 5250 screens to modern React interfaces while improving user productivity and satisfaction."</p>
+          </div>
+        </div>
+      </div>
+    </section>
                 </div>
               </div>
             </div>
@@ -884,4 +1196,684 @@ END $$;</code></pre>
           </div>
         </div>
       </div>
+
+    <!-- Step 6: Platform Migration -->
+    <section id="platform-migration" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">6</span>
+          <h2>Platform Migration</h2>
+          <span class="capability-badge">Cloud-Native Deployment</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Moving from IBM i to OpenShift requires containerization, orchestration, and cloud-native architecture. Teams need expertise in Docker, Kubernetes, and OpenShift to successfully deploy and manage microservices.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Let Bob Handle Your Platform Migration</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Platform Migration</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Deploy modernized application to OpenShift:
+- Create Dockerfiles for all microservices
+- Generate Kubernetes manifests
+- Create Helm charts for deployment
+- Configure CI/CD pipeline with GitLab
+- Set up monitoring and logging
+- Implement auto-scaling and health checks</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Containerization</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Dockerfile (Multi-stage Build)</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-dockerfile"># Build stage
+FROM maven:3.9-eclipse-temurin-21 AS build
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+# Runtime stage
+FROM eclipse-temurin:21-jre-alpine
+WORKDIR /app
+
+# Create non-root user
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+# Copy JAR from build stage
+COPY --from=build /app/target/*.jar app.jar
+
+# Set ownership
+RUN chown -R appuser:appgroup /app
+
+# Switch to non-root user
+USER appuser
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=40s \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:8080/actuator/health || exit 1
+
+# Expose port
+EXPOSE 8080
+
+# Run application
+ENTRYPOINT ["java", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75.0", "-jar", "app.jar"]</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Kubernetes Deployment</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Kubernetes Manifest</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+  namespace: ibmi-modernization
+  labels:
+    app: order-service
+    version: v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+        version: v1
+    spec:
+      containers:
+      - name: order-service
+        image: registry.example.com/order-service:1.0.0
+        ports:
+        - containerPort: 8080
+          name: http
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "production"
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: database-credentials
+              key: url
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8080
+          initialDelaySeconds: 20
+          periodSeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service
+  namespace: ibmi-modernization
+spec:
+  selector:
+    app: order-service
+  ports:
+  - port: 80
+    targetPort: 8080
+    name: http
+  type: ClusterIP
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: order-service-hpa
+  namespace: ibmi-modernization
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: order-service
+  minReplicas: 3
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>CI/CD Pipeline</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">GitLab CI/CD (.gitlab-ci.yml)</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-yaml">stages:
+  - build
+  - test
+  - package
+  - deploy
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+  DOCKER_REGISTRY: "registry.example.com"
+  IMAGE_NAME: "$DOCKER_REGISTRY/order-service"
+
+build:
+  stage: build
+  image: maven:3.9-eclipse-temurin-21
+  script:
+    - mvn clean compile
+  cache:
+    paths:
+      - .m2/repository
+  artifacts:
+    paths:
+      - target/
+
+test:
+  stage: test
+  image: maven:3.9-eclipse-temurin-21
+  script:
+    - mvn test
+    - mvn jacoco:report
+  coverage: '/Total.*?([0-9]{1,3})%/'
+  artifacts:
+    reports:
+      junit: target/surefire-reports/TEST-*.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: target/site/jacoco/jacoco.xml
+
+package:
+  stage: package
+  image: docker:24
+  services:
+    - docker:24-dind
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $DOCKER_REGISTRY
+    - docker build -t $IMAGE_NAME:$CI_COMMIT_SHA -t $IMAGE_NAME:latest .
+    - docker push $IMAGE_NAME:$CI_COMMIT_SHA
+    - docker push $IMAGE_NAME:latest
+  only:
+    - main
+
+deploy-staging:
+  stage: deploy
+  image: bitnami/kubectl:latest
+  script:
+    - kubectl config use-context staging
+    - kubectl set image deployment/order-service order-service=$IMAGE_NAME:$CI_COMMIT_SHA -n ibmi-modernization
+    - kubectl rollout status deployment/order-service -n ibmi-modernization
+  environment:
+    name: staging
+    url: https://staging.example.com
+  only:
+    - main
+
+deploy-production:
+  stage: deploy
+  image: bitnami/kubectl:latest
+  script:
+    - kubectl config use-context production
+    - kubectl set image deployment/order-service order-service=$IMAGE_NAME:$CI_COMMIT_SHA -n ibmi-modernization
+    - kubectl rollout status deployment/order-service -n ibmi-modernization
+  environment:
+    name: production
+    url: https://app.example.com
+  when: manual
+  only:
+    - main</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h4>Platform Migration Results</h4>
+                <div class="result-box">
+                  <ul>
+                    <li><strong>Microservices Deployed:</strong> 156 services running on OpenShift</li>
+                    <li><strong>Availability:</strong> 99.95% uptime with auto-scaling</li>
+                    <li><strong>Performance:</strong> 3x faster response times vs IBM i</li>
+                    <li><strong>Cost Savings:</strong> 60% reduction in infrastructure costs</li>
+                    <li><strong>Deployment Speed:</strong> From weeks to minutes with CI/CD</li>
+                    <li><strong>Scalability:</strong> Auto-scales from 3 to 50+ pods based on load</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>2-3 months - manual containerization, Kubernetes setup, deployment configuration</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>1-2 weeks - automated containerization and deployment with best practices</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>85% faster platform migration</strong> - Bob automates the entire deployment process from containerization to production with enterprise-grade reliability."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 7: Testing & Validation -->
+    <section id="testing-validation" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">7</span>
+          <h2>Testing & Validation</h2>
+          <span class="capability-badge">Quality Assurance</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Ensuring functional parity between legacy IBM i and modernized systems is critical. Comprehensive testing across all layers - unit, integration, performance, and user acceptance - is essential to validate the migration.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Let Bob Validate Your Migration</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Comprehensive Testing</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Generate comprehensive test suite:
+- Unit tests for all Java services
+- Integration tests for database operations
+- API endpoint tests
+- Performance tests comparing IBM i vs OpenShift
+- Data validation tests
+- User acceptance test scenarios
+- Achieve >85% code coverage</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Unit Testing Example</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">JUnit 5 Test Suite</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-java">@SpringBootTest
+@AutoConfigureMockMvc
+class OrderProcessingServiceTest {
+    
+    @Autowired
+    private OrderProcessingService orderProcessingService;
+    
+    @MockBean
+    private OrderRepository orderRepository;
+    
+    @MockBean
+    private CustomerRepository customerRepository;
+    
+    @MockBean
+    private OrderLogRepository orderLogRepository;
+    
+    @Test
+    @DisplayName("Should process order with customer discount")
+    void testProcessOrderWithDiscount() {
+        // Given
+        Customer customer = Customer.builder()
+            .customerId(12345)
+            .name("ACME Corp")
+            .discountPercent(new BigDecimal("10.00"))
+            .build();
+            
+        Order order = Order.builder()
+            .orderNumber(1001L)
+            .customerId(12345)
+            .amount(new BigDecimal("1000.00"))
+            .build();
+        
+        when(orderRepository.findAll()).thenReturn(List.of(order));
+        when(customerRepository.findById(12345)).thenReturn(Optional.of(customer));
+        
+        // When
+        orderProcessingService.processOrders();
+        
+        // Then
+        ArgumentCaptor<OrderLog> logCaptor = ArgumentCaptor.forClass(OrderLog.class);
+        verify(orderLogRepository).save(logCaptor.capture());
+        
+        OrderLog savedLog = logCaptor.getValue();
+        assertEquals(1001L, savedLog.getOrderNumber());
+        assertEquals(12345, savedLog.getCustomerId());
+        assertEquals(new BigDecimal("900.00"), savedLog.getNetAmount());
+    }
+    
+    @Test
+    @DisplayName("Should handle customer not found")
+    void testProcessOrderCustomerNotFound() {
+        // Given
+        Order order = Order.builder()
+            .orderNumber(1002L)
+            .customerId(99999)
+            .amount(new BigDecimal("500.00"))
+            .build();
+        
+        when(orderRepository.findAll()).thenReturn(List.of(order));
+        when(customerRepository.findById(99999)).thenReturn(Optional.empty());
+        
+        // When/Then
+        assertThrows(CustomerNotFoundException.class, 
+            () -> orderProcessingService.processOrders());
+    }
+    
+    @Test
+    @DisplayName("Should calculate net amount correctly")
+    void testNetAmountCalculation() {
+        // Test various discount scenarios
+        BigDecimal amount = new BigDecimal("1000.00");
+        
+        assertEquals(new BigDecimal("900.00"), 
+            calculateNetAmount(amount, new BigDecimal("10.00")));
+        assertEquals(new BigDecimal("750.00"), 
+            calculateNetAmount(amount, new BigDecimal("25.00")));
+        assertEquals(new BigDecimal("1000.00"), 
+            calculateNetAmount(amount, BigDecimal.ZERO));
+    }
+}</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Integration Testing</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">API Integration Test</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-java">@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@Testcontainers
+class OrderAPIIntegrationTest {
+    
+    @Container
+    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:16")
+        .withDatabaseName("testdb")
+        .withUsername("test")
+        .withPassword("test");
+    
+    @Autowired
+    private TestRestTemplate restTemplate;
+    
+    @Autowired
+    private OrderRepository orderRepository;
+    
+    @DynamicPropertySource
+    static void configureProperties(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url", postgres::getJdbcUrl);
+        registry.add("spring.datasource.username", postgres::getUsername);
+        registry.add("spring.datasource.password", postgres::getPassword);
+    }
+    
+    @Test
+    @DisplayName("Should create order via REST API")
+    void testCreateOrderAPI() {
+        // Given
+        OrderRequest request = OrderRequest.builder()
+            .customerId(12345)
+            .itemId(87654321)
+            .quantity(5)
+            .build();
+        
+        // When
+        ResponseEntity<OrderResponse> response = restTemplate.postForEntity(
+            "/api/orders",
+            request,
+            OrderResponse.class
+        );
+        
+        // Then
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertNotNull(response.getBody());
+        assertEquals(12345, response.getBody().getCustomerId());
+        
+        // Verify database
+        List<Order> orders = orderRepository.findByCustomerId(12345);
+        assertEquals(1, orders.size());
+    }
+    
+    @Test
+    @DisplayName("Should validate functional parity with IBM i")
+    void testFunctionalParity() {
+        // Test that modernized system produces same results as IBM i
+        // Using test data from IBM i system
+        
+        OrderRequest request = OrderRequest.builder()
+            .customerId(12345)
+            .itemId(87654321)
+            .quantity(10)
+            .build();
+        
+        ResponseEntity<OrderResponse> response = restTemplate.postForEntity(
+            "/api/orders",
+            request,
+            OrderResponse.class
+        );
+        
+        // Expected values from IBM i system test run
+        BigDecimal expectedTotal = new BigDecimal("4500.00");
+        BigDecimal expectedNetAmount = new BigDecimal("4050.00"); // 10% discount
+        
+        assertEquals(expectedTotal, response.getBody().getTotalAmount());
+        assertEquals(expectedNetAmount, response.getBody().getNetAmount());
+    }
+}</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Performance Testing</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">JMeter Test Plan</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-yaml"># Performance Test Configuration
+test_scenarios:
+  - name: "Order Processing Load Test"
+    duration: 300s
+    users: 100
+    ramp_up: 60s
+    endpoints:
+      - path: /api/orders
+        method: POST
+        expected_response_time: 200ms
+        success_rate: 99.5%
+    
+  - name: "Concurrent User Simulation"
+    duration: 600s
+    users: 500
+    ramp_up: 120s
+    think_time: 2s
+    
+performance_comparison:
+  ibm_i_baseline:
+    avg_response_time: 450ms
+    throughput: 150 tps
+    concurrent_users: 200
+    
+  openshift_target:
+    avg_response_time: 150ms  # 3x faster
+    throughput: 500 tps       # 3.3x higher
+    concurrent_users: 500     # 2.5x more</code></pre>
+                </div>
+                
+                <div class="result-box" style="margin-top: 1rem;">
+                  <h4>Performance Test Results</h4>
+                  <ul>
+                    <li><strong>Response Time:</strong> 145ms avg (68% faster than IBM i)</li>
+                    <li><strong>Throughput:</strong> 520 TPS (247% increase)</li>
+                    <li><strong>Concurrent Users:</strong> 500+ (150% increase)</li>
+                    <li><strong>Error Rate:</strong> 0.02% (99.98% success rate)</li>
+                    <li><strong>Resource Utilization:</strong> 45% CPU, 60% memory</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h4>Testing Summary</h4>
+                <div class="result-box">
+                  <ul>
+                    <li><strong>Unit Tests:</strong> 2,847 tests, 92% code coverage</li>
+                    <li><strong>Integration Tests:</strong> 456 tests, all passing</li>
+                    <li><strong>API Tests:</strong> 189 endpoints tested, 100% functional parity</li>
+                    <li><strong>Performance Tests:</strong> 3x faster than IBM i baseline</li>
+                    <li><strong>Data Validation:</strong> 100% data integrity verified</li>
+                    <li><strong>UAT:</strong> 95% user acceptance rate</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>6-8 weeks - manual test creation, execution, and validation</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>1-2 weeks - automated test generation with comprehensive coverage</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>80% faster testing</strong> - Bob generates comprehensive test suites that ensure functional parity and validate the entire migration with confidence."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </div>
+  </main>
+
+  <!-- Shared Footer Component -->
+  <div data-component="footer"></div>
+
+  <!-- Component Loader -->
+  <script src="../components/component-loader.js"></script>
+  
+  <!-- Highlight.js for syntax highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <!-- Smooth scrolling and copy functionality -->
+  <script src="../script.js"></script>
+</body>
+</html>
     </section>
