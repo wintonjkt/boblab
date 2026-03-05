@@ -38,7 +38,7 @@
         <a href="#integrations" class="capability-link">IDE & CI/CD Integration</a>
       </nav>
       <div class="sidebar-footer">
-        <a href="https://www.ibm.com/docs/en/bob-ide/latest?topic=bobshell" target="_blank" class="sidebar-link">
+        <a href="https://www.ibm.com/docs/en/bob-ide/latest?topic=bobshell" target="_blank" class="sidebar-github-link">
           <span class="github-text">Documentation</span>
           <span class="github-arrow">&rarr;</span>
         </a>
@@ -46,7 +46,13 @@
     </aside>
 
     <div class="walkthrough-main">
-    <!-- Overview -->
+      <!-- Enhanced Progress -->
+      <div data-component="enhanced-progress"></div>
+      
+      <!-- Table of Contents -->
+      <div data-component="table-of-contents"></div>
+      
+      <!-- Overview -->
     <section id="overview" class="section">
       <div class="container">
         <div class="info-card compliance">
@@ -1455,27 +1461,8 @@ Recent files:
     </div>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>bob-lab</h4>
-          <p>Master IBM Bob through hands-on labs</p>
-        </div>
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#labs">All Labs</a></li>
-            <li><a href="getting-started.html">Getting Started</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>Built by IBM Client Engineering with bob</p>
-      </div>
-    </div>
-  </footer>
+  <!-- Shared Footer Component -->
+  <div data-component="footer"></div>
 
   <!-- Scripts -->
   <script src="../components/component-loader.js"></script>
@@ -1487,31 +1474,75 @@ Recent files:
   <script src="../script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      hljs.highlightAll();
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Copy button functionality
+    document.querySelectorAll('.copy-button').forEach(button => {
+      button.addEventListener('click', async () => {
+        const codeBlock = button.closest('.code-block-wrapper').querySelector('code');
+        const text = codeBlock.textContent;
+        
+        try {
+          await navigator.clipboard.writeText(text);
+          button.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Copied!
+          `;
+          
+          setTimeout(() => {
+            button.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+              Copy
+            `;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    });
+
+    // Sidebar navigation active state
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.capability-link');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -35% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    // Smooth scroll for navigation links
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
     });
   </script>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>bob-lab</h4>
-          <p>Master IBM Bob through hands-on labs</p>
-        </div>
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#labs">All Labs</a></li>
-            <li><a href="getting-started.html">Getting Started</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>Built by IBM Client Engineering with bob</p>
-      </div>
-    </div>
-  </footer>
 </body>
 </html>
