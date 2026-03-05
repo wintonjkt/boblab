@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Building MCP - bob-lab</title>
+  <title>Using MCP with Bob - bob-lab</title>
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="../narrative.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
@@ -14,9 +14,9 @@
 
   <header class="page-header">
     <div class="container">
-      <h1>Building MCP with Bob</h1>
-      <p class="page-subtitle">Model Context Protocol Development</p>
-      <p class="page-description">Learn how Bob accelerates MCP server development through automated implementation and testing</p>
+      <h1>Using MCP with Bob</h1>
+      <p class="page-subtitle">Model Context Protocol Integration</p>
+      <p class="page-description">Learn how to use MCP servers in Bob IDE and create custom MCP servers with Bob's assistance</p>
     </div>
   </header>
 
@@ -24,20 +24,18 @@
     <!-- Sidebar Navigation -->
     <aside class="walkthrough-sidebar">
       <div class="sidebar-header">
-        <h3>MCP Development Steps</h3>
+        <h3>MCP Learning Path</h3>
       </div>
       <nav class="capability-nav">
         <a href="#overview" class="capability-link active">Overview</a>
-        <a href="#protocol-understanding" class="capability-link">Protocol Understanding</a>
-        <a href="#server-design" class="capability-link">Server Design</a>
-        <a href="#implementation" class="capability-link">Implementation</a>
-        <a href="#testing" class="capability-link">Testing & Validation</a>
-        <a href="#integration" class="capability-link">Client Integration</a>
-        <a href="#deployment" class="capability-link">Deployment</a>
+        <a href="#using-mcp" class="capability-link">Using MCP in Bob IDE</a>
+        <a href="#server-example" class="capability-link">Simple MCP Server Example</a>
+        <a href="#create-with-bob" class="capability-link">Create MCP Server with Bob</a>
+        <a href="#best-practices" class="capability-link">Best Practices</a>
       </nav>
       <div class="sidebar-footer">
-        <a href="" target="_blank" class="sidebar-github-link">
-          <span class="github-text">Get Source Code</span>
+        <a href="https://github.com/modelcontextprotocol/servers" target="_blank" class="sidebar-github-link">
+          <span class="github-text">MCP Server Examples</span>
           <span class="github-arrow">&rarr;</span>
         </a>
       </div>
@@ -48,64 +46,43 @@
     <section id="overview" class="section">
       <div class="container">
         <div class="info-card compliance">
-          <h2>What You'll Experience</h2>
-          <p>This walkthrough demonstrates how Bob accelerates MCP (Model Context Protocol) server development through a realistic scenario: building a custom MCP server for file system operations and database queries.</p>
+          <h2>What is MCP in Bob?</h2>
+          <p>Model Context Protocol (MCP) allows Bob IDE to connect to external tools and data sources, extending AI capabilities with secure, standardized integrations.</p>
 
           <div class="capabilities-overview">
             <div class="cap-card">
-              <h4>Protocol Understanding</h4>
-              <p>Bob analyzes MCP specification and extracts implementation requirements</p>
+              <h4>Pre-built MCP Servers</h4>
+              <p>Connect to databases, file systems, and APIs out-of-the-box</p>
             </div>
             <div class="cap-card">
-              <h4>Server Design</h4>
-              <p>Creates optimal server architecture with proper resource management</p>
+              <h4>Custom MCP Servers</h4>
+              <p>Build tailored integrations for your specific needs</p>
             </div>
             <div class="cap-card">
-              <h4>Implementation</h4>
-              <p>Generates complete server code with JSON-RPC handlers and type safety</p>
+              <h4>Security & Control</h4>
+              <p>Manage permissions and access through Bob's interface</p>
             </div>
             <div class="cap-card">
-              <h4>Testing & Validation</h4>
-              <p>Creates comprehensive test suites and validates MCP compliance</p>
-            </div>
-            <div class="cap-card">
-              <h4>Client Integration</h4>
-              <p>Builds client examples and demonstrates protocol interactions</p>
-            </div>
-            <div class="cap-card">
-              <h4>Deployment</h4>
-              <p>Creates Docker containers and deployment configurations</p>
+              <h4>Seamless Integration</h4>
+              <p>MCP servers appear as natural extensions in Bob IDE</p>
             </div>
           </div>
 
-          <p><strong>Estimated Time:</strong> 20-25 minutes to complete the full MCP development workflow</p>
-          
-          <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #0f62fe 0%, #0353e9 100%); border-radius: 8px; text-align: center;">
-            <h3 style="color: white; margin: 0 0 0.5rem 0; font-size: 1.25rem;">📦 Download MCP Development Kit</h3>
-            <p style="color: rgba(255, 255, 255, 0.9); margin: 0 0 1rem 0;">Get the complete MCP server template, examples, and documentation</p>
-            <a href="" target="_blank" style="display: inline-block; padding: 0.75rem 2rem; background: white; color: #0f62fe; text-decoration: none; border-radius: 4px; font-weight: 600; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 0.5rem;">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-              Download MCP Kit
-            </a>
-          </div>
+          <p><strong>Estimated Time:</strong> 15-20 minutes to learn MCP basics and build your first server</p>
         </div>
       </div>
     </section>
 
-    <!-- Step 1: Protocol Understanding -->
-    <section id="protocol-understanding" class="section section-alt">
+    <!-- Using MCP in Bob IDE -->
+    <section id="using-mcp" class="section section-alt">
       <div class="container">
         <div class="step-card">
-          <h2>Step 1: Understanding MCP Protocol</h2>
-          <p>Bob analyzes the MCP specification to understand the protocol requirements and implementation patterns.</p>
+          <h2>Using MCP in Bob IDE</h2>
+          <p>Learn how to configure and use MCP servers directly within Bob IDE.</p>
           
           <div class="demo-window">
             <div class="window-header">
-              <span class="window-title">Bob Analysis</span>
+              <span class="window-title">Bob IDE - MCP Configuration</span>
               <div class="window-controls">
                 <span class="control close"></span>
                 <span class="control minimize"></span>
@@ -113,44 +90,56 @@
               </div>
             </div>
             <div class="window-content">
-              <pre><code class="language-bash">bob analyze --protocol mcp --spec https://modelcontextprotocol.io/specification
+              <pre><code class="language-json">// Bob IDE MCP Configuration
+// File: ~/.bob/mcp-servers.json
 
-🔍 Analyzing MCP Specification...
-📋 Extracting protocol requirements...
-🏗️ Identifying implementation patterns...
-
-✅ Protocol Analysis Complete
-   - JSON-RPC 2.0 transport layer
-   - Resource management endpoints
-   - Tool execution framework
-   - Prompt template system
-   - Logging and error handling</code></pre>
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/project"],
+      "disabled": false,
+      "autoApprove": [
+        "read_file"
+      ]
+    },
+    "git": {
+      "command": "uvx",
+      "args": ["mcp-server-git", "--repository", "/path/to/repo"],
+      "disabled": false,
+      "autoApprove": [
+        "git_log",
+        "git_diff"
+      ]
+    }
+  }
+}</code></pre>
             </div>
           </div>
 
           <div class="info-card">
-            <h3>Key Protocol Components</h3>
+            <h3>MCP Features in Bob IDE</h3>
             <ul>
-              <li><strong>Transport Layer:</strong> JSON-RPC 2.0 for client-server communication</li>
-              <li><strong>Resources:</strong> Standardized access to files, databases, and external systems</li>
-              <li><strong>Tools:</strong> Executable operations that can be invoked by AI models</li>
-              <li><strong>Prompts:</strong> Reusable templates for common interaction patterns</li>
+              <li><strong>Visual Configuration:</strong> Easy-to-use interface for managing MCP servers</li>
+              <li><strong>Permission Controls:</strong> Granular approval for each MCP operation</li>
+              <li><strong>Real-time Monitoring:</strong> See MCP server activity and responses</li>
+              <li><strong>Smart Suggestions:</strong> Bob suggests relevant MCP tools based on context</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Step 2: Server Design -->
-    <section id="server-design" class="section">
+    <!-- Simple MCP Server Example -->
+    <section id="server-example" class="section">
       <div class="container">
         <div class="step-card">
-          <h2>Step 2: Designing MCP Server Architecture</h2>
-          <p>Bob creates an optimal server architecture based on the protocol analysis and your specific requirements.</p>
+          <h2>Simple MCP Server Example</h2>
+          <p>Here's a basic MCP server that provides weather information - a common example that's easy to understand.</p>
           
           <div class="demo-window">
             <div class="window-header">
-              <span class="window-title">Server Design Generation</span>
+              <span class="window-title">weather-mcp-server.js</span>
               <div class="window-controls">
                 <span class="control close"></span>
                 <span class="control minimize"></span>
@@ -158,109 +147,114 @@
               </div>
             </div>
             <div class="window-content">
-              <pre><code class="language-bash">bob design --mcp-server --features "file-system,database-query,git-operations"
+              <pre><code class="language-javascript">#!/usr/bin/env node
 
-🏗️ Designing MCP Server Architecture...
-📋 Creating component structure...
-🔧 Planning integration points...
-
-✅ Server Design Complete
-   📁 mcp-server/
-   ├── src/
-   │   ├── server.ts          # Main server implementation
-   │   ├── handlers/          # Request handlers
-   │   ├── resources/         # Resource providers
-   │   └── tools/             # Tool implementations
-   ├── tests/                 # Test suites
-   └── docs/                  # Documentation</code></pre>
-            </div>
-          </div>
-
-          <div class="architecture-diagram">
-            <h3>Server Architecture</h3>
-            <div class="diagram-container">
-              <div class="layer transport">Transport Layer (JSON-RPC)</div>
-              <div class="layer server">Server Core</div>
-              <div class="layer handlers">Request Handlers</div>
-              <div class="layer resources">Resources & Tools</div>
-              <div class="layer storage">Data Sources</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Step 3: Implementation -->
-    <section id="implementation" class="section section-alt">
-      <div class="container">
-        <div class="step-card">
-          <h2>Step 3: Implementing MCP Server</h2>
-          <p>Bob generates the complete server implementation with proper error handling, type safety, and protocol compliance.</p>
-          
-          <div class="demo-window">
-            <div class="window-header">
-              <span class="window-title">Code Generation</span>
-              <div class="window-controls">
-                <span class="control close"></span>
-                <span class="control minimize"></span>
-                <span class="control maximize"></span>
-              </div>
-            </div>
-            <div class="window-content">
-              <pre><code class="language-typescript">import { Server } from '@modelcontextprotocol/sdk/server/index.js';
+import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import {
+  CallToolRequestSchema,
+  ErrorCode,
+  ListToolsRequestSchema,
+  McpError,
+} from '@modelcontextprotocol/sdk/types.js';
 
 const server = new Server(
   {
-    name: "filesystem-mcp-server",
-    version: "0.1.0",
+    name: 'weather-server',
+    version: '0.1.0',
   },
   {
     capabilities: {
-      resources: {},
       tools: {},
     },
   }
 );
 
-// File system resource handler
-server.setRequestHandler(ListResourcesRequestSchema, async () => {
+// Weather tool definition
+server.setRequestHandler(ListToolsRequestSchema, async () => {
   return {
-    resources: [
+    tools: [
       {
-        uri: "file:///workspace",
-        name: "Workspace Files",
-        mimeType: "text/directory",
+        name: 'get_weather',
+        description: 'Get current weather information for a location',
+        inputSchema: {
+          type: 'object',
+          properties: {
+            location: {
+              type: 'string',
+              description: 'City name or ZIP code',
+            },
+          },
+          required: ['location'],
+        },
       },
     ],
   };
-});</code></pre>
+});
+
+// Handle tool calls
+server.setRequestHandler(CallToolRequestSchema, async (request) => {
+  if (request.params.name === 'get_weather') {
+    const location = request.params.arguments?.location;
+    
+    if (!location) {
+      throw new McpError(
+        ErrorCode.InvalidParams,
+        'Location parameter is required'
+      );
+    }
+
+    // Mock weather data - replace with actual API call
+    const weatherData = {
+      location: location,
+      temperature: '72°F',
+      condition: 'Partly Cloudy',
+      humidity: '65%',
+      wind: '10 mph',
+    };
+
+    return {
+      content: [
+        {
+          type: 'text',
+          text: JSON.stringify(weatherData, null, 2),
+        },
+      ],
+    };
+  }
+
+  throw new McpError(ErrorCode.MethodNotFound, 'Unknown tool');
+});
+
+// Start the server
+const transport = new StdioServerTransport();
+await server.connect(transport);</code></pre>
             </div>
           </div>
 
           <div class="info-card">
-            <h3>Implementation Features</h3>
+            <h3>Key Components</h3>
             <ul>
-              <li>TypeScript implementation with full type safety</li>
-              <li>Async/await patterns for non-blocking operations</li>
-              <li>Comprehensive error handling and logging</li>
-              <li>Resource cleanup and memory management</li>
+              <li><strong>Server Setup:</strong> Initialize MCP server with name and version</li>
+              <li><strong>Tool Definition:</strong> Define available tools with input schemas</li>
+              <li><strong>Request Handlers:</strong> Implement logic for each tool</li>
+              <li><strong>Transport Layer:</strong> Handle communication with clients</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Step 4: Testing -->
-    <section id="testing" class="section">
+    <!-- Create MCP Server with Bob -->
+    <section id="create-with-bob" class="section section-alt">
       <div class="container">
         <div class="step-card">
-          <h2>Step 4: Testing & Validation</h2>
-          <p>Bob creates comprehensive test suites to validate MCP protocol compliance and functionality.</p>
+          <h2>Create MCP Server with Bob</h2>
+          <p>Watch how Bob accelerates MCP server development through AI-assisted code generation and testing.</p>
           
           <div class="demo-window">
             <div class="window-header">
-              <span class="window-title">Test Generation</span>
+              <span class="window-title">Bob Chat - Creating MCP Server</span>
               <div class="window-controls">
                 <span class="control close"></span>
                 <span class="control minimize"></span>
@@ -268,62 +262,20 @@ server.setRequestHandler(ListResourcesRequestSchema, async () => {
               </div>
             </div>
             <div class="window-content">
-              <pre><code class="language-javascript">describe('MCP Server Tests', () => {
-  let client: Client;
-  let server: TestServer;
+              <pre><code class="language-bash">User: Create an MCP server that can read and write files with proper error handling
 
-  beforeAll(async () => {
-    server = new TestServer();
-    client = new Client({
-      name: "test-client",
-      version: "1.0.0"
-    }, {
-      capabilities: {}
-    });
-    
-    await client.connect(server.createTransport());
-  });
+Bob: I'll create a file system MCP server for you. Here's what I'll build:
 
-  test('should list resources', async () => {
-    const resources = await client.listResources();
-    expect(resources.resources).toHaveLength(1);
-    expect(resources.resources[0].name).toBe("Workspace Files");
-  });
-});</code></pre>
+🔧 Creating MCP server structure...
+📝 Generating server implementation...
+🧪 Creating test suite...
+✅ MCP server ready!</code></pre>
             </div>
           </div>
 
-          <div class="test-results">
-            <h3>Test Coverage</h3>
-            <div class="coverage-stats">
-              <div class="stat">
-                <span class="value">95%</span>
-                <span class="label">Protocol Compliance</span>
-              </div>
-              <div class="stat">
-                <span class="value">88</span>
-                <span class="label">Test Cases</span>
-              </div>
-              <div class="stat">
-                <span class="value">100%</span>
-                <span class="label">Code Coverage</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Step 5: Client Integration -->
-    <section id="integration" class="section section-alt">
-      <div class="container">
-        <div class="step-card">
-          <h2>Step 5: Client Integration</h2>
-          <p>Bob demonstrates how to integrate the MCP server with various clients and AI models.</p>
-          
           <div class="demo-window">
             <div class="window-header">
-              <span class="window-title">Client Example</span>
+              <span class="window-title">Generated MCP Server</span>
               <div class="window-controls">
                 <span class="control close"></span>
                 <span class="control minimize"></span>
@@ -331,101 +283,162 @@ server.setRequestHandler(ListResourcesRequestSchema, async () => {
               </div>
             </div>
             <div class="window-content">
-              <pre><code class="language-python">import mcp
+              <pre><code class="language-javascript">// Bob-generated file-system MCP server
+import { Server } from '@modelcontextprotocol/sdk/server/index.js';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import fs from 'fs/promises';
+import path from 'path';
 
-# Connect to MCP server
-client = mcp.Client("filesystem-mcp-server")
-await client.connect()
+const server = new Server({
+  name: 'file-system-server',
+  version: '1.0.0'
+}, {
+  capabilities: { tools: {} }
+});
 
-# List available resources
-resources = await client.list_resources()
-for resource in resources.resources:
-    print(f"Found resource: {resource.name}")
+server.setRequestHandler(ListToolsRequestSchema, async () => ({
+  tools: [
+    {
+      name: 'read_file',
+      description: 'Read contents of a file',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          path: { type: 'string', description: 'File path to read' }
+        },
+        required: ['path']
+      }
+    },
+    {
+      name: 'write_file',
+      description: 'Write content to a file',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          path: { type: 'string', description: 'File path to write' },
+          content: { type: 'string', description: 'Content to write' }
+        },
+        required: ['path', 'content']
+      }
+    }
+  ]
+}));
 
-# Read a file resource
-content = await client.read_resource("file:///workspace/README.md")
-print(f"File content: {content.content}")
+server.setRequestHandler(CallToolRequestSchema, async (request) => {
+  const { name, arguments: args } = request.params;
+  
+  try {
+    switch (name) {
+      case 'read_file':
+        const content = await fs.readFile(args.path, 'utf-8');
+        return { content: [{ type: 'text', text: content }] };
+        
+      case 'write_file':
+        await fs.writeFile(args.path, args.content);
+        return { content: [{ type: 'text', text: 'File written successfully' }] };
+        
+      default:
+        throw new Error(`Unknown tool: ${name}`);
+    }
+  } catch (error) {
+    return { 
+      content: [{ 
+        type: 'text', 
+        text: `Error: ${error.message}` 
+      }] 
+    };
+  }
+});
 
-# Execute a tool (list directory)
-result = await client.call_tool("list_directory", {
-    "path": "/workspace"
-})
-print(f"Directory listing: {result.content}")</code></pre>
+await server.connect(new StdioServerTransport());</code></pre>
             </div>
           </div>
 
-          <div class="integration-examples">
-            <h3>Supported Clients</h3>
-            <div class="client-grid">
-              <div class="client-card">
-                <h4>Python Client</h4>
-                <p>Native Python SDK for seamless integration</p>
-              </div>
-              <div class="client-card">
-                <h4>TypeScript Client</h4>
-                <p>Type-safe client for Node.js applications</p>
-              </div>
-              <div class="client-card">
-                <h4>CLI Tool</h4>
-                <p>Command-line interface for testing and debugging</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Step 6: Deployment -->
-    <section id="deployment" class="section">
-      <div class="container">
-        <div class="step-card">
-          <h2>Step 6: Deployment Configuration</h2>
-          <p>Bob creates deployment configurations for various environments and platforms.</p>
-          
-          <div class="demo-window">
-            <div class="window-header">
-              <span class="window-title">Docker Configuration</span>
-              <div class="window-controls">
-                <span class="control close"></span>
-                <span class="control minimize"></span>
-                <span class="control maximize"></span>
-              </div>
-            </div>
-            <div class="window-content">
-              <pre><code class="language-dockerfile"># Dockerfile
-FROM node:18-alpine
-
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-
-COPY dist/ ./dist/
-EXPOSE 3000
-
-CMD ["node", "dist/server.js"]
-
-# docker-compose.yml
-version: '3.8'
-services:
-  mcp-server:
-    build: .
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=production
-    volumes:
-      - ./workspace:/app/workspace</code></pre>
-            </div>
-          </div>
-
-          <div class="deployment-options">
-            <h3>Deployment Options</h3>
+          <div class="info-card">
+            <h3>Bob's MCP Development Features</h3>
             <ul>
-              <li><strong>Docker Container:</strong> Single container with all dependencies</li>
-              <li><strong>Kubernetes:</strong> Scalable deployment with auto-scaling</li>
-              <li><strong>Cloud Functions:</strong> Serverless deployment for cost efficiency</li>
-              <li><strong>Standalone Binary:</strong> Compiled executable for edge deployment</li>
+              <li><strong>Template Generation:</strong> Creates boilerplate MCP server code</li>
+              <li><strong>Tool Design:</strong> Suggests optimal tool definitions and schemas</li>
+              <li><strong>Error Handling:</strong> Implements comprehensive error management</li>
+              <li><strong>Testing:</strong> Generates unit tests for MCP servers</li>
+              <li><strong>Documentation:</strong> Creates clear documentation for each tool</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section id="best-practices" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>MCP Best Practices</h2>
+          <p>Key guidelines for developing effective MCP servers with Bob.</p>
+          
+          <div class="best-practices-grid">
+            <div class="practice-card">
+              <h3>🔒 Security First</h3>
+              <ul>
+                <li>Validate all inputs thoroughly</li>
+                <li>Implement proper error handling</li>
+                <li>Never expose sensitive information</li>
+                <li>Use Bob's security analysis tools</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h3>📝 Clear Documentation</h3>
+              <ul>
+                <li>Describe tools clearly and concisely</li>
+                <li>Provide examples for complex operations</li>
+                <li>Document error conditions</li>
+                <li>Let Bob review and improve documentation</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h3>⚡ Performance</h3>
+              <ul>
+                <li>Minimize response times</li>
+                <li>Implement async operations</li>
+                <li>Cache results when appropriate</li>
+                <li>Use Bob's performance optimization suggestions</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h3>🧪 Testing</h3>
+              <ul>
+                <li>Test all tool variations</li>
+                <li>Include error scenarios</li>
+                <li>Use Bob to generate test cases</li>
+                <li>Validate MCP compliance</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Bob - MCP Server Review</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-bash">User: Review my MCP server for best practices
+
+Bob: 📊 Analyzing your MCP server...
+
+✅ Security: Input validation implemented
+✅ Documentation: Tool descriptions are clear
+⚠️ Performance: Consider adding caching for file operations
+✅ Error Handling: Comprehensive error responses
+💡 Suggestion: Add rate limiting for write operations
+
+🔧 Ready to deploy improvements?</code></pre>
+            </div>
           </div>
         </div>
       </div>
@@ -435,35 +448,35 @@ services:
     <section id="summary" class="section section-alt">
       <div class="container">
         <div class="step-card">
-          <h2>MCP Development Complete!</h2>
-          <p>Congratulations! You've successfully built a complete MCP server with Bob's assistance.</p>
+          <h2>MCP Mastery Achieved!</h2>
+          <p>You've learned how to use MCP in Bob IDE and create custom MCP servers with Bob's assistance.</p>
           
           <div class="achievement-badges">
             <div class="badge">
-              <div class="badge-icon">🏗️</div>
-              <div class="badge-title">Server Architecture</div>
-            </div>
-            <div class="badge">
-              <div class="badge-icon">⚡</div>
-              <div class="badge-title">Implementation</div>
-            </div>
-            <div class="badge">
-              <div class="badge-icon">🧪</div>
-              <div class="badge-title">Testing</div>
+              <div class="badge-icon">🔧</div>
+              <div class="badge-title">MCP Configuration</div>
             </div>
             <div class="badge">
               <div class="badge-icon">🚀</div>
-              <div class="badge-title">Deployment</div>
+              <div class="badge-title">Server Creation</div>
+            </div>
+            <div class="badge">
+              <div class="badge-icon">🤖</div>
+              <div class="badge-title">Bob Integration</div>
+            </div>
+            <div class="badge">
+              <div class="badge-icon">✅</div>
+              <div class="badge-title">Best Practices</div>
             </div>
           </div>
 
           <div class="next-steps">
             <h3>Next Steps</h3>
             <ol>
-              <li>Deploy your MCP server to your preferred platform</li>
-              <li>Integrate with your AI models and applications</li>
-              <li>Extend functionality with custom resources and tools</li>
-              <li>Contribute to the MCP community</li>
+              <li>Configure MCP servers in your Bob IDE instance</li>
+              <li>Create custom MCP servers for your specific use cases</li>
+              <li>Share your MCP servers with the community</li>
+              <li>Explore advanced MCP features like streaming and batching</li>
             </ol>
           </div>
         </div>

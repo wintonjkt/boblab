@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IBM i Platforming - bob-lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>IBM i Platforming with Bob</h1>
+      <p class="page-subtitle">Modernize AS/400 Legacy Systems to Cloud-Native Architecture</p>
+      <p class="page-description">Transform RPG, COBOL, and CL applications into modern Java microservices on OpenShift</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>Platforming Steps</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#legacy-analysis" class="capability-link">Legacy System Analysis</a>
+        <a href="#modernization-strategy" class="capability-link">Modernization Strategy</a>
+        <a href="#code-transformation" class="capability-link">Code Transformation</a>
+        <a href="#database-migration" class="capability-link">Database Migration</a>
+        <a href="#ui-modernization" class="capability-link">UI Modernization</a>
+        <a href="#platform-migration" class="capability-link">Platform Migration</a>
+        <a href="#testing-validation" class="capability-link">Testing & Validation</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="" target="_blank" class="sidebar-github-link">
+          <span class="github-text">Get Source Code</span>
+          <span class="github-arrow">&rarr;</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="walkthrough-main">
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="info-card compliance">
+          <h2>What You'll Experience</h2>
+          <p>This walkthrough demonstrates Bob's IBM i platforming capabilities through a realistic scenario: transforming a legacy AS/400 system with RPG, COBOL, and 5250 green screens into a modern cloud-native application running on OpenShift.</p>
+
+          <div class="capabilities-overview">
+            <div class="cap-card">
+              <h4>Legacy System Analysis</h4>
+              <p>Bob analyzes RPG, COBOL, CL programs and DB2 for i databases</p>
+            </div>
+            <div class="cap-card">
+              <h4>Modernization Strategy</h4>
+              <p>Creates comprehensive migration plan with risk assessment</p>
+            </div>
+            <div class="cap-card">
+              <h4>Code Transformation</h4>
+              <p>Converts RPG/COBOL to Java with Spring Boot microservices</p>
+            </div>
+            <div class="cap-card">
+              <h4>Database Migration</h4>
+              <p>Migrates DB2 for i to PostgreSQL with data validation</p>
+            </div>
+            <div class="cap-card">
+              <h4>UI Modernization</h4>
+              <p>Transforms 5250 screens to modern React web interfaces</p>
+            </div>
+            <div class="cap-card">
+              <h4>Platform Migration</h4>
+              <p>Deploys to OpenShift with containerization and CI/CD</p>
+            </div>
+            <div class="cap-card">
+              <h4>Testing & Validation</h4>
+              <p>Ensures functional parity with comprehensive testing</p>
+            </div>
+          </div>
+
+          <p><strong>Estimated Time:</strong> 20-25 minutes to complete the full IBM i platforming workflow</p>
+          
+          <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #0f62fe 0%, #0353e9 100%); border-radius: 8px; text-align: center;">
+            <h3 style="color: white; margin: 0 0 0.5rem 0; font-size: 1.25rem;">📦 Download Repository Materials</h3>
+            <p style="color: rgba(255, 255, 255, 0.9); margin: 0 0 1rem 0;">Get the complete source code, examples, and documentation to follow along</p>
+            <a href="" target="_blank" style="display: inline-block; padding: 0.75rem 2rem; background: white; color: #0f62fe; text-decoration: none; border-radius: 4px; font-weight: 600; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 0.5rem;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <!-- Shared Footer Component -->
+  <div data-component="footer"></div>
+
+  <!-- Component Loader -->
+  <script src="../components/component-loader.js"></script>
+  
+  <!-- Highlight.js for syntax highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <!-- Smooth scrolling and copy functionality -->
+  <script src="../script.js"></script>
+</body>
+</html>
+
+    <!-- Step 1: Legacy System Analysis -->
+    <section id="legacy-analysis" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">1</span>
+          <h2>Legacy System Analysis</h2>
+          <span class="capability-badge">Deep Understanding</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>IBM i systems have decades of business logic embedded in RPG, COBOL, and CL programs. Understanding these systems requires specialized knowledge of AS/400 architecture, DB2 for i, and legacy programming paradigms that few developers possess today.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Try It Yourself</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Provide Your IBM i System Details</h4>
+                <p>Upload or point Bob to your legacy IBM i application.</p>
+                <div class="prompt-box">
+                  <div class="prompt-content">
+                    <p>Example: A 25-year-old order management system with 500+ RPG IV programs, 200+ COBOL programs, 150+ CL scripts, DB2 for i database with 300+ tables, and 5250 green screen interfaces</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Ask Bob to Analyze the System</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Analyze this IBM i system and provide:
+- Program inventory (RPG, COBOL, CL)
+- Database schema and dependencies
+- Business logic flow and integration points
+- 5250 screen definitions and user workflows
+- External system integrations
+- Technical debt and modernization opportunities</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Review Bob's Analysis</h4>
+                <p>Bob provides comprehensive insights:</p>
+                <div class="result-box">
+                  <ul>
+                    <li><strong>Programs:</strong> 523 RPG IV, 187 COBOL, 142 CL (852 total programs)</li>
+                    <li><strong>Database:</strong> DB2 for i with 312 tables, 1,847 stored procedures, 2.3TB data</li>
+                    <li><strong>Business Logic:</strong> Order processing, inventory management, customer billing, reporting</li>
+                    <li><strong>UI:</strong> 89 5250 display files with complex screen flows</li>
+                    <li><strong>Integrations:</strong> EDI, FTP file transfers, ODBC connections, message queues</li>
+                    <li><strong>Technical Debt:</strong> Fixed-format RPG, no version control, hardcoded values, monolithic architecture</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>4-6 weeks - hire IBM i consultants, manual code review, documentation creation</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>10 minutes - comprehensive analysis with dependency mapping and modernization roadmap</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>99.5% faster analysis</strong> - Bob understands your entire IBM i ecosystem in minutes, including business logic that would take weeks to document manually."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 2: Modernization Strategy -->
+    <section id="modernization-strategy" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">2</span>
+          <h2>Modernization Strategy</h2>
+          <span class="capability-badge">Strategic Roadmap</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>IBM i modernization requires balancing business continuity with technical transformation. The wrong approach can result in failed migrations, data loss, and business disruption. A phased strategy is critical for success.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Try It Yourself</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Define Modernization Goals</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Create a modernization plan to:
+- Convert RPG/COBOL to Java microservices
+- Migrate DB2 for i to PostgreSQL
+- Replace 5250 screens with React web UI
+- Deploy on OpenShift (Red Hat)
+- Implement CI/CD pipeline
+- Maintain business continuity during migration
+- Zero data loss requirement</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Review the Modernization Roadmap</h4>
+                <p>Bob generates a phased approach with risk mitigation:</p>
+
+                <div class="repo-plan">
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 1 - Foundation (Weeks 1-3)</span>
+                    <ul>
+                      <li>Set up development environment (Java 21, Spring Boot 3.x)</li>
+                      <li>Establish CI/CD pipeline with Jenkins/GitLab</li>
+                      <li>Create database migration framework</li>
+                      <li>Implement logging and monitoring infrastructure</li>
+                      <li><strong>Risk:</strong> Low - infrastructure setup with no business impact</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 2 - Database Migration (Weeks 4-8)</span>
+                    <ul>
+                      <li>Analyze DB2 for i schema and convert to PostgreSQL DDL</li>
+                      <li>Migrate stored procedures to Java service layer</li>
+                      <li>Implement dual-write pattern for zero-downtime migration</li>
+                      <li>Validate data integrity with automated reconciliation</li>
+                      <li><strong>Risk:</strong> High - requires careful data validation and rollback plan</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 3 - Business Logic Transformation (Weeks 9-16)</span>
+                    <ul>
+                      <li>Convert RPG IV programs to Java services (order processing, inventory)</li>
+                      <li>Transform COBOL batch jobs to Spring Batch</li>
+                      <li>Migrate CL scripts to shell scripts and Kubernetes jobs</li>
+                      <li>Implement RESTful APIs for service communication</li>
+                      <li><strong>Risk:</strong> High - requires extensive testing to ensure business logic parity</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 4 - UI Modernization (Weeks 17-22)</span>
+                    <ul>
+                      <li>Map 5250 screen flows to modern UX design</li>
+                      <li>Build React SPA with TypeScript and Carbon Design System</li>
+                      <li>Implement authentication with OAuth2/OIDC</li>
+                      <li>Progressive rollout with feature flags</li>
+                      <li><strong>Risk:</strong> Medium - user training required, but independent of backend</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 5 - Platform Migration (Weeks 23-26)</span>
+                    <ul>
+                      <li>Containerize all services with Docker</li>
+                      <li>Deploy to OpenShift with Helm charts</li>
+                      <li>Configure auto-scaling, health checks, and circuit breakers</li>
+                      <li>Set up monitoring with Prometheus/Grafana</li>
+                      <li><strong>Risk:</strong> Medium - requires OpenShift expertise and load testing</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 6 - Cutover & Decommission (Weeks 27-28)</span>
+                    <ul>
+                      <li>Final data synchronization and validation</li>
+                      <li>Production cutover with rollback plan</li>
+                      <li>Monitor system performance and user feedback</li>
+                      <li>Decommission IBM i system after stabilization period</li>
+                      <li><strong>Risk:</strong> High - requires careful planning and executive approval</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>2-3 weeks - consultants create plan, multiple stakeholder reviews, revisions</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>5 minutes - comprehensive roadmap with risk assessment and timelines</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Strategic planning at scale</strong> - Bob creates enterprise-grade IBM i modernization plans that balance technical feasibility with business constraints."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 3: Code Transformation -->
+    <section id="code-transformation" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">3</span>
+          <h2>Code Transformation</h2>
+          <span class="capability-badge">AI-Powered Conversion</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Converting RPG and COBOL to modern Java requires deep understanding of both legacy and modern paradigms. Manual conversion is extremely time-consuming and error-prone, with high risk of introducing bugs.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Watch Bob Transform Your Code</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Code Conversion</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Convert the ORDPRC01 RPG program to Java:
+- Transform to Spring Boot microservice
+- Replace file I/O with JPA/Hibernate
+- Implement RESTful endpoints
+- Add input validation and error handling
+- Follow modern Java best practices
+- Maintain exact business logic</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>RPG to Java Transformation</h4>
+                
+                <div class="code-comparison">
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Legacy RPG IV Code</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-rpg">**FREE
+DCL-F ORDERS USAGE(*INPUT) KEYED;
+DCL-F CUSTOMER USAGE(*INPUT) KEYED;
+DCL-F ORDLOG USAGE(*OUTPUT);
+
+DCL-S OrderNum PACKED(7:0);
+DCL-S CustNum PACKED(5:0);
+DCL-S OrderAmt PACKED(9:2);
+DCL-S DiscPct PACKED(3:2);
+DCL-S NetAmt PACKED(9:2);
+
+// Main processing loop
+DOW NOT %EOF(ORDERS);
+  READ ORDERS;
+  IF NOT %EOF(ORDERS);
+    CustNum = ORD_CUST;
+    OrderNum = ORD_NUM;
+    OrderAmt = ORD_AMT;
+    
+    // Get customer discount
+    CHAIN CustNum CUSTOMER;
+    IF %FOUND(CUSTOMER);
+      DiscPct = CUST_DISC;
+    ELSE;
+      DiscPct = 0;
+    ENDIF;
+    
+    // Calculate net amount
+    NetAmt = OrderAmt - (OrderAmt * DiscPct / 100);
+    
+    // Write to log
+    LOG_ORD = OrderNum;
+    LOG_CUST = CustNum;
+    LOG_AMT = NetAmt;
+    WRITE ORDLOGREC;
+  ENDIF;
+ENDDO;
+
+*INLR = *ON;</code></pre>
+                  </div>
+
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Modern Java Code (Spring Boot)</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-java">@Service
+@Transactional
+public class OrderProcessingService {
+    private final OrderRepository orderRepository;
+    private final CustomerRepository customerRepository;
+    private final OrderLogRepository orderLogRepository;
+
+    public OrderProcessingService(
+            OrderRepository orderRepository,
+            CustomerRepository customerRepository,
+            OrderLogRepository orderLogRepository) {
+        this.orderRepository = orderRepository;
+        this.customerRepository = customerRepository;
+        this.orderLogRepository = orderLogRepository;
+    }
+
+    public void processOrders() {
+        orderRepository.findAll().forEach(order -> {
+            Customer customer = customerRepository
+                .findById(order.getCustomerId())
+                .orElseThrow(() -> new CustomerNotFoundException(
+                    order.getCustomerId()));
+
+            BigDecimal discountPercent = customer.getDiscountPercent();
+            BigDecimal netAmount = calculateNetAmount(
+                order.getAmount(), discountPercent);
+
+            OrderLog log = OrderLog.builder()
+                .orderNumber(order.getOrderNumber())
+                .customerId(order.getCustomerId())
+                .netAmount(netAmount)
+                .processedAt(Instant.now())
+                .build();
+
+            orderLogRepository.save(log);
+        });
+    }
+
+    private BigDecimal calculateNetAmount(
+            BigDecimal amount, BigDecimal discountPercent) {
+        BigDecimal discount = amount
+            .multiply(discountPercent)
+            .divide(BigDecimal.valueOf(100), 2, RoundingMode.HALF_UP);
+        return amount.subtract(discount);
+    }
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>COBOL to Java Transformation</h4>
+                
+                <div class="code-comparison">
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Legacy COBOL Code</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-cobol">       IDENTIFICATION DIVISION.
+       PROGRAM-ID. INVUPD.
+       
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-INVENTORY-REC.
+           05  WS-ITEM-ID          PIC 9(8).
+           05  WS-QTY-ON-HAND      PIC 9(6).
+           05  WS-QTY-ORDERED      PIC 9(6).
+           05  WS-REORDER-POINT    PIC 9(6).
+           05  WS-REORDER-FLAG     PIC X.
+       
+       PROCEDURE DIVISION.
+       MAIN-LOGIC.
+           OPEN INPUT INVENTORY-FILE
+           OPEN OUTPUT REORDER-FILE
+           
+           PERFORM UNTIL END-OF-FILE
+               READ INVENTORY-FILE
+                   AT END
+                       MOVE 'Y' TO END-OF-FILE-FLAG
+                   NOT AT END
+                       PERFORM PROCESS-INVENTORY
+               END-READ
+           END-PERFORM
+           
+           CLOSE INVENTORY-FILE
+           CLOSE REORDER-FILE
+           STOP RUN.
+       
+       PROCESS-INVENTORY.
+           COMPUTE WS-QTY-ON-HAND = 
+               WS-QTY-ON-HAND - WS-QTY-ORDERED
+           
+           IF WS-QTY-ON-HAND < WS-REORDER-POINT
+               MOVE 'Y' TO WS-REORDER-FLAG
+               WRITE REORDER-REC FROM WS-INVENTORY-REC
+           ELSE
+               MOVE 'N' TO WS-REORDER-FLAG
+           END-IF
+           
+           UPDATE INVENTORY-REC FROM WS-INVENTORY-REC.</code></pre>
+                  </div>
+
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Modern Java Code (Spring Batch)</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-java">@Component
+public class InventoryUpdateProcessor 
+        implements ItemProcessor<Inventory, InventoryUpdate> {
+    
+    private final ReorderRepository reorderRepository;
+
+    public InventoryUpdateProcessor(ReorderRepository reorderRepository) {
+        this.reorderRepository = reorderRepository;
+    }
+
+    @Override
+    public InventoryUpdate process(Inventory inventory) {
+        int newQuantity = inventory.getQuantityOnHand() 
+            - inventory.getQuantityOrdered();
+        
+        boolean needsReorder = newQuantity < inventory.getReorderPoint();
+        
+        if (needsReorder) {
+            ReorderRequest reorder = ReorderRequest.builder()
+                .itemId(inventory.getItemId())
+                .currentQuantity(newQuantity)
+                .reorderPoint(inventory.getReorderPoint())
+                .requestedAt(Instant.now())
+                .build();
+            
+            reorderRepository.save(reorder);
+        }
+        
+        return InventoryUpdate.builder()
+            .itemId(inventory.getItemId())
+            .newQuantity(newQuantity)
+            .reorderFlag(needsReorder)
+            .build();
+    }
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Transformation Summary</h4>
+                <div class="result-box">
+                  <ul>
+                    <li><strong>RPG Conversion:</strong> 523 programs → 156 Java microservices (70% reduction through consolidation)</li>
+                    <li><strong>COBOL Conversion:</strong> 187 batch jobs → 43 Spring Batch jobs</li>
+                    <li><strong>Modern Patterns:</strong> Dependency injection, RESTful APIs, reactive programming</li>
+                    <li><strong>Maintainability:</strong> Unit testable, modular design, clear separation of concerns</li>
+                    <li><strong>Performance:</strong> Connection pooling, caching, async processing</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+
+    <!-- Step 4: Database Migration -->
+    <section id="database-migration" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">4</span>
+          <h2>Database Migration</h2>
+          <span class="capability-badge">Zero Data Loss</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Migrating from DB2 for i to PostgreSQL requires careful schema conversion, data type mapping, and stored procedure transformation. Data integrity and zero downtime are critical requirements.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Let Bob Handle Your Database Migration</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Database Migration</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Migrate DB2 for i database to PostgreSQL:
+- Convert schema (312 tables, 1,847 stored procedures)
+- Map DB2 data types to PostgreSQL equivalents
+- Transform stored procedures to Java service layer
+- Create migration scripts with validation
+- Implement dual-write pattern for zero downtime
+- Ensure referential integrity</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Schema Conversion Example</h4>
+                
+                <div class="code-comparison">
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">DB2 for i DDL</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-sql">CREATE TABLE ORDERS (
+    ORD_NUM DECIMAL(7,0) NOT NULL,
+    ORD_CUST DECIMAL(5,0) NOT NULL,
+    ORD_DATE DATE NOT NULL,
+    ORD_AMT DECIMAL(9,2) NOT NULL,
+    ORD_STATUS CHAR(1) NOT NULL,
+    ORD_SHIP_DATE DATE,
+    ORD_NOTES VARCHAR(500),
+    PRIMARY KEY (ORD_NUM),
+    FOREIGN KEY (ORD_CUST) REFERENCES CUSTOMER(CUST_NUM)
+);
+
+CREATE INDEX IDX_ORD_CUST ON ORDERS(ORD_CUST);
+CREATE INDEX IDX_ORD_DATE ON ORDERS(ORD_DATE);
+
+-- DB2 Stored Procedure
+CREATE PROCEDURE GET_CUSTOMER_ORDERS(
+    IN P_CUST_NUM DECIMAL(5,0),
+    OUT P_TOTAL_AMT DECIMAL(11,2)
+)
+LANGUAGE SQL
+BEGIN
+    SELECT SUM(ORD_AMT) INTO P_TOTAL_AMT
+    FROM ORDERS
+    WHERE ORD_CUST = P_CUST_NUM
+      AND ORD_STATUS = 'A';
+END;</code></pre>
+                  </div>
+
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">PostgreSQL DDL + Java Service</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-sql">-- PostgreSQL Schema
+CREATE TABLE orders (
+    order_number BIGINT NOT NULL,
+    customer_id INTEGER NOT NULL,
+    order_date DATE NOT NULL,
+    order_amount NUMERIC(9,2) NOT NULL,
+    order_status CHAR(1) NOT NULL,
+    ship_date DATE,
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (order_number),
+    FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+);
+
+CREATE INDEX idx_orders_customer ON orders(customer_id);
+CREATE INDEX idx_orders_date ON orders(order_date);
+CREATE INDEX idx_orders_status ON orders(order_status);</code></pre>
+                    <pre><code class="language-java">// Java Service Layer (replaces stored procedure)
+@Service
+public class OrderService {
+    private final OrderRepository orderRepository;
+
+    public OrderService(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
+
+    public BigDecimal getCustomerOrderTotal(Integer customerId) {
+        return orderRepository
+            .findByCustomerIdAndOrderStatus(customerId, 'A')
+            .stream()
+            .map(Order::getOrderAmount)
+            .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+}
+
+@Repository
+public interface OrderRepository extends JpaRepository<Order, Long> {
+    @Query("SELECT o FROM Order o WHERE o.customerId = :customerId " +
+           "AND o.orderStatus = :status")
+    List<Order> findByCustomerIdAndOrderStatus(
+        @Param("customerId") Integer customerId,
+        @Param("status") Character status);
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Data Migration Strategy</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Migration Script (Flyway)</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-sql">-- V1__initial_schema.sql
+-- Create all tables with proper constraints
+
+-- V2__migrate_customer_data.sql
+INSERT INTO customer (customer_id, name, email, discount_percent)
+SELECT CUST_NUM, CUST_NAME, CUST_EMAIL, CUST_DISC
+FROM db2_customer_staging;
+
+-- V3__migrate_order_data.sql
+INSERT INTO orders (order_number, customer_id, order_date, 
+                    order_amount, order_status, ship_date, notes)
+SELECT ORD_NUM, ORD_CUST, ORD_DATE, ORD_AMT, 
+       ORD_STATUS, ORD_SHIP_DATE, ORD_NOTES
+FROM db2_orders_staging;
+
+-- V4__validate_data_integrity.sql
+-- Verify row counts match
+DO $$
+DECLARE
+    db2_count INTEGER;
+    pg_count INTEGER;
+BEGIN
+    SELECT COUNT(*) INTO db2_count FROM db2_orders_staging;
+    SELECT COUNT(*) INTO pg_count FROM orders;
+    
+    IF db2_count != pg_count THEN
+        RAISE EXCEPTION 'Data count mismatch: DB2=%, PG=%', 
+                        db2_count, pg_count;
+    END IF;
+END $$;</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Migration Results</h4>
+                <div class="result-box">
+                  <ul>
+                    <li><strong>Schema Conversion:</strong> 312 tables successfully migrated</li>
+                    <li><strong>Data Migration:</strong> 2.3TB data transferred with 100% integrity</li>
+                    <li><strong>Stored Procedures:</strong> 1,847 procedures converted to Java services</li>
+                    <li><strong>Performance:</strong> 40% faster query execution on PostgreSQL</li>
+                    <li><strong>Downtime:</strong> Zero - dual-write pattern enabled seamless cutover</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>3-4 months - manual schema conversion, data migration scripts, extensive testing</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>2-3 weeks - automated migration with validation and zero downtime</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>90% faster migration</strong> - Bob handles complex database migration with automated validation and zero data loss guarantee."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>6-12 months - manual conversion, extensive testing, multiple iterations</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>2-3 weeks - automated transformation with business logic preservation</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>95% faster conversion</strong> - Bob transforms RPG/COBOL to modern Java while maintaining exact business logic and adding modern capabilities."</p>
+          </div>
+        </div>
+      </div>
+    </section>
