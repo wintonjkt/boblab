@@ -45,27 +45,27 @@ class ComponentLoader {
       const elements = document.querySelectorAll(`[data-component="${name}"]`);
       
       elements.forEach(element => {
-        
-        // Adjust relative links if we're in a subdirectory
-        if (currentPath && currentPath.includes('/labs/')) {
-          const links = componentContent.querySelectorAll('a[href^="labs/"], a[href^="index.html"], a[href^="narrative.html"], a[href^="../index.html"]');
-          links.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href.startsWith('labs/')) {
-              // Already has labs/ prefix, remove it since we're already in labs
-              link.setAttribute('href', href.replace('labs/', ''));
-            } else if (href === 'index.html' || href === 'narrative.html') {
-              // Need to go up one level
-              link.setAttribute('href', '../' + href);
-            }
-          });
-        }
-        
-        // Clear the target element
-        element.innerHTML = '';
-        
-        // Append the component content if it was found
+        // Clone the component content
         if (componentContent) {
+          // Adjust relative links if we're in a subdirectory
+          if (currentPath && currentPath.includes('/labs/')) {
+            const links = componentContent.querySelectorAll('a[href^="labs/"], a[href^="index.html"], a[href^="narrative.html"], a[href^="../index.html"]');
+            links.forEach(link => {
+              const href = link.getAttribute('href');
+              if (href.startsWith('labs/')) {
+                // Already has labs/ prefix, remove it since we're already in labs
+                link.setAttribute('href', href.replace('labs/', ''));
+              } else if (href === 'index.html' || href === 'narrative.html') {
+                // Need to go up one level
+                link.setAttribute('href', '../' + href);
+              }
+            });
+          }
+          
+          // Clear the target element
+          element.innerHTML = '';
+          
+          // Append the component content
           element.appendChild(componentContent);
         } else {
           console.error(`No valid element found in component ${name}`);
@@ -228,39 +228,38 @@ class ComponentLoader {
       });
     });
   }
+
+  // Initialize search functionality
+  initializeSearch() {
+    // Load search script
+    const isInSubdirectory = window.location.pathname.includes('/labs/');
+    const searchScript = document.createElement('script');
+    searchScript.src = `${isInSubdirectory ? '../' : ''}components/search.js`;
+    searchScript.async = true;
+    document.head.appendChild(searchScript);
     
-    // Initialize search functionality
-    initializeSearch() {
-      // Load search script
-      const isInSubdirectory = window.location.pathname.includes('/labs/');
-      const searchScript = document.createElement('script');
-      searchScript.src = `${isInSubdirectory ? '../' : ''}components/search.js`;
-      searchScript.async = true;
-      document.head.appendChild(searchScript);
-      
-      // Load table of contents script if component is present
-      if (document.querySelector('[data-component="table-of-contents"]')) {
-        const tocScript = document.createElement('script');
-        tocScript.src = `${isInSubdirectory ? '../' : ''}components/table-of-contents.js`;
-        tocScript.async = true;
-        document.head.appendChild(tocScript);
-      }
-      
-      // Load enhanced progress script if component is present
-      if (document.querySelector('[data-component="enhanced-progress"]')) {
-        const progressScript = document.createElement('script');
-        progressScript.src = `${isInSubdirectory ? '../' : ''}components/enhanced-progress.js`;
-        progressScript.async = true;
-        document.head.appendChild(progressScript);
-      }
-      
-      // Load collapsible sections script for lab pages
-      if (window.location.pathname.includes('/labs/')) {
-        const collapsibleScript = document.createElement('script');
-        collapsibleScript.src = `${isInSubdirectory ? '../' : ''}components/collapsible-sections.js`;
-        collapsibleScript.async = true;
-        document.head.appendChild(collapsibleScript);
-      }
+    // Load table of contents script if component is present
+    if (document.querySelector('[data-component="table-of-contents"]')) {
+      const tocScript = document.createElement('script');
+      tocScript.src = `${isInSubdirectory ? '../' : ''}components/table-of-contents.js`;
+      tocScript.async = true;
+      document.head.appendChild(tocScript);
+    }
+    
+    // Load enhanced progress script if component is present
+    if (document.querySelector('[data-component="enhanced-progress"]')) {
+      const progressScript = document.createElement('script');
+      progressScript.src = `${isInSubdirectory ? '../' : ''}components/enhanced-progress.js`;
+      progressScript.async = true;
+      document.head.appendChild(progressScript);
+    }
+    
+    // Load collapsible sections script for lab pages
+    if (window.location.pathname.includes('/labs/')) {
+      const collapsibleScript = document.createElement('script');
+      collapsibleScript.src = `${isInSubdirectory ? '../' : ''}components/collapsible-sections.js`;
+      collapsibleScript.async = true;
+      document.head.appendChild(collapsibleScript);
     }
   }
 }
