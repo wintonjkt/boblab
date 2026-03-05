@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bob Rules - bob-lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Bob Rules & Custom Instructions</h1>
+      <p class="page-subtitle">Tailor Bob's Behavior to Your Needs</p>
+      <p class="page-description">Learn how to use custom instructions to enforce coding standards, workflows, and best practices</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>Bob Rules Guide</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#what-are-rules" class="capability-link">What Are Custom Rules</a>
+        <a href="#adding-rules" class="capability-link">Adding Custom Rules</a>
+        <a href="#rule-scopes" class="capability-link">Rule Scopes</a>
+        <a href="#configuration-methods" class="capability-link">Configuration Methods</a>
+        <a href="#rule-priority" class="capability-link">Rule Priority</a>
+        <a href="#writing-effective" class="capability-link">Writing Effective Rules</a>
+        <a href="#advanced-config" class="capability-link">Advanced Configuration</a>
+        <a href="#team-standardization" class="capability-link">Team Standardization</a>
+        <a href="#examples" class="capability-link">Real-World Examples</a>
+        <a href="#best-practices" class="capability-link">Best Practices</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="https://github.ibm.com/bob-ide/custom-instructions" target="_blank" class="sidebar-github-link">
+          <span class="github-text">Instruction Templates</span>
+          <span class="github-arrow">&rarr;</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="walkthrough-main">
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="info-card compliance">
+          <h2>Bob Rules & Custom Instructions</h2>
+          <p>Custom instructions allow you to define rules and guidelines that shape Bob's behavior, ensuring consistency across your projects and teams.</p>
+
+          <div class="capabilities-overview">
+            <div class="cap-card">
+              <h4>Enforce Standards</h4>
+              <p>Automatically apply coding standards and best practices</p>
+            </div>
+            <div class="cap-card">
+              <h4>Team Consistency</h4>
+              <p>Ensure all team members follow the same guidelines</p>
+            </div>
+            <div class="cap-card">
+              <h4>Context-Aware</h4>
+              <p>Different rules for different modes and scenarios</p>
+            </div>
+            <div class="cap-card">
+              <h4>Flexible Control</h4>
+              <p>Global or mode-specific instruction sets</p>
+            </div>
+          </div>
+
+          <p><strong>Estimated Time:</strong> 15-20 minutes to master custom instructions and create your first rule set</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Are Custom Rules -->
+    <section id="what-are-rules" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>What Are Custom Rules?</h2>
+          <p>Custom rules extend Bob's default behavior by defining preferences, constraints, and guidelines that shape how Bob interacts with your code and responds to your requests.</p>
+          
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Understanding Custom Rules</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <div class="demo-flow">
+                <h3>Common Uses for Custom Rules</h3>
+                
+                <div class="capabilities-overview">
+                  <div class="cap-card">
+                    <h4>📝 Coding Style</h4>
+                    <p>Define indentation, naming conventions, and formatting preferences</p>
+                  </div>
+                  <div class="cap-card">
+                    <h4>📚 Documentation</h4>
+                    <p>Specify documentation formats and standards for your project</p>
+                  </div>
+                  <div class="cap-card">
+                    <h4>🧪 Testing</h4>
+                    <p>Set testing methodologies and coverage requirements</p>
+                  </div>
+                  <div class="cap-card">
+                    <h4>🔄 Workflows</h4>
+                    <p>Define project workflows and development processes</p>
+                  </div>
+                  <div class="cap-card">
+                    <h4>👥 Team Conventions</h4>
+                    <p>Enforce team-specific conventions and best practices</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>💡 Key Insight:</strong> Custom rules act as a persistent context that Bob considers with every interaction, ensuring consistency across your development workflow.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Adding Custom Rules for a Mode -->
+    <section id="adding-rules" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Adding Custom Rules for a Mode</h2>
+          <p>You can add custom rules directly through Bob's interface for any mode. These rules will apply whenever you're working in that specific mode.</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Step-by-Step Guide</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <div class="demo-flow">
+                <h3>How to Add Mode-Specific Rules</h3>
+                <ol style="line-height: 2; margin-left: 20px;">
+                  <li><strong>Click the three dots</strong> in the top-right corner of the Bob sidebar</li>
+                  <li><strong>Click "Modes"</strong> from the dropdown menu</li>
+                  <li><strong>Select the mode</strong> you want to edit rules for</li>
+                  <li><strong>Click "Edit"</strong> to open the mode configuration</li>
+                  <li><strong>Scroll to "Mode-specific custom instructions (optional)"</strong></li>
+                  <li><strong>Type your rules</strong> in the text area</li>
+                  <li><strong>Click "Save"</strong> to apply your changes</li>
+                </ol>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Example: Code Mode Rules</h3>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Mode-Specific Instructions</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>When in Code mode:
+- Always show a summary of changes before applying
+- Run tests after making changes
+- Update related documentation
+- Check for unused imports and remove them
+- Ensure code formatting matches project style</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>📝 Note:</strong> Mode-specific rules only apply when you're actively using that mode, allowing you to have different behaviors for different tasks.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rule Scopes -->
+    <section id="rule-scopes" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Rule Scopes: Global vs Workspace</h2>
+          <p>Custom rules can be defined at two different scopes, each serving different purposes in your development workflow.</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Understanding Rule Scopes</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <div class="demo-flow">
+                <div class="instruction-comparison">
+                  <div class="instruction-column">
+                    <h4>🌍 Global Rules</h4>
+                    <p><strong>Apply automatically across all projects</strong></p>
+                    <ul>
+                      <li>Personal coding preferences</li>
+                      <li>Organization-wide standards</li>
+                      <li>Language-specific conventions</li>
+                      <li>General best practices</li>
+                    </ul>
+                    <div class="info-box" style="margin-top: 15px;">
+                      <strong>Use for:</strong> Standards that should apply everywhere you work
+                    </div>
+                  </div>
+                  
+                  <div class="instruction-column">
+                    <h4>📁 Workspace Rules</h4>
+                    <p><strong>Apply only within the current project</strong></p>
+                    <ul>
+                      <li>Project-specific requirements</li>
+                      <li>Team conventions for this project</li>
+                      <li>Technology stack preferences</li>
+                      <li>Custom workflows</li>
+                    </ul>
+                    <div class="info-box" style="margin-top: 15px;">
+                      <strong>Use for:</strong> Project-specific requirements and team standards
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>💡 Best Practice:</strong> Use global rules for personal and organization-wide standards, and workspace rules for project-specific requirements. Workspace rules can override global rules when needed.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Instructions -->
+    <section id="global-instructions" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Global Custom Instructions</h2>
+          <p>Global instructions apply to all modes and interactions with Bob. Use them to enforce coding standards, documentation requirements, and general best practices across your entire project.</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Global Instructions Example</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <div class="demo-flow">
+                <h3>Coding Standards Example</h3>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Global Instructions</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Always:
+- Use TypeScript with strict mode enabled
+- Include comprehensive error handling with try-catch blocks
+- Write unit tests for all new functions
+- Follow ESLint rules defined in .eslintrc
+- Add JSDoc comments for all public APIs
+- Use async/await instead of promises
+- Prefer functional programming patterns
+- Keep functions under 50 lines of code</code></pre>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Documentation Requirements</h3>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Documentation Rules</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Documentation Standards:
+- Every module must have a README.md
+- All functions must have JSDoc with @param and @returns
+- Include usage examples in documentation
+- Document all environment variables
+- Maintain CHANGELOG.md for version history
+- Add inline comments for complex logic</code></pre>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Security & Performance</h3>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Security Rules</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Security & Performance:
+- Never commit secrets or API keys
+- Use environment variables for configuration
+- Validate all user inputs
+- Sanitize data before database operations
+- Implement rate limiting for APIs
+- Use prepared statements for SQL queries
+- Optimize database queries with indexes
+- Implement caching where appropriate</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>📝 Note:</strong> Global instructions are always active and apply to every interaction with Bob, regardless of the current mode.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mode-Specific Instructions -->
+    <section id="mode-specific" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Mode-Specific Custom Instructions</h2>
+          <p>Mode-specific instructions apply only when Bob is in a particular mode (Code, Plan, Ask, Debug, or custom modes). This allows you to tailor Bob's behavior for specific tasks.</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Mode-Specific Instructions</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <div class="demo-flow">
+                <h3>Code Mode Instructions</h3>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Code Mode Rules</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>When in Code mode:
+- Always show a summary of changes before applying
+- Maintain backward compatibility
+- Include migration notes if breaking changes are needed
+- Run tests after making changes
+- Update related documentation
+- Check for unused imports and remove them
+- Ensure code formatting matches project style</code></pre>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Debug Mode Instructions</h3>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Debug Mode Rules</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>When in Debug mode:
+- Start with the most likely causes
+- Check logs and error messages first
+- Suggest adding debug logging if needed
+- Provide step-by-step debugging approach
+- Recommend using debugger breakpoints
+- Check for common pitfalls (null checks, async issues)
+- Suggest relevant debugging tools</code></pre>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Plan Mode Instructions</h3>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Plan Mode Rules</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>When in Plan mode:
+- Break down tasks into small, actionable steps
+- Estimate time for each step
+- Identify dependencies between tasks
+- Consider edge cases and error scenarios
+- Suggest testing strategies
+- Highlight potential risks
+- Recommend architectural patterns when relevant</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>🎯 Strategy:</strong> Use mode-specific instructions to create specialized workflows that activate only when needed, keeping Bob focused on the task at hand.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real-World Examples -->
+    <section id="examples" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Real-World Examples</h2>
+          <p>Here are practical examples of custom instructions for different project types and team scenarios.</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Example Instruction Sets</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <div class="demo-flow">
+                <h3>React/TypeScript Project</h3>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">React Project Rules</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>React/TypeScript Standards:
+- Use functional components with hooks
+- Implement proper TypeScript types (no 'any')
+- Use React.FC for component types
+- Implement error boundaries for components
+- Use React.memo for performance optimization
+- Follow Carbon Design System patterns
+- Use custom hooks for reusable logic
+- Implement proper prop validation
+- Use CSS modules for styling
+- Write Storybook stories for components</code></pre>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Python/FastAPI Backend</h3>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Python Backend Rules</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Python/FastAPI Standards:
+- Use type hints for all functions
+- Follow PEP 8 style guide
+- Use Pydantic models for validation
+- Implement proper exception handling
+- Use dependency injection for services
+- Write pytest tests with fixtures
+- Use async/await for I/O operations
+- Implement proper logging with structlog
+- Use SQLAlchemy for database operations
+- Document APIs with OpenAPI/Swagger</code></pre>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Microservices Architecture</h3>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Microservices Rules</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Microservices Standards:
+- Each service must have its own database
+- Use REST or gRPC for inter-service communication
+- Implement circuit breakers for resilience
+- Use distributed tracing (OpenTelemetry)
+- Implement health check endpoints
+- Use containerization (Docker)
+- Follow 12-factor app principles
+- Implement proper service discovery
+- Use message queues for async communication
+- Implement API versioning</code></pre>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Enterprise Security Requirements</h3>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Security Rules</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Enterprise Security:
+- Implement OAuth 2.0 / OIDC authentication
+- Use RBAC for authorization
+- Encrypt sensitive data at rest and in transit
+- Implement audit logging for all operations
+- Follow OWASP Top 10 guidelines
+- Use security headers (CSP, HSTS, etc.)
+- Implement rate limiting and throttling
+- Use secrets management (Vault, Key Management)
+- Regular security scanning and updates
+- Implement data retention policies</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section id="best-practices" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Best Practices</h2>
+          <p>Follow these guidelines to create effective custom instructions that improve your development workflow.</p>
+
+          <div class="best-practices-grid">
+            <div class="practice-card">
+              <h3>✅ Be Specific</h3>
+              <p>Use concrete, actionable instructions rather than vague guidelines.</p>
+              <div class="example-comparison">
+                <div class="bad-example">
+                  <strong>❌ Vague:</strong>
+                  <code>"Write good code"</code>
+                </div>
+                <div class="good-example">
+                  <strong>✅ Specific:</strong>
+                  <code>"Use TypeScript strict mode, add JSDoc comments, and write unit tests"</code>
+                </div>
+              </div>
+            </div>
+
+            <div class="practice-card">
+              <h3>📋 Prioritize Instructions</h3>
+              <p>Put the most important rules first. Bob pays more attention to earlier instructions.</p>
+              <div class="code-block-wrapper">
+                <div class="code-block-header">
+                  <span class="code-block-language">Prioritized Instructions</span>
+                  <button class="copy-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code>Priority Order:
+1. Security requirements (highest priority)
+2. Code quality standards
+3. Documentation requirements
+4. Performance considerations
+5. Style preferences (lowest priority)</code></pre>
+              </div>
+            </div>
+
+            <div class="practice-card">
+              <h3>🔄 Keep Instructions Updated</h3>
+              <p>Review and update your instructions as your project evolves and team practices change.</p>
+              <ul>
+                <li>Review quarterly or when major changes occur</li>
+                <li>Remove outdated or conflicting rules</li>
+                <li>Add new rules based on lessons learned</li>
+                <li>Get team feedback on effectiveness</li>
+              </ul>
+            </div>
+
+            <div class="practice-card">
+              <h3>🎯 Use Mode-Specific Wisely</h3>
+              <p>Don't duplicate global instructions in mode-specific ones. Use mode-specific for truly mode-dependent rules.</p>
+              <div class="example-comparison">
+                <div class="bad-example">
+                  <strong>❌ Redundant:</strong>
+                  <code>Adding "Use TypeScript" to every mode when it's already global</code>
+                </div>
+                <div class="good-example">
+                  <strong>✅ Mode-Specific:</strong>
+                  <code>"In Code mode: Show diff preview before applying changes"</code>
+                </div>
+              </div>
+            </div>
+
+            <div class="practice-card">
+              <h3>📏 Keep It Concise</h3>
+              <p>Aim for clarity over comprehensiveness. Too many instructions can be overwhelming.</p>
+              <ul>
+                <li>Focus on 5-10 key rules per category</li>
+                <li>Use bullet points for readability</li>
+                <li>Avoid redundancy</li>
+                <li>Group related rules together</li>
+              </ul>
+            </div>
+
+            <div class="practice-card">
+              <h3>🧪 Test Your Instructions</h3>
+              <p>Verify that Bob follows your instructions by testing with real tasks.</p>
+              <ul>
+                <li>Try common development tasks</li>
+                <li>Check if Bob follows the rules</li>
+                <li>Refine instructions based on results</li>
+                <li>Share effective patterns with team</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advanced Techniques -->
+    <section id="advanced" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Advanced Techniques</h2>
+          <p>Take your custom instructions to the next level with these advanced patterns and techniques.</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Advanced Instruction Patterns</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <div class="demo-flow">
+                <h3>Conditional Instructions</h3>
+                <p>Create instructions that apply based on context or file types.</p>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Conditional Rules</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Context-Aware Rules:
+- For .test.ts files: Focus on test coverage and edge cases
+- For .api.ts files: Emphasize input validation and error handling
+- For .component.tsx files: Prioritize accessibility and performance
+- For .config.ts files: Ensure type safety and documentation
+- For migration files: Include rollback procedures</code></pre>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Workflow Instructions</h3>
+                <p>Define multi-step workflows that Bob should follow.</p>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Workflow Pattern</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Feature Development Workflow:
+1. Analyze requirements and ask clarifying questions
+2. Create a plan with tasks and estimates
+3. Implement core functionality with tests
+4. Add error handling and edge cases
+5. Update documentation
+6. Run tests and fix any issues
+7. Create a summary of changes</code></pre>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Team Collaboration Rules</h3>
+                <p>Instructions that facilitate team collaboration and code reviews.</p>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Collaboration Rules</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Team Collaboration:
+- Write clear commit messages following Conventional Commits
+- Add PR descriptions with context and testing notes
+- Tag relevant team members for review
+- Link related issues and tickets
+- Include screenshots for UI changes
+- Document breaking changes prominently
+- Suggest reviewers based on code ownership</code></pre>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Learning & Improvement</h3>
+                <p>Instructions that help Bob learn from your codebase and improve over time.</p>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Learning Rules</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Continuous Improvement:
+- Study existing code patterns before suggesting changes
+- Learn from project's architecture decisions
+- Adapt to the team's coding style
+- Reference similar implementations in the codebase
+- Suggest improvements based on project history
+- Learn from code review feedback</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <strong>🚀 Next Level:</strong> Combine these advanced techniques with custom modes to create powerful, specialized development workflows tailored to your team's needs.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Next Steps</h2>
+          <p>Now that you understand Bob Rules and Custom Instructions, here's how to get started:</p>
+          
+          <div class="next-steps-grid">
+            <div class="next-step-card">
+              <h3>1. Start Simple</h3>
+              <p>Begin with 3-5 global instructions that matter most to your project.</p>
+            </div>
+            
+            <div class="next-step-card">
+              <h3>2. Test & Iterate</h3>
+              <p>Try your instructions with real tasks and refine based on results.</p>
+            </div>
+            
+            <div class="next-step-card">
+              <h3>3. Add Mode-Specific</h3>
+              <p>Once comfortable, add mode-specific instructions for specialized tasks.</p>
+            </div>
+            
+            <div class="next-step-card">
+              <h3>4. Share with Team</h3>
+              <p>Collaborate with your team to create shared instruction sets.</p>
+            </div>
+          </div>
+
+          <div class="cta-section">
+            <h3>Related Resources</h3>
+            <div class="cta-buttons">
+              <a href="custom-modes.html" class="cta-button">Learn About Custom Modes</a>
+              <a href="getting-started.html" class="cta-button secondary">Getting Started Guide</a>
+              <a href="spec-driven-development.html" class="cta-button secondary">Spec-Driven Development</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <!-- Shared Footer Component -->
+  <div data-component="footer"></div>
+
+  <!-- Scripts -->
+  <script src="../components/component-loader.js"></script>
+  <script src="../components/collapsible-sections.js"></script>
+  <script src="../components/breadcrumb-helper.js"></script>
+  <script src="../script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>
