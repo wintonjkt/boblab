@@ -1,0 +1,29 @@
+<!-- Enhanced Progress Visualization Component -->
+<div class="enhanced-progress" id="enhanced-progress">
+  <div class="progress-header">
+    <h3>Lab Progress</h3>
+    <div class="overall-progress">
+      <div class="progress-circle">
+        <svg width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="25" fill="none" stroke="#e0e0e0" stroke-width="5"/>
+          <circle id="progress-circle-fill" cx="30" cy="30" r="25" fill="none" stroke="#0f62fe" stroke-width="5"
+                  stroke-dasharray="157" stroke-dashoffset="157"
+                  transform="rotate(-90 30 30)"
+                  stroke-linecap="round"/>
+        </svg>
+        <div class="progress-percentage" id="overall-percentage">0%</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="progress-sections">
+    <!-- Section progress items will be dynamically generated -->
+  </div>
+  
+  <div class="progress-summary">
+    <div class="progress-bar">
+      <div class="progress-bar-fill" id="overall-progress-bar"></div>
+    </div>
+    <div class="progress-summary-text" id="progress-text">0 of 0 steps completed</div>
+  </div>
+</div>

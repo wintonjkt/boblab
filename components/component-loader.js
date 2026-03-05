@@ -41,7 +41,7 @@ class ComponentLoader {
         
         // Adjust relative links if we're in a subdirectory
         if (currentPath && currentPath.includes('/labs/')) {
-          const links = componentContent.querySelectorAll('a[href^="labs/"], a[href^="index.html"], a[href^="narrative.html"]');
+          const links = componentContent.querySelectorAll('a[href^="labs/"], a[href^="index.html"], a[href^="narrative.html"], a[href^="../index.html"]');
           links.forEach(link => {
             const href = link.getAttribute('href');
             if (href.startsWith('labs/')) {
@@ -84,6 +84,9 @@ class ComponentLoader {
     
     // Register default components
     this.register('navbar', `${basePath}components/navbar.html`);
+    this.register('breadcrumb', `${basePath}components/breadcrumb.html`);
+    this.register('enhanced-progress', `${basePath}components/enhanced-progress.html`);
+    this.register('table-of-contents', `${basePath}components/table-of-contents.html`);
     this.register('hero', `${basePath}components/hero.html`);
     this.register('intro', `${basePath}components/intro.html`);
     this.register('engagement', `${basePath}components/engagement.html`);
@@ -99,47 +102,155 @@ class ComponentLoader {
 
     // Re-initialize event handlers
     this.reinitializeEventHandlers();
+    
+    // Initialize search functionality
+    this.initializeSearch();
   }
 
   // Re-initialize event handlers for dynamically loaded content
   reinitializeEventHandlers() {
-    // Re-initialize mobile menu
+    this.initializeMobileNavigation();
+  }
+
+  // Initialize mobile navigation with slide-out menu
+  initializeMobileNavigation() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    let overlay = document.querySelector('.nav-overlay');
     
-    if (hamburger && navMenu) {
-      hamburger.onclick = () => {
-        navMenu.classList.toggle('mobile-open');
-      };
+    if (!hamburger || !navMenu) return;
+    
+    // Create overlay if it doesn't exist
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.className = 'nav-overlay';
+      document.body.appendChild(overlay);
     }
 
-    // Re-initialize mobile menu link handlers
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-      link.onclick = () => {
-        navMenu?.classList.remove('mobile-open');
-      };
+    // Hamburger menu toggle
+    hamburger.addEventListener('click', () => {
+      const isOpen = navMenu.classList.contains('mobile-open');
+      
+      if (isOpen) {
+        this.closeMobileMenu(navMenu, overlay, hamburger);
+      } else {
+        this.openMobileMenu(navMenu, overlay, hamburger);
+      }
     });
 
-    // Initialize dropdown toggle for mobile
+    // Close menu when clicking overlay
+    overlay.addEventListener('click', () => {
+      this.closeMobileMenu(navMenu, overlay, hamburger);
+    });
+
+    // Close menu when clicking close button
+    const closeButton = navMenu.querySelector('::after');
+    if (closeButton) {
+      navMenu.addEventListener('click', (e) => {
+        if (e.target === navMenu && window.getComputedStyle(navMenu, '::after').content !== 'none') {
+          this.closeMobileMenu(navMenu, overlay, hamburger);
+        }
+      });
+    }
+
+    // Close menu when clicking on links
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        this.closeMobileMenu(navMenu, overlay, hamburger);
+      });
+    });
+
+    // Initialize dropdown toggles for mobile
+    this.initializeDropdownToggles();
+  }
+
+  // Open mobile menu
+  openMobileMenu(navMenu, overlay, hamburger) {
+    navMenu.classList.add('mobile-open');
+    overlay.classList.add('active');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
+  }
+
+  // Close mobile menu
+  closeMobileMenu(navMenu, overlay, hamburger) {
+    navMenu.classList.remove('mobile-open');
+    overlay.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  }
+
+  // Initialize dropdown toggles
+  initializeDropdownToggles() {
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    
     dropdownToggles.forEach(toggle => {
       // Remove existing listeners to avoid duplicates
       const newToggle = toggle.cloneNode(true);
       toggle.parentNode.replaceChild(newToggle, toggle);
       
       // Add click handler for mobile
-      newToggle.addEventListener('click', (e) => {
+      toggle.addEventListener('click', (e) => {
         if (window.innerWidth <= 968) {
           e.preventDefault();
-          const dropdownMenu = newToggle.nextElementSibling;
-          if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
-            // Toggle dropdown visibility
-            const isVisible = dropdownMenu.style.display === 'block';
-            dropdownMenu.style.display = isVisible ? 'none' : 'block';
+          const navDropdown = toggle.closest('.nav-dropdown');
+          const dropdownMenu = navDropdown.querySelector('.dropdown-menu');
+          
+          if (dropdownMenu) {
+            // Close other dropdowns
+            document.querySelectorAll('.nav-dropdown.active').forEach(otherDropdown => {
+              if (otherDropdown !== navDropdown) {
+                otherDropdown.classList.remove('active');
+                const otherMenu = otherDropdown.querySelector('.dropdown-menu');
+                if (otherMenu) {
+                  otherMenu.style.display = 'none';
+                }
+              }
+            });
+            
+            // Toggle current dropdown
+            const isActive = navDropdown.classList.contains('active');
+            navDropdown.classList.toggle('active');
+            dropdownMenu.style.display = isActive ? 'none' : 'block';
           }
         }
       });
     });
+  }
+    
+    // Initialize search functionality
+    initializeSearch() {
+      // Load search script
+      const isInSubdirectory = window.location.pathname.includes('/labs/');
+      const searchScript = document.createElement('script');
+      searchScript.src = `${isInSubdirectory ? '../' : ''}components/search.js`;
+      searchScript.async = true;
+      document.head.appendChild(searchScript);
+      
+      // Load table of contents script if component is present
+      if (document.querySelector('[data-component="table-of-contents"]')) {
+        const tocScript = document.createElement('script');
+        tocScript.src = `${isInSubdirectory ? '../' : ''}components/table-of-contents.js`;
+        tocScript.async = true;
+        document.head.appendChild(tocScript);
+      }
+      
+      // Load enhanced progress script if component is present
+      if (document.querySelector('[data-component="enhanced-progress"]')) {
+        const progressScript = document.createElement('script');
+        progressScript.src = `${isInSubdirectory ? '../' : ''}components/enhanced-progress.js`;
+        progressScript.async = true;
+        document.head.appendChild(progressScript);
+      }
+      
+      // Load collapsible sections script for lab pages
+      if (window.location.pathname.includes('/labs/')) {
+        const collapsibleScript = document.createElement('script');
+        collapsibleScript.src = `${isInSubdirectory ? '../' : ''}components/collapsible-sections.js`;
+        collapsibleScript.async = true;
+        document.head.appendChild(collapsibleScript);
+      }
+    }
   }
 }
 

@@ -4,6 +4,18 @@
     <div class="nav-logo">
       <span class="logo-text">bob-lab</span>
     </div>
+    <div class="nav-search">
+      <input type="search" 
+             id="search-input" 
+             class="search-input" 
+             placeholder="Search labs..." 
+             aria-label="Search">
+      <button type="button" class="search-button" aria-label="Submit search">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+      </button>
+    </div>
     <ul class="nav-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="labs/getting-started.html">Getting Started</a></li>
@@ -33,10 +45,10 @@
         <a href="https://www.ibm.com/client-engineering" target="_blank" class="nav-cta">Start Bobathon</a>
       </li>
     </ul>
-    <div class="hamburger">
+    <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
   </div>
 </nav>

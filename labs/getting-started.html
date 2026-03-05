@@ -11,6 +11,9 @@
 <body>
   <!-- Shared Navigation Component -->
   <div data-component="navbar"></div>
+  
+  <!-- Breadcrumb Navigation -->
+  <div data-component="breadcrumb"></div>
 
   <header class="page-header">
     <div class="container">
@@ -45,6 +48,12 @@
     </aside>
 
     <div class="walkthrough-main">
+      <div class="walkthrough-content">
+        <!-- Enhanced Progress -->
+        <div data-component="enhanced-progress"></div>
+        
+        <!-- Table of Contents -->
+        <div data-component="table-of-contents"></div>
       <!-- Overview -->
       <section id="overview" class="section">
         <div class="container">
@@ -1363,6 +1372,7 @@ module.exports = { validateEmail };</code></pre>
           </div>
         </div>
       </section>
+      </div>
     </div>
   </main>
 
@@ -1390,6 +1400,10 @@ module.exports = { validateEmail };</code></pre>
 
   <!-- Scripts -->
   <script src="../components/component-loader.js"></script>
+  <script src="../components/breadcrumb-helper.js"></script>
+  <script>
+    initBreadcrumb('Getting Started with Bob');
+  </script>
   <script src="../i18n.js"></script>
   <script src="../script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
