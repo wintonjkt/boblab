@@ -300,6 +300,15 @@
   text-decoration: underline;
 }
 
+.prompt-content code {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ff7eb6;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875em;
+}
+
 /* ============================================
    STEP ITEMS
    ============================================ */
