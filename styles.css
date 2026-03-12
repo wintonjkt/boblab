@@ -2081,8 +2081,13 @@ a:focus {
 }
 
 .code-block-wrapper pre code {
-  color: var(--text-primary);
+  color: #24292f; /* Dark text for light theme code blocks */
   font-family: 'IBM Plex Mono', 'Monaco', 'Menlo', monospace;
+}
+
+/* Dark theme code blocks */
+body.dark-theme .code-block-wrapper pre code {
+  color: #d4d4d4; /* Light text for dark theme code blocks */
 }
 
 /* Inline Code */
