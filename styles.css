@@ -69,18 +69,14 @@
   --code-text: #f4f4f4;
   --code-red: #f44747;
 
-  /* Prompt Box Colors */
-  /* Code Block Colors - Dark Theme */
-  --code-text: #f4f4f4;
-
-
-  --prompt-bg: var(--code-bg);
-  --prompt-text: #ffffff;
-  --prompt-text-muted: #f4f4f4;
-  --prompt-link: #78a9ff;
-  --prompt-link-hover: #a6c8ff;
-  --prompt-code-bg: rgba(255, 255, 255, 0.15);
-  --prompt-code-text: #ffffff;
+  /* Prompt Box Colors - Light Theme */
+  --prompt-bg: #e8f4fd;
+  --prompt-text: #24292f;
+  --prompt-text-muted: #57606a;
+  --prompt-link: #0969da;
+  --prompt-link-hover: #0550ae;
+  --prompt-code-bg: #ddf4ff;
+  --prompt-code-text: #0969da;
 }
 
 /* Dark Theme Variables */
