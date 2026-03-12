@@ -279,8 +279,14 @@
    PROMPT BOXES
    ============================================ */
 
+/**
+ * Prompt Box Component
+ * Dark container with light text for displaying prompts, examples, and instructions
+ * All colors use CSS variables for consistent theming
+ */
+
 .prompt-box {
-  background: var(--code-bg);
+  background: var(--prompt-bg);
   border-radius: 0;
   overflow: hidden;
   margin: var(--spacing-lg) 0;
@@ -288,9 +294,10 @@
 
 .prompt-content {
   padding: var(--spacing-md);
-  color: #ffffff;
+  color: var(--prompt-text);
 }
 
+/* Typography - all text colors use CSS variables */
 .prompt-content p,
 .prompt-content h1,
 .prompt-content h2,
@@ -298,7 +305,7 @@
 .prompt-content h4,
 .prompt-content h5,
 .prompt-content h6 {
-  color: #ffffff;
+  color: var(--prompt-text);
   margin: 0 0 var(--spacing-sm) 0;
 }
 
@@ -312,24 +319,27 @@
   margin-bottom: 0;
 }
 
+/* Links */
 .prompt-content a {
-  color: #78a9ff;
+  color: var(--prompt-link);
   text-decoration: underline;
 }
 
 .prompt-content a:hover {
-  color: #a6c8ff;
+  color: var(--prompt-link-hover);
 }
 
+/* Inline code within prompt boxes */
 .prompt-content code {
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+  background: var(--prompt-code-bg);
+  color: var(--prompt-code-text);
   padding: 2px 6px;
   border-radius: 3px;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.875em;
 }
 
+/* Lists */
 .prompt-content ul,
 .prompt-content ol {
   margin: 0 0 var(--spacing-sm) 0;
@@ -337,7 +347,7 @@
 }
 
 .prompt-content li {
-  color: #ffffff;
+  color: var(--prompt-text);
   margin-bottom: var(--spacing-xs);
 }
 
@@ -345,15 +355,16 @@
   margin-bottom: 0;
 }
 
+/* Text formatting */
 .prompt-content strong,
 .prompt-content b {
-  color: #ffffff;
+  color: var(--prompt-text);
   font-weight: 600;
 }
 
 .prompt-content em,
 .prompt-content i {
-  color: #f4f4f4;
+  color: var(--prompt-text-muted);
 }
 
 /* ============================================

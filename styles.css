@@ -67,6 +67,15 @@
   --code-gray: #6a9955;
   --code-purple: #c586c0;
   --code-red: #f44747;
+
+  /* Prompt Box Colors */
+  --prompt-bg: var(--code-bg);
+  --prompt-text: #ffffff;
+  --prompt-text-muted: #f4f4f4;
+  --prompt-link: #78a9ff;
+  --prompt-link-hover: #a6c8ff;
+  --prompt-code-bg: rgba(255, 255, 255, 0.15);
+  --prompt-code-text: #ffffff;
 }
 
 /* Dark Theme Variables */
@@ -101,6 +110,15 @@ body.dark-theme {
   --text-secondary: var(--cds-text-02);
   --border-color: #393939;
   --code-bg: #0d1117;
+
+  /* Prompt Box Colors - Dark Theme */
+  --prompt-bg: var(--code-bg);
+  --prompt-text: #ffffff;
+  --prompt-text-muted: #f4f4f4;
+  --prompt-link: #78a9ff;
+  --prompt-link-hover: #a6c8ff;
+  --prompt-code-bg: rgba(255, 255, 255, 0.15);
+  --prompt-code-text: #ffffff;
 }
 
 /* Light Theme Syntax Highlighting */
