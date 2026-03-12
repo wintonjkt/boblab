@@ -59,15 +59,9 @@
   --header-height: 48px;
 
   /* Code Block Colors */
-  --code-bg: #262626;
-  --code-green: #4ec9b0;
-  --code-blue: #569cd6;
-  --code-yellow: #dcdcaa;
-  --code-orange: #ce9178;
-  --code-gray: #6a9955;
-  --code-purple: #c586c0;
-  --code-text: #f4f4f4;
-  --code-red: #f44747;
+  --code-bg: #f6f8fa;
+  --code-border: #d0d7de;
+  --code-header-bg: #e8eaed;
 
   /* Prompt Box Colors - Light Theme */
   --prompt-bg: #e8f4fd;
@@ -79,60 +73,12 @@
   --prompt-code-text: #0969da;
 }
 
-/* Dark Theme Variables */
-body.dark-theme {
-  --cds-interactive-01: #4589ff;
-  --cds-interactive-02: #8d8d8d;
-  --cds-interactive-03: #4589ff;
-  --cds-ui-01: #161616;
-  --cds-ui-02: #262626;
-  --cds-ui-03: #393939;
-  --cds-ui-04: #f4f4f4;
-  --cds-ui-05: #ffffff;
-  --cds-text-01: #f4f4f4;
-  --cds-text-02: #c6c6c6;
-  --cds-text-03: #8d8d8d;
-  --cds-text-04: #525252;
-  --cds-text-05: #393939;
-  --cds-support-01: #fa4d56;
-  --cds-support-02: #34a853;
-  --cds-support-03: #fddc32;
-  --cds-support-04: #4589ff;
-  --cds-inverse-01: #f4f4f4;
-  --cds-inverse-02: #e0e0e0;
-  --cds-inverse-text: #161616;
-  
-  /* Override custom variables for dark theme */
-  --primary-color: var(--cds-interactive-01);
-  --primary-hover: #3570e2;
-  --bg-color: var(--cds-ui-01);
-  --bg-alt: var(--cds-ui-02);
-  --text-primary: var(--cds-text-01);
-  --text-secondary: var(--cds-text-02);
-  --border-color: #393939;
-  --code-bg: #0d1117;
-
-  /* Prompt Box Colors - Dark Theme */
-  /* Code Block Colors - Dark Theme */
-  --code-text: #f4f4f4;
-
-
-  --prompt-bg: var(--code-bg);
-  --prompt-text: #ffffff;
-  --prompt-text-muted: #f4f4f4;
-  --prompt-link: #78a9ff;
-  --prompt-link-hover: #a6c8ff;
-  --prompt-code-bg: rgba(255, 255, 255, 0.15);
-  --prompt-code-text: #ffffff;
-}
-
-/* Light Theme Syntax Highlighting */
+/* Syntax Highlighting */
 pre code.hljs {
   background-color: #f6f8fa !important;
   color: #24292f !important;
 }
 
-/* VSCode Light+ Theme Syntax Highlighting */
 .hljs-comment,
 .hljs-quote {
   color: #008000 !important; /* VSCode Light+ green for comments */
@@ -210,90 +156,7 @@ pre code.hljs {
   font-weight: bold !important;
 }
 
-/* VSCode Dark+ Theme Syntax Highlighting */
-body.dark-theme pre code.hljs {
-  background-color: var(--code-bg) !important;
-  color: #d4d4d4 !important; /* VSCode Dark+ text color */
-}
-
-body.dark-theme .hljs-comment,
-body.dark-theme .hljs-quote {
-  color: #6a9955 !important; /* VSCode Dark+ green for comments */
-  font-style: italic !important;
-}
-
-body.dark-theme .hljs-keyword,
-body.dark-theme .hljs-selector-tag,
-body.dark-theme .hljs-subst {
-  color: #569cd6 !important; /* VSCode Dark+ light blue for keywords */
-  font-weight: normal !important;
-}
-
-body.dark-theme .hljs-number,
-body.dark-theme .hljs-literal {
-  color: #b5cea8 !important; /* VSCode Dark+ light green for numbers */
-}
-
-body.dark-theme .hljs-variable,
-body.dark-theme .hljs-template-variable,
-body.dark-theme .hljs-tag .hljs-attr {
-  color: #d4d4d4 !important; /* VSCode Dark+ text color for variables */
-}
-
-body.dark-theme .hljs-string,
-body.dark-theme .hljs-doctag {
-  color: #ce9178 !important; /* VSCode Dark+ orange for strings */
-}
-
-body.dark-theme .hljs-title,
-body.dark-theme .hljs-section,
-body.dark-theme .hljs-selector-id {
-  color: #dcdcaa !important; /* VSCode Dark+ yellow for functions */
-  font-weight: normal !important;
-}
-
-body.dark-theme .hljs-type,
-body.dark-theme .hljs-class .hljs-title {
-  color: #4ec9b0 !important; /* VSCode Dark+ cyan for classes */
-}
-
-body.dark-theme .hljs-tag,
-body.dark-theme .hljs-name,
-body.dark-theme .hljs-attribute {
-  color: #569cd6 !important; /* VSCode Dark+ light blue for tags */
-  font-weight: normal !important;
-}
-
-body.dark-theme .hljs-regexp,
-body.dark-theme .hljs-link {
-  color: #ce9178 !important; /* VSCode Dark+ orange for regexp */
-}
-
-body.dark-theme .hljs-symbol,
-body.dark-theme .hljs-bullet,
-body.dark-theme .hljs-built_in,
-body.dark-theme .hljs-builtin-name {
-  color: #dcdcaa !important; /* VSCode Dark+ yellow for built-ins */
-}
-
-body.dark-theme .hljs-meta,
-body.dark-theme .hljs-deletion {
-  color: #ce9178 !important; /* VSCode Dark+ orange for meta */
-}
-
-body.dark-theme .hljs-addition {
-  color: #6a9955 !important; /* VSCode Dark+ green for additions */
-}
-
-body.dark-theme .hljs-emphasis {
-  font-style: italic !important;
-}
-
-body.dark-theme .hljs-strong {
-  font-weight: bold !important;
-}
-
-/* Theme Toggle */
+/* Theme Toggle (Disabled) */
 .theme-toggle {
   position: fixed;
   bottom: 80px;
@@ -343,15 +206,6 @@ body.dark-theme .hljs-strong {
   transition: opacity 0.2s ease;
 }
 
-body:not(.dark-theme) .theme-icon-dark,
-body.dark-theme .theme-icon-light {
-  display: none;
-}
-
-body:not(.dark-theme) .theme-icon-light,
-body.dark-theme .theme-icon-dark {
-  display: block;
-}
 
 /* Light Theme Only */
 
