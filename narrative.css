@@ -15,6 +15,18 @@
   padding: var(--spacing-xl);
 }
 
+@media (max-width: 768px) {
+  .walkthrough-container {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .walkthrough-container {
+    padding: var(--spacing-sm);
+  }
+}
+
 /* Walkthrough Sidebar */
 .walkthrough-sidebar {
   width: 250px;
