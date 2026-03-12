@@ -430,6 +430,18 @@
   overflow: hidden;
 }
 
+.code-block-wrapper pre {
+  margin: 0;
+  padding: var(--spacing-md);
+  overflow-x: auto;
+}
+
+.code-block-wrapper code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8125rem;
+  color: var(--code-text);
+}
+
 .code-block-header {
   background: #393939;
   padding: var(--spacing-sm) var(--spacing-md);
@@ -523,7 +535,7 @@
 .window-content code {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.8125rem;
-  color: #f4f4f4;
+  color: var(--code-text);
 }
 
 /* ============================================

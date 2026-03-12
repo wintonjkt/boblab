@@ -66,9 +66,14 @@
   --code-orange: #ce9178;
   --code-gray: #6a9955;
   --code-purple: #c586c0;
+  --code-text: #f4f4f4;
   --code-red: #f44747;
 
   /* Prompt Box Colors */
+  /* Code Block Colors - Dark Theme */
+  --code-text: #f4f4f4;
+
+
   --prompt-bg: var(--code-bg);
   --prompt-text: #ffffff;
   --prompt-text-muted: #f4f4f4;
@@ -112,6 +117,10 @@ body.dark-theme {
   --code-bg: #0d1117;
 
   /* Prompt Box Colors - Dark Theme */
+  /* Code Block Colors - Dark Theme */
+  --code-text: #f4f4f4;
+
+
   --prompt-bg: var(--code-bg);
   --prompt-text: #ffffff;
   --prompt-text-muted: #f4f4f4;
