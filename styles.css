@@ -156,59 +156,6 @@ pre code.hljs {
   font-weight: bold !important;
 }
 
-/* Theme Toggle (Disabled) */
-.theme-toggle {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  z-index: 100;
-}
-
-@media (max-width: 640px) {
-  .theme-toggle {
-    bottom: 70px;
-    right: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .theme-toggle {
-    bottom: 60px;
-    right: 10px;
-  }
-}
-
-.theme-toggle-button {
-  background-color: var(--bg-color);
-  border: 1px solid var(--border-color);
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
-}
-
-.theme-toggle-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.theme-toggle-button:active {
-  transform: scale(0.95);
-}
-
-.theme-icon-light,
-.theme-icon-dark {
-  transition: opacity 0.2s ease;
-}
-
-
-/* Light Theme Only */
-
 body {
   font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.5;
