@@ -288,11 +288,28 @@
 
 .prompt-content {
   padding: var(--spacing-md);
+  color: #ffffff;
 }
 
-.prompt-content p {
+.prompt-content p,
+.prompt-content h1,
+.prompt-content h2,
+.prompt-content h3,
+.prompt-content h4,
+.prompt-content h5,
+.prompt-content h6 {
   color: #ffffff;
-  margin: 0;
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.prompt-content h1:last-child,
+.prompt-content h2:last-child,
+.prompt-content h3:last-child,
+.prompt-content h4:last-child,
+.prompt-content h5:last-child,
+.prompt-content h6:last-child,
+.prompt-content p:last-child {
+  margin-bottom: 0;
 }
 
 .prompt-content a {
@@ -300,13 +317,43 @@
   text-decoration: underline;
 }
 
+.prompt-content a:hover {
+  color: #a6c8ff;
+}
+
 .prompt-content code {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ff7eb6;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
   padding: 2px 6px;
   border-radius: 3px;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.875em;
+}
+
+.prompt-content ul,
+.prompt-content ol {
+  margin: 0 0 var(--spacing-sm) 0;
+  padding-left: var(--spacing-lg);
+}
+
+.prompt-content li {
+  color: #ffffff;
+  margin-bottom: var(--spacing-xs);
+}
+
+.prompt-content li:last-child {
+  margin-bottom: 0;
+}
+
+.prompt-content strong,
+.prompt-content b {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.prompt-content em,
+.prompt-content i {
+  color: #f4f4f4;
 }
 
 /* ============================================
