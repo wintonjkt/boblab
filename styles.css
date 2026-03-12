@@ -2024,9 +2024,10 @@ a:focus {
 .code-block-wrapper {
   position: relative;
   margin: var(--spacing-lg) 0;
-  background: var(--code-bg);
-  border-radius: 0;
+  background: #f6f8fa;
+  border-radius: 4px;
   overflow: hidden;
+  border: 1px solid #d0d7de;
 }
 
 .code-block-header {
@@ -2034,13 +2035,13 @@ a:focus {
   justify-content: space-between;
   align-items: center;
   padding: var(--spacing-sm) var(--spacing-md);
-  background: #393939;
-  border-bottom: 1px solid #525252;
+  background: #e8eaed;
+  border-bottom: 1px solid #d0d7de;
 }
 
 .code-block-language {
   font-size: 0.75rem;
-  color: var(--cds-text-03);
+  color: #57606a;
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.32px;
@@ -2051,23 +2052,23 @@ a:focus {
   align-items: center;
   gap: var(--spacing-xs);
   padding: var(--spacing-xs) var(--spacing-sm);
-  background: transparent;
-  border: 1px solid var(--cds-text-03);
-  color: var(--cds-text-05);
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  color: #24292f;
   font-size: 0.75rem;
   font-family: 'IBM Plex Sans', sans-serif;
   cursor: pointer;
-  border-radius: 0;
+  border-radius: 4px;
   transition: all 0.1s ease;
 }
 
 .copy-button:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--cds-text-05);
+  background: #f6f8fa;
+  border-color: #57606a;
 }
 
 .copy-button:focus {
-  outline: 2px solid white;
+  outline: 2px solid #0969da;
   outline-offset: 2px;
 }
 
@@ -2102,19 +2103,19 @@ a:focus {
   line-height: 1.6;
   margin: 0;
   padding: var(--spacing-md);
-  color: var(--text-primary);
+  color: #24292f;
   background: transparent;
   overflow-x: auto;
+  white-space: pre;
+  word-wrap: normal;
 }
 
 .code-block-wrapper pre code {
-  color: #24292f; /* Dark text for light theme code blocks */
+  color: #24292f;
   font-family: 'IBM Plex Mono', 'Monaco', 'Menlo', monospace;
-}
-
-/* Dark theme code blocks */
-body.dark-theme .code-block-wrapper pre code {
-  color: #d4d4d4; /* Light text for dark theme code blocks */
+  display: block;
+  padding: 0;
+  background: transparent;
 }
 
 /* Inline Code */
