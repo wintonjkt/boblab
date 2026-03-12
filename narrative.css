@@ -436,10 +436,56 @@
   overflow-x: auto;
 }
 
-.code-block-wrapper code {
+.code-block-wrapper code,
+.code-block-wrapper pre code,
+.code-block-wrapper pre code.hljs {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.8125rem;
-  color: var(--code-text);
+  color: var(--code-text) !important;
+  background-color: transparent !important;
+}
+
+/* Syntax highlighting overrides for code blocks - dark theme colors */
+.code-block-wrapper .hljs-comment,
+.code-block-wrapper .hljs-quote {
+  color: #6a9955 !important; /* Green for comments */
+}
+
+.code-block-wrapper .hljs-keyword,
+.code-block-wrapper .hljs-selector-tag,
+.code-block-wrapper .hljs-subst {
+  color: #569cd6 !important; /* Blue for keywords */
+}
+
+.code-block-wrapper .hljs-number,
+.code-block-wrapper .hljs-literal {
+  color: #b5cea8 !important; /* Light green for numbers */
+}
+
+.code-block-wrapper .hljs-string,
+.code-block-wrapper .hljs-doctag {
+  color: #ce9178 !important; /* Orange for strings */
+}
+
+.code-block-wrapper .hljs-title,
+.code-block-wrapper .hljs-section,
+.code-block-wrapper .hljs-selector-id {
+  color: #dcdcaa !important; /* Yellow for titles */
+}
+
+.code-block-wrapper .hljs-type,
+.code-block-wrapper .hljs-class .hljs-title {
+  color: #4ec9b0 !important; /* Teal for types */
+}
+
+.code-block-wrapper .hljs-variable,
+.code-block-wrapper .hljs-template-variable {
+  color: #9cdcfe !important; /* Light blue for variables */
+}
+
+.code-block-wrapper .hljs-tag,
+.code-block-wrapper .hljs-name {
+  color: #569cd6 !important; /* Blue for tags */
 }
 
 .code-block-header {
