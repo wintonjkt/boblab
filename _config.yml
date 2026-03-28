@@ -1,0 +1,4 @@
+exclude:
+  - .cursor
+  - node_modules
+  - .git
