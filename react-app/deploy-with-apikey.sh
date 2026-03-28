@@ -237,16 +237,51 @@ check_prerequisites() {
 login_to_ibm_cloud() {
     print_step "Logging in to IBM Cloud"
     
-    # Login using API key (non-interactive)
-    if ibmcloud login --apikey "$IBM_CLOUD_API_KEY" -r "$IBM_CLOUD_REGION" -g "$IBM_CLOUD_RESOURCE_GROUP" &> /dev/null; then
-        print_success "Successfully logged in to IBM Cloud"
-        print_info "Region: $IBM_CLOUD_REGION"
-        print_info "Resource Group: $IBM_CLOUD_RESOURCE_GROUP"
+    print_info "Authenticating with IBM Cloud..."
+    print_info "Region: $IBM_CLOUD_REGION"
+    
+    # Create a temporary file for login output
+    local login_output=$(mktemp)
+    
+    # Login using API key (non-interactive) - login without resource group first
+    if ibmcloud login --apikey "$IBM_CLOUD_API_KEY" -r "$IBM_CLOUD_REGION" > "$login_output" 2>&1; then
+        print_success "Successfully authenticated to IBM Cloud"
+        
+        # Now target the resource group separately
+        print_info "Targeting resource group: $IBM_CLOUD_RESOURCE_GROUP"
+        if ibmcloud target -g "$IBM_CLOUD_RESOURCE_GROUP" > "$login_output" 2>&1; then
+            print_success "Successfully targeted resource group: $IBM_CLOUD_RESOURCE_GROUP"
+        else
+            print_warning "Could not target resource group: $IBM_CLOUD_RESOURCE_GROUP"
+            print_info "Available resource groups:"
+            ibmcloud resource groups 2>/dev/null | grep -E "^[a-zA-Z]" | head -10
+            echo ""
+            print_error "Please update IBM_CLOUD_RESOURCE_GROUP in .env file with a valid resource group name"
+            rm -f "$login_output"
+            exit 1
+        fi
+        
+        # Show current target
+        echo ""
+        print_info "Current target:"
+        ibmcloud target 2>/dev/null || true
     else
         print_error "Failed to login to IBM Cloud"
-        print_info "Please check your API key and region settings in .env file"
+        echo ""
+        print_info "Login output:"
+        cat "$login_output"
+        echo ""
+        print_info "Troubleshooting:"
+        echo "  1. Verify API key is correct (first 4 chars: ${IBM_CLOUD_API_KEY:0:4}****)"
+        echo "  2. Check region name: $IBM_CLOUD_REGION"
+        echo "  3. Verify network connectivity to IBM Cloud"
+        echo "  4. Check if proxy settings are needed"
+        echo ""
+        rm -f "$login_output"
         exit 1
     fi
+    
+    rm -f "$login_output"
 }
 
 # Select or create Code Engine project

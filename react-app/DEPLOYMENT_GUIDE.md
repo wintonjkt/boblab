@@ -41,13 +41,23 @@ Complete guide for deploying the Bob Lab React application to IBM Code Engine us
    - Download from: https://podman.io/getting-started/installation
    - Podman is a daemonless container engine (no Docker Desktop required)
    
-   Verify installation:
+   **macOS Users**: Podman requires a Podman machine (Linux VM) to run containers. See [PODMAN_SETUP.md](./PODMAN_SETUP.md) for detailed setup instructions.
+   
+   Quick setup:
    ```bash
+   # Install Podman
+   brew install podman
+   
+   # Initialize and start Podman machine (macOS only)
+   podman machine init
+   podman machine start
+   
+   # Verify installation
    podman --version
    podman info
    ```
    
-   **Note**: Podman is a drop-in replacement for Docker. Most Docker commands work with Podman by simply replacing `docker` with `podman`.
+   **Note**: The deployment script automatically starts the Podman machine on macOS if it's not running. See [PODMAN_SETUP.md](./PODMAN_SETUP.md) for troubleshooting and advanced configuration.
 
 3. **IBM Cloud Account**
    - Sign up at: https://cloud.ibm.com/registration
