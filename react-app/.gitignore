@@ -1,5 +1,65 @@
+# ============================================================================
+# SECURITY - Environment Variables and Secrets
+# ============================================================================
+# CRITICAL: Never commit files containing API keys, tokens, or credentials
+
+# Environment variables
+.env
+.env.*
+.env.local
+.env.production.local
+.env.development.local
+.env.test.local
+!.env.example
+!.env.*.example
+
+# API keys and credentials
+*apikey*
+*api-key*
+*api_key*
+*token*
+*secret*
+*.key
+*.pem
+*.p12
+*.pfx
+*.cer
+*.crt
+credentials/
+secrets/
+
+# IBM Cloud specific
+ibmcloud-apikey.json
+.bluemix/
+.ibmcloud/
+
+# Watsonx credentials
+watsonx-credentials.json
+watsonx-apikey.json
+
+# ============================================================================
+# Dependencies
+# ============================================================================
+node_modules/
+jspm_packages/
+bower_components/
+
+# Bun
+.bun
+bun.lockb
+
+# ============================================================================
+# Build Outputs
+# ============================================================================
+dist/
+dist-ssr/
+build/
+*.local
+
+# ============================================================================
 # Logs
-logs
+# ============================================================================
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,34 +67,150 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Dependencies
-node_modules
-dist
-dist-ssr
-*.local
+# ============================================================================
+# Testing
+# ============================================================================
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+.cache/
 
-# Editor directories and files
+# Playwright
+playwright/.cache/
+
+# ============================================================================
+# IDEs and Editors
+# ============================================================================
+
+# VSCode
 .vscode/*
 !.vscode/extensions.json
-.idea
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Vim
+*.swp
+*.swo
+*.swn
+*~
+.*.sw?
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# ============================================================================
+# Operating Systems
+# ============================================================================
+
+# macOS
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
 
-# Bun
-.bun
-bun.lockb
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
 
-# Environment variables
-.env
-.env.local
-.env.production.local
-.env.development.local
-.env.test.local
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
 
-# Build output
-dist/
-build/
+# ============================================================================
+# TypeScript
+# ============================================================================
+*.tsbuildinfo
+.tsbuildinfo
+
+# ============================================================================
+# Optional npm/yarn cache
+# ============================================================================
+.npm
+.eslintcache
+.stylelintcache
+
+# ============================================================================
+# Microbundle cache
+# ============================================================================
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# ============================================================================
+# Optional REPL history
+# ============================================================================
+.node_repl_history
+
+# ============================================================================
+# Yarn
+# ============================================================================
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ============================================================================
+# Temporary Files
+# ============================================================================
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.cache
+
+# ============================================================================
+# Deployment
+# ============================================================================
+.vercel
+.netlify
+.firebase/
+.serverless/
+
+# ============================================================================
+# Docker
+# ============================================================================
+.dockerignore
+
+# ============================================================================
+# Vite
+# ============================================================================
+vite.config.*.timestamp-*
+
+# ============================================================================
+# Miscellaneous
+# ============================================================================
+.sass-cache/
+*.css.map
+*.js.map
+.parcel-cache/

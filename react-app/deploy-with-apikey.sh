@@ -2,14 +2,14 @@
 
 ################################################################################
 # IBM Code Engine Deployment Script with API Key Authentication
-# 
+#
 # This script automates the deployment process using API key from .env file:
 # 1. Loads environment variables from parent directory's .env file
 # 2. Validates all required variables
 # 3. Authenticates to IBM Cloud using API key (non-interactive)
 # 4. Targets the correct region and resource group
 # 5. Selects or creates Code Engine project
-# 6. Builds Docker image
+# 6. Builds container image with Podman
 # 7. Pushes to IBM Container Registry
 # 8. Deploys or updates Code Engine application
 # 9. Shows deployment URL
@@ -18,7 +18,7 @@
 # - IBM Cloud CLI installed (https://cloud.ibm.com/docs/cli)
 # - Code Engine plugin installed (ibmcloud plugin install code-engine)
 # - Container Registry plugin installed (ibmcloud plugin install container-registry)
-# - Docker installed and running
+# - Podman installed and running
 # - .env file in parent directory with IBM_CLOUD_API_KEY
 ################################################################################
 
@@ -152,9 +152,9 @@ check_prerequisites() {
         missing_tools+=("IBM Cloud CLI (https://cloud.ibm.com/docs/cli)")
     fi
     
-    # Check if Docker is installed
-    if ! command -v docker &> /dev/null; then
-        missing_tools+=("Docker (https://docs.docker.com/get-docker/)")
+    # Check if Podman is installed
+    if ! command -v podman &> /dev/null; then
+        missing_tools+=("Podman (https://podman.io/getting-started/installation)")
     fi
     
     if [ ${#missing_tools[@]} -gt 0 ]; then
@@ -165,10 +165,57 @@ check_prerequisites() {
         exit 1
     fi
     
-    # Check if Docker is running
-    if ! docker info &> /dev/null; then
-        print_error "Docker is not running. Please start Docker."
-        exit 1
+    # Check if Podman is running (macOS requires Podman machine)
+    if ! podman info &> /dev/null; then
+        print_warning "Podman is not running. Checking Podman machine status..."
+        
+        # Check if we're on macOS (Podman requires a machine)
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            print_info "Detected macOS - checking Podman machine..."
+            
+            # Check if any machine exists
+            if ! podman machine list &> /dev/null || [ -z "$(podman machine list --format '{{.Name}}' 2>/dev/null)" ]; then
+                print_info "No Podman machine found. Initializing default machine..."
+                if podman machine init; then
+                    print_success "Podman machine initialized"
+                else
+                    print_error "Failed to initialize Podman machine"
+                    print_info "Please run: podman machine init"
+                    exit 1
+                fi
+            fi
+            
+            # Check if machine is running
+            if ! podman machine list --format '{{.LastUp}}' 2>/dev/null | grep -q "Currently running"; then
+                print_info "Starting Podman machine..."
+                if podman machine start; then
+                    print_success "Podman machine started successfully"
+                    
+                    # Wait a moment for the machine to be fully ready
+                    print_info "Waiting for Podman to be ready..."
+                    sleep 3
+                    
+                    # Verify Podman is now working
+                    if ! podman info &> /dev/null; then
+                        print_error "Podman machine started but Podman is still not responding"
+                        print_info "Please check: podman machine list"
+                        exit 1
+                    fi
+                else
+                    print_error "Failed to start Podman machine"
+                    print_info "Please run: podman machine start"
+                    exit 1
+                fi
+            else
+                print_success "Podman machine is already running"
+            fi
+        else
+            print_error "Podman is not running or not properly configured."
+            print_info "Please start Podman and try again."
+            exit 1
+        fi
+    else
+        print_success "Podman is running"
     fi
     
     # Check if Code Engine plugin is installed
@@ -218,18 +265,18 @@ setup_code_engine_project() {
     fi
 }
 
-# Build Docker image
-build_docker_image() {
-    print_step "Building Docker image"
+# Build container image with Podman
+build_container_image() {
+    print_step "Building container image with Podman"
     
     cd "$SCRIPT_DIR"
     
     print_info "Building image: $CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG"
     
-    if docker build -t "$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG" . ; then
-        print_success "Docker image built successfully"
+    if podman build -t "$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG" . ; then
+        print_success "Container image built successfully"
     else
-        print_error "Failed to build Docker image"
+        print_error "Failed to build container image"
         exit 1
     fi
 }
@@ -256,10 +303,10 @@ push_to_registry() {
     FULL_IMAGE_PATH="${IBM_CLOUD_REGION}.icr.io/${CONTAINER_REGISTRY_NAMESPACE}/${CONTAINER_IMAGE_NAME}:${CONTAINER_IMAGE_TAG}"
     
     print_info "Tagging image: $FULL_IMAGE_PATH"
-    docker tag "$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG" "$FULL_IMAGE_PATH"
+    podman tag "$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG" "$FULL_IMAGE_PATH"
     
     print_info "Pushing image to registry..."
-    if docker push "$FULL_IMAGE_PATH"; then
+    if podman push "$FULL_IMAGE_PATH"; then
         print_success "Image pushed successfully: $FULL_IMAGE_PATH"
     else
         print_error "Failed to push image to registry"
@@ -331,12 +378,12 @@ show_application_url() {
     fi
 }
 
-# Cleanup local Docker images
+# Cleanup local Podman images
 cleanup_local_images() {
-    print_step "Cleaning up local Docker images"
+    print_step "Cleaning up local Podman images"
     
     print_info "Removing dangling images..."
-    docker image prune -f &> /dev/null || true
+    podman image prune -f &> /dev/null || true
     
     print_success "Cleanup complete"
 }
@@ -382,7 +429,7 @@ main() {
     setup_code_engine_project
     
     # Build and push image
-    build_docker_image
+    build_container_image
     push_to_registry
     
     # Deploy application

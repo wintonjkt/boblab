@@ -1,4 +1,9 @@
 # Multi-stage build for React SPA deployment to IBM Code Engine
+# Compatible with both Podman and Docker
+#
+# Note: This Dockerfile follows OCI standards and works seamlessly with Podman.
+# Podman is a daemonless container engine that's a drop-in replacement for Docker.
+#
 # Stage 1: Build the React application using Bun
 FROM oven/bun:1.1-alpine AS builder
 

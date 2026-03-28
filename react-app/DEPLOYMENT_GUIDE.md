@@ -37,15 +37,17 @@ Complete guide for deploying the Bob Lab React application to IBM Code Engine us
    ibmcloud --version
    ```
 
-2. **Docker**
-   - Download from: https://docs.docker.com/get-docker/
-   - Ensure Docker Desktop is running
+2. **Podman**
+   - Download from: https://podman.io/getting-started/installation
+   - Podman is a daemonless container engine (no Docker Desktop required)
    
    Verify installation:
    ```bash
-   docker --version
-   docker info
+   podman --version
+   podman info
    ```
+   
+   **Note**: Podman is a drop-in replacement for Docker. Most Docker commands work with Podman by simply replacing `docker` with `podman`.
 
 3. **IBM Cloud Account**
    - Sign up at: https://cloud.ibm.com/registration
@@ -424,14 +426,18 @@ ibmcloud cr namespace-add your-namespace-name
 ibmcloud cr namespace-list
 ```
 
-#### Issue: "Docker is not running"
+#### Issue: "Podman is not running"
 
-**Cause**: Docker Desktop is not started
+**Cause**: Podman is not properly configured
 
 **Solution**:
-1. Start Docker Desktop
-2. Wait for it to fully start (check the icon in system tray)
-3. Verify: `docker info`
+1. Verify Podman is installed: `podman --version`
+2. Check Podman status: `podman info`
+3. On macOS, ensure Podman machine is running:
+   ```bash
+   podman machine start
+   ```
+4. On Linux, Podman runs rootless by default (no daemon needed)
 
 #### Issue: "Image pull errors" in Code Engine
 
@@ -461,26 +467,33 @@ ibmcloud ce app update --name bob-lab-app \
    ```
 2. Verify the application listens on port 8080
 3. Check for errors in the build or startup
-4. Test the Docker image locally:
+4. Test the container image locally:
    ```bash
-   docker build -t bob-lab:test .
-   docker run -p 8080:8080 bob-lab:test
+   podman build -t bob-lab:test .
+   podman run -p 8080:8080 bob-lab:test
    # Visit http://localhost:8080
    ```
 
 #### Issue: "Build fails" during deployment
 
-**Cause**: Docker build errors
+**Cause**: Container build errors
 
 **Solution**:
 1. Test the build locally:
    ```bash
    cd react-app
-   docker build -t bob-lab:test .
+   podman build -t bob-lab:test .
    ```
 2. Check for missing dependencies in package.json
-3. Verify Dockerfile is correct
+3. Verify Dockerfile is correct (Podman-compatible)
 4. Check for sufficient disk space
+5. On macOS, ensure Podman machine has enough resources:
+   ```bash
+   podman machine stop
+   podman machine rm
+   podman machine init --cpus 4 --memory 8192 --disk-size 50
+   podman machine start
+   ```
 
 #### Issue: "Permission denied" when running script
 

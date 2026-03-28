@@ -1,6 +1,7 @@
 import React, { createContext, useContext, ReactNode, useState, useEffect } from 'react';
 import i18n from 'i18next';
 import { initReactI18next, useTranslation } from 'react-i18next';
+import HttpBackend from 'i18next-http-backend';
 import { Language, I18nContextType } from '@/types';
 
 const LANGUAGE_STORAGE_KEY = 'language';
@@ -58,6 +59,7 @@ const initializeI18n = async () => {
   const initialLang = storedLang || detectBrowserLanguage();
 
   await i18n
+    .use(HttpBackend)
     .use(initReactI18next)
     .init({
       lng: initialLang,
@@ -76,21 +78,7 @@ const initializeI18n = async () => {
       react: {
         useSuspense: false, // Disable suspense to handle loading manually
       },
-      
-      // Load translations directly
-      resources: {},
     });
-
-  // Load initial translation
-  try {
-    const response = await fetch(`/translations/${initialLang}.json`);
-    if (response.ok) {
-      const translations = await response.json();
-      i18n.addResourceBundle(initialLang, 'translation', translations, true, true);
-    }
-  } catch (error) {
-    console.error(`Failed to load translations for ${initialLang}:`, error);
-  }
 };
 
 // Initialize i18next immediately
@@ -133,19 +121,6 @@ export const I18nProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     setError(null);
 
     try {
-      // Check if translations are already loaded
-      if (!i18nInstance.hasResourceBundle(lang, 'translation')) {
-        // Load translations for the new language
-        const response = await fetch(`/translations/${lang}.json`);
-        
-        if (!response.ok) {
-          throw new Error(`Failed to load translations for ${lang}: ${response.statusText}`);
-        }
-        
-        const translations = await response.json();
-        i18nInstance.addResourceBundle(lang, 'translation', translations, true, true);
-      }
-      
       await i18nInstance.changeLanguage(lang);
     } catch (err) {
       const error = err instanceof Error ? err : new Error('Failed to change language');

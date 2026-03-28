@@ -1,39 +1,288 @@
-# macOS metadata files
+# ============================================================================
+# SECURITY - Environment Variables and Secrets
+# ============================================================================
+# CRITICAL: Never commit files containing API keys, tokens, or credentials
+
+# Environment variables
+.env
+.env.*
+.env.local
+.env.*.local
+!.env.example
+!.env.*.example
+
+# API keys and credentials
+*apikey*
+*api-key*
+*api_key*
+*token*
+*secret*
+*.key
+*.pem
+*.p12
+*.pfx
+*.cer
+*.crt
+credentials/
+secrets/
+
+# IBM Cloud specific
+ibmcloud-apikey.json
+.bluemix/
+.ibmcloud/
+
+# Watsonx credentials
+watsonx-credentials.json
+watsonx-apikey.json
+
+# ============================================================================
+# macOS
+# ============================================================================
 .DS_Store
 *.DS_Store
 **/.DS_Store
+.AppleDouble
+.LSOverride
 
 # macOS resource fork files
 __MACOSX
 __MACOSX/
 **/__MACOSX/
 
-# Editor directories and files
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# ============================================================================
+# Windows
+# ============================================================================
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# ============================================================================
+# Linux
+# ============================================================================
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================================
+# IDEs and Editors
+# ============================================================================
+
+# VSCode
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
-.idea
+!.vscode/tasks.json
+!.vscode/launch.json
+*.code-workspace
+
+# JetBrains IDEs (IntelliJ, WebStorm, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Vim
 *.swp
 *.swo
+*.swn
 *~
+.*.sw?
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# ============================================================================
+# Node.js / JavaScript / TypeScript
+# ============================================================================
+
+# Dependencies
+node_modules/
+jspm_packages/
+bower_components/
+
+# Bun
+.bun
+bun.lockb
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+*.min.js
+*.min.css
+*.bundle.js
+*.bundle.css
 
 # Logs
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Dependency directories
-node_modules/
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-# Build outputs
+# Coverage and test results
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+.cache/
+
+# TypeScript
+*.tsbuildinfo
+.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Yarn
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ============================================================================
+# Python
+# ============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
 dist/
 build/
-*.min.js
-*.min.css
+*.egg
 
-# Temporary files
+# ============================================================================
+# Rust
+# ============================================================================
+target/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+
+# ============================================================================
+# Swift / Xcode
+# ============================================================================
+*.xcodeproj
+*.xcworkspace
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# ============================================================================
+# Docker
+# ============================================================================
+.dockerignore
+
+# ============================================================================
+# Temporary Files
+# ============================================================================
 tmp/
 temp/
 *.tmp
+*.temp
+*.bak
+*.backup
+*.cache
+*.swp
+*.swo
+
+# ============================================================================
+# Build and Deployment
+# ============================================================================
+.vercel
+.netlify
+.firebase/
+.serverless/
+
+# ============================================================================
+# Database
+# ============================================================================
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================================================
+# Miscellaneous
+# ============================================================================
+.sass-cache/
+*.css.map
+*.js.map
+.parcel-cache/

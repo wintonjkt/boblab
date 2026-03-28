@@ -8,7 +8,7 @@
 #   ./deploy-with-apikey.sh
 #
 # This script automates the deployment process:
-# 1. Builds the Docker image
+# 1. Builds the container image with Podman
 # 2. Tags and pushes to IBM Container Registry
 # 3. Deploys to IBM Code Engine
 #
@@ -16,7 +16,7 @@
 # - IBM Cloud CLI installed (https://cloud.ibm.com/docs/cli)
 # - Code Engine plugin installed (ibmcloud plugin install code-engine)
 # - Container Registry plugin installed (ibmcloud plugin install container-registry)
-# - Docker installed and running
+# - Podman installed and running
 # - Logged in to IBM Cloud (ibmcloud login)
 ################################################################################
 
@@ -92,15 +92,15 @@ check_prerequisites() {
         exit 1
     fi
     
-    # Check if Docker is installed
-    if ! command -v docker &> /dev/null; then
-        print_error "Docker is not installed. Please install it from https://docs.docker.com/get-docker/"
+    # Check if Podman is installed
+    if ! command -v podman &> /dev/null; then
+        print_error "Podman is not installed. Please install it from https://podman.io/getting-started/installation"
         exit 1
     fi
     
-    # Check if Docker is running
-    if ! docker info &> /dev/null; then
-        print_error "Docker is not running. Please start Docker."
+    # Check if Podman is running
+    if ! podman info &> /dev/null; then
+        print_error "Podman is not running or not properly configured."
         exit 1
     fi
     
@@ -126,15 +126,15 @@ validate_config() {
 }
 
 build_image() {
-    print_info "Building Docker image..."
+    print_info "Building container image with Podman..."
     
-    # Build the Docker image
-    docker build -t "${IMAGE_NAME}:${VERSION}" .
+    # Build the container image
+    podman build -t "${IMAGE_NAME}:${VERSION}" .
     
     if [ $? -eq 0 ]; then
-        print_success "Docker image built successfully"
+        print_success "Container image built successfully"
     else
-        print_error "Failed to build Docker image"
+        print_error "Failed to build container image"
         exit 1
     fi
 }
@@ -152,10 +152,10 @@ tag_and_push_image() {
     FULL_IMAGE_PATH="${REGION}.icr.io/${REGISTRY_NAMESPACE}/${IMAGE_NAME}:${VERSION}"
     
     # Tag the image
-    docker tag "${IMAGE_NAME}:${VERSION}" "${FULL_IMAGE_PATH}"
+    podman tag "${IMAGE_NAME}:${VERSION}" "${FULL_IMAGE_PATH}"
     
     # Push to registry
-    docker push "${FULL_IMAGE_PATH}"
+    podman push "${FULL_IMAGE_PATH}"
     
     if [ $? -eq 0 ]; then
         print_success "Image pushed to registry: ${FULL_IMAGE_PATH}"
@@ -215,7 +215,7 @@ cleanup_local_images() {
     print_info "Cleaning up local images..."
     
     # Remove untagged images
-    docker image prune -f
+    podman image prune -f
     
     print_success "Local cleanup complete"
 }

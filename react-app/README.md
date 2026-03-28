@@ -126,7 +126,7 @@ bun run type-check
 
 ## Deployment to IBM Code Engine
 
-The application is containerized and ready for deployment to IBM Code Engine. It uses a multi-stage Docker build with Bun for building and nginx for serving.
+The application is containerized and ready for deployment to IBM Code Engine. It uses a multi-stage container build with Bun for building and nginx for serving, compatible with both Podman and Docker.
 
 ### Quick Start: Automated Deployment with API Key
 
@@ -150,7 +150,7 @@ The application is containerized and ready for deployment to IBM Code Engine. It
 
 That's it! The script will:
 - ✅ Authenticate using your API key
-- ✅ Build and push the Docker image
+- ✅ Build and push the container image with Podman
 - ✅ Deploy to Code Engine
 - ✅ Show you the application URL
 
@@ -179,7 +179,9 @@ Before deploying, ensure you have:
    ibmcloud plugin install container-registry
    ```
 
-4. **Docker** - [Installation Guide](https://docs.docker.com/get-docker/)
+4. **Podman** - [Installation Guide](https://podman.io/getting-started/installation)
+   
+   **Note**: Podman is a drop-in replacement for Docker. It's daemonless and runs rootless by default, making it more secure and lightweight.
 
 5. **IBM Cloud Account** - [Sign up](https://cloud.ibm.com/registration)
 
@@ -266,14 +268,14 @@ The script will:
 
 If you prefer complete manual control:
 
-1. **Build the Docker image**
+1. **Build the container image**
    ```bash
-   docker build -t bob-lab:latest .
+   podman build -t bob-lab:latest .
    ```
 
 2. **Tag for IBM Container Registry**
    ```bash
-   docker tag bob-lab:latest us.icr.io/your-namespace/bob-lab:latest
+   podman tag bob-lab:latest us.icr.io/your-namespace/bob-lab:latest
    ```
 
 3. **Login to Container Registry**
@@ -283,7 +285,7 @@ If you prefer complete manual control:
 
 4. **Push the image**
    ```bash
-   docker push us.icr.io/your-namespace/bob-lab:latest
+   podman push us.icr.io/your-namespace/bob-lab:latest
    ```
 
 5. **Deploy to Code Engine**
@@ -334,18 +336,23 @@ CONTAINER_IMAGE_TAG=latest
 - ⚠️ Keep your API key secure and rotate it regularly
 - ⚠️ See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for security best practices
 
-### Local Docker Testing
+### Local Container Testing
 
-Test the Docker image locally before deploying:
+Test the container image locally before deploying:
 
 ```bash
 # Build the image
-docker build -t bob-lab:test .
+podman build -t bob-lab:test .
 
 # Run locally
-docker run -p 8080:8080 bob-lab:test
+podman run -p 8080:8080 bob-lab:test
 
 # Visit http://localhost:8080
+```
+
+**Note**: On macOS, ensure Podman machine is running:
+```bash
+podman machine start
 ```
 
 ### Environment Variables
@@ -430,10 +437,10 @@ ibmcloud ce app events --name bob-lab-app
 ```
 
 #### Issue: Build fails
-**Solution**: Test the Docker build locally
+**Solution**: Test the container build locally
 ```bash
-docker build -t bob-lab:test .
-docker run -p 8080:8080 bob-lab:test
+podman build -t bob-lab:test .
+podman run -p 8080:8080 bob-lab:test
 ```
 
 #### Issue: Slow performance
