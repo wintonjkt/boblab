@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "home": "홈",
+    "conversations": "대화",
+    "walkthrough": "워크스루",
+    "bobathon": "Bobathon/파일럿"
+  },
+  "hero": {
+    "title": "엔터프라이즈 AI 개발 워크샵",
+    "subtitle": "7-8주의 엔터프라이즈 개발을 10분의 AI 기반 오케스트레이션으로 변환",
+    "tagline": "IBM Bob이 멀티 리포지토리 변경, 규정 준수 자동화, 인라인 보안을 처리하는 방법을 알아보세요",
+    "btn_conversations": "판매자 대화",
+    "btn_walkthrough": "기능 워크스루"
+  },
+  "intro": {
+    "title": "Bob을 탐색하는 두 가지 방법",
+    "conversations_title": "대화",
+    "conversations_desc": "고객 대화를 위한 채팅 스타일 가이드입니다. 일반적인 질문, 토킹 포인트 및 IBM Bob에 대한 일반적인 우려 사항을 해결하는 방법을 살펴보세요.",
+    "btn_conversations": "대화 보기",
+    "walkthrough_title": "워크스루",
+    "walkthrough_desc": "Bob의 주요 기능을 기반으로 한 여정입니다. 데모를 보고, 비즈니스 가치를 이해하며, 실제 증명 포인트를 검토하세요.",
+    "btn_walkthrough": "워크스루 시작"
+  },
+  "engagement": {
+    "title": "Bobathon 또는 파일럿에 관심이 있으신가요?",
+    "description": "IBM Client Engineering에 문의하여 참여 기회를 논의하고 Bob이 개발 워크플로우를 어떻게 변혁할 수 있는지 알아보세요.",
+    "btn_learn_more": "IBM Client Engineering 자세히 보기"
+  },
+  "footer": {
+    "title": "bob-lab",
+    "description": "간단한 엔터프라이즈 AI 개발",
+    "links": "링크",
+    "attribution": "IBM Client Engineering에서 bob으로 구축"
+  },
+  "walkthrough": {
+    "page_title": "워크스루",
+    "title": "Bob 기능 워크스루",
+    "subtitle": "Bob의 엔터프라이즈 규모 기능 체험",
+    "description": "실습 데모를 통해 Bob이 엔터프라이즈 개발을 변혁하는 방법을 알아보세요",
+    "sidebar_title": "기능",
+    "nav_overview": "개요",
+    "nav_requirements": "비즈니스 요구사항",
+    "nav_compliance": "규정 준수 자동화",
+    "nav_multirepo": "멀티 리포지토리 오케스트레이션",
+    "nav_security": "인라인 보안",
+    "nav_deployment": "배포 계획",
+    "nav_bobalytics": "Bobalytics 투명성",
+    "github_link": "소스 코드 받기",
+    "overview_title": "체험할 내용",
+    "overview_desc": "이 워크스루는 현실적인 시나리오를 통해 Bob의 주요 기능을 보여줍니다. SOC 2 감사를 통과하기 위해 3개의 레거시 시스템에서 SSO + MFA를 구현합니다.",
+    "estimated_time": "예상 시간:",
+    "estimated_time_value": "모든 기능 데모를 완료하는 데 10-15분",
+    "copy": "복사",
+    "copied": "복사됨!",
+    "prompt_to_bob": "Bob에 프롬프트"
+  },
+  "narrative": {
+    "page_title": "판매자 대화 가이드",
+    "title": "고객 대화 가이드",
+    "subtitle": "Bob 판매 토론을 위한 토킹 트랙",
+    "description": "Bob의 고유한 기능을 기반으로 한 일반적인 고객 질문 및 권장 응답",
+    "topics_title": "대화 주제",
+    "topic_intro": "소개",
+    "topic_productivity": "생산성 향상",
+    "topic_security": "보안 및 규정 준수",
+    "topic_multirepo": "멀티 리포지토리",
+    "topic_cost": "비용 투명성",
+    "topic_integration": "통합",
+    "topic_competition": "경쟁사 대비",
+    "topic_proof": "증명 포인트"
+  }
+}

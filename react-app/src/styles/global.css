@@ -1,0 +1,165 @@
+/* Global styles for Bob Lab React App */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* App container layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  max-width: 1584px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Lab page styling */
+.lab-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.lab-page h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: var(--cds-text-primary);
+}
+
+.lab-page h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--cds-text-primary);
+}
+
+.lab-page h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--cds-text-primary);
+}
+
+.lab-page p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: var(--cds-text-secondary);
+}
+
+.lab-page ul,
+.lab-page ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--cds-text-secondary);
+}
+
+.lab-page li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.lab-page code {
+  background-color: var(--cds-layer-accent);
+  padding: 0.125rem 0.375rem;
+  border-radius: 2px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875rem;
+}
+
+.lab-page pre {
+  background-color: var(--cds-layer);
+  border: 1px solid var(--cds-border-subtle);
+  border-radius: 4px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.lab-page pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Dark theme support */
+body.dark-theme {
+  background-color: var(--cds-background);
+  color: var(--cds-text-primary);
+}
+
+/* Responsive design */
+@media (max-width: 672px) {
+  .main-content {
+    padding: 1rem 0.5rem;
+  }
+
+  .lab-page h1 {
+    font-size: 2rem;
+  }
+
+  .lab-page h2 {
+    font-size: 1.5rem;
+  }
+
+  .lab-page h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Loading state */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Link styling */
+a {
+  color: var(--cds-link-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--cds-link-visited);
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--cds-focus);
+  outline-offset: 2px;
+}
+
+/* Made with Bob */

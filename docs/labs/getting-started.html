@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started - bob-lab</title>
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+  
+  <!-- Breadcrumb Navigation -->
+  <div data-component="breadcrumb"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Getting Started with Bob</h1>
+      <p class="page-subtitle">Master the Fundamentals of AI-Powered Development</p>
+      <p class="page-description">Learn essential Bob features through hands-on exercises that apply to any project</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>Essential Skills</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#installation" class="capability-link">Installation</a>
+        <a href="#prompt-engineering" class="capability-link">Prompt Engineering</a>
+        <a href="#reading-documents" class="capability-link">Reading Documents</a>
+        <a href="#code-generation" class="capability-link">Code Generation</a>
+        <a href="#multi-file" class="capability-link">Multi-File Changes</a>
+        <a href="#context-awareness" class="capability-link">Context Awareness</a>
+        <a href="#iterative-refinement" class="capability-link">Iterative Refinement</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="https://github.ibm.com/bob-ide/examples" target="_blank" class="sidebar-github-link">
+          <span class="github-text">View Examples</span>
+          <span class="github-arrow">&rarr;</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="walkthrough-main">
+      <div class="walkthrough-content">
+        <!-- Enhanced Progress -->
+        <div data-component="enhanced-progress"></div>
+        
+        <!-- Table of Contents -->
+        <div data-component="table-of-contents"></div>
+      <!-- Overview -->
+      <section id="overview" class="section">
+        <div class="container">
+          <div class="info-card compliance">
+            <h2>Bob Fundamentals</h2>
+            <p>This lab teaches you the core skills you'll use every day with Bob. Master these foundations to accelerate any development task.</p>
+
+            <div class="capabilities-overview">
+              <div class="cap-card">
+                <h4>Document Understanding</h4>
+                <p>Bob reads and analyzes documents, specs, and requirements</p>
+              </div>
+              <div class="cap-card">
+                <h4>Smart Code Generation</h4>
+                <p>Generate contextually relevant code that fits your project</p>
+              </div>
+              <div class="cap-card">
+                <h4>Multi-File Operations</h4>
+                <p>Make coordinated changes across multiple files</p>
+              </div>
+              <div class="cap-card">
+                <h4>Context Awareness</h4>
+                <p>Bob understands your project structure and conventions</p>
+              </div>
+              <div class="cap-card">
+                <h4>Interactive Refinement</h4>
+                <p>Iterate on solutions with real-time feedback</p>
+              </div>
+              <div class="cap-card">
+                <h4>Learning & Adaptation</h4>
+                <p>Bob learns from your patterns and preferences</p>
+              </div>
+            </div>
+
+            <p><strong>Estimated Time:</strong> 15-20 minutes to complete all exercises</p>
+          </div>
+
+      <!-- Installation Section -->
+      <section id="installation" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">0</span>
+            <h2>Installing Bob</h2>
+            <span class="capability-badge">Prerequisites</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>Get Started with Bob</h3>
+              <p>Bob is IBM's AI-powered development assistant. Getting started is simple and takes just a few minutes.</p>
+            </div>
+
+            <!-- Quick Start -->
+            <div class="demo-flow">
+              <h3>Installation</h3>
+              
+              <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Download and Install Bob</h4>
+                  <p>Visit the official Bob installation page to download and install Bob for your platform (macOS, Linux, or Windows):</p>
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Installation Link</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>https://ibm.biz/get-bob</code></pre>
+                  </div>
+                  <div class="result-box">
+                    <p><strong>Requirements:</strong> IBM w3id credentials and IBM network/VPN access</p>
+                  </div>
+                  <p style="margin-top: 1rem;">The installation page provides detailed instructions for your specific platform, including system requirements and troubleshooting tips.</p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Authenticate</h4>
+                  <p>When you launch Bob for the first time, you'll be prompted to sign in with your IBM w3id credentials. Bob will open your browser for authentication - simply follow the prompts to complete the sign-in process.</p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Verify Installation</h4>
+                  <p>Test Bob with a simple prompt to ensure everything is working:</p>
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Test Prompt</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>Hello Bob! List the files in the current directory</code></pre>
+                  </div>
+                  <p>Bob should respond and use the <code>list_files</code> tool to show your directory contents.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="business-value">
+              <h3>What's Next?</h3>
+              <p>Now that Bob is installed, explore its capabilities:</p>
+              
+              <div class="next-steps">
+                <ul>
+                  <li><strong>Learn Prompt Engineering:</strong> Continue with the sections below to master effective prompting</li>
+                  <li><strong>Explore Bob Modes:</strong> Try Code, Chat, and Advance modes for different tasks</li>
+                  <li><strong>Try Advanced Features:</strong> Set up <a href="custom-modes.html">Custom Modes</a> and <a href="mcp.html">MCP servers</a> for extended capabilities</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+        <!-- Prompt Engineering Section -->
+        <section id="prompt-engineering" class="section">
+          <div class="container">
+            <div class="capability-header">
+              <span class="capability-number">1</span>
+              <h2>Prompt Engineering</h2>
+              <span class="capability-badge">Essential Skill</span>
+            </div>
+
+            <div class="capability-content">
+              <div class="objective-box">
+                <h3>What You'll Learn</h3>
+                <p>Prompt engineering helps you get the most out of Bob by crafting clear, effective instructions. When you write better prompts, you spend less time clarifying your requests and more time getting the results you need.</p>
+              </div>
+
+              <div class="demo-flow">
+                <h3>General Principles</h3>
+
+                <div class="step-item">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>Be Clear and Specific</h4>
+                    <p>State exactly what you want Bob to do:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Ineffective vs. Effective</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code class="language-diff">- Ineffective: Fix the code.
++ Effective: Fix the bug in the calculateTotal function that causes it to return incorrect results.</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>Provide Context</h4>
+                    <p>Use Context Mentions to refer to specific files, folders, or problems:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Context Example</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>@/src/utils.ts Refactor the calculateTotal function to use async/await.</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>Break Down Tasks</h4>
+                    <p>Divide complex tasks into smaller, well-defined steps:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Task Breakdown</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Help me implement user authentication:
+1. First, analyze the current user model
+2. Then, create authentication middleware
+3. Finally, add protected routes</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4>Give Examples</h4>
+                    <p>Provide examples when you have a specific coding style or pattern in mind:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Example with Pattern</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Create a data validator following this pattern:
+const validateUser = (data) => {
+  const { error, value } = schema.validate(data);
+  if (error) return { isValid: false, errors: error.details };
+  return { isValid: true, value };
+};
+
+Now create a similar validator for product data.</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">5</div>
+                  <div class="step-content">
+                    <h4>Specify Output Format</h4>
+                    <p>Indicate if you need the output in a particular format:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Format Specification</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>List all API endpoints in this project.
+Return the response as a JSON array with this structure:
+[
+  {
+    "method": "GET",
+    "path": "/api/users",
+    "description": "Get all users"
+  }
+]</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Thinking vs. Doing</h3>
+                <p>Guide Bob through a "think-then-do" process for better results:</p>
+                
+                <div class="process-flow">
+                  <div class="process-step">
+                    <h4>Analyze</h4>
+                    <p>Ask Bob to analyze the current code, identify problems, or plan the approach:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Analyze Step</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>@/src/payment.js Analyze this code for potential bugs and security issues.
+Don't fix anything yet, just report what you find.</code></pre>
+                    </div>
+                  </div>
+                  
+                  <div class="process-step">
+                    <h4>Plan</h4>
+                    <p>Have Bob outline the steps it will take to complete the task:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Plan Step</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Based on the issues found, create a step-by-step plan to fix them.
+Prioritize security issues first.</code></pre>
+                    </div>
+                  </div>
+                  
+                  <div class="process-step">
+                    <h4>Execute</h4>
+                    <p>Instruct Bob to implement the plan, one step at a time:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Execute Step</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Now implement step 1 of the plan: fix the SQL injection vulnerability.</code></pre>
+                    </div>
+                  </div>
+                  
+                  <div class="process-step">
+                    <h4>Review</h4>
+                    <p>Review the results of each step before proceeding:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Review Step</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Good! Now continue with step 2: add input validation.</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="demo-flow">
+                <h3>Handling Ambiguity</h3>
+                <p>When your request lacks sufficient detail, Bob might make assumptions or ask questions:</p>
+                
+                <div class="ambiguity-example">
+                  <h4>Ambiguous Prompt vs. Clear Prompt</h4>
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Prompt Comparison</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-diff">- Ambiguous: Update the user service
++ Clear: Update the user service to include profile picture upload functionality.
++ Use AWS S3 for storage, validate image format, and update the user model.</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Providing Feedback</h3>
+                <p>If Bob doesn't produce the desired results:</p>
+                
+                <div class="feedback-strategies">
+                  <div class="feedback-item">
+                    <h4>Reject Actions</h4>
+                    <p>Click the "Reject" button when Bob proposes an action you don't want</p>
+                  </div>
+                  
+                  <div class="feedback-item">
+                    <h4>Provide Explanations</h4>
+                    <p>When rejecting, explain why to help Bob learn from mistakes</p>
+                  </div>
+                  
+                  <div class="feedback-item">
+                    <h4>Reword Your Request</h4>
+                    <p>Try rephrasing your initial task or providing more specific instructions</p>
+                  </div>
+                  
+                  <div class="feedback-item">
+                    <h4>Manually Correct</h4>
+                    <p>For small issues, directly modify the code before accepting the changes</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="business-value">
+                <h3>Tips and Best Practices</h3>
+                <ul>
+                  <li><strong>Start broad, then narrow:</strong> Begin with a general description of what you want to accomplish, then add specific details</li>
+                  <li><strong>Use technical terminology:</strong> Bob understands programming concepts, so use proper technical terms</li>
+                  <li><strong>Mention constraints:</strong> State specific requirements or limitations upfront</li>
+                  <li><strong>Request explanations:</strong> Ask Bob to explain its reasoning or approach when solving complex problems</li>
+                  <li><strong>Provide relevant context:</strong> Include information about your project's architecture, dependencies, or requirements when necessary</li>
+                </ul>
+                <p class="highlight">"By following these guidelines, you can write effective prompts that get the most out of Bob's capabilities and help you accomplish your tasks more efficiently."</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      <!-- Skill 2: Reading Documents -->
+      <section id="reading-documents" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">2</span>
+            <h2>Reading Documents</h2>
+            <span class="capability-badge">Core Skill</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>What You'll Learn</h3>
+              <p>Bob can read and understand various document types - PDFs, Word docs, text files, and even web pages. This capability transforms how you work with requirements and documentation.</p>
+            </div>
+
+            <div class="demo-flow">
+              <h3>Try It Yourself</h3>
+
+              <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Upload Any Document</h4>
+                  <p>Bob accepts multiple formats. You can upload:</p>
+                  <ul>
+                    <li>PDF files (specifications, requirements)</li>
+                    <li>Word documents</li>
+                    <li>Plain text files</li>
+                    <li>Code files for analysis</li>
+                    <li>Web pages (by URL)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Ask Bob to Analyze</h4>
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Example Prompt</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>Read this document and tell me:
+1. What is the main objective?
+2. What are the key requirements?
+3. What technical approach is suggested?
+4. What questions should I ask?</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Bob's Response</h4>
+                  <p>Bob provides a structured analysis including:</p>
+                  <div class="result-box">
+                    <ul>
+                      <li>Executive summary of the document</li>
+                      <li>Key points and requirements extracted</li>
+                      <li>Technical implications</li>
+                      <li>Suggested next steps</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="business-value">
+              <h3>Why This Matters</h3>
+              <div class="value-comparison">
+                <div class="value-traditional">
+                  <strong>Traditional Approach:</strong>
+                  <p>30-60 minutes - Read, highlight, take notes, summarize manually</p>
+                </div>
+                <div class="value-bob">
+                  <strong>With Bob:</strong>
+                  <p>2-3 minutes - Upload, ask questions, get structured analysis</p>
+                </div>
+              </div>
+              <p class="highlight">"Document analysis becomes <strong>instantaneous and interactive</strong>. You can ask questions about the content and get immediate, contextual answers."</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skill 3: Code Generation -->
+      <section id="code-generation" class="section">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">3</span>
+            <h2>Code Generation</h2>
+            <span class="capability-badge">Foundation</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>What You'll Learn</h3>
+              <p>Bob generates contextually relevant code that matches your project's style, conventions, and requirements. It's not just code completion - it's intelligent generation.</p>
+            </div>
+
+            <div class="demo-flow">
+              <h3>Generating Context-Aware Code</h3>
+
+              <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Provide Clear Requirements</h4>
+                  <p>Be specific about what you need. Include:</p>
+                  <ul>
+                    <li>Functionality requirements</li>
+                    <li>Technology stack preferences</li>
+                    <li>Style and convention needs</li>
+                    <li>Integration points</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Example Request</h4>
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Prompt</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>Create a REST API endpoint for user authentication.
+Use Express.js with async/await.
+Include input validation and error handling.
+Follow the existing code style in this project.</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Bob Generates Context-Aware Code</h4>
+                  <div class="demo-window">
+                    <div class="window-header">
+                      <span class="window-title">Generated Code</span>
+                      <div class="window-controls">
+                        <span class="control close"></span>
+                        <span class="control minimize"></span>
+                        <span class="control maximize"></span>
+                      </div>
+                    </div>
+                    <div class="window-content">
+                      <pre><code class="language-javascript">// Bob detected your project uses Express.js and async/await
+// Bob noticed your error handling pattern and matched it
+// Bob included validation based on your existing user model
+
+const { body, validationResult } = require('express-validator');
+const User = require('../models/User');
+const authUtils = require('../utils/auth');
+
+exports.authenticate = async (req, res) => {
+  try {
+    // Input validation following your project's pattern
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        success: false,
+        errors: errors.array()
+      });
+    }
+
+    const { email, password } = req.body;
+    
+    // Authentication logic
+    const user = await User.findOne({ email });
+    if (!user || !await authUtils.comparePassword(password, user.password)) {
+      return res.status(401).json({
+        success: false,
+        message: 'Invalid credentials'
+      });
+    }
+
+    // Token generation matching your existing approach
+    const token = authUtils.generateToken(user);
+    
+    res.status(200).json({
+      success: true,
+      data: {
+        user: {
+          id: user._id,
+          email: user.email,
+          name: user.name
+        },
+        token
+      }
+    });
+  } catch (error) {
+    // Error handling consistent with your project
+    res.status(500).json({
+      success: false,
+      message: 'Authentication failed',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
+  }
+};</code></pre>
+                    </div>
+                  </div>
+                  <p class="security-note"><strong>Key points:</strong> Bob matched your project's error handling pattern, used existing models, and followed your API response format.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="business-value">
+              <h3>Value of Context-Aware Generation</h3>
+              <div class="value-comparison">
+                <div class="value-traditional">
+                  <strong>Traditional Approach:</strong>
+                  <p>Write from scratch → Check conventions → Refactor multiple times</p>
+                </div>
+                <div class="value-bob">
+                  <strong>With Bob:</strong>
+                  <p>Generate correctly formatted code → Minor adjustments → Ready to integrate</p>
+                </div>
+              </div>
+              <p class="highlight">"<strong>Zero context switching</strong> - Bob understands your project's patterns and generates code that fits naturally, reducing refactoring time by 80%.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skill 4: Multi-File Changes -->
+      <section id="multi-file" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">4</span>
+            <h2>Multi-File Changes</h2>
+            <span class="capability-badge">Essential</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>What You'll Learn</h3>
+              <p>Real development tasks often span multiple files. Bob can coordinate changes across files, ensuring consistency and proper integration.</p>
+            </div>
+
+            <div class="demo-flow">
+              <h3>Coordinating Changes Across Files</h3>
+
+              <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Request Multi-File Operation</h4>
+                  <p>Clearly specify all components that need to change:</p>
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Example Prompt</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>Add a new feature for user profile management.
+
+Create/modify:
+1. New controller: controllers/profileController.js
+2. New routes: routes/profileRoutes.js
+3. Update main app.js to include new routes
+4. Update user model to add profile fields
+5. Create profile validation schema
+
+Follow existing patterns and conventions.</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Bob Creates Implementation Plan</h4>
+                  <p>Bob shows you exactly what will be created/modified:</p>
+                  <div class="result-box">
+                    <h5>Implementation Plan:</h5>
+                    <ul>
+                      <li><strong>New: controllers/profileController.js</strong> - Profile management logic</li>
+                      <li><strong>New: routes/profileRoutes.js</strong> - Profile API endpoints</li>
+                      <li><strong>Modify: app.js</strong> - Add profile routes</li>
+                      <li><strong>Modify: models/User.js</strong> - Add profile fields</li>
+                      <li><strong>New: validators/profileValidator.js</strong> - Input validation</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Bob Generates All Files Coherently</h4>
+                  <p>Each file is generated with proper imports, consistent naming, and correct integration points.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="business-value">
+              <h3>Impact on Development</h3>
+              <div class="value-comparison">
+                <div class="value-traditional">
+                  <strong>Traditional Approach:</strong>
+                  <p>Create files individually → Ensure consistency → Debug integration issues</p>
+                </div>
+                <div class="value-bob">
+                  <strong>With Bob:</strong>
+                  <p>Request all changes → Bob ensures coherence → Ready to test</p>
+                </div>
+              </div>
+              <p class="highlight">"<strong>Integrated by design</strong> - Bob ensures all files work together correctly, eliminating integration bugs and reducing feature development time.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skill 5: Context Awareness -->
+      <section id="context-awareness" class="section">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">5</span>
+            <h2>Context Awareness</h2>
+            <span class="capability-badge">Intelligent</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>What You'll Learn</h3>
+              <p>Bob maintains context of your entire project - file structure, dependencies, patterns, and even recent changes. This enables more relevant assistance.</p>
+            </div>
+
+            <div class="demo-flow">
+              <h3>Bob's Project Understanding</h3>
+
+              <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Automatic Context Loading</h4>
+                  <p>Bob automatically loads and analyzes:</p>
+                  <ul>
+                    <li>Project structure and file organization</li>
+                    <li>Dependencies and package configurations</li>
+                    <li>Coding patterns and conventions</li>
+                    <li>Recent changes and Git history</li>
+                    <li>Configuration files and settings</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Context-Aware Requests</h4>
+                  <p>Because Bob understands your project, you can make natural requests:</p>
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Natural Language Request</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>"Add logging to the user authentication service like the other services"</code></pre>
+                  </div>
+                  <p>Bob will:
+                    <ul>
+                      <li>Find the authentication service</li>
+                      <li>Check how logging is implemented in other services</li>
+                      <li>Apply the same logging pattern consistently</li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Context Visualization</h4>
+                  <p>Bob can show you its understanding of your project:</p>
+                  <div class="demo-window">
+                    <div class="window-header">
+                      <span class="window-title">Project Context</span>
+                      <div class="window-controls">
+                        <span class="control close"></span>
+                        <span class="control minimize"></span>
+                        <span class="control maximize"></span>
+                      </div>
+                    </div>
+                    <div class="window-content">
+                      <pre><code class="language-bash">Bob's Context Analysis:
+
+Project Type: Node.js REST API
+Framework: Express.js
+Database: MongoDB with Mongoose
+Authentication: JWT
+Pattern: MVC with controllers, models, routes
+
+Recent Changes:
+- Updated user model (2 hours ago)
+- Added rate limiting (1 day ago)
+- Fixed CORS issues (3 days ago)
+
+Dependencies in Use:
+- express, mongoose, jsonwebtoken
+- helmet, cors, express-rate-limit
+- joi for validation
+
+Code Style:
+- Async/await pattern
+- Centralized error handling
+- Response wrapper: { success, data, error }</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="business-value">
+              <h3>Benefits of Context Awareness</h3>
+              <p class="highlight">"<strong>No more explaining basics</strong> - Bob already knows your project structure, patterns, and conventions. You can focus on what matters - the feature you're building.</p>
+              
+              <div class="real-world-proof">
+                <h3>Real Impact</h3>
+                <p>Developers report 60% less time explaining context and 80% more relevant code suggestions when Bob has full project context.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skill 6: Iterative Refinement -->
+      <section id="iterative-refinement" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">6</span>
+            <h2>Iterative Refinement</h2>
+            <span class="capability-badge">Collaborative</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>What You'll Learn</h3>
+              <p>Perfect solutions through conversation. Bob enables iterative refinement where you can provide feedback and Bob adjusts the solution in real-time.</p>
+            </div>
+
+            <div class="demo-flow">
+              <h3>Refining Solutions Together</h3>
+
+              <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Initial Request</h4>
+                  <p>Start with a basic request:</p>
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Initial Request</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>Create a function to validate user email</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Provide Feedback</h4>
+                  <p>Review Bob's response and provide specific feedback:</p>
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Refinement Request</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>Good start, but:
+1. Also check for disposable email domains
+2. Add international domain support
+3. Include detailed error messages
+4. Make it async-friendly</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Bob Refines the Solution</h4>
+                  <p>Bob incorporates your feedback and provides an improved version:</p>
+                  <div class="demo-window">
+                    <div class="window-header">
+                      <span class="window-title">Refined Solution</span>
+                      <div class="window-controls">
+                        <span class="control close"></span>
+                        <span class="control minimize"></span>
+                        <span class="control maximize"></span>
+                      </div>
+                    </div>
+                    <div class="window-content">
+                      <pre><code class="language-javascript">// Refactored based on your feedback
+
+const disposableDomains = require('../data/disposableDomains');
+const { EmailValidator } = require('email-validator');
+
+const validateEmail = async (email, options = {}) => {
+  const {
+    checkDisposable = true,
+    allowInternational = true,
+    detailedErrors = true
+  } = options;
+
+  // Basic format validation
+  if (!email || typeof email !== 'string') {
+    return {
+      isValid: false,
+      error: detailedErrors ? 'Email is required and must be a string' : 'Invalid email'
+    };
+  }
+
+  // International domain support
+  if (allowInternational && !EmailValidator.validate(email)) {
+    return {
+      isValid: false,
+      error: detailedErrors ? 'Email format is invalid' : 'Invalid email'
+    };
+  }
+
+  // Check for disposable domains
+  if (checkDisposable) {
+    const domain = email.split('@')[1]?.toLowerCase();
+    if (disposableDomains.includes(domain)) {
+      return {
+        isValid: false,
+        error: detailedErrors ? 'Disposable email addresses are not allowed' : 'Invalid email'
+      };
+    }
+  }
+
+  // Additional business rules can be added here
+  
+  return {
+    isValid: true,
+    normalizedEmail: email.toLowerCase().trim()
+  };
+};
+
+module.exports = { validateEmail };</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h4>Continue Iterating</h4>
+                  <p>You can keep refining until the solution perfectly meets your needs:</p>
+                  <ul>
+                    <li>Performance optimizations</li>
+                    <li>Additional validation rules</li>
+                    <li>Integration with other services</li>
+                    <li>Testing requirements</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="business-value">
+              <h3>Power of Iteration</h3>
+              <div class="value-comparison">
+                <div class="value-traditional">
+                  <strong>Traditional Approach:</strong>
+                  <p>Write code → Test → Manually refactor → Repeat cycle</p>
+                </div>
+                <div class="value-bob">
+                  <strong>With Bob:</strong>
+                  <p>Request → Review feedback → Bob refines instantly → Faster convergence</p>
+                </div>
+              </div>
+              <p class="highlight">"<strong>Rapid iteration</strong> - Each refinement cycle takes seconds instead of hours, allowing you to explore multiple approaches quickly.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Summary -->
+      <section id="summary" class="section">
+        <div class="container">
+          <div class="info-card">
+            <h2>You've Mastered Bob Fundamentals!</h2>
+            <p>These core skills will accelerate your development on any project. Remember, Bob learns from your patterns and gets better over time.</p>
+            
+            <div class="achievement-badges">
+            </div>
+
+            <div class="next-steps">
+              <h3>Continue Your Journey</h3>
+              <ol>
+                <li>Apply these skills to your current project</li>
+                <li>Explore specialized labs for advanced use cases</li>
+                <li>Create custom modes for your specific workflows</li>
+                <li>Share what you've learned with your team</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+      </div>
+    </div>
+  </main>
+
+  <div data-component="footer"></div>
+
+  <!-- Scripts -->
+  <script src="../components/component-loader.js"></script>
+  <script>
+    initBreadcrumb('Getting Started with Bob');
+  </script>
+  <script src="../i18n.js"></script>
+  <script src="../script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      hljs.highlightAll();
+    });
+  </script>
+</body>
+</html>

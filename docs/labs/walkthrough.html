@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevSecOps - bob-lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+  <div data-component="breadcrumb"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Bob DevSecOps Capabilities</h1>
+      <p class="page-subtitle">Experience Bob's Enterprise-Scale DevSecOps Features</p>
+      <p class="page-description">Learn how Bob transforms enterprise development through hands-on demonstrations</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>Capabilities</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#requirements" class="capability-link">Business Requirements</a>
+        <a href="#compliance" class="capability-link">Compliance Automation</a>
+        <a href="#multi-repo" class="capability-link">Multi-Repo Orchestration</a>
+        <a href="#security" class="capability-link">Security Inline</a>
+        <a href="#deployment" class="capability-link">Deployment Planning</a>
+        <a href="#bobalytics" class="capability-link">Bobalytics Transparency</a>
+        <a href="#seller-conversations" class="capability-link">Seller Conversations</a>
+      </nav>
+    </aside>
+
+    <div class="walkthrough-main">
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="info-card compliance">
+          <h2>What You'll Experience</h2>
+          <p>This walkthrough demonstrates Bob's key capabilities through a realistic scenario: implementing SSO + MFA across 3 legacy systems to pass a SOC 2 audit.</p>
+
+          <div class="capabilities-overview">
+            <div class="cap-card">
+              <h4>Business Requirements Analysis</h4>
+              <p>Bob reads 20-page specs and extracts technical requirements</p>
+            </div>
+            <div class="cap-card">
+              <h4>Compliance Automation</h4>
+              <p>Maps SOC 2 findings to code and generates audit evidence</p>
+            </div>
+            <div class="cap-card">
+              <h4>Multi-Repo Orchestration</h4>
+              <p>Coordinates changes across Java, Node.js, and React</p>
+            </div>
+            <div class="cap-card">
+              <h4>Security Inline</h4>
+              <p>Catches vulnerabilities during generation, not days later</p>
+            </div>
+            <div class="cap-card">
+              <h4>Deployment Planning</h4>
+              <p>Zero-downtime strategies with rollback procedures</p>
+            </div>
+            <div class="cap-card">
+              <h4>Bobalytics Transparency</h4>
+              <p>Full visibility into costs, model routing, and productivity</p>
+            </div>
+          </div>
+
+          <p><strong>Estimated Time:</strong> 10-15 minutes to complete all capability demos</p>
+          
+          <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #0f62fe 0%, #0353e9 100%); border-radius: 8px; text-align: center;">
+            <h3 style="color: white; margin: 0 0 0.5rem 0; font-size: 1.25rem;">📦 Download Repository Materials</h3>
+            <p style="color: rgba(255, 255, 255, 0.9); margin: 0 0 1rem 0;">Get the complete source code, examples, and documentation to follow along</p>
+            <a href="https://github.ibm.com/Subramaniam-J/seller_deep_dive" target="_blank" style="display: inline-block; padding: 0.75rem 2rem; background: white; color: #0f62fe; text-decoration: none; border-radius: 4px; font-weight: 600; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 0.5rem;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download Repository
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capability 1: Business Requirements Analysis -->
+    <section id="requirements" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">1</span>
+          <h2>Business Requirements Analysis</h2>
+          <span class="capability-badge">Unique to Bob</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Most AI coding tools work at the code level. Developers spend days translating business requirements into technical specs. Bob reads the business requirements document directly.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Try It Yourself</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Upload a Requirements Document</h4>
+                <p>In Bob, upload a PDF, Word doc, or text file containing business requirements.</p>
+                <div class="prompt-box">
+                  <div class="prompt-content">
+                    <p>Example: <a href="https://github.ibm.com/Subramaniam-J/seller_deep_dive/blob/main/UseCase1_SSO_MFA_Integration.pdf" target="_blank" class="requirements-download-link">"UseCase1_SSO_MFA_Integration.pdf"</a> - a 20-page SOC 2 compliance spec</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Ask Bob to Analyze</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Read this business requirements document and analyze:
+- What systems are involved?
+- What are the technical challenges?
+- What compliance requirements must we meet?
+- What technology stacks are we working with?</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Review Bob's Analysis</h4>
+                <p>Bob returns a comprehensive breakdown including:</p>
+                <div class="result-box">
+                  <ul>
+                    <li><strong>3 Repositories Identified:</strong> user-service (Java), auth-service (Node.js), frontend (React)</li>
+                    <li><strong>5 SOC 2 Audit Findings:</strong> CC6.1 (No MFA), CC6.6 (Session timeout), CC7.2 (Auth logging), CC8.1 (Secrets in code)</li>
+                    <li><strong>Technical Risks:</strong> 10-year-old legacy system, no CORS, zero-downtime requirement</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>1 day - read spec, research systems, map requirements manually</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>30 seconds - Bob reads, analyzes, and maps everything</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>99% time savings</strong> - Bob speaks both business and technical language, reducing the translation gap that costs companies weeks."</p>
+          </div>
+
+          <div class="real-world-proof">
+            <h3>Real-World Proof</h3>
+            <p><strong>IBM Guardium</strong> reported 85% productivity gains, completing work that previously took 4 weeks in just 1 day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capability 2: Compliance Automation -->
+    <section id="compliance" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">2</span>
+          <h2>Compliance Automation</h2>
+          <span class="capability-badge">Unique to Bob</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Compliance is typically a quarterly fire drill. Teams spend weeks understanding controls, mapping findings to code, and gathering evidence for auditors.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Try It Yourself</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Map Compliance Findings to Code</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>For each SOC 2 audit finding, show me:
+- What the finding means
+- Why we failed
+- What code/config will fix it
+- What evidence we'll show the auditor</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Review the Compliance Mapping</h4>
+                <p>Bob generates a detailed table:</p>
+                <div class="table-responsive">
+                  <table class="compliance-table">
+                    <thead>
+                      <tr>
+                        <th>Finding</th>
+                        <th>Meaning</th>
+                        <th>Code Fix</th>
+                        <th>Evidence</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>CC6.1-2026-01</td>
+                        <td>MFA required for remote access</td>
+                        <td>mfaController.js</td>
+                        <td>Unit tests + config</td>
+                      </tr>
+                      <tr>
+                        <td>CC6.6-2026-03</td>
+                        <td>Session timeout not enforced</td>
+                        <td>sessionTimeout.js (15min)</td>
+                        <td>Middleware logs</td>
+                      </tr>
+                      <tr>
+                        <td>CC7.2-2026-04</td>
+                        <td>Missing authentication logs</td>
+                        <td>auditLogger.js</td>
+                        <td>Log samples</td>
+                      </tr>
+                      <tr>
+                        <td>CC8.1-2026-05</td>
+                        <td>Secrets hardcoded in source</td>
+                        <td>.env files</td>
+                        <td>Config review</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>2 weeks - understand controls, map findings, plan evidence collection</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>20 seconds - automatic mapping with evidence requirements</p>
+              </div>
+            </div>
+            <p class="highlight">"Compliance becomes <strong>continuous and automated</strong>, not a quarterly fire drill. Bob generates compliance evidence as code is written."</p>
+          </div>
+
+          <div class="real-world-proof">
+            <h3>Real-World Proof</h3>
+            <p><strong>IBM Concert</strong> saved $84K per compliance project by automating SOC 2 evidence generation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capability 3: Multi-Repo Orchestration -->
+    <section id="multi-repo" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">3</span>
+          <h2>Multi-Repo Orchestration</h2>
+          <span class="capability-badge">Enterprise-Scale</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Enterprise projects span multiple repositories with different languages, frameworks, and teams. Coordinating changes manually is complex and error-prone.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Try It Yourself</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Multi-Repo Implementation Plan</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Create an implementation plan for all 3 systems.
+Show files to create, files to modify, dependencies to add,
+and deployment order with reasoning.</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Review the Orchestration Plan</h4>
+                <p>Bob provides a detailed plan with dependencies:</p>
+
+                <div class="repo-plan">
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 1 - auth-service (Node.js)</span>
+                    <ul>
+                      <li>4 files to create: mfaController.js, totpService.js, qrCodeService.js, mfaRoutes.js</li>
+                      <li>3 files to modify: tokenController.js, package.json, .env.example</li>
+                      <li>New dependencies: speakeasy, qrcode</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 2 - user-service (Java)</span>
+                    <ul>
+                      <li>3 files to create: OAuth2Config.java, MFAController.java, SecurityConfig.java</li>
+                      <li>2 files to modify: pom.xml, application.properties</li>
+                      <li>New dependencies: spring-security-oauth2</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 3 - frontend (React)</span>
+                    <ul>
+                      <li>5 files to create: OAuthFlow.jsx, MFAEnrollment.jsx, MFALogin.jsx, authContext.js, authService.js</li>
+                      <li>2 files to modify: Login.jsx, App.jsx</li>
+                      <li>New dependencies: react-qr-code</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>1 week - architects coordinate across teams, resolve dependencies manually</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>45 seconds - Bob analyzes all repos and generates coordinated plan</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Multi-repo orchestration</strong> - Bob coordinates changes across different technology stacks automatically, understanding dependencies and deployment order."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capability 4: Security Inline -->
+    <section id="security" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">4</span>
+          <h2>Security Inline</h2>
+          <span class="capability-badge">Shift-Left</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Security reviews typically happen days after code is written. Finding vulnerabilities late means expensive rework and delayed releases.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Watch Bob Catch Security Issues</h3>
+
+            <div class="security-demo">
+              <h4>Real-Time Security Detection</h4>
+
+              <div class="security-example">
+                <div class="security-issue">
+                  <h5>Issue Detected: Hardcoded JWT Secret</h5>
+                  <div class="code-comparison">
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Initial Generation</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code class="language-javascript">const token = jwt.sign(payload, 'secret-key');</code></pre>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Bob Self-Corrected</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code class="language-javascript">const token = jwt.sign(payload, process.env.JWT_SECRET);</code></pre>
+                    </div>
+                  </div>
+                  <p class="security-note"><strong>Bob's explanation:</strong> "Hardcoded secrets are a security risk. Using environment variables keeps secrets out of source code."</p>
+                </div>
+
+                <div class="security-issue">
+                  <h5>Issue Detected: Token Storage in localStorage</h5>
+                  <div class="code-comparison">
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Vulnerable Code</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code class="language-javascript">localStorage.setItem('token', token);</code></pre>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Bob Fixed</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code class="language-javascript">// Set httpOnly cookie via server response
+res.cookie('token', token, {
+  httpOnly: true,
+  secure: true,
+  sameSite: 'strict'
+});</code></pre>
+                    </div>
+                  </div>
+                  <p class="security-note"><strong>Bob's explanation:</strong> "localStorage is vulnerable to XSS attacks. httpOnly cookies prevent JavaScript access to tokens."</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="security-findings-summary">
+              <h4>Security Issues Bob Caught During Generation</h4>
+              <ul>
+                <li>Hardcoded JWT secret → Environment variable</li>
+                <li>CSRF protection disabled → Re-enabled with proper config</li>
+                <li>Tokens in localStorage → httpOnly secure cookies</li>
+                <li>Missing session timeout → 15-minute enforcement added</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>Security review 3-5 days later → find more issues → rework cycle → delays</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>Security scanning during generation → zero debt accumulation → no rework</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Shift-left security</strong> - vulnerabilities are caught before code is written, eliminating the security-review-rework cycle."</p>
+          </div>
+
+          <div class="real-world-proof">
+            <h3>Integration with Prisma AIRS</h3>
+            <p>Bob integrates with Prisma AI Runtime Security (AIRS) for comprehensive security scanning that includes AI-specific vulnerability detection.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capability 5: Deployment Planning -->
+    <section id="deployment" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">5</span>
+          <h2>Deployment Planning</h2>
+          <span class="capability-badge">Zero-Downtime</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Deploying across multiple systems requires careful orchestration to avoid downtime. Rollback procedures must be planned before deployment.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Generate Deployment Runbook</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Deployment Plan</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Generate a zero-downtime deployment runbook for this migration.
+Include deployment order, health checks, rollback procedures,
+and cutover strategy.</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Deployment Runbook Generated</h4>
+                <p>Bob creates a comprehensive runbook including:</p>
+
+                <div class="runbook-section">
+                  <h5>Phase 1: Pre-Deployment</h5>
+                  <ul>
+                    <li>Backup current auth tokens from Redis</li>
+                    <li>Take database snapshots of user_service DB</li>
+                    <li>Verify all environment variables are set</li>
+                    <li>Configure feature flags for gradual rollout</li>
+                  </ul>
+                </div>
+
+                <div class="runbook-section">
+                  <h5>Phase 2: Deploy auth-service (Blue-Green)</h5>
+                  <ul>
+                    <li>Deploy new version to green environment</li>
+                    <li>Run health checks: GET /health, GET /api/mfa/status</li>
+                    <li>Test MFA enrollment with test user</li>
+                    <li>If healthy, switch traffic (5% → 50% → 100%)</li>
+                    <li>If unhealthy, rollback: switch traffic back to blue</li>
+                  </ul>
+                </div>
+
+                <div class="runbook-section">
+                  <h5>Phase 3: Deploy user-service (Rolling Update)</h5>
+                  <ul>
+                    <li>Update pods one at a time (maxUnavailable: 1)</li>
+                    <li>Health check: GET /actuator/health after each pod</li>
+                    <li>Verify OAuth2 integration with auth-service</li>
+                    <li>Rollback command: kubectl rollout undo deployment/user-service</li>
+                  </ul>
+                </div>
+
+                <div class="runbook-section">
+                  <h5>Phase 4: Deploy frontend (Canary)</h5>
+                  <ul>
+                    <li>Deploy to canary servers (10% of traffic)</li>
+                    <li>Monitor error rates, auth failures, session timeouts</li>
+                    <li>Gradual increase: 10% → 25% → 50% → 100%</li>
+                    <li>Rollback: redirect canary traffic back to stable</li>
+                  </ul>
+                </div>
+
+                <div class="runbook-section warning">
+                  <h5>Rollback Triggers</h5>
+                  <ul>
+                    <li>Error rate > 0.1% for 5 minutes</li>
+                    <li>MFA verification failure rate > 5%</li>
+                    <li>Auth response time P95 > 500ms</li>
+                    <li>Any critical security logs</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>2-3 days - write runbook manually, test rollback procedures, document steps</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>45 seconds - comprehensive runbook with health checks and rollback commands</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Zero-downtime deployments</strong> - Bob plans deployment order, health checks, and rollback procedures before any code is deployed."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capability 6: Bobalytics Transparency -->
+    <section id="bobalytics" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">6</span>
+          <h2>Bobalytics Transparency</h2>
+          <span class="capability-badge">Unique to Bob</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Most AI tools are black boxes. Teams can't see what they're spending, which models are being used, or what productivity they're getting.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>View Your Productivity Dashboard</h3>
+
+            <div class="bobalytics-dashboard">
+              <div class="bobalytics-header">
+                <h4>Task Completion: SSO + MFA Integration</h4>
+                <p>Real-time metrics and cost breakdown</p>
+              </div>
+
+              <div class="metrics-grid">
+                <div class="metric-card">
+                  <div class="metric-value">10:23</div>
+                  <div class="metric-label">Time to Complete</div>
+                  <div class="metric-change">-99% vs traditional (7-8 weeks)</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">$8.47</div>
+                  <div class="metric-label">Total Cost</div>
+                  <div class="metric-change">Transparent pricing</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">17</div>
+                  <div class="metric-label">Files Generated</div>
+                  <div class="metric-change">Across 3 repos</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-value">94%</div>
+                  <div class="metric-label">Test Coverage</div>
+                  <div class="metric-change">Production ready</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <p class="highlight">"<strong>Full transparency</strong> - Leadership sees exactly what they're paying for and the productivity gains achieved."</p>
+
+            <div class="roi-summary">
+              <h4>ROI Calculation</h4>
+              <ul>
+                <li><strong>Traditional cost:</strong> 4 engineers × 8 weeks × $150/hr = $192,000</li>
+                <li><strong>With Bob:</strong> $8.47</li>
+                <li><strong>Savings:</strong> $191,991.53 (99.996%)</li>
+                <li><strong>Productivity multiplier:</strong> 1,000x faster</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="real-world-proof">
+            <h3>Real-World Proof</h3>
+            <p>Bob has been tested by <strong>6,000+ IBM employees</strong> with an average <strong>45% productivity improvement</strong>. Client-zero proof at enterprise scale.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Summary -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">DevSecOps Mastery!</h2>
+        <p>You've experienced Bob's powerful DevSecOps capabilities through the SSO + MFA implementation scenario.</p>
+        
+        <div class="achievement-badges">
+          <div class="badge">
+            <div class="badge-icon">📋</div>
+            <div class="badge-title">Requirements Analysis</div>
+          </div>
+          <div class="badge">
+            <div class="badge-icon">🛡️</div>
+            <div class="badge-title">Compliance Automation</div>
+          </div>
+          <div class="badge">
+            <div class="badge-icon">🔗</div>
+            <div class="badge-title">Multi-Repo Orchestration</div>
+          </div>
+          <div class="badge">
+            <div class="badge-icon">🔐</div>
+            <div class="badge-title">Security Inline</div>
+          </div>
+          <div class="badge">
+            <div class="badge-icon">🚀</div>
+            <div class="badge-title">Deployment Planning</div>
+          </div>
+          <div class="badge">
+            <div class="badge-icon">📊</div>
+            <div class="badge-title">Bobalytics Transparency</div>
+          </div>
+        </div>
+
+        <div class="next-steps">
+          <h3>Continue Your Journey</h3>
+          <ol>
+            <li>Apply these DevSecOps patterns to your own projects</li>
+            <li>Create custom modes for your specific security requirements</li>
+            <li>Explore BobShell for terminal-based security automation</li>
+            <li>Share Bob with your security and compliance teams</li>
+          </ol>
+        </div>
+
+        <div class="cta-box">
+          <h3>Ready to Enhance Your Security Posture?</h3>
+          <p>Implement enterprise-grade DevSecOps with Bob's intelligent automation and compliance capabilities.</p>
+          <div class="cta-buttons">
+            <a href="https://www.ibm.com/client-engineering" target="_blank" class="btn btn-primary">Start a Bobathon</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <div data-component="footer"></div>
+
+  <!-- Scripts -->
+  <script src="../components/component-loader.js"></script>
+  <script src="../i18n.js"></script>
+  <script src="../script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      hljs.highlightAll();
+      
+    });
+  </script>
+</body>
+</html>

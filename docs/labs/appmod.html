@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Modernization - bob-lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+  <div data-component="breadcrumb"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Application Modernization with Bob</h1>
+      <p class="page-subtitle">Transform Legacy Systems into Modern Applications</p>
+      <p class="page-description">Learn how Bob automates the complete modernization lifecycle from analysis to deployment</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>Modernization Steps</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#codebase-review" class="capability-link">Codebase Review</a>
+        <a href="#modernization-plan" class="capability-link">Modernization Plan</a>
+        <a href="#code-transformation" class="capability-link">Code Transformation</a>
+        <a href="#testing" class="capability-link">Testing & Quality</a>
+        <a href="#documentation" class="capability-link">Documentation</a>
+        <a href="#deployment" class="capability-link">Deployment Scripts</a>
+      </nav>
+    </aside>
+
+    <div class="walkthrough-main">
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="info-card compliance">
+          <h2>What You'll Experience</h2>
+          <p>This walkthrough demonstrates Bob's application modernization capabilities through a realistic scenario: transforming a legacy monolithic application into a modern, cloud-native microservices architecture.</p>
+
+          <div class="capabilities-overview">
+            <div class="cap-card">
+              <h4>Codebase Review</h4>
+              <p>Bob analyzes legacy code to understand architecture and dependencies</p>
+            </div>
+            <div class="cap-card">
+              <h4>Modernization Plan</h4>
+              <p>Creates comprehensive strategy with risk assessment and migration path</p>
+            </div>
+            <div class="cap-card">
+              <h4>Code Transformation</h4>
+              <p>Automatically refactors code to modern patterns and frameworks</p>
+            </div>
+            <div class="cap-card">
+              <h4>Testing & Quality</h4>
+              <p>Generates test cases, runs tests, and fixes issues iteratively</p>
+            </div>
+            <div class="cap-card">
+              <h4>Documentation</h4>
+              <p>Creates comprehensive docs for the modernized codebase</p>
+            </div>
+            <div class="cap-card">
+              <h4>Deployment Scripts</h4>
+              <p>Generates CI/CD pipelines and deployment automation</p>
+            </div>
+          </div>
+
+          <p><strong>Estimated Time:</strong> 15-20 minutes to complete the full modernization workflow</p>
+          
+          <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #0f62fe 0%, #0353e9 100%); border-radius: 8px; text-align: center;">
+            <h3 style="color: white; margin: 0 0 0.5rem 0; font-size: 1.25rem;">📦 Download Sample Application</h3>
+            <p style="color: rgba(255, 255, 255, 0.9); margin: 0 0 1rem 0;">Get the ModResorts WebSphere Traditional (tWAS) Java 8 application to follow along</p>
+            <a href="../samples/modresorts-twas-j8.zip" download style="display: inline-block; padding: 0.75rem 2rem; background: white; color: #0f62fe; text-decoration: none; border-radius: 4px; font-weight: 600; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 0.5rem;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download modresorts-twas-j8.zip
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 1: Codebase Review -->
+    <section id="codebase-review" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">1</span>
+          <h2>Codebase Review & Analysis</h2>
+          <span class="capability-badge">Deep Understanding</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Understanding legacy codebases is time-consuming and error-prone. Teams spend weeks analyzing dependencies, architectural patterns, and technical debt before planning modernization.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Try It Yourself</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Provide Your Legacy Codebase</h4>
+                <p>Upload or point Bob to your legacy application repository. For this lab, we'll use the ModResorts sample application.</p>
+                <div class="prompt-box">
+                  <div class="prompt-content">
+                    <p>Example: ModResorts - A WebSphere Application Server Traditional (tWAS) Java 8 application with servlets, JSP views, JMX MBeans, and JDBC connections. Download from <a href="../samples/modresorts-twas-j8.zip" download >samples/modresorts-twas-j8.zip</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Ask Bob to Analyze the Codebase</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Analyze this legacy codebase and provide:
+- Current architecture and design patterns
+- Technology stack and framework versions
+- Dependencies and external integrations
+- Technical debt and code quality issues
+- Security vulnerabilities
+- Performance bottlenecks</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Review Bob's Analysis</h4>
+                <p>Bob provides comprehensive insights for the ModResorts application:</p>
+                <div class="result-box">
+                  <ul>
+                    <li><strong>Architecture:</strong> Monolithic J2EE application with servlets, filters, and JMX MBeans</li>
+                    <li><strong>Tech Stack:</strong> Java 8, WebSphere Application Server Traditional (tWAS), JSP, servlets, JMX, Maven</li>
+                    <li><strong>Dependencies:</strong> WebSphere-specific APIs, custom security implementations, legacy patterns</li>
+                    <li><strong>Technical Debt:</strong> Tight coupling to WebSphere, custom trust managers, hardcoded configurations</li>
+                    <li><strong>Code Quality:</strong> Mixed patterns, some deprecated APIs, opportunity for modernization</li>
+                    <li><strong>Security Issues:</strong> Custom SSL implementations, permission handling that needs review</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>2-3 weeks - manual code review, dependency analysis, architecture documentation</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>5 minutes - comprehensive analysis with actionable insights</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>99% faster analysis</strong> - Bob understands your entire codebase in minutes, identifying issues that would take weeks to discover manually."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 2: Modernization Plan -->
+    <section id="modernization-plan" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">2</span>
+          <h2>Modernization Planning</h2>
+          <span class="capability-badge">Strategic Roadmap</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Creating a modernization strategy requires balancing business continuity, technical risk, and resource constraints. Wrong decisions can lead to failed migrations and wasted investment.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Try It Yourself</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Define Modernization Requirements</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Create a modernization plan to:
+- Migrate from Java 8 to Java 21
+- Convert monolith to microservices architecture
+- Replace JSP with React frontend
+- Move from Oracle to PostgreSQL
+- Deploy on Kubernetes
+- Implement CI/CD pipeline
+- Zero downtime during migration</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Review the Modernization Roadmap</h4>
+                <p>Bob generates a phased approach with risk mitigation:</p>
+
+                <div class="repo-plan">
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 1 - Foundation (Weeks 1-2)</span>
+                    <ul>
+                      <li>Upgrade to Java 21, Spring Boot 3.x</li>
+                      <li>Implement comprehensive test suite (unit, integration)</li>
+                      <li>Externalize configurations to environment variables</li>
+                      <li>Set up CI/CD pipeline with automated testing</li>
+                      <li><strong>Risk:</strong> Low - backward compatible changes</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 2 - Data Layer (Weeks 3-4)</span>
+                    <ul>
+                      <li>Abstract data access with JPA/Hibernate</li>
+                      <li>Create database migration scripts (Oracle → PostgreSQL)</li>
+                      <li>Implement dual-write pattern for zero-downtime migration</li>
+                      <li>Validate data consistency with automated checks</li>
+                      <li><strong>Risk:</strong> Medium - requires careful data validation</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 3 - Service Decomposition (Weeks 5-8)</span>
+                    <ul>
+                      <li>Identify bounded contexts and service boundaries</li>
+                      <li>Extract microservices: User Service, Order Service, Inventory Service</li>
+                      <li>Implement API Gateway and service mesh</li>
+                      <li>Add distributed tracing and monitoring</li>
+                      <li><strong>Risk:</strong> High - requires careful orchestration</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 4 - Frontend Modernization (Weeks 9-10)</span>
+                    <ul>
+                      <li>Build React SPA with TypeScript</li>
+                      <li>Implement RESTful APIs for frontend consumption</li>
+                      <li>Add authentication with OAuth2/OIDC</li>
+                      <li>Progressive migration with feature flags</li>
+                      <li><strong>Risk:</strong> Low - independent of backend changes</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Phase 5 - Cloud Deployment (Weeks 11-12)</span>
+                    <ul>
+                      <li>Containerize all services with Docker</li>
+                      <li>Deploy to Kubernetes with Helm charts</li>
+                      <li>Implement auto-scaling and health checks</li>
+                      <li>Set up monitoring with Prometheus/Grafana</li>
+                      <li><strong>Risk:</strong> Medium - requires infrastructure expertise</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>1-2 weeks - architects create plan, stakeholders review, multiple revisions</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>2 minutes - comprehensive roadmap with risk assessment and timelines</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Strategic planning at scale</strong> - Bob creates enterprise-grade modernization plans that balance technical feasibility with business constraints."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 3: Code Transformation -->
+    <section id="code-transformation" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">3</span>
+          <h2>Automated Code Transformation</h2>
+          <span class="capability-badge">AI-Powered Refactoring</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Manual code refactoring is tedious, error-prone, and time-consuming. A single mistake can introduce bugs that take days to debug.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Watch Bob Transform Your Code</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Code Modernization</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Modernize the UserService:
+- Convert to Spring Boot 3.x with annotations
+- Replace JDBC with JPA/Hibernate
+- Implement RESTful endpoints
+- Add input validation and error handling
+- Follow modern Java best practices (records, streams, Optional)</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Before & After Comparison</h4>
+                
+                <div class="code-comparison">
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Legacy Code (Java 8 + JDBC)</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>public class UserDAO {
+    public User getUser(int id) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            stmt = conn.prepareStatement("SELECT * FROM users WHERE id = ?");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+            if (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                return user;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Manual resource cleanup
+        }
+        return null;
+    }
+}</code></pre>
+                  </div>
+
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Modernized Code (Java 21 + Spring Boot)</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>@RestController
+@RequestMapping("/api/users")
+@Validated
+public class UserController {
+    private final UserRepository userRepository;
+
+    public UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<UserDTO> getUser(
+            @PathVariable @Positive Long id) {
+        return userRepository.findById(id)
+            .map(UserDTO::fromEntity)
+            .map(ResponseEntity::ok)
+            .orElse(ResponseEntity.notFound().build());
+    }
+}
+
+@Repository
+interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByEmail(String email);
+}
+
+record UserDTO(Long id, String name, String email) {
+    static UserDTO fromEntity(User user) {
+        return new UserDTO(user.getId(), user.getName(), user.getEmail());
+    }
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Transformation Summary</h4>
+                <div class="result-box">
+                  <ul>
+                    <li><strong>Code Reduction:</strong> 45 lines → 28 lines (38% reduction)</li>
+                    <li><strong>Modern Patterns:</strong> Records, Optional, Stream API, dependency injection</li>
+                    <li><strong>Security:</strong> SQL injection eliminated, input validation added</li>
+                    <li><strong>Maintainability:</strong> Separation of concerns, testable components</li>
+                    <li><strong>Performance:</strong> Connection pooling, JPA caching, optimized queries</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>2-3 days per service - manual refactoring, code review, debugging</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>10 minutes per service - automated transformation with best practices</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>300x faster refactoring</strong> - Bob transforms legacy code to modern patterns while maintaining business logic integrity."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 4: Testing & Quality -->
+    <section id="testing" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">4</span>
+          <h2>Automated Testing & Quality Assurance</h2>
+          <span class="capability-badge">Test-Driven Modernization</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Legacy systems often lack tests, making modernization risky. Writing comprehensive tests manually is time-consuming and requires deep domain knowledge.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Let Bob Build Your Test Suite</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Test Generation</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Generate comprehensive test suite for UserService:
+- Unit tests for all methods
+- Integration tests for database operations
+- API endpoint tests
+- Edge cases and error scenarios
+- Use JUnit 5, Mockito, and Spring Boot Test
+- Achieve >80% code coverage</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Bob Generates Tests</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Generated Test Suite</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>@SpringBootTest
+@AutoConfigureMockMvc
+class UserControllerTest {
+    @Autowired
+    private MockMvc mockMvc;
+    
+    @MockBean
+    private UserRepository userRepository;
+
+    @Test
+    void getUser_WhenExists_ReturnsUser() throws Exception {
+        User user = new User(1L, "John Doe", "john@example.com");
+        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+
+        mockMvc.perform(get("/api/users/1"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.name").value("John Doe"))
+            .andExpect(jsonPath("$.email").value("john@example.com"));
+    }
+
+    @Test
+    void getUser_WhenNotExists_Returns404() throws Exception {
+        when(userRepository.findById(999L)).thenReturn(Optional.empty());
+
+        mockMvc.perform(get("/api/users/999"))
+            .andExpect(status().isNotFound());
+    }
+
+    @Test
+    void getUser_WithInvalidId_Returns400() throws Exception {
+        mockMvc.perform(get("/api/users/-1"))
+            .andExpect(status().isBadRequest());
+    }
+}</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Run Tests & Fix Issues</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Run all tests and fix any failures until we achieve:
+- All tests passing
+- Code coverage > 80%
+- No critical code quality issues
+- Performance benchmarks met</code></pre>
+                </div>
+                
+                <p style="margin-top: 1rem;"><strong>Bob's Iterative Process:</strong></p>
+                <div class="result-box">
+                  <ul>
+                    <li><strong>Iteration 1:</strong> Runs tests → 3 failures detected → Fixes null pointer issues</li>
+                    <li><strong>Iteration 2:</strong> Runs tests → 1 failure detected → Fixes validation logic</li>
+                    <li><strong>Iteration 3:</strong> Runs tests → All passing ✓ Coverage: 87% ✓</li>
+                    <li><strong>Quality Check:</strong> SonarQube analysis → 0 bugs, 0 vulnerabilities, A rating ✓</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>1-2 weeks - write tests, debug failures, achieve coverage goals</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>30 minutes - comprehensive test suite with automated fixing</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Test-driven confidence</strong> - Bob ensures your modernized code is production-ready with comprehensive automated testing."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 5: Documentation -->
+    <section id="documentation" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">5</span>
+          <h2>Automated Documentation Generation</h2>
+          <span class="capability-badge">Living Documentation</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Documentation is often outdated or missing entirely. Writing comprehensive docs manually takes time away from development and quickly becomes stale.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Generate Complete Documentation</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Documentation</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Generate comprehensive documentation for the modernized application:
+- README.md with project overview and quick start
+- Architecture documentation with diagrams
+- API documentation (OpenAPI/Swagger)
+- Developer guide with setup instructions
+- Deployment guide
+- Troubleshooting guide</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Bob Generates Documentation</h4>
+                <p>Bob creates a complete documentation suite:</p>
+                
+                <div class="repo-plan">
+                  <div class="repo-phase">
+                    <span class="phase-label">README.md</span>
+                    <ul>
+                      <li>Project overview and business context</li>
+                      <li>Technology stack and prerequisites</li>
+                      <li>Quick start guide (5-minute setup)</li>
+                      <li>Project structure and key components</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">docs/architecture.md</span>
+                    <ul>
+                      <li>System architecture with C4 diagrams</li>
+                      <li>Microservices boundaries and responsibilities</li>
+                      <li>Data flow and integration patterns</li>
+                      <li>Security architecture and authentication flow</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">docs/api.md + OpenAPI Spec</span>
+                    <ul>
+                      <li>Complete API reference with examples</li>
+                      <li>Request/response schemas</li>
+                      <li>Error codes and handling</li>
+                      <li>Interactive Swagger UI</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">docs/developer-guide.md</span>
+                    <ul>
+                      <li>Local development setup</li>
+                      <li>Running tests and debugging</li>
+                      <li>Code style and contribution guidelines</li>
+                      <li>Common development tasks</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">docs/deployment.md</span>
+                    <ul>
+                      <li>Environment configuration</li>
+                      <li>Kubernetes deployment steps</li>
+                      <li>Monitoring and observability setup</li>
+                      <li>Rollback procedures</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>1 week - technical writers interview developers, create docs, review cycles</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>5 minutes - comprehensive, accurate documentation generated from code</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Always up-to-date</strong> - Bob generates documentation directly from your code, ensuring accuracy and completeness."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 6: Deployment Scripts -->
+    <section id="deployment" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">6</span>
+          <h2>Deployment Automation</h2>
+          <span class="capability-badge">CI/CD Ready</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Setting up CI/CD pipelines and deployment automation requires DevOps expertise and is often inconsistent across projects.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Generate Deployment Pipeline</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Deployment Scripts</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Generate deployment automation for:
+- Dockerfiles for all microservices
+- Kubernetes manifests (deployments, services, ingress)
+- Helm charts for package management
+- GitHub Actions CI/CD pipeline
+- Environment-specific configurations (dev, staging, prod)
+- Database migration scripts
+- Monitoring and logging setup</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Bob Generates Complete Pipeline</h4>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">.github/workflows/ci-cd.yml</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+      - name: Run tests
+        run: ./mvnw test
+      - name: Code coverage
+        run: ./mvnw jacoco:report
+      - name: SonarQube scan
+        run: ./mvnw sonar:sonar
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Docker images
+        run: docker build -t user-service:${{ github.sha }} .
+      - name: Push to registry
+        run: docker push user-service:${{ github.sha }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Kubernetes
+        run: |
+          helm upgrade --install user-service ./helm/user-service \
+            --set image.tag=${{ github.sha }} \
+            --namespace production</code></pre>
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                  <h5>Generated Files:</h5>
+                  <div class="result-box">
+                    <ul>
+                      <li><strong>Dockerfiles:</strong> Multi-stage builds for each service (optimized size)</li>
+                      <li><strong>K8s Manifests:</strong> Deployments, services, configmaps, secrets</li>
+                      <li><strong>Helm Charts:</strong> Parameterized deployments for all environments</li>
+                      <li><strong>CI/CD Pipeline:</strong> Automated testing, building, and deployment</li>
+                      <li><strong>Monitoring:</strong> Prometheus metrics, Grafana dashboards</li>
+                      <li><strong>Migrations:</strong> Flyway scripts for database versioning</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>One-Command Deployment</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Terminal</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Deploy to production
+./deploy.sh production
+
+# Output:
+✓ Building Docker images...
+✓ Running security scans...
+✓ Pushing to container registry...
+✓ Deploying to Kubernetes cluster...
+✓ Running smoke tests...
+✓ All services healthy!
+
+Production URL: https://app.example.com
+Monitoring: https://grafana.example.com</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>1-2 weeks - DevOps team creates pipelines, configures environments, tests deployment</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>10 minutes - production-ready CI/CD with best practices built-in</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>DevOps automation</strong> - Bob generates enterprise-grade deployment pipelines following industry best practices."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Complete Modernization Journey</h2>
+
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Phase</th>
+                <th>Traditional Timeline</th>
+                <th>With Bob</th>
+                <th>Time Savings</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Codebase Analysis</td>
+                <td>2-3 weeks</td>
+                <td>5 minutes</td>
+                <td class="check">99.9%</td>
+              </tr>
+              <tr>
+                <td>Modernization Planning</td>
+                <td>1-2 weeks</td>
+                <td>2 minutes</td>
+                <td class="check">99.8%</td>
+              </tr>
+              <tr>
+                <td>Code Transformation</td>
+                <td>8-12 weeks</td>
+                <td>2-3 hours</td>
+                <td class="check">99.5%</td>
+              </tr>
+              <tr>
+                <td>Testing & QA</td>
+                <td>2-3 weeks</td>
+                <td>30 minutes</td>
+                <td class="check">99.7%</td>
+              </tr>
+              <tr>
+                <td>Documentation</td>
+                <td>1 week</td>
+                <td>5 minutes</td>
+                <td class="check">99.9%</td>
+              </tr>
+              <tr>
+                <td>Deployment Setup</td>
+                <td>1-2 weeks</td>
+                <td>10 minutes</td>
+                <td class="check">99.8%</td>
+              </tr>
+              <tr style="font-weight: 600; background: var(--bg-alt);">
+                <td><strong>Total</strong></td>
+                <td><strong>15-22 weeks</strong></td>
+                <td><strong>3-4 hours</strong></td>
+                <td class="check"><strong>99.5%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-alt); border-left: 4px solid var(--primary-color);">
+          <h3>Why Bob for Application Modernization?</h3>
+          <ul>
+            <li><strong>End-to-End Automation:</strong> From analysis to deployment, Bob handles the entire modernization lifecycle</li>
+            <li><strong>Risk Mitigation:</strong> Comprehensive testing ensures modernized code works correctly</li>
+            <li><strong>Best Practices:</strong> Bob applies modern patterns, security standards, and performance optimizations</li>
+            <li><strong>Cost Savings:</strong> Reduce 6-month projects to days, freeing teams for innovation</li>
+            <li><strong>Knowledge Transfer:</strong> Generated documentation ensures team understanding</li>
+          </ul>
+        </div>
+
+        <div class="cta-box">
+          <h3>Ready to Modernize Your Applications?</h3>
+          <p>Transform legacy systems into modern, cloud-native applications with Bob's AI-powered automation.</p>
+          <div class="cta-buttons">
+            <a href="narrative.html" class="btn btn-primary">Seller Conversations</a>
+            <a href="walkthrough.html" class="btn btn-secondary">DevSecOps Capabilities</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <div data-component="footer"></div>
+
+  <script src="../components/component-loader.js"></script>
+  <script src="../script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>

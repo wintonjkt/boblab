@@ -1,0 +1,187 @@
+<div class="enhanced-progress" id="enhanced-progress" data-component-comment="Enhanced Progress Visualization Component">
+  <div class="progress-header">
+    <h3>Lab Progress</h3>
+    <div class="overall-progress">
+      <div class="progress-circle">
+        <svg width="60" height="60" viewBox="0 0 60 60">
+          <circle cx="30" cy="30" r="25" fill="none" stroke="#e0e0e0" stroke-width="5"/>
+          <circle id="progress-circle-fill" cx="30" cy="30" r="25" fill="none" stroke="#0f62fe" stroke-width="5"
+                  stroke-dasharray="157" stroke-dashoffset="157"
+                  transform="rotate(-90 30 30)"
+                  stroke-linecap="round"/>
+        </svg>
+        <div class="progress-percentage" id="overall-percentage">0%</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="progress-sections">
+    <!-- Section progress items will be dynamically generated -->
+  </div>
+  
+  <div class="progress-summary">
+    <div class="progress-bar">
+      <div class="progress-bar-fill" id="overall-progress-bar"></div>
+    </div>
+    <div class="progress-summary-text" id="progress-text">0 of 0 steps completed</div>
+  </div>
+</div>
+
+<script>
+// Enhanced Progress Visualization
+class EnhancedProgress {
+  constructor() {
+    this.progressElement = null;
+    this.sections = [];
+    this.overallProgress = 0;
+    this.isInitialized = false;
+  }
+
+  // Initialize enhanced progress
+  init() {
+    if (this.isInitialized) return;
+
+    // Get progress element
+    this.progressElement = document.getElementById('enhanced-progress');
+    if (!this.progressElement) {
+      console.warn('Enhanced progress element not found');
+      return;
+    }
+
+    // Find all sections with progress items
+    this.findSections();
+    
+    // Generate section progress items
+    this.generateSectionProgress();
+    
+    // Update overall progress
+    this.updateOverallProgress();
+    
+    // Listen for progress changes
+    this.setupProgressListeners();
+    
+    this.isInitialized = true;
+  }
+
+  // Find all sections with progress tracking
+  findSections() {
+    // Find all main sections
+    const sections = document.querySelectorAll('.walkthrough-main section[id]');
+    
+    this.sections = Array.from(sections).map(section => {
+      const sectionId = section.id;
+      const title = section.querySelector('h2, h3')?.textContent || sectionId;
+      
+      // Count progress items in this section
+      const progressItems = section.querySelectorAll('.progress-item-checkbox input');
+      const totalItems = progressItems.length;
+      const completedItems = Array.from(progressItems).filter(item => item.checked).length;
+      const percentage = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
+      
+      return {
+        id: sectionId,
+        title,
+        totalItems,
+        completedItems,
+        percentage,
+        element: section
+      };
+    }).filter(section => section.totalItems > 0);
+  }
+
+  // Generate section progress HTML
+  generateSectionProgress() {
+    const sectionsContainer = this.progressElement.querySelector('.progress-sections');
+    
+    if (!sectionsContainer) return;
+    
+    let html = '';
+    
+    this.sections.forEach(section => {
+      html += `
+        <div class="section-progress-item">
+          <div class="section-progress-info">
+            <div class="section-progress-title">${section.title}</div>
+            <div class="section-progress-details">
+              ${section.completedItems} of ${section.totalItems} steps completed
+            </div>
+          </div>
+          <div class="section-progress-bar">
+            <div class="section-progress-fill" style="width: ${section.percentage}%"></div>
+          </div>
+        </div>
+      `;
+    });
+    
+    sectionsContainer.innerHTML = html;
+  }
+
+  // Update overall progress
+  updateOverallProgress() {
+    const totalItems = this.sections.reduce((sum, section) => sum + section.totalItems, 0);
+    const completedItems = this.sections.reduce((sum, section) => sum + section.completedItems, 0);
+    const percentage = totalItems > 0 ? Math.round((completedItems / totalItems) * 100) : 0;
+    
+    this.overallProgress = percentage;
+    
+    // Update progress circle
+    const progressCircle = document.getElementById('progress-circle-fill');
+    const percentageText = document.getElementById('overall-percentage');
+    const overallProgressBar = document.getElementById('overall-progress-bar');
+    const progressText = document.getElementById('progress-text');
+    
+    if (progressCircle) {
+      const circumference = 2 * Math.PI * 25; // radius is 25
+      const offset = circumference - (percentage / 100) * circumference;
+      progressCircle.style.strokeDashoffset = offset;
+    }
+    
+    if (percentageText) {
+      percentageText.textContent = `${percentage}%`;
+    }
+    
+    if (overallProgressBar) {
+      overallProgressBar.style.width = `${percentage}%`;
+    }
+    
+    if (progressText) {
+      progressText.textContent = `${completedItems} of ${totalItems} steps completed (${percentage}%)`;
+    }
+  }
+
+  // Setup listeners for progress changes
+  setupProgressListeners() {
+    // Listen for checkbox changes
+    document.addEventListener('change', (e) => {
+      if (e.target.classList.contains('progress-item-checkbox') || 
+          e.target.closest('.progress-item-checkbox')) {
+        // Update after a short delay to allow the state to be saved
+        setTimeout(() => {
+          this.refreshProgress();
+        }, 100);
+      }
+    });
+  }
+
+  // Refresh progress data
+  refreshProgress() {
+    this.findSections();
+    this.generateSectionProgress();
+    this.updateOverallProgress();
+  }
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  // Wait for other components to load
+  setTimeout(() => {
+    const enhancedProgress = new EnhancedProgress();
+    enhancedProgress.init();
+  }, 300);
+});
+
+// Export for use in other scripts
+if (typeof window !== 'undefined') {
+  window.EnhancedProgress = EnhancedProgress;
+}
+</script>

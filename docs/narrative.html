@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seller Conversation Guide - bob-lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="narrative.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Customer Conversation Guide</h1>
+      <p class="page-subtitle">Talk Tracks for Bob Sales Discussions</p>
+      <p class="page-description">Common customer questions and recommended responses based on Bob's unique capabilities</p>
+    </div>
+  </header>
+
+  <main class="chat-container">
+    <!-- Conversation Topics -->
+    <aside class="chat-topics">
+      <h3>Conversation Topics</h3>
+      <nav class="topic-nav">
+        <a href="#intro" class="topic-link active">Introduction</a>
+        <a href="#productivity" class="topic-link">Productivity Gains</a>
+        <a href="#security" class="topic-link">Security & Compliance</a>
+        <a href="#multi-repo" class="topic-link">Multi-Repository</a>
+        <a href="#cost" class="topic-link">Cost Transparency</a>
+        <a href="#integration" class="topic-link">Integration</a>
+        <a href="#competition" class="topic-link">vs Competitors</a>
+        <a href="#proof" class="topic-link">Proof Points</a>
+      </nav>
+    </aside>
+
+    <!-- Chat History -->
+    <div class="chat-history">
+
+      <!-- Topic: Introduction -->
+      <section id="intro" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Introduction to Bob</h2>
+          <p>Opening the conversation about enterprise AI development</p>
+        </div>
+
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+              <span class="message-time">Opening</span>
+            </div>
+            <p>What is Bob, and how is it different from other AI coding tools like Copilot?</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p>Great question. Bob is an <strong>enterprise-scale AI development platform</strong> that goes beyond code completion. While tools like Copilot help write individual functions, Bob orchestrates complex changes across your entire codebase.</p>
+
+            <div class="talk-points">
+              <h4>Key Differentiators:</h4>
+              <ul>
+                <li><strong>Reads business requirements</strong> - Upload a PDF spec, Bob understands what needs to be built</li>
+                <li><strong>Multi-repo orchestration</strong> - Coordinates changes across Java, Node.js, and React simultaneously</li>
+                <li><strong>Compliance automation</strong> - Generates SOC 2, PCI-DSS evidence as code is written</li>
+                <li><strong>Security inline</strong> - Catches vulnerabilities during generation, not days later</li>
+                <li><strong>Full transparency</strong> - Bobalytics shows exactly what you're spending and productivity gained</li>
+              </ul>
+            </div>
+
+            <p><strong>Bottom line:</strong> We've seen 6,000+ IBM developers achieve 45% average productivity improvement. Projects that take 7-8 weeks traditionally get done in ~10 minutes with Bob.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Topic: Productivity Gains -->
+      <section id="productivity" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Productivity Gains</h2>
+          <p>Quantifying the value proposition</p>
+        </div>
+
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>Those numbers sound too good to be true. 10 minutes vs 7-8 weeks? How is that possible?</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p>I understand the skepticism. Let me break down where that time savings comes from:</p>
+
+            <div class="time-breakdown">
+              <h4>Traditional Timeline (7-8 weeks):</h4>
+              <ul>
+                <li><strong>Week 1:</strong> Read business requirements, research existing systems</li>
+                <li><strong>Week 2:</strong> Map compliance requirements to technical implementation</li>
+                <li><strong>Week 3:</strong> Create implementation plan across teams</li>
+                <li><strong>Weeks 4-6:</strong> Write code across 3 repos (backend + frontend)</li>
+                <li><strong>Week 7:</strong> Security review finds issues → rework</li>
+                <li><strong>Week 8:</strong> Deployment planning and compliance documentation</li>
+              </ul>
+
+              <h4>With Bob (~10 minutes):</h4>
+              <ul>
+                <li><strong>0:30</strong> - Upload spec, Bob analyzes and identifies systems + gaps</li>
+                <li><strong>0:20</strong> - Bob maps SOC 2 findings to code implementation</li>
+                <li><strong>0:45</strong> - Bob creates multi-repo implementation plan</li>
+                <li><strong>8:00</strong> - Bob generates production code with security built in</li>
+                <li><strong>0:30</strong> - Bob generates deployment runbook and compliance docs</li>
+                <li><strong>No rework</strong> - Security issues caught during generation</li>
+              </ul>
+            </div>
+
+            <div class="proof-box">
+              <h4>Real-World Proof:</h4>
+              <p><strong>IBM Guardium:</strong> Completed work in 1 day that previously took 4 weeks (85% productivity gain)</p>
+              <p><strong>IBM Concert:</strong> Saved $84K per compliance project</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Topic: Security & Compliance -->
+      <section id="security" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Security & Compliance</h2>
+          <p>Addressing security concerns and compliance requirements</p>
+        </div>
+
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>We're in a regulated industry. How do we know Bob's generated code is secure? What about SOC 2 compliance?</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+
+            <div class="security-response">
+              <h4>Security: Built-in, Not Bolted-on</h4>
+              <p>Bob has <strong>shift-left security</strong> - vulnerabilities are caught during code generation, not in security reviews weeks later. Here's how:</p>
+              <ul>
+                <li><strong>Real-time scanning:</strong> As Bob generates code, it simultaneously checks for vulnerabilities</li>
+                <li><strong>Auto-correction:</strong> If Bob generates code with a hardcoded secret, it self-corrects to use environment variables</li>
+                <li><strong>Prisma AIRS integration:</strong> AI-specific security scanning that catches issues traditional tools miss</li>
+                <li><strong>Zero security debt:</strong> No accumulation of vulnerabilities that need fixing later</li>
+              </ul>
+
+              <div class="security-example-box">
+                <h5>Example:</h5>
+                <div class="code-comparison-mini">
+                  <div class="code-bad-mini">
+                    <span class="code-label-mini">Initial Generation</span>
+                    <code>jwt.sign(payload, 'secret-key')</code>
+                  </div>
+                  <div class="code-good-mini">
+                    <span class="code-label-mini">Bob Self-Corrected</span>
+                    <code>jwt.sign(payload, process.env.JWT_SECRET)</code>
+                  </div>
+                </div>
+                <p class="security-note">Bob detected hardcoded secret and fixed it immediately, explaining why it was a risk.</p>
+              </div>
+
+              <h4>Compliance: Automated Evidence Generation</h4>
+              <p>For SOC 2, PCI-DSS, HIPAA - Bob generates compliance evidence <strong>as it writes code</strong>:</p>
+              <ul>
+                <li>Upload audit findings → Bob maps each finding to specific code changes</li>
+                <li>Bob generates the code AND the evidence you'll show auditors</li>
+                <li>No last-minute scramble to gather documentation</li>
+                <li><strong>IBM Concert proof:</strong> Saved $84K per compliance project by automating this</li>
+              </ul>
+
+              <p><strong>The key difference:</strong> Most AI tools help you write code. Bob helps you stay compliant while writing code.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>But what about data privacy? Does Bob send our code to external models?</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p>Great question - this is critical for enterprises. Bob offers:</p>
+            <ul>
+              <li><strong>Client-zero proof at IBM:</strong> 30,000 IBM developers use Bob daily on IBM's internal codebase</li>
+              <li><strong>Deployment options:</strong> Can run in your environment (Linux partitions on IBM systems with Spyre AI accelerator)</li>
+              <li><strong>Governance controls:</strong> Admin control over what code can be shared, model selection, cost limits per team</li>
+              <li><strong>Audit trail:</strong> Bobalytics shows every interaction for compliance tracking</li>
+            </ul>
+            <p>We understand that for enterprise customers, data sovereignty and governance aren't features - they're requirements.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Topic: Multi-Repository -->
+      <section id="multi-repo" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Multi-Repository Orchestration</h2>
+          <p>Handling complex, distributed codebases</p>
+        </div>
+
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>We have microservices across 20+ repositories. Can Bob really handle that complexity?</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p><strong>Yes - this is exactly what Bob was built for.</strong></p>
+
+            <p>Most AI coding tools work on single files or single repos. They can't understand that a change in your auth-service requires updates to your user-service (Java), frontend (React), and API gateway.</p>
+
+            <div class="multi-repo-example">
+              <h4>Real Example: SSO + MFA Implementation</h4>
+              <p><strong>The task:</strong> Add SSO and MFA across 3 systems to pass SOC 2 audit</p>
+
+              <p><strong>Bob's approach:</strong></p>
+              <ol>
+                <li>Upload the 20-page requirements spec</li>
+                <li>Bob identifies all 3 affected repos: auth-service (Node.js), user-service (Java), frontend (React)</li>
+                <li>Bob creates implementation plan with deployment order (auth → user → frontend)</li>
+                <li>Bob generates 17+ files across all 3 repos with proper integration points</li>
+                <li>Bob includes API contracts between services</li>
+              </ol>
+
+              <p><strong>Time:</strong> 10 minutes. Traditional approach: 7-8 weeks with coordination across teams.</p>
+            </div>
+
+            <p><strong>For your 20+ repos:</strong> Bob scales because it maintains context across your entire codebase, not just the files currently open in your IDE.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Topic: Cost Transparency -->
+      <section id="cost" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Cost Transparency</h2>
+          <p>Bobalytics and ROI visibility</p>
+        </div>
+
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>AI tools can get expensive quickly. How do we track costs? My CFO will ask for ROI justification.</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p><strong>Bobalytics is unique to Bob</strong> - no other AI tool provides this level of transparency:</p>
+
+            <div class="bobalytics-features">
+              <ul>
+                <li><strong>Task-level costing:</strong> See exactly what each task cost (e.g., "$8.47 for SSO implementation")</li>
+                <li><strong>Team dashboards:</strong> Leadership can see productivity metrics, cost per team, usage patterns</li>
+                <li><strong>Budget controls:</strong> Set spending limits per team or project</li>
+                <li><strong>ROI calculator:</strong> Compare traditional cost vs Bob cost for every project</li>
+              </ul>
+            </div>
+
+            <div class="roi-example">
+              <h4>Example ROI for SSO Project:</h4>
+              <table class="roi-table">
+                <tr>
+                  <td><strong>Traditional:</strong></td>
+                  <td>4 engineers × 8 weeks × $150/hr = <strong>$192,000</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>With Bob:</strong></td>
+                  <td><strong>$8.47</strong></td>
+                </tr>
+                <tr class="success-row">
+                  <td><strong>Savings:</strong></td>
+                  <td><strong>$191,991.53 (99.996%)</strong></td>
+                </tr>
+              </table>
+            </div>
+
+            <p><strong>Your CFO gets:</strong></p>
+            <ul>
+              <li>Transparent line-item for AI costs</li>
+              <li>Productivity metrics (45% average improvement across 6,000 IBM devs)</li>
+              <li>Time-to-market acceleration numbers</li>
+            </ul>
+            <p>No other AI tool gives you this level of visibility into what you're spending and what you're getting for it.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Topic: Integration -->
+      <section id="integration" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Integration & Deployment</h2>
+          <p>How Bob fits into existing workflows</p>
+        </div>
+
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>What tools does Bob integrate with? We use GitHub, Jenkins, and have strict deployment processes.</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p>Bob is designed to fit into enterprise workflows, not replace them:</p>
+
+            <div class="integration-list">
+              <h4>Supported Integrations:</h4>
+              <ul>
+                <li><strong>Source Control:</strong> GitHub, GitLab, Bitbucket</li>
+                <li><strong>IDEs:</strong> VS Code, JetBrains (IntelliJ, PyCharm, etc.)</li>
+                <li><strong>CI/CD:</strong> Jenkins, GitLab CI, GitHub Actions, Tekton</li>
+                <li><strong>Issue Tracking:</strong> Jira, GitHub Issues</li>
+              </ul>
+            </div>
+
+            <p><strong>How it works in your workflow:</strong></p>
+            <ol>
+              <li>Developer uses Bob in their IDE to generate code</li>
+              <li>Code goes through your normal PR review process</li>
+              <li>Bob integrates with your CI/CD pipeline for testing</li>
+              <li>Deploy using your existing tools and processes</li>
+            </ol>
+            <p>Bob doesn't bypass your governance - it accelerates within it.</p>
+
+            <div class="deployment-box">
+              <h4>Bonus: Deployment Planning</h4>
+              <p>Bob also generates deployment runbooks with zero-downtime strategies and rollback procedures - tailored to your infrastructure.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Topic: Competition -->
+      <section id="competition" class="chat-section">
+        <div class="chat-section-header">
+          <h2>vs Competitors</h2>
+          <p>Differentiating from other AI coding tools</p>
+        </div>
+
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>We're already using Copilot. Why would we add Bob?</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+            <p><strong>Copilot is great for individual developer productivity.</strong> If your goal is to help developers write functions faster, Copilot works well.</p>
+
+            <p><strong>Bob is for enterprise-scale challenges.</strong> Here's when you need Bob:</p>
+
+            <div class="comparison-grid">
+              <div class="compare-use-copilot">
+                <h4>Use Copilot For:</h4>
+                <ul>
+                  <li>Writing individual functions</li>
+                  <li>Code completion in an IDE</li>
+                  <li>Single-file or single-repo changes</li>
+                  <li>Developer productivity (individual level)</li>
+                </ul>
+              </div>
+              <div class="compare-use-bob">
+                <h4>Use Bob For:</h4>
+                <ul>
+                  <li>Multi-repo orchestration</li>
+                  <li>Compliance automation (SOC 2, PCI-DSS)</li>
+                  <li>Reading business requirements documents</li>
+                  <li>Zero-downtime deployment planning</li>
+                  <li>Cost transparency and leadership dashboards</li>
+                  <li>Enterprise governance and control</li>
+                </ul>
+              </div>
+            </div>
+
+            <p><strong>Many IBM teams use both:</strong> Copilot for daily coding, Bob for the complex enterprise initiatives that span teams and require compliance oversight.</p>
+
+            <div class="unique-to-bob">
+              <h4>Unique to Bob - Copilot Can't Do:</h4>
+              <ul>
+                <li>Read a 20-page business requirements PDF and map to code</li>
+                <li>Coordinate changes across 20+ repos automatically</li>
+                <li>Generate SOC 2 audit evidence as code is written</li>
+                <li>Show you exactly what you're spending (Bobalytics)</li>
+                <li>Catch security vulnerabilities during generation (not after)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Topic: Proof Points -->
+      <section id="proof" class="chat-section">
+        <div class="chat-section-header">
+          <h2>Proof Points</h2>
+          <p>Real-world evidence and case studies</p>
+        </div>
+
+        <div class="chat-message customer">
+          <div class="message-avatar customer-avatar">C</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-sender">Customer</span>
+            </div>
+            <p>This all sounds great, but who's actually using this in production? I need real references.</p>
+          </div>
+        </div>
+
+        <div class="chat-message seller">
+          <div class="message-avatar seller-avatar">B</div>
+          <div class="message-content">
+            <div class="message-header">
+              <span class="message-seller">You (Seller)</span>
+            </div>
+
+            <div class="proof-points">
+              <h4>Client-Zero Proof at IBM</h4>
+              <p>Before any external customer, Bob was battle-tested inside IBM:</p>
+              <ul>
+                <li><strong>6,000+ IBM developers</strong> using Bob daily</li>
+                <li><strong>30,000 developers</strong> in the IBM deployment ecosystem</li>
+                <li><strong>45% average productivity improvement</strong> across all users</li>
+                <li><strong>95% activation rate</strong> - developers voluntarily adopt it</li>
+              </ul>
+
+              <h4>Specific IBM Product Success Stories:</h4>
+
+              <div class="case-study">
+                <h5>IBM Guardium (Security Product)</h5>
+                <p><strong>Challenge:</strong> Modernizing legacy security code</p>
+                <p><strong>Result:</strong> 85% productivity gain - completed in 1 day what previously took 4 weeks</p>
+              </div>
+
+              <div class="case-study">
+                <h5>IBM Concert (Compliance Platform)</h5>
+                <p><strong>Challenge:</strong> SOC 2 compliance automation</p>
+                <p><strong>Result:</strong> Saved $84,000 per compliance project by automating evidence generation</p>
+              </div>
+
+              <div class="case-study">
+                <h5>IBM Instana (APM Product)</h5>
+                <p><strong>Challenge:</strong> Multi-repo coordination for complex features</p>
+                <p><strong>Result:</strong> Accelerated feature delivery across distributed teams</p>
+              </div>
+            </div>
+
+            <p><strong>For references:</strong> We can connect you with IBM product teams who are using Bob in production. They can speak directly to the productivity gains and how they've integrated it into their workflows.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="chat-cta">
+        <h2>Ready to Continue the Conversation?</h2>
+        <p>Explore Bob's capabilities hands-on or dive deeper into any topic</p>
+        <div class="cta-buttons">
+          <a href="walkthrough.html" class="btn btn-primary">View Capability Walkthrough</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>bob-lab</h4>
+          <p>Enterprise AI development made simple</p>
+        </div>
+        <div class="footer-section">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="narrative.html">Conversations</a></li>
+            <li><a href="walkthrough.html">Walkthrough</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Built by IBM Client Engineering with bob</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="components/component-loader.js"></script>
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

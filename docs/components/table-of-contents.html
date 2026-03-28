@@ -1,0 +1,218 @@
+<div class="table-of-contents" id="table-of-contents" data-component-comment="Table of Contents Component">
+  <div class="toc-header">
+    <h3>Table of Contents</h3>
+    <button class="toc-toggle" aria-label="Toggle table of contents">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M3 5h10a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2zm0 4h10a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2zm0 4h10a1 1 0 0 1 0 2H3a1 1 0 0 1 0-2z"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="toc-nav" id="toc-nav">
+    <ul class="toc-list" id="toc-list">
+      <!-- TOC items will be dynamically generated -->
+    </ul>
+  </nav>
+</div>
+
+<script>
+// Table of Contents functionality
+class TableOfContents {
+  constructor() {
+    this.tocElement = null;
+    this.tocList = null;
+    this.sections = [];
+    this.activeSection = null;
+    this.isInitialized = false;
+  }
+
+  // Initialize TOC
+  init() {
+    if (this.isInitialized) return;
+
+    // Get TOC elements
+    this.tocElement = document.getElementById('table-of-contents');
+    if (!this.tocElement) {
+      console.warn('Table of contents element not found');
+      return;
+    }
+
+    this.tocList = document.getElementById('toc-list');
+    if (!this.tocList) {
+      console.warn('TOC list element not found');
+      return;
+    }
+
+    // Find all sections with IDs
+    this.findSections();
+    
+    // Generate TOC items
+    this.generateTOC();
+    
+    // Setup event listeners
+    this.setupEventListeners();
+    
+    // Highlight active section on scroll
+    this.setupScrollTracking();
+    
+    this.isInitialized = true;
+  }
+
+  // Find all sections in the main content
+  findSections() {
+    // Look for sections with IDs in the main content area
+    const contentSections = document.querySelectorAll('.walkthrough-main section[id]');
+    
+    this.sections = Array.from(contentSections).map(section => {
+      const heading = section.querySelector('h2, h3');
+      return {
+        id: section.id,
+        title: heading ? heading.textContent : section.id,
+        element: section,
+        level: heading ? parseInt(heading.tagName.substring(1)) : 2
+      };
+    }).filter(section => section.title);
+  }
+
+  // Generate TOC HTML
+  generateTOC() {
+    let html = '';
+    let currentLevel = 2;
+    let openLists = [];
+
+    this.sections.forEach(section => {
+      // Handle nesting levels
+      while (currentLevel < section.level) {
+        html += '<ul class="toc-sub-list">';
+        openLists.push(currentLevel);
+        currentLevel++;
+      }
+      
+      while (currentLevel > section.level && openLists.length > 0) {
+        html += '</ul>';
+        currentLevel = openLists.pop();
+      }
+
+      // Add section item
+      html += `
+        <li class="toc-item">
+          <a href="#${section.id}" class="toc-link" data-section="${section.id}">
+            ${section.title}
+          </a>
+        </li>
+      `;
+    });
+
+    // Close any open lists
+    while (openLists.length > 0) {
+      html += '</ul>';
+      openLists.pop();
+    }
+
+    this.tocList.innerHTML = html;
+  }
+
+  // Setup event listeners
+  setupEventListeners() {
+    // Toggle button for mobile
+    const toggleButton = this.tocElement.querySelector('.toc-toggle');
+    const tocNav = this.tocElement.querySelector('.toc-nav');
+    
+    if (toggleButton && tocNav) {
+      toggleButton.addEventListener('click', () => {
+        tocNav.classList.toggle('open');
+      });
+    }
+
+    // Smooth scrolling for TOC links
+    this.tocList.addEventListener('click', (e) => {
+      if (e.target.classList.contains('toc-link')) {
+        e.preventDefault();
+        const sectionId = e.target.dataset.section;
+        const section = document.getElementById(sectionId);
+        
+        if (section) {
+          const offset = 80; // Account for fixed header
+          const targetY = section.offsetTop - offset;
+          
+          window.scrollTo({
+            top: targetY,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  }
+
+  // Setup scroll tracking to highlight active section
+  setupScrollTracking() {
+    let ticking = false;
+
+    const updateActiveSection = () => {
+      const scrollY = window.pageYOffset;
+      const windowHeight = window.innerHeight;
+      
+      // Find the section currently in view
+      let activeSection = null;
+      
+      for (let i = this.sections.length - 1; i >= 0; i--) {
+        const section = this.sections[i];
+        const sectionTop = section.element.offsetTop;
+        const sectionHeight = section.element.offsetHeight;
+        
+        if (scrollY + windowHeight * 0.3 >= sectionTop) {
+          activeSection = section;
+          break;
+        }
+      }
+
+      // Update TOC if active section changed
+      if (activeSection && activeSection.id !== this.activeSection) {
+        this.setActiveSection(activeSection.id);
+        this.activeSection = activeSection.id;
+      }
+
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateActiveSection);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll);
+    
+    // Initial check
+    updateActiveSection();
+  }
+
+  // Set active section in TOC
+  setActiveSection(sectionId) {
+    // Remove active class from all links
+    this.tocList.querySelectorAll('.toc-link').forEach(link => {
+      link.classList.remove('active');
+    });
+
+    // Add active class to current section link
+    const activeLink = this.tocList.querySelector(`[data-section="${sectionId}"]`);
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
+  }
+}
+
+// Auto-initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  // Wait a bit for other components to load
+  setTimeout(() => {
+    const toc = new TableOfContents();
+    toc.init();
+  }, 300);
+});
+
+// Export for use in other scripts
+if (typeof window !== 'undefined') {
+  window.TableOfContents = TableOfContents;
+}
+</script>

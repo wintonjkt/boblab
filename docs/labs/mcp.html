@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Using MCP in Bob - bob-lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+  <div data-component="breadcrumb"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Using MCP in Bob</h1>
+      <p class="page-subtitle">Model Context Protocol Integration</p>
+      <p class="page-description">Complete guide to configuring, managing, and using MCP servers with Bob</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>MCP Learning Path</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#introduction" class="capability-link active">Introduction</a>
+        <a href="#configuration-levels" class="capability-link">Configuration Levels</a>
+        <a href="#editing-config" class="capability-link">Editing Configuration</a>
+        <a href="#transport-types" class="capability-link">Transport Types</a>
+        <a href="#enabling-disabling" class="capability-link">Enabling/Disabling</a>
+        <a href="#creating-servers" class="capability-link">Creating Servers</a>
+        <a href="#managing-servers" class="capability-link">Managing Servers</a>
+        <a href="#auto-approve" class="capability-link">Auto-approve Tools</a>
+        <a href="#finding-servers" class="capability-link">Finding Servers</a>
+        <a href="#using-tools" class="capability-link">Using Tools Effectively</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="https://github.com/modelcontextprotocol/servers" target="_blank" class="sidebar-github-link">
+          <span class="github-text">MCP Server Examples</span>
+          <span class="github-arrow">&rarr;</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="walkthrough-main">
+    <!-- Introduction -->
+    <section id="introduction" class="section">
+      <div class="container">
+        <div class="info-card compliance">
+          <h2>Introduction to MCP in Bob</h2>
+          <p>Model Context Protocol (MCP) extends Bob's capabilities by connecting to external tools and services. This guide covers everything you need to know about configuring, managing, and using MCP servers with Bob.</p>
+
+          <div class="capabilities-overview">
+            <div class="cap-card">
+              <h4>External Integrations</h4>
+              <p>Connect Bob to databases, APIs, file systems, and custom services</p>
+            </div>
+            <div class="cap-card">
+              <h4>Flexible Configuration</h4>
+              <p>Global and project-level settings for team collaboration</p>
+            </div>
+            <div class="cap-card">
+              <h4>Security & Control</h4>
+              <p>Granular permissions and approval workflows</p>
+            </div>
+            <div class="cap-card">
+              <h4>Easy Server Creation</h4>
+              <p>Bob can help you build custom MCP servers</p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <p><strong>Note:</strong> For conceptual information about MCP, see the <a href="https://modelcontextprotocol.io" target="_blank">Understanding MCP</a> documentation.</p>
+          </div>
+
+          <p><strong>Estimated Time:</strong> 20-30 minutes to master MCP configuration and usage</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Configuration Levels -->
+    <section id="configuration-levels" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Configuration Levels</h2>
+          <p>Bob supports two levels of MCP configuration, allowing you to manage servers globally or per-project.</p>
+          
+          <div class="best-practices-grid">
+            <div class="practice-card">
+              <h3>Global Configuration</h3>
+              <ul>
+                <li><strong>Location:</strong> <code>mcp_settings.json</code></li>
+                <li><strong>Scope:</strong> Applies across all workspaces</li>
+                <li><strong>Use Case:</strong> Personal tools and utilities you use everywhere</li>
+                <li><strong>Example:</strong> Database clients, file system tools, personal APIs</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h3>Project Configuration</h3>
+              <ul>
+                <li><strong>Location:</strong> <code>.Bob/mcp.json</code> in project root</li>
+                <li><strong>Scope:</strong> Specific to the current project</li>
+                <li><strong>Use Case:</strong> Project-specific integrations shared with team</li>
+                <li><strong>Example:</strong> Project APIs, custom build tools, team services</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Configuration Precedence</h3>
+            <p><strong>Important:</strong> Project-level configurations take precedence over global settings. If a server is defined in both locations, the project configuration will be used.</p>
+            <p>This allows teams to share project-specific MCP configurations via version control while maintaining personal global settings.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Editing Configuration Files -->
+    <section id="editing-config" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Editing Configuration Files</h2>
+          <p>There are two convenient ways to edit your MCP configuration files in Bob.</p>
+          
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Method 1: Bob Pane Icon</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-text">1. Click the icon in Bob pane top navigation
+2. Select "Edit Global MCP" or "Edit Project MCP"
+3. Configuration file opens in editor</code></pre>
+            </div>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Method 2: Settings Menu</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-text">1. Open Settings menu
+2. Navigate to MCP tab
+3. Click "Edit Global Configuration" or "Edit Project Configuration"
+4. Configuration file opens in editor</code></pre>
+            </div>
+          </div>
+
+          <h3>Configuration File Format</h3>
+          <p>MCP configuration files use JSON format with the following structure:</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">mcp_settings.json / .Bob/mcp.json</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-json">{
+  "mcpServers": {
+    "server1": {
+      "command": "python",
+      "args": ["/path/to/server.py"],
+      "env": {
+        "API_KEY": "your_api_key"
+      },
+      "alwaysAllow": ["tool1", "tool2"],
+      "disabled": false
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Configuration Parameters</h3>
+            <ul>
+              <li><strong>command:</strong> The executable to run (required)</li>
+              <li><strong>args:</strong> Array of command-line arguments (optional)</li>
+              <li><strong>env:</strong> Environment variables for the server (optional)</li>
+              <li><strong>alwaysAllow:</strong> Array of tool names to auto-approve (optional)</li>
+              <li><strong>disabled:</strong> Set to true to disable the server (optional)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transport Types -->
+    <section id="transport-types" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Understanding Transport Types</h2>
+          <p>MCP supports two transport types for communication between Bob and MCP servers.</p>
+          
+          <h3>STDIO Transport (Local Servers)</h3>
+          <p>STDIO transport is used for local MCP servers running on your machine.</p>
+
+          <div class="best-practices-grid">
+            <div class="practice-card">
+              <h4>Benefits</h4>
+              <ul>
+                <li>Lower latency</li>
+                <li>Better security (no network exposure)</li>
+                <li>Simpler setup</li>
+                <li>Direct process communication</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h4>Configuration Parameters</h4>
+              <ul>
+                <li><strong>command</strong> (required): Executable to run</li>
+                <li><strong>args</strong> (optional): Command arguments</li>
+                <li><strong>cwd</strong> (optional): Working directory</li>
+                <li><strong>env</strong> (optional): Environment variables</li>
+                <li><strong>alwaysAllow</strong> (optional): Auto-approve tools</li>
+                <li><strong>disabled</strong> (optional): Disable server</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">STDIO Transport Example</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-json">{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/allowed/files"],
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "alwaysAllow": ["read_file", "list_directory"],
+      "disabled": false
+    },
+    "database": {
+      "command": "python",
+      "args": ["-m", "mcp_server_postgres"],
+      "cwd": "/path/to/server",
+      "env": {
+        "DB_CONNECTION_STRING": "postgresql://localhost/mydb"
+      }
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <h3>SSE Transport (Remote Servers)</h3>
+          <p>SSE (Server-Sent Events) transport is used for remote MCP servers accessible over HTTP.</p>
+
+          <div class="best-practices-grid">
+            <div class="practice-card">
+              <h4>Benefits</h4>
+              <ul>
+                <li>Can be hosted on different machines</li>
+                <li>Supports multiple clients</li>
+                <li>Centralized deployment</li>
+                <li>Easier scaling</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h4>Configuration Parameters</h4>
+              <ul>
+                <li><strong>url</strong> (required): Full URL endpoint</li>
+                <li><strong>headers</strong> (optional): Custom HTTP headers</li>
+                <li><strong>alwaysAllow</strong> (optional): Auto-approve tools</li>
+                <li><strong>disabled</strong> (optional): Disable server</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">SSE Transport Example</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-json">{
+  "mcpServers": {
+    "remote-api": {
+      "url": "https://api.example.com/mcp",
+      "headers": {
+        "Authorization": "Bearer your_token_here",
+        "X-Custom-Header": "value"
+      },
+      "alwaysAllow": ["search", "fetch_data"],
+      "disabled": false
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enabling or Disabling MCP Servers -->
+    <section id="enabling-disabling" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Enabling or Disabling MCP Servers</h2>
+          <p>Control whether Bob uses MCP servers and whether it can create new ones.</p>
+          
+          <h3>Disabling All MCP Servers</h3>
+          <p>When you disable MCP servers globally, Bob removes MCP-related logic from its system prompt, reducing token usage.</p>
+
+          <div class="info-card">
+            <h4>Effects of Disabling MCP Servers:</h4>
+            <ul>
+              <li>Bob cannot connect to any MCP servers</li>
+              <li>All MCP tools become unavailable</li>
+              <li>Reduces system prompt token usage</li>
+              <li>Useful when MCP functionality is not needed</li>
+            </ul>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Steps to Disable MCP Servers</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-text">1. Open Settings menu
+2. Navigate to MCP tab
+3. Toggle "Use MCP Servers" to OFF
+4. MCP functionality is now disabled</code></pre>
+            </div>
+          </div>
+
+          <h3>Disabling MCP Server Creation</h3>
+          <p>You can disable Bob's ability to create new MCP servers while keeping existing servers functional.</p>
+
+          <div class="info-card">
+            <h4>Effects of Disabling Server Creation:</h4>
+            <ul>
+              <li>Removes server creation instructions from system prompt</li>
+              <li>Reduces token usage</li>
+              <li>Bob retains context for operating existing servers</li>
+              <li>Useful when you only need to use pre-configured servers</li>
+            </ul>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Steps to Disable Server Creation</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-text">1. Open Settings menu
+2. Navigate to MCP tab
+3. Toggle "Enable MCP Server Creation" to OFF
+4. Bob can no longer create new servers</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Creating MCP Servers with Bob -->
+    <section id="creating-servers" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>How to Use Bob to Create an MCP Server</h2>
+          <p>Bob can help you build custom MCP servers through natural language requests.</p>
+          
+          <div class="info-card">
+            <h3>Prerequisites</h3>
+            <p><strong>Important:</strong> Ensure "Enable MCP Server Creation" is turned ON in Settings → MCP tab.</p>
+          </div>
+
+          <h3>The Creation Process</h3>
+          <p>Bob follows a streamlined workflow to create and configure MCP servers:</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Bob Chat - Creating MCP Server</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-bash">User: Create an MCP tool that gets the current price of Bitcoin
+
+Bob: I'll create a Bitcoin price MCP server for you.
+
+[Step 1] Fetching MCP server creation instructions...
+[Step 2] Scaffolding project structure...
+[Step 3] Writing server implementation...
+[Step 4] Creating configuration...
+
+The server needs an API key from CoinGecko. Do you have one?
+If not, you can get a free key at https://www.coingecko.com/api
+
+User: Here's my API key: abc123xyz
+
+Bob: [Step 5] Configuring server with API key...
+[Step 6] Testing server connection...
+[Complete] Bitcoin price MCP server is ready!
+
+You can now ask me: "What's the current Bitcoin price?"</code></pre>
+            </div>
+          </div>
+
+          <h3>Example Requests</h3>
+          <p>Here are some examples of requests you can make to Bob:</p>
+
+          <div class="best-practices-grid">
+            <div class="practice-card">
+              <h4>Data Integration</h4>
+              <ul>
+                <li>"Create an MCP server that fetches weather data"</li>
+                <li>"Build a tool to query our PostgreSQL database"</li>
+                <li>"Make an MCP server for Jira API integration"</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h4>File Operations</h4>
+              <ul>
+                <li>"Create a tool to search and replace in files"</li>
+                <li>"Build an MCP server for PDF processing"</li>
+                <li>"Make a tool to analyze log files"</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h4>Custom Services</h4>
+              <ul>
+                <li>"Create an MCP server for our internal API"</li>
+                <li>"Build a tool to interact with Slack"</li>
+                <li>"Make an MCP server for GitHub operations"</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h4>Utilities</h4>
+              <ul>
+                <li>"Create a tool to convert between formats"</li>
+                <li>"Build an MCP server for image processing"</li>
+                <li>"Make a tool to validate JSON schemas"</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>What Bob Does Automatically</h3>
+            <ul>
+              <li><strong>Fetches Instructions:</strong> Gets the latest MCP server creation guidelines</li>
+              <li><strong>Scaffolds Project:</strong> Creates proper directory structure and files</li>
+              <li><strong>Writes Code:</strong> Implements the server with best practices</li>
+              <li><strong>Handles Credentials:</strong> Prompts for API keys or credentials if needed</li>
+              <li><strong>Configures Server:</strong> Adds server to your MCP configuration</li>
+              <li><strong>Tests Connection:</strong> Verifies the server works correctly</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Managing Individual MCP Servers -->
+    <section id="managing-servers" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Managing Individual MCP Servers</h2>
+          <p>Bob provides a comprehensive interface for managing each MCP server.</p>
+          
+          <h3>Accessing Server Management</h3>
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Steps to Manage Servers</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-text">1. Open Settings menu
+2. Navigate to MCP tab
+3. Locate the server you want to manage
+4. Use the available controls</code></pre>
+            </div>
+          </div>
+
+          <h3>Available Actions</h3>
+          
+          <div class="best-practices-grid">
+            <div class="practice-card">
+              <h4>Delete Server</h4>
+              <p>Permanently remove a server from your configuration.</p>
+              <ul>
+                <li>Click the delete icon next to the server</li>
+                <li>Confirm the deletion</li>
+                <li>Server is removed from configuration</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h4>Restart Server</h4>
+              <p>Restart a server to apply changes or fix issues.</p>
+              <ul>
+                <li>Click the restart button</li>
+                <li>Server process is terminated and restarted</li>
+                <li>Useful after configuration changes</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h4>Enable/Disable Server</h4>
+              <p>Temporarily disable a server without deleting it.</p>
+              <ul>
+                <li>Toggle the enable/disable switch</li>
+                <li>Disabled servers are not loaded</li>
+                <li>Easy to re-enable when needed</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h4>Network Timeout</h4>
+              <p>Configure how long Bob waits for server responses.</p>
+              <ul>
+                <li>Range: 30 seconds to 5 minutes</li>
+                <li>Default: 1 minute</li>
+                <li>Adjust based on server performance</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Server Status Indicators</h3>
+            <ul>
+              <li><strong>🟢 Connected:</strong> Server is running and responsive</li>
+              <li><strong>🟡 Starting:</strong> Server is initializing</li>
+              <li><strong>🔴 Error:</strong> Server encountered an error</li>
+              <li><strong>⚫ Disabled:</strong> Server is disabled</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Auto-approve Tools -->
+    <section id="auto-approve" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Auto-approve Tools</h2>
+          <p>Configure which MCP tools can be used without manual approval for each invocation.</p>
+          
+          <div class="info-card">
+            <h3>How Auto-approve Works</h3>
+            <ul>
+              <li>By default, Bob asks for approval before using any MCP tool</li>
+              <li>Auto-approve can be enabled per-tool, not per-server</li>
+              <li>Useful for frequently used, safe operations</li>
+              <li>Reduces interruptions in your workflow</li>
+            </ul>
+          </div>
+
+          <h3>Enabling Auto-approve</h3>
+          <p>Follow these steps to enable auto-approve for specific tools:</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Auto-approve Configuration Steps</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-text">Step 1: Enable Global Auto-approve
+  1. Open Settings menu
+  2. Navigate to auto-approving actions section
+  3. Enable "Use MCP servers" option
+
+Step 2: Configure Per-Tool Auto-approve
+  1. Go to Settings → MCP tab
+  2. Locate the MCP server
+  3. Find the specific tool you want to auto-approve
+  4. Check "Always allow" next to the tool name
+
+Note: The global setting takes precedence. If global auto-approve
+for MCP is disabled, per-tool settings won't take effect.</code></pre>
+            </div>
+          </div>
+
+          <h3>Configuration File Method</h3>
+          <p>You can also configure auto-approve directly in the configuration file:</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Auto-approve in Configuration</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-json">{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/safe/path"],
+      "alwaysAllow": [
+        "read_file",
+        "list_directory",
+        "get_file_info"
+      ]
+    },
+    "database": {
+      "command": "python",
+      "args": ["-m", "mcp_server_postgres"],
+      "alwaysAllow": [
+        "query_read_only"
+      ]
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Security Considerations</h3>
+            <ul>
+              <li><strong>Only auto-approve safe operations:</strong> Read-only operations are generally safe</li>
+              <li><strong>Avoid auto-approving write operations:</strong> File writes, database updates, API calls that modify data</li>
+              <li><strong>Review tool descriptions:</strong> Understand what each tool does before auto-approving</li>
+              <li><strong>Use project-level config for team safety:</strong> Share safe auto-approve settings with your team</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Finding and Installing Servers -->
+    <section id="finding-servers" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Finding and Installing MCP Servers</h2>
+          <p>Bob doesn't include pre-installed MCP servers, but there are several ways to find and add servers.</p>
+          
+          <div class="best-practices-grid">
+            <div class="practice-card">
+              <h4>Bob Marketplace</h4>
+              <p>Browse community-contributed MCP servers.</p>
+              <ul>
+                <li>Curated collection of servers</li>
+                <li>User ratings and reviews</li>
+                <li>Easy installation</li>
+                <li>Regular updates</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h4>Community Repositories</h4>
+              <p>Explore open-source MCP servers.</p>
+              <ul>
+                <li><a href="https://github.com/modelcontextprotocol/servers" target="_blank">Official MCP Servers</a></li>
+                <li>GitHub search for "mcp-server"</li>
+                <li>Community forums and discussions</li>
+                <li>Share your own servers</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h4>Build Your Own</h4>
+              <p>Create custom servers for your needs.</p>
+              <ul>
+                <li>Use MCP SDK</li>
+                <li>Ask Bob to create one for you</li>
+                <li>Follow MCP specification</li>
+                <li>Share with the community</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Popular MCP Servers</h3>
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Common MCP Server Examples</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-json">{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/files"]
+    },
+    "git": {
+      "command": "uvx",
+      "args": ["mcp-server-git", "--repository", "/path/to/repo"]
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://localhost/mydb"]
+    },
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "your_token_here"
+      }
+    },
+    "slack": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-slack"],
+      "env": {
+        "SLACK_BOT_TOKEN": "your_token_here"
+      }
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Installation Tips</h3>
+            <ul>
+              <li><strong>Check requirements:</strong> Ensure you have necessary dependencies (Node.js, Python, etc.)</li>
+              <li><strong>Read documentation:</strong> Each server has specific configuration requirements</li>
+              <li><strong>Test in isolation:</strong> Test new servers before adding to production workflows</li>
+              <li><strong>Keep updated:</strong> Regularly update servers for bug fixes and new features</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Using MCP Tools Effectively -->
+    <section id="using-tools" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Using MCP Tools Effectively</h2>
+          <p>Learn how to get the most out of MCP tools through proper configuration and usage patterns.</p>
+          
+          <h3>The MCP Tool Workflow</h3>
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Typical MCP Tool Usage</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-text">1. Initiate Task
+   User: "Show me the latest commits in the main branch"
+
+2. Bob Identifies Tools
+   Bob analyzes request and identifies relevant MCP tools
+   → git_log tool from git MCP server
+
+3. Bob Proposes Tool Use
+   Bob: "I'll use the git_log tool to fetch recent commits.
+        This will read from your repository. Approve?"
+
+4. User Approves
+   User clicks "Approve" or has auto-approve enabled
+
+5. Tool Execution
+   Bob calls git_log tool with appropriate parameters
+
+6. Results Presented
+   Bob formats and presents the commit history</code></pre>
+            </div>
+          </div>
+
+          <h3>Writing Effective Tool Descriptions</h3>
+          <p>Good tool descriptions help Bob understand when and how to use tools correctly.</p>
+
+          <div class="best-practices-grid">
+            <div class="practice-card">
+              <h4>Tool Name</h4>
+              <ul>
+                <li>Use descriptive, unambiguous names</li>
+                <li>Follow naming conventions (snake_case)</li>
+                <li>Avoid generic names like "process" or "handle"</li>
+                <li>Example: <code>fetch_user_profile</code> not <code>get_data</code></li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h4>Tool Description</h4>
+              <ul>
+                <li>Comprehensive summary of purpose</li>
+                <li>Explain use cases and scenarios</li>
+                <li>Mention prerequisites or requirements</li>
+                <li>Describe expected outcomes</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h4>Parameter Descriptions</h4>
+              <ul>
+                <li>Explain purpose of each parameter</li>
+                <li>Specify data type and format</li>
+                <li>Provide examples when helpful</li>
+                <li>Indicate if required or optional</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Example: Good vs. Bad Descriptions</h3>
+          
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">❌ Bad Tool Description</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-json">{
+  "name": "get_data",
+  "description": "Gets data",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "The ID"
+      }
+    }
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">✅ Good Tool Description</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-json">{
+  "name": "fetch_user_profile",
+  "description": "Retrieves a user's complete profile information from the database, including personal details, preferences, and account status. Use this when you need comprehensive user information for display or analysis. Requires a valid user ID. Returns a structured user profile object or an error if the user is not found.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": "string",
+        "description": "Unique identifier for the user. Must be a valid UUID format (e.g., '123e4567-e89b-12d3-a456-426614174000'). This ID is typically obtained from authentication or user search operations."
+      },
+      "include_preferences": {
+        "type": "boolean",
+        "description": "Optional. If true, includes user preferences in the response. Default is false. Set to true when you need to display or modify user settings.",
+        "default": false
+      }
+    },
+    "required": ["user_id"]
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <h3>Using Custom Rules for Tool Preferences</h3>
+          <p>You can guide Bob's tool usage through custom rules in your project or global settings.</p>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Custom Rules Example</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-text">When working with the database:
+- Always use read_only_query for SELECT operations
+- Use write_query only for INSERT, UPDATE, DELETE
+- Prefer batch operations when processing multiple records
+- Always validate input parameters before querying
+
+When working with files:
+- Use read_file for files under 1MB
+- Use stream_file for larger files
+- Always check file existence before reading
+- Use relative paths when possible</code></pre>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Best Practices for Tool Usage</h3>
+            <ul>
+              <li><strong>Be specific in requests:</strong> Clear requests help Bob choose the right tools</li>
+              <li><strong>Review tool proposals:</strong> Check what Bob plans to do before approving</li>
+              <li><strong>Use auto-approve wisely:</strong> Only for safe, frequently used operations</li>
+              <li><strong>Monitor tool performance:</strong> Adjust timeouts if tools are slow</li>
+              <li><strong>Provide feedback:</strong> Tell Bob if tool results aren't what you expected</li>
+              <li><strong>Document custom tools:</strong> Write clear descriptions for tools you create</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section id="summary" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>MCP Mastery Achieved!</h2>
+          <p>You now have comprehensive knowledge of configuring, managing, and using MCP servers with Bob.</p>
+          
+          <div class="achievement-badges">
+            <div class="badge">
+              <div class="badge-icon">⚙</div>
+              <div class="badge-title">Configuration</div>
+            </div>
+            <div class="badge">
+              <div class="badge-icon">🔧</div>
+              <div class="badge-title">Management</div>
+            </div>
+            <div class="badge">
+              <div class="badge-icon">🚀</div>
+              <div class="badge-title">Server Creation</div>
+            </div>
+            <div class="badge">
+              <div class="badge-icon">✓</div>
+              <div class="badge-title">Best Practices</div>
+            </div>
+          </div>
+
+          <div class="next-steps">
+            <h3>What You've Learned</h3>
+            <ul>
+              <li>Understanding global vs. project-level MCP configuration</li>
+              <li>Configuring STDIO and SSE transport types</li>
+              <li>Enabling and disabling MCP servers and features</li>
+              <li>Creating custom MCP servers with Bob's assistance</li>
+              <li>Managing individual servers and their settings</li>
+              <li>Configuring auto-approve for trusted tools</li>
+              <li>Finding and installing community MCP servers</li>
+              <li>Writing effective tool descriptions</li>
+              <li>Using MCP tools efficiently in your workflow</li>
+            </ul>
+          </div>
+
+          <div class="next-steps">
+            <h3>Next Steps</h3>
+            <ol>
+              <li>Configure your first MCP server (try the filesystem server)</li>
+              <li>Ask Bob to create a custom MCP server for your specific needs</li>
+              <li>Explore the Bob Marketplace for community servers</li>
+              <li>Set up project-level MCP configuration for team collaboration</li>
+              <li>Experiment with auto-approve for your most-used tools</li>
+              <li>Share your custom MCP servers with the community</li>
+            </ol>
+          </div>
+
+          <div class="info-card">
+            <h3>Additional Resources</h3>
+            <ul>
+              <li><a href="https://modelcontextprotocol.io" target="_blank">Official MCP Documentation</a></li>
+              <li><a href="https://github.com/modelcontextprotocol/servers" target="_blank">MCP Server Examples</a></li>
+              <li><a href="https://github.com/modelcontextprotocol/specification" target="_blank">MCP Specification</a></li>
+              <li>Bob Community Forums (ask questions and share servers)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="../components/component-loader.js"></script>
+  <script src="../script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>

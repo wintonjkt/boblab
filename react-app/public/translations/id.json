@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "conversations": "Percakapan",
+    "walkthrough": "Panduan"
+  },
+  "hero": {
+    "title": "Workshop Pengembangan AI Perusahaan",
+    "subtitle": "Ubah 7-8 minggu pengembangan perusahaan menjadi 10 menit orkestrasi bertenaga AI",
+    "tagline": "Pelajari cara IBM Bob menangani perubahan multi-repo, otomatisasi kepatuhan, dan keamanan sebaris",
+    "btn_conversations": "Percakapan Penjual",
+    "btn_walkthrough": "Panduan Kemampuan"
+  },
+  "intro": {
+    "title": "Dua Cara untuk Menjelajahi Bob",
+    "conversations_title": "Percakapan",
+    "conversations_desc": "Panduan gaya obrolan untuk diskusi pelanggan. Jelajahi pertanyaan umum, poin pembicaraan, dan cara mengatasi kekhawatiran umum tentang IBM Bob.",
+    "btn_conversations": "Lihat Percakapan",
+    "walkthrough_title": "Panduan",
+    "walkthrough_desc": "Perjalanan berdasarkan kemampuan kunci Bob. Lihat demo, pahami nilai bisnis, dan tinjau poin bukti nyata.",
+    "btn_walkthrough": "Mulai Panduan"
+  },
+  "engagement": {
+    "title": "Tertarik dengan Bobathon atau Pilot?",
+    "description": "Hubungi IBM Client Engineering untuk membahas peluang keterlibatan dan lihat bagaimana Bob dapat mengubah alur kerja pengembangan Anda.",
+    "btn_learn_more": "Pelajari Lebih Lanjut tentang IBM Client Engineering"
+  },
+  "footer": {
+    "title": "bob-lab",
+    "description": "Pengembangan AI perusahaan yang sederhana",
+    "links": "Tautan",
+    "attribution": "Dibuat oleh IBM Client Engineering dengan bob"
+  },
+  "walkthrough": {
+    "page_title": "Panduan",
+    "title": "Panduan Kemampuan Bob",
+    "subtitle": "Rasakan Fitur Skala Perusahaan Bob",
+    "description": "Pelajari cara Bob mengubah pengembangan perusahaan melalui demonstrasi langsung",
+    "sidebar_title": "Kemampuan",
+    "nav_overview": "Ikhtisar",
+    "nav_requirements": "Persyaratan Bisnis",
+    "nav_compliance": "Otomatisasi Kepatuhan",
+    "nav_multirepo": "Orkestrasi Multi-Repo",
+    "nav_security": "Keamanan Sebaris",
+    "nav_deployment": "Perencanaan Penerapan",
+    "nav_bobalytics": "Transparansi Bobalytics",
+    "github_link": "Dapatkan Kode Sumber",
+    "overview_title": "Apa yang Akan Anda Rasakan",
+    "overview_desc": "Panduan ini mendemonstrasikan kemampuan kunci Bob melalui skenario realistis: menerapkan SSO + MFA di 3 sistem warisan untuk lulus audit SOC 2.",
+    "estimated_time": "Perkiraan Waktu:",
+    "estimated_time_value": "10-15 menit untuk menyelesaikan semua demo kemampuan",
+    "copy": "Salin",
+    "copied": "Disalin!",
+    "prompt_to_bob": "Perintah ke Bob"
+  },
+  "narrative": {
+    "page_title": "Panduan Percakapan Penjual",
+    "title": "Panduan Percakapan Pelanggan",
+    "subtitle": "Poin Bicara untuk Diskusi Penjualan Bob",
+    "description": "Pertanyaan umum pelanggan dan tanggapan yang direkomendasikan berdasarkan kemampuan unik Bob",
+    "topics_title": "Topik Percakapan",
+    "topic_intro": "Pengantar",
+    "topic_productivity": "Peningkatan Produktivitas",
+    "topic_security": "Keamanan & Kepatuhan",
+    "topic_multirepo": "Multi-Repo",
+    "topic_cost": "Transparansi Biaya",
+    "topic_integration": "Integrasi",
+    "topic_competition": "vs Kompetitor",
+    "topic_proof": "Poin Bukti"
+  }
+}

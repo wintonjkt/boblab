@@ -1,0 +1,35 @@
+<nav class="breadcrumb-nav" aria-label="Breadcrumb" data-component-comment="Breadcrumb Navigation Component">
+  <div class="container">
+    <ol class="breadcrumb-list">
+      <li class="breadcrumb-item">
+        <a href="../index.html">Home</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a href="../index.html#labs">Labs</a>
+      </li>
+      <li class="breadcrumb-item current" aria-current="page">
+        <span id="current-page-title">Lab Title</span>
+      </li>
+    </ol>
+  </div>
+</nav>
+
+<script>
+// Breadcrumb helper for lab pages
+function initBreadcrumb(pageTitle) {
+  document.addEventListener('DOMContentLoaded', function() {
+    // Wait for components to load
+    setTimeout(() => {
+      const breadcrumbTitle = document.getElementById('current-page-title');
+      if (breadcrumbTitle && pageTitle) {
+        breadcrumbTitle.textContent = pageTitle;
+      }
+    }, 100);
+  });
+}
+
+// Export for use in lab pages
+if (typeof window !== 'undefined') {
+  window.initBreadcrumb = initBreadcrumb;
+}
+</script>

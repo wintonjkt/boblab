@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "home": "首頁",
+    "conversations": "對話",
+    "walkthrough": "逐步說明",
+    "bobathon": "Bobathon/試點"
+  },
+  "hero": {
+    "title": "企業 AI 開發工作坊",
+    "subtitle": "將 7-8 週的企業開發轉化為 10 分鐘的 AI 驅動編排",
+    "tagline": "了解 IBM Bob 如何處理多儲存庫變更、合規自動化和內聯安全性",
+    "btn_conversations": "銷售對話",
+    "btn_walkthrough": "功能逐步說明"
+  },
+  "intro": {
+    "title": "探索 Bob 的兩種方式",
+    "conversations_title": "對話",
+    "conversations_desc": "客戶討論的聊天式指南。探索典型問題、談話要點以及如何解決關於 IBM Bob 的常見疑慮。",
+    "btn_conversations": "查看對話",
+    "walkthrough_title": "逐步說明",
+    "walkthrough_desc": "基於 Bob 關鍵功能的旅程。查看示範、了解業務價值並審查真實證明要點。",
+    "btn_walkthrough": "開始逐步說明"
+  },
+  "engagement": {
+    "title": "對 Bobathon 或試點感興趣？",
+    "description": "聯絡 IBM Client Engineering 討論參與機會，了解 Bob 如何轉變您的開發工作流程。",
+    "btn_learn_more": "深入了解 IBM Client Engineering"
+  },
+  "footer": {
+    "title": "bob-lab",
+    "description": "簡單的企業 AI 開發",
+    "links": "連結",
+    "attribution": "由 IBM Client Engineering 使用 bob 構建"
+  },
+  "walkthrough": {
+    "page_title": "逐步說明",
+    "title": "Bob 功能逐步說明",
+    "subtitle": "體驗 Bob 的企業級功能",
+    "description": "透過實作示範了解 Bob 如何轉變企業開發",
+    "sidebar_title": "功能",
+    "nav_overview": "概覽",
+    "nav_requirements": "業務需求",
+    "nav_compliance": "合規自動化",
+    "nav_multirepo": "多儲存庫編排",
+    "nav_security": "內聯安全性",
+    "nav_deployment": "部署規劃",
+    "nav_bobalytics": "Bobalytics 透明度",
+    "github_link": "取得原始碼",
+    "overview_title": "您將體驗的內容",
+    "overview_desc": "此逐步說明透過真實場景展示 Bob 的關鍵功能：在 3 個舊系統上實施 SSO + MFA 以通過 SOC 2 審計。",
+    "estimated_time": "預估時間：",
+    "estimated_time_value": "完成所有功能示範需 10-15 分鐘",
+    "copy": "複製",
+    "copied": "已複製！",
+    "prompt_to_bob": "向 Bob 提示"
+  },
+  "narrative": {
+    "page_title": "銷售對話指南",
+    "title": "客戶對話指南",
+    "subtitle": "Bob 銷售討論的談話要點",
+    "description": "基於 Bob 獨特功能的常見客戶問題及建議回應",
+    "topics_title": "對話主題",
+    "topic_intro": "介紹",
+    "topic_productivity": "生產力提升",
+    "topic_security": "安全與合規",
+    "topic_multirepo": "多儲存庫",
+    "topic_cost": "成本透明度",
+    "topic_integration": "整合",
+    "topic_competition": "與競爭對手比較",
+    "topic_proof": "證明要點"
+  }
+}

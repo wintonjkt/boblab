@@ -1,0 +1,481 @@
+{
+  "home": {
+    "hero": {
+      "title": "Welcome to bob-lab",
+      "subtitle": "Master IBM Bob through hands-on labs and interactive exercises",
+      "description": "Learn DevSecOps, custom modes, application modernization, and enterprise AI development with real-world scenarios."
+    },
+    "quickstart": {
+      "title": "New to Bob? Start Here!",
+      "description": "Begin your journey with IBM Bob. Learn the fundamentals, installation process, and basic usage to get up and running quickly."
+    },
+    "features": {
+      "title": "Core Features",
+      "subtitle": "Explore Bob's powerful capabilities and learn how to leverage them in your workflow",
+      "bobshell": {
+        "title": "BobShell CLI",
+        "description": "Master the command-line interface for Bob with advanced terminal capabilities and automation."
+      },
+      "bobrules": {
+        "title": "Bob Rules",
+        "description": "Learn how to configure and customize Bob's behavior with rules and preferences."
+      },
+      "custommodes": {
+        "title": "Custom Modes",
+        "description": "Create specialized modes tailored to your workflow and development patterns."
+      },
+      "mcp": {
+        "title": "MCP Development",
+        "description": "Integrate Model Context Protocol servers to extend Bob's capabilities."
+      }
+    },
+    "usecases": {
+      "title": "Real-World Use Cases",
+      "subtitle": "Apply Bob to solve real enterprise challenges with proven patterns and best practices",
+      "devsecops": {
+        "title": "DevSecOps",
+        "description": "Experience Bob's enterprise-scale DevSecOps capabilities with SSO + MFA implementation."
+      },
+      "appmod": {
+        "title": "App Modernization",
+        "description": "Modernize legacy applications with Bob's intelligent refactoring and migration tools."
+      },
+      "sdlc": {
+        "title": "SDLC Integration",
+        "description": "Integrate Bob into your Software Development Lifecycle for continuous improvement."
+      },
+      "ibmi": {
+        "title": "IBM i Platform Modernization",
+        "description": "Modernize RPG and COBOL applications on IBM i with Java upgrades, code analysis, and migration strategies."
+      }
+    },
+    "badges": {
+      "popular": "Popular",
+      "new": "New"
+    }
+  },
+  "narrative": {
+    "header": {
+      "title": "Customer Conversation Guide",
+      "subtitle": "Talk Tracks for Bob Sales Discussions",
+      "description": "Common customer questions and recommended responses based on Bob's unique capabilities"
+    },
+    "sidebar": {
+      "title": "Conversation Topics"
+    },
+    "customer": "Customer",
+    "seller": "You (Seller)",
+    "time": {
+      "opening": "Opening"
+    },
+    "topics": {
+      "intro": "Introduction",
+      "intro.desc": "Opening the conversation about enterprise AI development",
+      "productivity": "Productivity Gains",
+      "productivity.desc": "Quantifying the value proposition",
+      "security": "Security & Compliance",
+      "security.desc": "Addressing security concerns and compliance requirements",
+      "multirepo": "Multi-Repository",
+      "multirepo.desc": "Handling complex, distributed codebases",
+      "cost": "Cost Transparency",
+      "cost.desc": "Bobalytics and ROI visibility",
+      "integration": "Integration",
+      "integration.desc": "How Bob fits into existing workflows",
+      "competition": "vs Competitors",
+      "competition.desc": "Differentiating from other AI coding tools",
+      "proof": "Proof Points",
+      "proof.desc": "Real-world evidence and case studies"
+    },
+    "intro": {
+      "title": "Introduction to Bob",
+      "subtitle": "Opening the conversation about enterprise AI development",
+      "q1": "What is Bob, and how is it different from other AI coding tools like Copilot?",
+      "a1": {
+        "p1": "Great question. Bob is an enterprise-scale AI development platform that goes beyond code completion. While tools like Copilot help write individual functions, Bob orchestrates complex changes across your entire codebase.",
+        "differentiators": "Key Differentiators:",
+        "diff1": {
+          "title": "Reads business requirements",
+          "desc": "Upload a PDF spec, Bob understands what needs to be built"
+        },
+        "diff2": {
+          "title": "Multi-repo orchestration",
+          "desc": "Coordinates changes across Java, Node.js, and React simultaneously"
+        },
+        "diff3": {
+          "title": "Compliance automation",
+          "desc": "Generates SOC 2, PCI-DSS evidence as code is written"
+        },
+        "diff4": {
+          "title": "Security inline",
+          "desc": "Catches vulnerabilities during generation, not days later"
+        },
+        "diff5": {
+          "title": "Full transparency",
+          "desc": "Bobalytics shows exactly what you're spending and productivity gained"
+        },
+        "bottomline": {
+          "label": "Bottom line:",
+          "text": "We've seen 6,000+ IBM developers achieve 45% average productivity improvement. Projects that take 7-8 weeks traditionally get done in ~10 minutes with Bob."
+        }
+      }
+    },
+    "productivity": {
+      "title": "Productivity Gains",
+      "subtitle": "Quantifying the value proposition",
+      "q1": "Those numbers sound too good to be true. 10 minutes vs 7-8 weeks? How is that possible?",
+      "a1": {
+        "intro": "I understand the skepticism. Let me break down where that time savings comes from:",
+        "traditional": {
+          "title": "Traditional Timeline (7-8 weeks):",
+          "week1": {
+            "label": "Week 1:",
+            "text": "Read business requirements, research existing systems"
+          },
+          "week2": {
+            "label": "Week 2:",
+            "text": "Map compliance requirements to technical implementation"
+          },
+          "week3": {
+            "label": "Week 3:",
+            "text": "Create implementation plan across teams"
+          },
+          "weeks46": {
+            "label": "Weeks 4-6:",
+            "text": "Write code across 3 repos (backend + frontend)"
+          },
+          "week7": {
+            "label": "Week 7:",
+            "text": "Security review finds issues → rework"
+          },
+          "week8": {
+            "label": "Week 8:",
+            "text": "Deployment planning and compliance documentation"
+          }
+        },
+        "withbob": {
+          "title": "With Bob (~10 minutes):",
+          "step1": "Upload spec, Bob analyzes and identifies systems + gaps",
+          "step2": "Bob maps SOC 2 findings to code implementation",
+          "step3": "Bob creates multi-repo implementation plan",
+          "step4": "Bob generates production code with security built in",
+          "step5": "Bob generates deployment runbook and compliance docs",
+          "norework": {
+            "label": "No rework",
+            "text": "Security issues caught during generation"
+          }
+        },
+        "proof": {
+          "title": "Real-World Proof:",
+          "guardium": {
+            "name": "IBM Guardium:",
+            "text": "Completed work in 1 day that previously took 4 weeks (85% productivity gain)"
+          },
+          "concert": {
+            "name": "IBM Concert:",
+            "text": "Saved $84K per compliance project"
+          }
+        }
+      }
+    },
+    "security": {
+      "title": "Security & Compliance",
+      "subtitle": "Addressing security concerns and compliance requirements",
+      "q1": "We're in a regulated industry. How do we know Bob's generated code is secure? What about SOC 2 compliance?",
+      "q2": "But what about data privacy? Does Bob send our code to external models?",
+      "a1": {
+        "builtin": {
+          "title": "Security: Built-in, Not Bolted-on",
+          "intro": "Bob has shift-left security - vulnerabilities are caught during code generation, not in security reviews weeks later. Here's how:",
+          "realtime": {
+            "title": "Real-time scanning:",
+            "text": "As Bob generates code, it simultaneously checks for vulnerabilities"
+          },
+          "autocorrect": {
+            "title": "Auto-correction:",
+            "text": "If Bob generates code with a hardcoded secret, it self-corrects to use environment variables"
+          },
+          "prisma": {
+            "title": "Prisma AIRS integration:",
+            "text": "AI-specific security scanning that catches issues traditional tools miss"
+          },
+          "zerodebt": {
+            "title": "Zero security debt:",
+            "text": "No accumulation of vulnerabilities that need fixing later"
+          }
+        },
+        "compliance": {
+          "title": "Compliance: Automated Evidence Generation",
+          "intro": "For SOC 2, PCI-DSS, HIPAA - Bob generates compliance evidence as it writes code:",
+          "point1": "Upload audit findings → Bob maps each finding to specific code changes",
+          "point2": "Bob generates the code AND the evidence you'll show auditors",
+          "point3": "No last-minute scramble to gather documentation",
+          "proof": {
+            "label": "IBM Concert proof:",
+            "text": "Saved $84K per compliance project by automating this"
+          }
+        },
+        "keydiff": {
+          "label": "The key difference:",
+          "text": "Most AI tools help you write code. Bob helps you stay compliant while writing code."
+        }
+      },
+      "a2": {
+        "intro": "Great question - this is critical for enterprises. Bob offers:",
+        "clientzero": {
+          "title": "Client-zero proof at IBM:",
+          "text": "30,000 IBM developers use Bob daily on IBM's internal codebase"
+        },
+        "deployment": {
+          "title": "Deployment options:",
+          "text": "Can run in your environment (Linux partitions on IBM systems with Spyre AI accelerator)"
+        },
+        "governance": {
+          "title": "Governance controls:",
+          "text": "Admin control over what code can be shared, model selection, cost limits per team"
+        },
+        "audit": {
+          "title": "Audit trail:",
+          "text": "Bobalytics shows every interaction for compliance tracking"
+        },
+        "conclusion": "We understand that for enterprise customers, data sovereignty and governance aren't features - they're requirements."
+      }
+    },
+    "multirepo": {
+      "title": "Multi-Repository Orchestration",
+      "subtitle": "Handling complex, distributed codebases",
+      "q1": "We have microservices across 20+ repositories. Can Bob really handle that complexity?",
+      "a1": {
+        "yes": "Yes - this is exactly what Bob was built for.",
+        "intro": "Most AI coding tools work on single files or single repos. They can't understand that a change in your auth-service requires updates to your user-service (Java), frontend (React), and API gateway.",
+        "example": {
+          "title": "Real Example: SSO + MFA Implementation",
+          "task": {
+            "label": "The task:",
+            "text": "Add SSO and MFA across 3 systems to pass SOC 2 audit"
+          },
+          "approach": {
+            "label": "Bob's approach:"
+          },
+          "step1": "Upload the 20-page requirements spec",
+          "step2": "Bob identifies all 3 affected repos: auth-service (Node.js), user-service (Java), frontend (React)",
+          "step3": "Bob creates implementation plan with deployment order (auth → user → frontend)",
+          "step4": "Bob generates 17+ files across all 3 repos with proper integration points",
+          "step5": "Bob includes API contracts between services",
+          "time": {
+            "label": "Time:",
+            "text": "10 minutes. Traditional approach: 7-8 weeks with coordination across teams."
+          }
+        },
+        "conclusion": {
+          "label": "For your 20+ repos:",
+          "text": "Bob scales because it maintains context across your entire codebase, not just the files currently open in your IDE."
+        }
+      }
+    },
+    "cost": {
+      "title": "Cost Transparency",
+      "subtitle": "Bobalytics and ROI visibility",
+      "q1": "AI tools can get expensive quickly. How do we track costs? My CFO will ask for ROI justification.",
+      "a1": {
+        "bobalytics": {
+          "title": "Bobalytics is unique to Bob",
+          "intro": "no other AI tool provides this level of transparency:"
+        },
+        "features": {
+          "tasklevel": {
+            "title": "Task-level costing:",
+            "text": "See exactly what each task cost (e.g., \"$8.47 for SSO implementation\")"
+          },
+          "dashboards": {
+            "title": "Team dashboards:",
+            "text": "Leadership can see productivity metrics, cost per team, usage patterns"
+          },
+          "budget": {
+            "title": "Budget controls:",
+            "text": "Set spending limits per team or project"
+          },
+          "roi": {
+            "title": "ROI calculator:",
+            "text": "Compare traditional cost vs Bob cost for every project"
+          }
+        },
+        "roiexample": {
+          "title": "Example ROI for SSO Project:",
+          "traditional": {
+            "label": "Traditional:",
+            "value": "4 engineers × 8 weeks × $150/hr = $192,000"
+          },
+          "withbob": {
+            "label": "With Bob:",
+            "value": "$8.47"
+          },
+          "savings": {
+            "label": "Savings:",
+            "value": "$191,991.53 (99.996%)"
+          }
+        },
+        "cfo": {
+          "label": "Your CFO gets:",
+          "point1": "Transparent line-item for AI costs",
+          "point2": "Productivity metrics (45% average improvement across 6,000 IBM devs)",
+          "point3": "Time-to-market acceleration numbers"
+        },
+        "conclusion": "No other AI tool gives you this level of visibility into what you're spending and what you're getting for it."
+      }
+    },
+    "integration": {
+      "title": "Integration & Deployment",
+      "subtitle": "How Bob fits into existing workflows",
+      "q1": "What tools does Bob integrate with? We use GitHub, Jenkins, and have strict deployment processes.",
+      "a1": {
+        "intro": "Bob is designed to fit into enterprise workflows, not replace them:",
+        "supported": {
+          "title": "Supported Integrations:",
+          "sourcecontrol": {
+            "title": "Source Control:",
+            "text": "GitHub, GitLab, Bitbucket"
+          },
+          "ides": {
+            "title": "IDEs:",
+            "text": "VS Code, JetBrains (IntelliJ, PyCharm, etc.)"
+          },
+          "cicd": {
+            "title": "CI/CD:",
+            "text": "Jenkins, GitLab CI, GitHub Actions, Tekton"
+          },
+          "issuetracking": {
+            "title": "Issue Tracking:",
+            "text": "Jira, GitHub Issues"
+          }
+        },
+        "workflow": {
+          "title": "How it works in your workflow:",
+          "step1": "Developer uses Bob in their IDE to generate code",
+          "step2": "Code goes through your normal PR review process",
+          "step3": "Bob integrates with your CI/CD pipeline for testing",
+          "step4": "Deploy using your existing tools and processes"
+        },
+        "governance": "Bob doesn't bypass your governance - it accelerates within it.",
+        "bonus": {
+          "title": "Bonus: Deployment Planning",
+          "text": "Bob also generates deployment runbooks with zero-downtime strategies and rollback procedures - tailored to your infrastructure."
+        }
+      }
+    },
+    "competition": {
+      "title": "vs Competitors",
+      "subtitle": "Differentiating from other AI coding tools",
+      "q1": "We're already using Copilot. Why would we add Bob?",
+      "a1": {
+        "copilot": {
+          "intro": "Copilot is great for individual developer productivity.",
+          "text": "If your goal is to help developers write functions faster, Copilot works well.",
+          "usefor": {
+            "title": "Use Copilot For:",
+            "point1": "Writing individual functions",
+            "point2": "Code completion in an IDE",
+            "point3": "Single-file or single-repo changes",
+            "point4": "Developer productivity (individual level)"
+          }
+        },
+        "bob": {
+          "intro": "Bob is for enterprise-scale challenges.",
+          "text": "Here's when you need Bob:",
+          "usefor": {
+            "title": "Use Bob For:",
+            "point1": "Multi-repo orchestration",
+            "point2": "Compliance automation (SOC 2, PCI-DSS)",
+            "point3": "Reading business requirements documents",
+            "point4": "Zero-downtime deployment planning",
+            "point5": "Cost transparency and leadership dashboards",
+            "point6": "Enterprise governance and control"
+          }
+        },
+        "both": {
+          "label": "Many IBM teams use both:",
+          "text": "Copilot for daily coding, Bob for the complex enterprise initiatives that span teams and require compliance oversight."
+        },
+        "unique": {
+          "title": "Unique to Bob - Copilot Can't Do:",
+          "point1": "Read a 20-page business requirements PDF and map to code",
+          "point2": "Coordinate changes across 20+ repos automatically",
+          "point3": "Generate SOC 2 audit evidence as code is written",
+          "point4": "Show you exactly what you're spending (Bobalytics)",
+          "point5": "Catch security vulnerabilities during generation (not after)"
+        }
+      }
+    },
+    "proof": {
+      "title": "Proof Points",
+      "subtitle": "Real-world evidence and case studies",
+      "q1": "This all sounds great, but who's actually using this in production? I need real references.",
+      "a1": {
+        "clientzero": {
+          "title": "Client-Zero Proof at IBM",
+          "intro": "Before any external customer, Bob was battle-tested inside IBM:",
+          "stat1": {
+            "label": "6,000+ IBM developers",
+            "text": "using Bob daily"
+          },
+          "stat2": {
+            "label": "30,000 developers",
+            "text": "in the IBM deployment ecosystem"
+          },
+          "stat3": {
+            "label": "45% average productivity improvement",
+            "text": "across all users"
+          },
+          "stat4": {
+            "label": "95% activation rate",
+            "text": "developers voluntarily adopt it"
+          }
+        },
+        "casestudies": {
+          "title": "Specific IBM Product Success Stories:"
+        },
+        "guardium": {
+          "name": "IBM Guardium (Security Product)",
+          "challenge": {
+            "label": "Challenge:",
+            "text": "Modernizing legacy security code"
+          },
+          "result": {
+            "label": "Result:",
+            "text": "85% productivity gain - completed in 1 day what previously took 4 weeks"
+          }
+        },
+        "concert": {
+          "name": "IBM Concert (Compliance Platform)",
+          "challenge": {
+            "label": "Challenge:",
+            "text": "SOC 2 compliance automation"
+          },
+          "result": {
+            "label": "Result:",
+            "text": "Saved $84,000 per compliance project by automating evidence generation"
+          }
+        },
+        "instana": {
+          "name": "IBM Instana (APM Product)",
+          "challenge": {
+            "label": "Challenge:",
+            "text": "Multi-repo coordination for complex features"
+          },
+          "result": {
+            "label": "Result:",
+            "text": "Accelerated feature delivery across distributed teams"
+          }
+        },
+        "references": {
+          "label": "For references:",
+          "text": "We can connect you with IBM product teams who are using Bob in production. They can speak directly to the productivity gains and how they've integrated it into their workflows."
+        }
+      }
+    },
+    "cta": {
+      "title": "Ready to Continue the Conversation?",
+      "subtitle": "Explore Bob's capabilities hands-on or dive deeper into any topic",
+      "button": "View Capability Walkthrough"
+    }
+  }
+}

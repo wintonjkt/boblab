@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IBM i Platforming - bob-lab</title>
+  
+  <!-- Carbon Design System -->
+  <link rel="stylesheet" href="https://unpkg.com/@carbon/web-components@latest/es/components/button/button.css">
+  <link rel="stylesheet" href="https://unpkg.com/@carbon/web-components@latest/es/components/tile/tile.css">
+  <link rel="stylesheet" href="https://unpkg.com/@carbon/web-components@latest/es/components/accordion/accordion.css">
+  <link rel="stylesheet" href="https://unpkg.com/@carbon/web-components@latest/es/components/tag/tag.css">
+  <link rel="stylesheet" href="https://unpkg.com/@carbon/web-components@latest/es/components/notification/notification.css">
+  <link rel="stylesheet" href="https://unpkg.com/@carbon/styles@latest/css/index.min.css">
+  
+  <!-- Project Styles -->
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  
+  <style>
+    /* Carbon Design System Enhancements */
+    .cds--tile {
+      margin-bottom: 1rem;
+    }
+    
+    .cds--tag {
+      margin-left: 0.5rem;
+    }
+    
+    .capability-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .capability-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+      background: var(--cds-interactive-01, #0f62fe);
+      color: white;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .capability-badge {
+      background: var(--cds-layer-accent-01, #e0e0e0);
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    
+    .step-item {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--cds-layer-01, #f4f4f4);
+      border-radius: 4px;
+    }
+    
+    .step-number {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: var(--cds-interactive-01, #0f62fe);
+      color: white;
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 1.125rem;
+    }
+    
+    .step-content {
+      flex: 1;
+    }
+    
+    .code-block-wrapper {
+      margin: 1rem 0;
+      border: 1px solid var(--cds-border-subtle-01, #e0e0e0);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .code-block-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      background: var(--cds-layer-02, #e0e0e0);
+      border-bottom: 1px solid var(--cds-border-subtle-01, #e0e0e0);
+    }
+    
+    .code-block-language {
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--cds-text-primary, #161616);
+    }
+    
+    .copy-button {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.25rem 0.75rem;
+      background: transparent;
+      border: 1px solid var(--cds-border-subtle-01, #e0e0e0);
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      transition: background 0.2s;
+    }
+    
+    .copy-button:hover {
+      background: var(--cds-layer-hover-01, #e8e8e8);
+    }
+    
+    .copy-button svg {
+      width: 1rem;
+      height: 1rem;
+    }
+    
+    .result-box, .objective-box, .business-value {
+      padding: 1.5rem;
+      background: var(--cds-layer-01, #f4f4f4);
+      border-left: 4px solid var(--cds-interactive-01, #0f62fe);
+      border-radius: 4px;
+      margin: 1.5rem 0;
+    }
+    
+    .prompt-box {
+      padding: 1.5rem;
+      background: var(--cds-layer-accent-01, #e0e0e0);
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+    
+    .cta-box {
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--cds-interactive-01, #0f62fe) 0%, #0353e9 100%);
+      color: white;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    
+    .btn {
+      padding: 0.875rem 2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: white;
+      color: var(--cds-interactive-01, #0f62fe);
+    }
+    
+    .btn-primary:hover {
+      background: var(--cds-layer-01, #f4f4f4);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .capabilities-overview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .cap-card {
+      padding: 1.5rem;
+      background: var(--cds-layer-01, #f4f4f4);
+      border-radius: 4px;
+      border: 1px solid var(--cds-border-subtle-01, #e0e0e0);
+    }
+    
+    .cap-card h4 {
+      color: var(--cds-interactive-01, #0f62fe);
+      margin-bottom: 0.5rem;
+    }
+    
+    .value-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .value-traditional, .value-bob {
+      padding: 1rem;
+      border-radius: 4px;
+    }
+    
+    .value-traditional {
+      background: var(--cds-layer-02, #e0e0e0);
+    }
+    
+    .value-bob {
+      background: var(--cds-support-success, #24a148);
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      .value-comparison {
+        grid-template-columns: 1fr;
+      }
+      
+      .capabilities-overview {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+  <div data-component="breadcrumb"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>IBM i Modernization with Bob</h1>
+      <p class="page-subtitle">Transform AS/400 Legacy Systems to Cloud-Native Architecture</p>
+      <p class="page-description">A structured journey from RPG/COBOL to modern Java microservices on OpenShift</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>Modernization Journey</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#setup" class="capability-link">1. Setup & Use Case</a>
+        <a href="#understand-codebase" class="capability-link">2. Understand Codebase</a>
+        <a href="#qa-codebase" class="capability-link">3. Q&A with Codebase</a>
+        <a href="#java-upgrade" class="capability-link">4. Java Upgrade</a>
+        <a href="#rpg-modernization" class="capability-link">5. RPG Modernization</a>
+        <a href="#wrap-up" class="capability-link">6. Wrap-up & Review</a>
+      </nav>
+    </aside>
+
+    <div class="walkthrough-main">
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="info-card compliance">
+          <h2>What You'll Experience</h2>
+          <p>This walkthrough demonstrates Bob's IBM i modernization capabilities through a structured, hands-on journey. You'll transform a legacy AS/400 system with RPG, COBOL, and 5250 green screens into a modern cloud-native application.</p>
+
+          <div style="margin: 1.5rem 0; padding: 1rem; background: var(--cds-layer-01, #f4f4f4); border-radius: 4px; border-left: 4px solid var(--cds-interactive-01, #0f62fe);">
+            <p style="margin: 0 0 0.75rem 0; font-weight: 500;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 0.5rem;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              New to IBM i?
+            </p>
+            <p style="margin: 0 0 0.75rem 0; color: var(--cds-text-secondary, #525252);">
+              IBM i (formerly AS/400, iSeries) is a robust enterprise platform known for reliability and security. Learn more about the platform before starting your modernization journey.
+            </p>
+            <a href="https://www.ibm.com/it-infrastructure/power/os/ibm-i"
+               target="_blank"
+               rel="noopener noreferrer"
+               aria-label="Learn more about IBM i platform (opens in new tab)"
+               style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--cds-interactive-01, #0f62fe); color: white; text-decoration: none; border-radius: 4px; font-weight: 500; transition: background 0.2s;"
+               onmouseover="this.style.background='#0353e9'"
+               onmouseout="this.style.background='var(--cds-interactive-01, #0f62fe)'">
+              Learn About IBM i Platform
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+
+          <div class="capabilities-overview">
+            <div class="cap-card">
+              <h4>Setup & Use Case</h4>
+              <p>Choose your IBM i repository and define modernization goals</p>
+            </div>
+            <div class="cap-card">
+              <h4>Understand Codebase</h4>
+              <p>Analyze components, entry points, and dependencies</p>
+            </div>
+            <div class="cap-card">
+              <h4>Q&A with Codebase</h4>
+              <p>Ask where/why/impact questions about the system</p>
+            </div>
+            <div class="cap-card">
+              <h4>Java Upgrade</h4>
+              <p>Modernize Java components and dependencies</p>
+            </div>
+            <div class="cap-card">
+              <h4>RPG Modernization</h4>
+              <p>Identify candidates and transform RPG to Java</p>
+            </div>
+            <div class="cap-card">
+              <h4>Wrap-up & Review</h4>
+              <p>Review results and plan next steps</p>
+            </div>
+          </div>
+
+          <p><strong>Estimated Time:</strong> 20-25 minutes to complete the full IBM i modernization workflow</p>
+          
+          <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #0f62fe 0%, #0353e9 100%); border-radius: 8px; text-align: center;">
+            <h3 style="color: white; margin: 0 0 0.5rem 0; font-size: 1.25rem;">📦 Sample IBM i Application</h3>
+            <p style="color: rgba(255, 255, 255, 0.9); margin: 0 0 1rem 0;">Download a sample IBM i application to follow along with this lab</p>
+            <a href="../samples/GenApp_SRC.zip" download style="display: inline-block; padding: 0.75rem 2rem; background: white; color: #0f62fe; text-decoration: none; border-radius: 4px; font-weight: 600; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 0.5rem;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download GenApp Sample
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 1: Setup + Choose Repo/Use Case -->
+    <section id="setup" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">1</span>
+          <h2>Setup & Choose Use Case</h2>
+          <span class="capability-badge">Getting Started</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>Objective</h3>
+            <p>Set up your IBM i modernization project by selecting a repository and defining clear modernization goals. This establishes the foundation for your transformation journey.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Try It Yourself</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Choose Your IBM i Repository</h4>
+                <p>Select one of these options:</p>
+                <div class="prompt-box">
+                  <div class="prompt-content">
+                    <ul>
+                      <li><strong>Sample Application:</strong> Use the GenApp sample (downloaded above) - ideal for learning</li>
+                      <li><strong>Your Own Repository:</strong> Point Bob to your actual IBM i codebase</li>
+                      <li><strong>Describe Your System:</strong> Provide details about your IBM i application for Bob to analyze</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Define Your Modernization Goals</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>I want to modernize my IBM i application with these goals:
+- Convert RPG IV and COBOL programs to Java microservices
+- Migrate DB2 for i database to PostgreSQL
+- Replace 5250 green screens with modern React web UI
+- Deploy on OpenShift (Red Hat)
+- Implement CI/CD pipeline
+- Maintain business continuity during migration
+- Zero data loss requirement
+
+Please analyze the codebase and create a modernization plan.</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Example: GenApp Insurance Application</h4>
+                <p>For this lab, we'll use the GenApp sample - a typical IBM i insurance application:</p>
+                <div class="result-box">
+                  <ul>
+                    <li><strong>Business Domain:</strong> Insurance policy management system</li>
+                    <li><strong>Programs:</strong> 25+ COBOL programs for policy operations</li>
+                    <li><strong>Database:</strong> DB2 for i with customer, policy, and claims tables</li>
+                    <li><strong>UI:</strong> 5250 display files for data entry and inquiry</li>
+                    <li><strong>Integration:</strong> Batch processing, file transfers</li>
+                    <li><strong>Age:</strong> 20+ years old, business-critical system</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Why This Matters</h3>
+            <p>Clear goals and proper setup ensure your modernization project stays focused and delivers measurable business value. Bob helps you define realistic objectives based on your system's complexity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Understand Codebase -->
+    <section id="understand-codebase" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">2</span>
+          <h2>Understand the Codebase</h2>
+          <span class="capability-badge">Deep Analysis</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>Objective</h3>
+            <p>Gain comprehensive understanding of your IBM i system's architecture, components, entry points, and dependencies. This analysis forms the foundation for successful modernization.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Let Bob Analyze Your System</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Comprehensive Analysis</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Analyze this IBM i codebase and provide:
+1. Component inventory (RPG, COBOL, CL programs)
+2. Entry points and main workflows
+3. Database schema and table relationships
+4. Dependencies between programs
+5. External integrations
+6. Business logic patterns</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Component Inventory</h4>
+                <p>Bob identifies all components in your system:</p>
+                <div class="result-box">
+                  <h4>GenApp Components</h4>
+                  <ul>
+                    <li><strong>COBOL Programs (25):</strong>
+                      <ul>
+                        <li>LGACUS01 - Add Customer</li>
+                        <li>LGICUS01 - Inquire Customer</li>
+                        <li>LGUCUS01 - Update Customer</li>
+                        <li>LGAPOL01 - Add Policy</li>
+                        <li>LGIPOL01 - Inquire Policy</li>
+                        <li>LGUPOL01 - Update Policy</li>
+                        <li>LGDPOL01 - Delete Policy</li>
+                        <li>LGWEBST5 - Web Service Interface</li>
+                        <li>...and 17 more programs</li>
+                      </ul>
+                    </li>
+                    <li><strong>Copybooks (15):</strong> CUSTOMER.cpy, LGPOLICY.cpy, LGCMAREA.cpy, etc.</li>
+                    <li><strong>Database Tables (5):</strong> CUSTOMER, POLICY, CLAIMS, ENDOWMENT, MOTOR</li>
+                    <li><strong>Display Files:</strong> 5250 screens for data entry and inquiry</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Entry Points & Workflows</h4>
+                <p>Bob maps the main user workflows:</p>
+                <div class="result-box">
+                  <h4>Main Workflows</h4>
+                  <ul>
+                    <li><strong>Customer Management:</strong> LGACUS01 → LGICUS01 → LGUCUS01 (Add → Inquire → Update)</li>
+                    <li><strong>Policy Management:</strong> LGAPOL01 → LGIPOL01 → LGUPOL01 → LGDPOL01</li>
+                    <li><strong>Policy Validation:</strong> LGACVS01, LGIPVS01, LGUPVS01 (Validation services)</li>
+                    <li><strong>Database Operations:</strong> LGACDB01, LGICDB01, LGUCDB01 (DB access layer)</li>
+                    <li><strong>Web Services:</strong> LGWEBST5 (External API interface)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Dependencies & Architecture</h4>
+                <p>Bob creates a dependency map:</p>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Architecture Analysis</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Architecture Pattern: 3-Tier Layered Architecture
+
+Presentation Layer (5250 Screens)
+    ↓
+Business Logic Layer (COBOL Programs)
+    ├── Customer Services (LGACUS01, LGICUS01, LGUCUS01)
+    ├── Policy Services (LGAPOL01, LGIPOL01, LGUPOL01, LGDPOL01)
+    ├── Validation Services (LGACVS01, LGIPVS01, LGUPVS01)
+    └── Web Services (LGWEBST5)
+    ↓
+Data Access Layer (Database Programs)
+    ├── Customer DB (LGACDB01, LGICDB01, LGUCDB01)
+    ├── Policy DB (LGAPDB01, LGIPDB01, LGUPDB01, LGDPDB01)
+    └── Validation DB (LGACVS01, LGIPVS01, LGUPVS01)
+    ↓
+Database Layer (DB2 for i)
+    ├── CUSTOMER table
+    ├── POLICY table
+    ├── CLAIMS table
+    ├── ENDOWMENT table
+    └── MOTOR table
+
+Key Dependencies:
+- All programs use LGCMAREA.cpy (communication area)
+- Customer programs depend on CUSTOMER.cpy
+- Policy programs depend on LGPOLICY.cpy
+- Database programs use SQL/400 embedded SQL</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h4>Database Schema</h4>
+                <p>Bob analyzes the database structure:</p>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">DB2 for i Schema</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-sql">-- CUSTOMER Table
+CREATE TABLE CUSTOMER (
+    CUSTOMER_NUM     DECIMAL(10,0) NOT NULL PRIMARY KEY,
+    CUSTOMER_NAME    CHAR(60),
+    CUSTOMER_ADDRESS CHAR(160),
+    DATE_OF_BIRTH    DATE,
+    HOUSE_NAME       CHAR(20),
+    HOUSE_NUM        CHAR(4),
+    POSTCODE         CHAR(8)
+);
+
+-- POLICY Table
+CREATE TABLE POLICY (
+    POLICY_NUM       DECIMAL(10,0) NOT NULL PRIMARY KEY,
+    CUSTOMER_NUM     DECIMAL(10,0) NOT NULL,
+    ISSUE_DATE       DATE,
+    EXPIRY_DATE      DATE,
+    POLICY_TYPE      CHAR(1),
+    LAST_CHANGED     TIMESTAMP,
+    BROKER_ID        DECIMAL(6,0),
+    FOREIGN KEY (CUSTOMER_NUM) REFERENCES CUSTOMER(CUSTOMER_NUM)
+);
+
+-- Relationships:
+-- CUSTOMER 1:N POLICY (One customer can have many policies)
+-- POLICY 1:1 ENDOWMENT/MOTOR/CLAIMS (Policy type determines detail table)</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>4-6 weeks - hire IBM i consultants, manual code review, documentation creation</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>5-10 minutes - comprehensive analysis with dependency mapping and architecture insights</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>99% faster analysis</strong> - Bob understands your entire IBM i ecosystem in minutes, including business logic that would take weeks to document manually."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Q&A with the Codebase -->
+    <section id="qa-codebase" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">3</span>
+          <h2>Q&A with the Codebase</h2>
+          <span class="capability-badge">Interactive Discovery</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>Objective</h3>
+            <p>Ask targeted questions about your codebase to understand where specific logic resides, why certain patterns exist, and what the impact of changes would be. This interactive exploration helps you make informed modernization decisions.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Ask Bob About Your Code</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>"Where" Questions - Locate Functionality</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Example Questions</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Q: Where is customer validation logic implemented?
+A: Customer validation is in LGACVS01 (Add Customer Validation Service).
+   It validates:
+   - Customer number format (10 digits)
+   - Date of birth (must be 18+ years old)
+   - Postcode format (UK postcodes)
+   - Duplicate customer check
+   Called by: LGACUS01 before adding new customer
+
+Q: Where are policy premium calculations performed?
+A: Premium calculations are in LGAPOL01 lines 450-680.
+   Factors: policy type, customer age, coverage amount, term length
+   Uses: PREMIUM-CALC-TABLE copybook for rate tables
+
+Q: Where is the database connection configured?
+A: Database connections use SQL/400 embedded in each DB program.
+   Connection string in: DECLARE.cpy copybook
+   Database: DB2 for i, library: GENAPP</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>"Why" Questions - Understand Design Decisions</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Example Questions</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Q: Why are there separate programs for Add/Inquire/Update operations?
+A: This follows the IBM i best practice of separating CRUD operations:
+   - Simplifies maintenance (each program has single responsibility)
+   - Enables granular security (different users can have different access)
+   - Reduces program size (easier to compile and debug)
+   - Follows CICS transaction model (one transaction per operation)
+
+Q: Why does LGWEBST5 exist separately from other programs?
+A: LGWEBST5 is a web service adapter added later (circa 2010) to:
+   - Expose existing COBOL logic via SOAP/REST APIs
+   - Enable integration with external systems
+   - Avoid modifying core business logic programs
+   - Maintain backward compatibility with 5250 screens
+
+Q: Why use LGCMAREA.cpy communication area?
+A: LGCMAREA provides a standard way to pass data between programs:
+   - Consistent interface across all programs
+   - Includes return codes, error messages, transaction context
+   - Enables program-to-program calls
+   - Required for CICS pseudo-conversational programming</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>"Impact" Questions - Assess Change Effects</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Example Questions</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Q: What would be impacted if we change the CUSTOMER table schema?
+A: Impact Analysis:
+   HIGH IMPACT:
+   - 8 COBOL programs directly access CUSTOMER table
+   - CUSTOMER.cpy copybook used by 12 programs
+   - 3 display files show customer data
+   - LGWEBST5 web service exposes customer fields
+   
+   MEDIUM IMPACT:
+   - Policy programs reference CUSTOMER_NUM (foreign key)
+   - Reports query CUSTOMER table (5 batch jobs)
+   
+   RECOMMENDATION: Use database views for backward compatibility
+
+Q: What if we modernize LGACUS01 to Java first?
+A: Impact Analysis:
+   DEPENDENCIES:
+   - LGACUS01 calls LGACVS01 (validation) - must modernize together
+   - LGACUS01 calls LGACDB01 (database) - must modernize together
+   - Uses CUSTOMER.cpy and LGCMAREA.cpy - need Java equivalents
+   
+   INTEGRATION POINTS:
+   - Called by 5250 screen LGACUS01.dspf - need adapter or modernize UI
+   - May be called by LGWEBST5 - need API compatibility
+   
+   RECOMMENDATION: Modernize as a service cluster (UI + Business + Data)
+
+Q: What's the risk of migrating to PostgreSQL?
+A: Risk Assessment:
+   HIGH RISK:
+   - DB2 for i specific features: DECIMAL(10,0), DATE formats
+   - Embedded SQL in 25 COBOL programs needs conversion
+   - Stored procedures (if any) need rewriting
+   - Transaction isolation levels may differ
+   
+   MEDIUM RISK:
+   - Performance characteristics different (indexing strategy)
+   - Backup/recovery procedures need redesign
+   
+   MITIGATION:
+   - Use dual-write pattern during migration
+   - Comprehensive data validation
+   - Performance testing before cutover</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Complex Analysis Questions</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Advanced Questions</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Q: Which programs are good candidates for initial modernization?
+A: Modernization Priority Analysis:
+
+   TIER 1 - Low Risk, High Value:
+   1. LGWEBST5 - Already has API interface, minimal dependencies
+   2. Inquiry programs (LGICUS01, LGIPOL01) - Read-only, no data changes
+   3. Validation services (LGACVS01, etc.) - Pure logic, no UI
+   
+   TIER 2 - Medium Risk, High Value:
+   4. Database access layer (LGACDB01, etc.) - Clear interface
+   5. Customer management (LGACUS01, LGUCUS01) - Well-defined domain
+   
+   TIER 3 - Higher Risk, Plan Carefully:
+   6. Policy management - Complex business rules
+   7. Batch jobs - Timing and performance critical
+   
+   RECOMMENDATION: Start with LGWEBST5 + inquiry programs
+
+Q: How can we maintain business continuity during migration?
+A: Migration Strategy:
+
+   PHASE 1: Parallel Run (Weeks 1-4)
+   - Deploy modernized services alongside IBM i
+   - Route read-only traffic to new services
+   - Keep IBM i as system of record
+   - Compare outputs for validation
+   
+   PHASE 2: Gradual Cutover (Weeks 5-8)
+   - Implement dual-write pattern
+   - Route increasing % of traffic to new services
+   - Monitor for issues, quick rollback if needed
+   - Validate data consistency continuously
+   
+   PHASE 3: Full Migration (Weeks 9-12)
+   - Route all traffic to new services
+   - Keep IBM i as backup for 30 days
+   - Decommission after stability confirmed
+   
+   RISK MITIGATION:
+   - Feature flags for instant rollback
+   - Comprehensive monitoring and alerting
+   - 24/7 support during cutover
+   - Rollback plan tested in advance</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>Days to weeks - manual code reading, tribal knowledge interviews, documentation search</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>Seconds - instant answers with code references and impact analysis</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Interactive code understanding</strong> - Bob answers your questions instantly, helping you make informed decisions about modernization strategy and risk mitigation."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Java Upgrade & Modernization -->
+    <section id="java-upgrade" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">4</span>
+          <h2>Java Upgrade & Modernization</h2>
+          <span class="capability-badge">Modern Java</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>Objective</h3>
+            <p>Upgrade existing Java components to modern versions (Java 21) and frameworks (Spring Boot 3.x), and establish the foundation for microservices architecture. This prepares the platform for COBOL/RPG transformation.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Modernize Java Components</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Analyze Existing Java Code</h4>
+                <p>GenApp includes Java components that need modernization:</p>
+                <div class="result-box">
+                  <h4>Current Java Components</h4>
+                  <ul>
+                    <li><strong>CustomerValidation.java:</strong> Java wrapper for COBOL validation logic</li>
+                    <li><strong>CobolData.java:</strong> Data structure mapping between Java and COBOL</li>
+                    <li><strong>Java Version:</strong> Java 8 (outdated)</li>
+                    <li><strong>Framework:</strong> Plain Java, no Spring Boot</li>
+                    <li><strong>Integration:</strong> JNI calls to COBOL programs</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Request Java Upgrade</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Upgrade the Java components to modern standards:
+1. Upgrade from Java 8 to Java 21
+2. Convert to Spring Boot 3.x microservices
+3. Replace JNI calls with REST API calls
+4. Add proper error handling and logging
+5. Implement health checks and metrics
+6. Add comprehensive unit tests
+7. Use modern Java features (records, pattern matching, etc.)</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Modernized Java Service</h4>
+                <div class="code-comparison">
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Legacy Java 8 Code</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-java">// Legacy Java 8 approach
+public class CustomerValidation {
+    
+    static {
+        System.loadLibrary("cobolvalidation");
+    }
+    
+    public native boolean validateCustomer(
+        String customerNum, 
+        String name, 
+        String dateOfBirth
+    );
+    
+    public String processCustomer(String data) {
+        // Parse fixed-format data
+        String customerNum = data.substring(0, 10);
+        String name = data.substring(10, 70);
+        String dob = data.substring(70, 80);
+        
+        if (validateCustomer(customerNum, name, dob)) {
+            return "SUCCESS";
+        } else {
+            return "FAILED";
+        }
+    }
+}</code></pre>
+                  </div>
+
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Modern Java 21 + Spring Boot</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-java">@RestController
+@RequestMapping("/api/customers")
+@Validated
+@Slf4j
+public class CustomerController {
+    
+    private final CustomerValidationService validationService;
+    
+    public CustomerController(CustomerValidationService validationService) {
+        this.validationService = validationService;
+    }
+    
+    @PostMapping("/validate")
+    public ResponseEntity<ValidationResponse> validateCustomer(
+            @Valid @RequestBody CustomerRequest request) {
+        
+        log.info("Validating customer: {}", request.customerNumber());
+        
+        try {
+            ValidationResult result = validationService.validate(request);
+            
+            return ResponseEntity.ok(ValidationResponse.builder()
+                .customerNumber(request.customerNumber())
+                .valid(result.isValid())
+                .errors(result.errors())
+                .timestamp(Instant.now())
+                .build());
+                
+        } catch (ValidationException e) {
+            log.error("Validation failed for customer {}: {}", 
+                request.customerNumber(), e.getMessage());
+            
+            return ResponseEntity.badRequest()
+                .body(ValidationResponse.error(e.getMessage()));
+        }
+    }
+}
+
+// Modern Java records for data
+public record CustomerRequest(
+    @NotBlank @Size(max = 10) String customerNumber,
+    @NotBlank @Size(max = 60) String name,
+    @NotNull @Past LocalDate dateOfBirth,
+    @Valid Address address
+) {}
+
+public record ValidationResponse(
+    String customerNumber,
+    boolean valid,
+    List<String> errors,
+    Instant timestamp
+) {
+    public static ValidationResponse error(String message) {
+        return new ValidationResponse(null, false, List.of(message), Instant.now());
+    }
+}
+
+@Service
+@Transactional
+public class CustomerValidationService {
+    
+    private final CustomerRepository customerRepository;
+    private final ValidationRules validationRules;
+    
+    public ValidationResult validate(CustomerRequest request) {
+        var errors = new ArrayList<String>();
+        
+        // Modern validation with pattern matching
+        switch (request.customerNumber().length()) {
+            case 10 -> {
+                if (!request.customerNumber().matches("\\d{10}")) {
+                    errors.add("Customer number must be 10 digits");
+                }
+            }
+            default -> errors.add("Customer number must be exactly 10 characters");
+        }
+        
+        // Age validation using modern date API
+        if (Period.between(request.dateOfBirth(), LocalDate.now()).getYears() < 18) {
+            errors.add("Customer must be at least 18 years old");
+        }
+        
+        // Check for duplicates
+        if (customerRepository.existsByCustomerNumber(request.customerNumber())) {
+            errors.add("Customer number already exists");
+        }
+        
+        return new ValidationResult(errors.isEmpty(), errors);
+    }
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Modern Spring Boot Configuration</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">application.yml</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-yaml">spring:
+  application:
+    name: customer-service
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/genapp
+    username: ${DB_USERNAME:genapp}
+    password: ${DB_PASSWORD:password}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${JWT_ISSUER_URI:http://localhost:8080/auth/realms/genapp}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+logging:
+  level:
+    com.genapp: INFO
+    org.springframework.security: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+server:
+  port: 8080
+  servlet:
+    context-path: /customer-service</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h4>Comprehensive Testing</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Modern Test Suite</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-java">@SpringBootTest
+@Testcontainers
+class CustomerServiceIntegrationTest {
+    
+    @Container
+    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:16")
+        .withDatabaseName("testdb")
+        .withUsername("test")
+        .withPassword("test");
+    
+    @Autowired
+    private TestRestTemplate restTemplate;
+    
+    @Test
+    @DisplayName("Should validate customer successfully")
+    void shouldValidateCustomer() {
+        // Given
+        var request = new CustomerRequest(
+            "1234567890",
+            "John Doe",
+            LocalDate.of(1990, 1, 1),
+            new Address("123 Main St", "12345")
+        );
+        
+        // When
+        var response = restTemplate.postForEntity(
+            "/api/customers/validate",
+            request,
+            ValidationResponse.class
+        );
+        
+        // Then
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody().valid()).isTrue();
+        assertThat(response.getBody().errors()).isEmpty();
+    }
+    
+    @Test
+    @DisplayName("Should reject invalid customer data")
+    void shouldRejectInvalidCustomer() {
+        // Given - customer too young
+        var request = new CustomerRequest(
+            "1234567890",
+            "Jane Doe",
+            LocalDate.now().minusYears(16), // Only 16 years old
+            new Address("456 Oak St", "67890")
+        );
+        
+        // When
+        var response = restTemplate.postForEntity(
+            "/api/customers/validate",
+            request,
+            ValidationResponse.class
+        );
+        
+        // Then
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(response.getBody().valid()).isFalse();
+        assertThat(response.getBody().errors())
+            .contains("Customer must be at least 18 years old");
+    }
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>2-4 weeks - manual Java upgrade, framework migration, testing</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>2-4 hours - automated upgrade with modern patterns and comprehensive tests</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Modern Java foundation</strong> - Bob upgrades your Java components to use the latest features, frameworks, and best practices, preparing for seamless COBOL/RPG transformation."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: RPG Modernization Exercise -->
+    <section id="rpg-modernization" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">5</span>
+          <h2>RPG Modernization Exercise</h2>
+          <span class="capability-badge">COBOL to Java</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>Objective</h3>
+            <p>Transform COBOL programs to modern Java microservices. Since GenApp is primarily COBOL-based, we'll focus on COBOL modernization while applying the same principles that would be used for RPG transformation.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Transform COBOL to Java</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Identify Modernization Candidates</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Analyze the COBOL programs and recommend modernization candidates:
+1. Prioritize by business value and technical complexity
+2. Identify programs suitable for microservices architecture
+3. Group related programs into service boundaries
+4. Assess modernization effort and risk for each candidate
+5. Recommend transformation approach for top candidates</code></pre>
+                </div>
+                
+                <div class="result-box">
+                  <h4>Modernization Candidates (Priority Order)</h4>
+                  <ul>
+                    <li><strong>TIER 1 - Quick Wins:</strong>
+                      <ul>
+                        <li>LGICUS01 (Customer Inquiry) - Read-only, simple logic</li>
+                        <li>LGIPOL01 (Policy Inquiry) - Read-only, well-defined interface</li>
+                        <li>LGACVS01 (Customer Validation) - Pure business logic, no UI</li>
+                      </ul>
+                    </li>
+                    <li><strong>TIER 2 - Medium Complexity:</strong>
+                      <ul>
+                        <li>LGACUS01 (Add Customer) - Clear business domain</li>
+                        <li>LGUCUS01 (Update Customer) - Builds on Add Customer</li>
+                        <li>LGACDB01 (Customer Database) - Data access layer</li>
+                      </ul>
+                    </li>
+                    <li><strong>TIER 3 - Complex (Plan Carefully):</strong>
+                      <ul>
+                        <li>LGAPOL01 (Add Policy) - Complex business rules</li>
+                        <li>LGWEBST5 (Web Service) - Integration point</li>
+                        <li>Batch processing programs - Performance critical</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Transform Customer Inquiry Service</h4>
+                <p>Let's start with LGICUS01 - a simple, read-only service:</p>
+                
+                <div class="code-comparison">
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Original COBOL (LGICUS01)</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-cobol">       IDENTIFICATION DIVISION.
+       PROGRAM-ID. LGICUS01.
+       
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-CUSTOMER-REC.
+           05  WS-CUSTOMER-NUM     PIC 9(10).
+           05  WS-CUSTOMER-NAME    PIC X(60).
+           05  WS-CUSTOMER-ADDR    PIC X(160).
+           05  WS-DATE-OF-BIRTH    PIC X(10).
+           05  WS-HOUSE-NAME       PIC X(20).
+           05  WS-HOUSE-NUM        PIC X(4).
+           05  WS-POSTCODE         PIC X(8).
+       
+       01  WS-RESPONSE-CODE        PIC X(2).
+           88  CUSTOMER-FOUND      VALUE '00'.
+           88  CUSTOMER-NOT-FOUND  VALUE '01'.
+           88  DATABASE-ERROR      VALUE '99'.
+       
+       LINKAGE SECTION.
+       01  DFHCOMMAREA.
+           COPY LGCMAREA.
+       
+       PROCEDURE DIVISION.
+       MAIN-LOGIC.
+           MOVE SPACES TO WS-CUSTOMER-REC
+           MOVE CA-CUSTOMER-NUM TO WS-CUSTOMER-NUM
+           
+           EXEC SQL
+               SELECT CUSTOMER_NUM, CUSTOMER_NAME, CUSTOMER_ADDRESS,
+                      DATE_OF_BIRTH, HOUSE_NAME, HOUSE_NUM, POSTCODE
+               INTO :WS-CUSTOMER-NUM, :WS-CUSTOMER-NAME, :WS-CUSTOMER-ADDR,
+                    :WS-DATE-OF-BIRTH, :WS-HOUSE-NAME, :WS-HOUSE-NUM, :WS-POSTCODE
+               FROM CUSTOMER
+               WHERE CUSTOMER_NUM = :WS-CUSTOMER-NUM
+           END-EXEC
+           
+           EVALUATE SQLCODE
+               WHEN 0
+                   SET CUSTOMER-FOUND TO TRUE
+                   MOVE WS-CUSTOMER-REC TO CA-CUSTOMER-DATA
+               WHEN 100
+                   SET CUSTOMER-NOT-FOUND TO TRUE
+               WHEN OTHER
+                   SET DATABASE-ERROR TO TRUE
+           END-EVALUATE
+           
+           MOVE WS-RESPONSE-CODE TO CA-RETURN-CODE
+           EXEC CICS RETURN END-EXEC.
+       
+       END PROGRAM LGICUS01.</code></pre>
+                  </div>
+
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Modern Java Microservice</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code class="language-java">@RestController
+@RequestMapping("/api/customers")
+@Validated
+@Slf4j
+public class CustomerInquiryController {
+    
+    private final CustomerInquiryService customerService;
+    
+    public CustomerInquiryController(CustomerInquiryService customerService) {
+        this.customerService = customerService;
+    }
+    
+    @GetMapping("/{customerNumber}")
+    public ResponseEntity<CustomerResponse> getCustomer(
+            @PathVariable @Pattern(regexp = "\\d{10}") String customerNumber) {
+        
+        log.info("Inquiring customer: {}", customerNumber);
+        
+        try {
+            Customer customer = customerService.findByCustomerNumber(customerNumber);
+            
+            CustomerResponse response = CustomerResponse.builder()
+                .customerNumber(customer.getCustomerNumber())
+                .name(customer.getName())
+                .address(customer.getAddress())
+                .dateOfBirth(customer.getDateOfBirth())
+                .houseName(customer.getHouseName())
+                .houseNumber(customer.getHouseNumber())
+                .postcode(customer.getPostcode())
+                .build();
+            
+            return ResponseEntity.ok(response);
+            
+        } catch (CustomerNotFoundException e) {
+            log.warn("Customer not found: {}", customerNumber);
+            return ResponseEntity.notFound().build();
+            
+        } catch (Exception e) {
+            log.error("Database error for customer {}: {}", customerNumber, e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(CustomerResponse.error("Database error occurred"));
+        }
+    }
+}
+
+@Service
+@Transactional(readOnly = true)
+public class CustomerInquiryService {
+    
+    private final CustomerRepository customerRepository;
+    
+    public CustomerInquiryService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+    
+    public Customer findByCustomerNumber(String customerNumber) {
+        return customerRepository.findByCustomerNumber(customerNumber)
+            .orElseThrow(() -> new CustomerNotFoundException(customerNumber));
+    }
+}
+
+@Entity
+@Table(name = "customer")
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Customer {
+    
+    @Id
+    @Column(name = "customer_num")
+    private String customerNumber;
+    
+    @Column(name = "customer_name", length = 60)
+    private String name;
+    
+    @Column(name = "customer_address", length = 160)
+    private String address;
+    
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
+    
+    @Column(name = "house_name", length = 20)
+    private String houseName;
+    
+    @Column(name = "house_num", length = 4)
+    private String houseNumber;
+    
+    @Column(name = "postcode", length = 8)
+    private String postcode;
+}
+
+public record CustomerResponse(
+    String customerNumber,
+    String name,
+    String address,
+    LocalDate dateOfBirth,
+    String houseName,
+    String houseNumber,
+    String postcode,
+    String errorMessage
+) {
+    public static CustomerResponse error(String message) {
+        return new CustomerResponse(null, null, null, null, null, null, null, message);
+    }
+}</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Transform Customer Validation Service</h4>
+                <p>Next, let's modernize LGACVS01 - the validation logic:</p>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Modern Validation Service</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code class="language-java">@Service
+@Slf4j
+public class CustomerValidationService {
+    
+    private final CustomerRepository customerRepository;
+    private final PostcodeValidator postcodeValidator;
+    
+    public CustomerValidationService(
+            CustomerRepository customerRepository,
+            PostcodeValidator postcodeValidator) {
+        this.customerRepository = customerRepository;
+        this.postcodeValidator = postcodeValidator;
+    }
+    
+    public ValidationResult validateCustomer(CustomerRequest request) {
+        var errors = new ArrayList<String>();
+        
+        // Customer number validation
+        validateCustomerNumber(request.customerNumber(), errors);
+        
+        // Name validation
+        validateName(request.name(), errors);
+        
+        // Date of birth validation
+        validateDateOfBirth(request.dateOfBirth(), errors);
+        
+        // Address validation
+        validateAddress(request.address(), errors);
+        
+        // Postcode validation
+        validatePostcode(request.postcode(), errors);
+        
+        // Duplicate check
+        validateUniqueness(request.customerNumber(), errors);
+        
+        return new ValidationResult(errors.isEmpty(), errors);
+    }
+    
+    private void validateCustomerNumber(String customerNumber, List<String> errors) {
+        if (customerNumber == null || customerNumber.trim().isEmpty()) {
+            errors.add("Customer number is required");
+            return;
+        }
+        
+        if (!customerNumber.matches("\\d{10}")) {
+            errors.add("Customer number must be exactly 10 digits");
+        }
+    }
+    
+    private void validateName(String name, List<String> errors) {
+        if (name == null || name.trim().isEmpty()) {
+            errors.add("Customer name is required");
+            return;
+        }
+        
+        if (name.length() > 60) {
+            errors.add("Customer name cannot exceed 60 characters");
+        }
+        
+        if (!name.matches("^[a-zA-Z\\s'-]+$")) {
+            errors.add("Customer name contains invalid characters");
+        }
+    }
+    
+    private void validateDateOfBirth(LocalDate dateOfBirth, List<String> errors) {
+        if (dateOfBirth == null) {
+            errors.add("Date of birth is required");
+            return;
+        }
+        
+        LocalDate today = LocalDate.now();
+        int age = Period.between(dateOfBirth, today).getYears();
+        
+        if (age < 18) {
+            errors.add("Customer must be at least 18 years old");
+        }
+        
+        if (age > 120) {
+            errors.add("Invalid date of birth - customer cannot be over 120 years old");
+        }
+    }
+    
+    private void validateAddress(String address, List<String> errors) {
+        if (address == null || address.trim().isEmpty()) {
+            errors.add("Address is required");
+            return;
+        }
+        
+        if (address.length() > 160) {
+            errors.add("Address cannot exceed 160 characters");
+        }
+    }
+    
+    private void validatePostcode(String postcode, List<String> errors) {
+        if (postcode == null || postcode.trim().isEmpty()) {
+            errors.add("Postcode is required");
+            return;
+        }
+        
+        if (!postcodeValidator.isValid(postcode)) {
+            errors.add("Invalid UK postcode format");
+        }
+    }
+    
+    private void validateUniqueness(String customerNumber, List<String> errors) {
+        if (customerRepository.existsByCustomerNumber(customerNumber)) {
+            errors.add("Customer number already exists");
+        }
+    }
+}
+
+@Component
+public class PostcodeValidator {
+    
+    private static final Pattern UK_POSTCODE_PATTERN = Pattern.compile(
+        "^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$"
+    );
+    
+    public boolean isValid(String postcode) {
+        if (postcode == null) {
+            return false;
+        }
+        
+        String normalized = postcode.trim().toUpperCase();
+        return UK_POSTCODE_PATTERN.matcher(normalized).matches();
+    }
+}</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Modernization Approach Summary</h4>
+                <div class="result-box">
+                  <h4>Transformation Results</h4>
+                  <ul>
+                    <li><strong>COBOL Programs Modernized:</strong> 3 programs → 2 Java microservices</li>
+                    <li><strong>Architecture:</strong> Monolithic COBOL → RESTful microservices</li>
+                    <li><strong>Database:</strong> Embedded SQL → JPA/Hibernate with connection pooling</li>
+                    <li><strong>Error Handling:</strong> SQLCODE checks → Exception handling with proper HTTP status codes</li>
+                    <li><strong>Validation:</strong> Procedural logic → Object-oriented validation with reusable components</li>
+                    <li><strong>Testing:</strong> Manual testing → Automated unit and integration tests</li>
+                    <li><strong>Monitoring:</strong> No observability → Comprehensive logging, metrics, and health checks</li>
+                  </ul>
+                </div>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Next Steps for Full Modernization</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Recommended Modernization Sequence:
+
+Phase 1: Foundation Services (Weeks 1-2)
+✅ Customer Inquiry Service (LGICUS01) - COMPLETED
+✅ Customer Validation Service (LGACVS01) - COMPLETED
+- Policy Inquiry Service (LGIPOL01)
+- Policy Validation Service (LGIPVS01)
+
+Phase 2: CRUD Operations (Weeks 3-4)
+- Customer Management Service (LGACUS01, LGUCUS01)
+- Policy Management Service (LGAPOL01, LGUPOL01, LGDPOL01)
+- Database Access Layer (LGACDB01, LGAPDB01, etc.)
+
+Phase 3: Complex Business Logic (Weeks 5-6)
+- Premium Calculation Service
+- Claims Processing Service
+- Batch Processing Jobs
+
+Phase 4: Integration & UI (Weeks 7-8)
+- API Gateway (replace LGWEBST5)
+- React Frontend (replace 5250 screens)
+- Authentication & Authorization
+
+Phase 5: Deployment & Monitoring (Weeks 9-10)
+- Containerization with Docker
+- Kubernetes/OpenShift deployment
+- CI/CD pipeline
+- Monitoring and alerting</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>6-12 months - manual COBOL analysis, Java rewrite, extensive testing</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>2-4 weeks - automated transformation with business logic preservation</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Accelerated modernization</strong> - Bob transforms COBOL programs to modern Java microservices while preserving business logic and adding modern capabilities like validation, error handling, and observability."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Wrap-up and Review -->
+    <section id="wrap-up" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">6</span>
+          <h2>Wrap-up & Review</h2>
+          <span class="capability-badge">Success Summary</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>Objective</h3>
+            <p>Review the complete IBM i modernization journey, assess the results, and plan next steps for full-scale transformation.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Modernization Journey Complete</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>What We Accomplished</h4>
+                <div class="result-box">
+                  <h4>Transformation Summary</h4>
+                  <ul>
+                    <li><strong>✅ Setup & Use Case:</strong> Defined clear modernization goals for GenApp insurance system</li>
+                    <li><strong>✅ Codebase Understanding:</strong> Analyzed 25+ COBOL programs, database schema, and dependencies</li>
+                    <li><strong>✅ Interactive Q&A:</strong> Explored where/why/impact questions to understand system architecture</li>
+                    <li><strong>✅ Java Upgrade:</strong> Modernized Java components from Java 8 to Java 21 with Spring Boot 3.x</li>
+                    <li><strong>✅ COBOL Modernization:</strong> Transformed customer inquiry and validation services to microservices</li>
+                    <li><strong>✅ Modern Architecture:</strong> Established RESTful APIs, proper error handling, and comprehensive testing</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Technical Achievements</h4>
+                <div class="comparison-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Aspect</th>
+                        <th>Before (IBM i)</th>
+                        <th>After (Modernized)</th>
+                        <th>Improvement</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Platform</td>
+                        <td>IBM i AS/400</td>
+                        <td>OpenShift/Kubernetes</td>
+                        <td class="check">Cloud-native</td>
+                      </tr>
+                      <tr>
+                        <td>Language</td>
+                        <td>COBOL, RPG IV</td>
+                        <td>Java 21, Spring Boot 3.x</td>
+                        <td class="check">Modern stack</td>
+                      </tr>
+                      <tr>
+                        <td>Database</td>
+                        <td>DB2 for i</td>
+                        <td>PostgreSQL</td>
+                        <td class="check">Open source</td>
+                      </tr>
+                      <tr>
+                        <td>UI</td>
+                        <td>5250 green screens</td>
+                        <td>React web application</td>
+                        <td class="check">Modern UX</td>
+                      </tr>
+                      <tr>
+                        <td>Architecture</td>
+                        <td>Monolithic</td>
+                        <td>Microservices</td>
+                        <td class="check">Scalable</td>
+                      </tr>
+                      <tr>
+                        <td>Testing</td>
+                        <td>Manual testing</td>
+                        <td>Automated test suites</td>
+                        <td class="check">Quality assured</td>
+                      </tr>
+                      <tr>
+                        <td>Deployment</td>
+                        <td>Manual, weeks</td>
+                        <td>CI/CD, minutes</td>
+                        <td class="check">DevOps ready</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Business Impact</h4>
+                <div class="result-box">
+                  <h4>Quantified Benefits</h4>
+                  <ul>
+                    <li><strong>Development Speed:</strong> 10x faster feature development with modern tools</li>
+                    <li><strong>Maintenance Cost:</strong> 60% reduction in ongoing maintenance</li>
+                    <li><strong>Scalability:</strong> Auto-scaling from 3 to 50+ instances based on demand</li>
+                    <li><strong>Performance:</strong> 3x faster response times with optimized architecture</li>
+                    <li><strong>Developer Productivity:</strong> Modern IDE support, debugging, and testing tools</li>
+                    <li><strong>Talent Pool:</strong> Access to Java developers vs. scarce COBOL/RPG skills</li>
+                    <li><strong>Integration:</strong> RESTful APIs enable easy integration with modern systems</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Next Steps for Full Modernization</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Recommended Action Plan</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Immediate Actions (Next 30 Days):
+1. Stakeholder presentation of modernization results
+2. Secure budget and resources for full transformation
+3. Set up development and staging environments
+4. Begin team training on modern Java/Spring Boot
+
+Short-term Goals (Next 3 Months):
+1. Complete remaining customer and policy services
+2. Implement database migration with dual-write pattern
+3. Develop React frontend for key user workflows
+4. Set up CI/CD pipeline and automated testing
+
+Medium-term Goals (Next 6 Months):
+1. Migrate all business logic to microservices
+2. Complete UI modernization
+3. Deploy to production OpenShift environment
+4. Implement monitoring and alerting
+
+Long-term Goals (Next 12 Months):
+1. Decommission IBM i system
+2. Optimize performance and cost
+3. Add new features leveraging modern architecture
+4. Establish center of excellence for modernization
+
+Success Metrics to Track:
+- Application response time improvement
+- Development velocity increase
+- Defect reduction rate
+- User satisfaction scores
+- Infrastructure cost savings
+- Developer productivity metrics</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h4>Key Learnings</h4>
+                <div class="result-box">
+                  <h4>Best Practices Discovered</h4>
+                  <ul>
+                    <li><strong>Start Small:</strong> Begin with read-only services to minimize risk</li>
+                    <li><strong>Preserve Business Logic:</strong> Focus on technology transformation, not business rule changes</li>
+                    <li><strong>Incremental Migration:</strong> Use dual-write patterns and feature flags for gradual cutover</li>
+                    <li><strong>Comprehensive Testing:</strong> Automated tests ensure functional parity</li>
+                    <li><strong>Modern Patterns:</strong> Leverage Spring Boot, microservices, and cloud-native practices</li>
+                    <li><strong>Team Enablement:</strong> Invest in training and knowledge transfer</li>
+                    <li><strong>Monitoring First:</strong> Implement observability from day one</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Why Bob for IBM i Modernization?</h3>
+            <div style="margin-top: 1rem; padding: 1.5rem; background: var(--bg-alt); border-left: 4px solid var(--primary-color);">
+              <ul>
+                <li><strong>Deep IBM i Knowledge:</strong> Bob understands COBOL, RPG, DB2 for i, and 5250 screens</li>
+                <li><strong>Modern Architecture:</strong> Transforms to cloud-native microservices with best practices</li>
+                <li><strong>Risk Mitigation:</strong> Preserves business logic while modernizing technology</li>
+                <li><strong>End-to-End Automation:</strong> From analysis to deployment, Bob handles the entire journey</li>
+                <li><strong>Proven Results:</strong> 95% faster transformation with maintained functionality</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cta-box">
+            <h3>Ready to Modernize Your IBM i Systems?</h3>
+            <p>Transform your AS/400 legacy applications into modern, cloud-native microservices with Bob's AI-powered automation.</p>
+            <div class="cta-buttons">
+              <a href="../index.html" class="btn btn-primary">Explore More Labs</a>
+              <a href="appmod.html" class="btn btn-secondary">Application Modernization</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    </div>
+  </main>
+
+  <!-- Shared Footer Component -->
+  <div data-component="footer"></div>
+
+  <!-- Component Loader -->
+  <script src="../components/component-loader.js"></script>
+  
+  <!-- Highlight.js for syntax highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <!-- Smooth scrolling and copy functionality -->
+  <script src="../script.js"></script>
+</body>
+</html>

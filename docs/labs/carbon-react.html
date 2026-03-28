@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon React Mode - bob-lab</title>
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+  <div data-component="breadcrumb"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Carbon React Mode</h1>
+      <p class="page-subtitle">Building UI with Carbon Design System</p>
+      <p class="page-description">Learn how to use Bob's Carbon React mode to implement UI designs using the Carbon Design System components</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>Carbon React Learning Path</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#introduction" class="capability-link active">Introduction</a>
+        <a href="#getting-started" class="capability-link">Getting Started</a>
+        <a href="#component-specification" class="capability-link">Component Specification</a>
+        <a href="#implementation" class="capability-link">Implementation Process</a>
+        <a href="#best-practices" class="capability-link">Best Practices</a>
+        <a href="#examples" class="capability-link">Examples</a>
+        <a href="#conclusion" class="capability-link">Conclusion</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="https://carbondesignsystem.com/" target="_blank" class="sidebar-github-link">
+          <span class="github-text">Carbon Design System</span>
+          <span class="github-arrow">&rarr;</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="walkthrough-main">
+      <div class="walkthrough-content">
+        <!-- Enhanced Progress -->
+        <div data-component="enhanced-progress"></div>
+
+        <!-- Table of Contents -->
+        <div data-component="table-of-contents"></div>
+
+      <!-- Introduction -->
+      <section id="introduction" class="section">
+        <div class="container">
+          <div class="info-card compliance">
+            <h2>Welcome to Carbon React Mode</h2>
+            <p>Carbon React mode enables Bob to implement UI designs using IBM's Carbon Design System. This powerful mode helps you create consistent, accessible, and professional enterprise applications.</p>
+
+            <div class="capabilities-overview">
+              <div class="cap-card">
+                <h4>Component Library</h4>
+                <p>Access to 100+ production-ready React components</p>
+              </div>
+              <div class="cap-card">
+                <h4>Design Tokens</h4>
+                <p>Consistent spacing, colors, and typography</p>
+              </div>
+              <div class="cap-card">
+                <h4>Accessibility First</h4>
+                <p>Built-in accessibility features and WCAG compliance</p>
+              </div>
+              <div class="cap-card">
+                <h4>Responsive Design</h4>
+                <p>Mobile-first components with breakpoint awareness</p>
+              </div>
+            </div>
+
+            <p><strong>Estimated Time:</strong> 25-30 minutes to master Carbon React mode</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Getting Started -->
+      <section id="getting-started" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">1</span>
+            <h2>Getting Started</h2>
+            <span class="capability-badge">Foundation</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>Setting Up Your Environment</h3>
+              <p>Before using Carbon React mode, ensure your project has the necessary dependencies.</p>
+            </div>
+
+            <div class="demo-window">
+              <div class="window-header">
+                <span class="window-title">Install Dependencies</span>
+                <div class="window-controls">
+                  <span class="control close"></span>
+                  <span class="control minimize"></span>
+                  <span class="control maximize"></span>
+                </div>
+              </div>
+              <div class="window-content">
+                <pre><code class="language-bash"># Install Carbon React components
+npm install @carbon/react @carbon/themes @carbon/icons-react
+
+# Or with yarn
+yarn add @carbon/react @carbon/themes @carbon/icons-react</code></pre>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <h3>Project Structure</h3>
+              <p>Ensure your project is set up to support Carbon components:</p>
+              <ul>
+                <li>React 16.8+ (for hooks support)</li>
+                <li>Sass support (for Carbon styles)</li>
+                <li>Modern bundler (webpack, vite, etc.)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Component Specification -->
+      <section id="component-specification" class="section">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">2</span>
+            <h2>Component Specification</h2>
+            <span class="capability-badge">Core Skill</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>Describing UI Components</h3>
+              <p>Learn how to effectively describe UI components for Carbon React implementation.</p>
+            </div>
+
+            <div class="best-practices-grid">
+              <div class="practice-card">
+                <h3>Be Specific</h3>
+                <ul>
+                  <li>Specify exact Carbon component names</li>
+                  <li>Include props and variants</li>
+                  <li>Define spacing and layout</li>
+                  <li>Mention interaction states</li>
+                </ul>
+              </div>
+              
+              <div class="practice-card">
+                <h3>Provide Context</h3>
+                <ul>
+                  <li>Describe the user flow</li>
+                  <li>Explain data requirements</li>
+                  <li>Specify responsive behavior</li>
+                  <li>Include accessibility needs</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="demo-window">
+              <div class="window-header">
+                <span class="window-title">Example Specification</span>
+                <div class="window-controls">
+                  <span class="control close"></span>
+                  <span class="control minimize"></span>
+                  <span class="control maximize"></span>
+                </div>
+              </div>
+              <div class="window-content">
+                <pre><code class="language-text">Create a login form using Carbon React components:
+
+1. Use a Form component with spacing-07 between fields
+2. Add a TextInput for email with type="email" and labelText="Email"
+3. Add a PasswordInput with labelText="Password" and helperText="Minimum 8 characters"
+4. Include a Checkbox with labelText="Remember me"
+5. Add a Button component with kind="primary" and text="Sign in"
+6. Use Grid system with 4 columns offset on large screens
+7. Make it responsive: full width on mobile, 6 columns on tablet</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Implementation Process -->
+      <section id="implementation" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">3</span>
+            <h2>Implementation Process</h2>
+            <span class="capability-badge">Workflow</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>Step-by-Step Implementation</h3>
+              <p>Follow this structured approach for best results with Carbon React mode.</p>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 1: Analyze the Design</h3>
+              <p>Break down your UI into Carbon components and identify the structure.</p>
+              <div class="code-block-wrapper">
+                <div class="code-header">
+                  <span>Component Analysis</span>
+                  <button class="copy-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code class="language-text">Header: Header (fixed position)
+Navigation: HeaderNavigation
+Content: Grid + Row + Column
+Form: Form with TextInput, Button, etc.
+Footer: Footer (simple)</code></pre>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 2: Implement Section by Section</h3>
+              <p>Build your UI incrementally, starting with the layout structure.</p>
+              <div class="code-block-wrapper">
+                <div class="code-header">
+                  <span>Implementation Order</span>
+                  <button class="copy-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code class="language-text">1. Set up the basic layout structure
+2. Add major components (Header, Footer)
+3. Implement the main content area
+4. Add interactive elements
+5. Apply responsive design
+6. Refine spacing and styling</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Best Practices -->
+      <section id="best-practices" class="section">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">4</span>
+            <h2>Best Practices</h2>
+            <span class="capability-badge">Guidelines</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="guidelines-grid">
+              <div class="guideline-card">
+                <div class="guideline-icon"></div>
+                <h3>Start with Layout</h3>
+                <p>Always begin with Grid, Row, and Column components for proper structure.</p>
+                <div class="example-box">
+                  <strong>Example:</strong> "Create a 16-column grid with a sidebar that spans 4 columns on large screens."
+                </div>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon"></div>
+                <h3>Use Carbon Props</h3>
+                <p>Leverage built-in props for styling instead of custom CSS.</p>
+                <div class="example-box">
+                  <strong>Good:</strong> Use `kind="secondary"` on Button<br>
+                  <strong>Bad:</strong> Custom CSS to change button color
+                </div>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon"></div>
+                <h3>Design Tokens</h3>
+                <p>Use Carbon's design tokens for consistent spacing and sizing.</p>
+                <div class="example-box">
+                  <strong>Common Tokens:</strong> spacing-01 (4px), spacing-03 (8px), spacing-05 (16px), spacing-07 (32px)
+                </div>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon"></div>
+                <h3>Theme Support</h3>
+                <p>Implement with white and g10/g90/g100 theme variants in mind.</p>
+                <div class="example-box">
+                  <strong>Tip:</strong> Use layer tokens instead of hardcoded colors for theme compatibility
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Examples -->
+      <section id="examples" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">5</span>
+            <h2>Examples</h2>
+            <span class="capability-badge">Reference</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="example-tabs">
+              <div class="tab-header">
+                <button class="tab-button active" data-tab="dashboard">Dashboard</button>
+                <button class="tab-button" data-tab="forms">Forms</button>
+                <button class="tab-button" data-tab="tables">Data Tables</button>
+              </div>
+              
+              <div class="tab-content active" id="dashboard">
+                <div class="demo-window">
+                  <div class="window-header">
+                    <span class="window-title">Dashboard Layout</span>
+                    <div class="window-controls">
+                      <span class="control close"></span>
+                      <span class="control minimize"></span>
+                      <span class="control maximize"></span>
+                    </div>
+                  </div>
+                  <div class="window-content">
+                    <pre><code class="language-text">Create a dashboard layout with:
+
+1. Header with HeaderNavigation and HeaderMenuButton
+2. Grid container with 16 columns
+3. First row: Row with 3 Column components (4, 8, 4 span)
+4. Second row: Row with 2 Column components (8, 8 span)
+5. Each Column contains a Card with different content
+6. Use spacing-06 between rows
+7. Add Tile components for interactive areas
+8. Include a Footer with simple layout
+
+Use Carbon's white theme with g10 hover states.</code></pre>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tab-content" id="forms">
+                <div class="demo-window">
+                  <div class="window-header">
+                    <span class="window-title">Multi-Step Form</span>
+                    <div class="window-controls">
+                      <span class="control close"></span>
+                      <span class="control minimize"></span>
+                      <span class="control maximize"></span>
+                    </div>
+                  </div>
+                  <div class="window-content">
+                    <pre><code class="language-text">Build a multi-step form with:
+
+1. ProgressIndicator with 4 steps at the top
+2. Form component with spacing-07 between fields
+3. Step 1: 3 TextInput components (name, email, phone)
+4. Step 2: TextArea and Dropdown components
+5. Step 3: RadioButtonGroup and Checkbox components
+6. Step 4: Review page with all data displayed
+7. Button group at bottom with Back/Next/Submit
+8. Use inline validation with invalid state
+
+Apply proper focus management and keyboard navigation.</code></pre>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="tab-content" id="tables">
+                <div class="demo-window">
+                  <div class="window-header">
+                    <span class="window-title">Data Table</span>
+                    <div class="window-controls">
+                      <span class="control close"></span>
+                      <span class="control minimize"></span>
+                      <span class="control maximize"></span>
+                    </div>
+                  </div>
+                  <div class="window-content">
+                    <pre><code class="language-text">Create an interactive data table:
+
+1. DataTable with Toolbar component
+2. Toolbar contains Search and Button (Add new)
+3. Table with 7 columns: ID, Name, Status, Date, Owner, Actions
+4. Use TableHeader, TableRow, TableCell components
+5. Add overflow menu to Actions column
+6. Implement pagination with Pagination component
+7. Add row selection with Checkbox
+8. Include sorting on Name and Date columns
+9. Use zebra striping for better readability
+
+Fetch data from API and handle loading states.</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conclusion -->
+      <section id="conclusion" class="section">
+        <div class="container">
+          <div class="info-card compliance">
+            <h2>You're Ready to Build with Carbon React!</h2>
+            <p>You've learned how to use Bob's Carbon React mode to efficiently implement UI designs using the Carbon Design System. You now know how to:</p>
+            
+            <div class="checklist">
+              <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <span>Set up your project for Carbon React development</span>
+              </div>
+              <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <span>Specify components with proper Carbon terminology</span>
+              </div>
+              <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <span>Implement layouts using Grid, Row, and Column</span>
+              </div>
+              <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <span>Apply best practices for accessibility and theming</span>
+              </div>
+              <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <span>Build complex UIs like dashboards and forms</span>
+              </div>
+              <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <span>Use design tokens for consistent styling</span>
+              </div>
+            </div>
+
+            <div class="next-steps-box">
+              <h3>Next Steps</h3>
+              <p>Now that you've mastered Carbon React mode, try these challenges:</p>
+              <ol>
+                <li><strong>Build a Dashboard:</strong> Create a data-rich dashboard with DataTable, Charts, and Tiles</li>
+                <li><strong>Design a Form Wizard:</strong> Implement a multi-step form using ProgressIndicator and Form components</li>
+                <li><strong>Create a Settings Page:</strong> Build a comprehensive settings interface with Tabs, Toggle, and Accordion</li>
+                <li><strong>Implement a Search Experience:</strong> Design a search interface with Search, Tag, and filtering capabilities</li>
+              </ol>
+            </div>
+
+            <div class="cta-box">
+              <h3>Continue Learning</h3>
+              <p>Explore more Bob capabilities and advanced features:</p>
+              <div class="cta-buttons">
+                <a href="custom-modes.html" class="cta-button primary">Learn About Custom Modes</a>
+                <a href="getting-started.html" class="cta-button secondary">Getting Started Guide</a>
+                <a href="mcp.html" class="cta-button secondary">MCP Integration</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Shared Footer Component -->
+  <div data-component="footer"></div>
+
+  <!-- Scripts -->
+  <script src="../components/component-loader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Copy button functionality
+    document.querySelectorAll('.copy-button').forEach(button => {
+      button.addEventListener('click', async () => {
+        const codeBlock = button.closest('.code-block-wrapper').querySelector('code');
+        const text = codeBlock.textContent;
+        
+        try {
+          await navigator.clipboard.writeText(text);
+          button.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Copied!
+          `;
+          
+          setTimeout(() => {
+            button.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+              Copy
+            `;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    });
+
+    // Tab functionality
+    document.querySelectorAll('.tab-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        
+        // Remove active class from all tabs and contents
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        
+        // Add active class to clicked tab and corresponding content
+        button.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+
+    // Sidebar navigation active state
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.capability-link');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -35% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    // Smooth scroll for navigation links
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

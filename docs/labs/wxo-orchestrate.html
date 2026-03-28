@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watsonx Orchestrate Development - bob-lab</title>
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+  
+  <!-- Breadcrumb Navigation -->
+  <div data-component="breadcrumb"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>watsonx Orchestrate Agent Development</h1>
+      <p class="page-subtitle">Build Enterprise Agentic Applications with Bob</p>
+      <p class="page-description">Learn to develop watsonx Orchestrate agents using Bob's AI-powered development environment</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>Lab Sections</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#prerequisites" class="capability-link">Prerequisites</a>
+        <a href="#custom-mode" class="capability-link">Custom Mode Setup</a>
+        <a href="#docs-mcp" class="capability-link">Documentation MCP</a>
+        <a href="#cli-mcp" class="capability-link">CLI MCP</a>
+        <a href="#workflow" class="capability-link">Development Workflow</a>
+        <a href="#weather-agent" class="capability-link">Weather Agent Example</a>
+        <a href="#best-practices" class="capability-link">Best Practices</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="https://heidloff.net/article/bob-orchestrate/" target="_blank" class="sidebar-github-link">
+          <span class="github-text">Original Article</span>
+          <span class="github-arrow">&rarr;</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="walkthrough-main">
+      <div class="walkthrough-content">
+        <!-- Enhanced Progress -->
+        <div data-component="enhanced-progress"></div>
+        
+        <!-- Table of Contents -->
+        <div data-component="table-of-contents"></div>
+
+        <!-- Overview -->
+        <section id="overview" class="section">
+          <div class="container">
+            <div class="info-card compliance">
+              <h2>Introduction to watsonx Orchestrate Development with Bob</h2>
+              <p>watsonx Orchestrate is IBM's enterprise platform for building and running agentic applications. Combined with Bob's AI-powered development environment, you can rapidly develop sophisticated agents using "vibe coding" - a productivity-enhancing approach that simplifies complex development tasks.</p>
+
+              <div class="capabilities-overview">
+                <div class="cap-card">
+                  <h4>watsonx Orchestrate</h4>
+                  <p>Enterprise platform for agentic applications with Agent Development Kit (ADK)</p>
+                </div>
+                <div class="cap-card">
+                  <h4>IBM Bob</h4>
+                  <p>AI-based development environment that accelerates agent development</p>
+                </div>
+                <div class="cap-card">
+                  <h4>MCP Servers</h4>
+                  <p>Model Context Protocol tools for documentation and CLI access</p>
+                </div>
+              </div>
+
+              <p><strong>What You'll Build:</strong> A complete Weather Agent in under 5 minutes using natural language prompts</p>
+              <p><strong>Estimated Time:</strong> 30-45 minutes to complete all setup and exercises</p>
+            </div>
+
+            <div class="business-value">
+              <h3>Why This Approach Matters</h3>
+              <div class="value-comparison">
+                <div class="value-traditional">
+                  <strong>Traditional Development:</strong>
+                  <ul>
+                    <li>Manually search documentation</li>
+                    <li>Learn CLI command syntax</li>
+                    <li>Write boilerplate code</li>
+                    <li>Debug integration issues</li>
+                  </ul>
+                  <p><strong>Time:</strong> Hours to days per agent</p>
+                </div>
+                <div class="value-bob">
+                  <strong>With Bob + MCP:</strong>
+                  <ul>
+                    <li>Bob searches docs automatically</li>
+                    <li>Bob invokes CLI commands</li>
+                    <li>Bob generates correct code</li>
+                    <li>Bob ensures best practices</li>
+                  </ul>
+                  <p><strong>Time:</strong> Minutes per agent</p>
+                </div>
+              </div>
+              <p class="highlight">"<strong>80% faster development</strong> - Bob eliminates context switching and applies watsonx Orchestrate patterns automatically."</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Prerequisites -->
+        <section id="prerequisites" class="section section-alt">
+          <div class="container">
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-number">0</span>
+                <h2>Prerequisites</h2>
+              </div>
+
+              <div class="objective-box">
+                <h3>Before You Begin</h3>
+                <p>Ensure you have the following installed and configured:</p>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Required Software</h3>
+
+                <div class="step-item">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>IBM Bob</h4>
+                    <p>Bob must be installed and authenticated. If you haven't installed Bob yet, visit <a href="https://ibm.biz/get-bob" target="_blank">https://ibm.biz/get-bob</a> or see the <a href="getting-started.html#installation">Getting Started lab</a>.</p>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>Python & uvx</h4>
+                    <p>Python 3.8+ and uvx are required for MCP servers:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Terminal</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code class="language-bash"># Check Python version
+python --version
+
+# Install uvx (if not already installed)
+pip install uvx</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>watsonx Orchestrate Access</h4>
+                    <p>You need access to watsonx Orchestrate and the Agent Development Kit (ADK). Contact your IBM administrator if you don't have access.</p>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4>Project Directory</h4>
+                    <p>Create a working directory for your watsonx Orchestrate projects:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Terminal</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code class="language-bash">mkdir -p ~/wxo-projects
+cd ~/wxo-projects</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-card compliance">
+                <h3>Knowledge Prerequisites</h3>
+                <p>Familiarity with the following concepts is helpful but not required:</p>
+                <ul>
+                  <li>Basic understanding of AI agents and agentic workflows</li>
+                  <li>Python programming fundamentals</li>
+                  <li>REST API concepts</li>
+                  <li>Command-line interface usage</li>
+                </ul>
+                <p>Bob will guide you through the technical details!</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Custom Mode Setup -->
+        <section id="custom-mode" class="section">
+          <div class="container">
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-number">1</span>
+                <h2>Create Agent Architect Mode</h2>
+              </div>
+
+              <div class="objective-box">
+                <h3>What You'll Learn</h3>
+                <p>Create a custom Bob mode specifically designed for watsonx Orchestrate agent development. This mode configures Bob with the right context, tools, and instructions.</p>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Step-by-Step Mode Creation</h3>
+
+                <div class="step-item">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>Open Bob Settings</h4>
+                    <p>In Bob, navigate to:</p>
+                    <ul>
+                      <li><strong>Settings → Modes → Create New Mode</strong></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>Configure Mode Details</h4>
+                    <p>Set up the basic mode information:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Mode Configuration</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Name: wxo-agent-architect
+Display Name: 🤖 WXO Agent Architect
+Description: Specialized mode for developing watsonx Orchestrate agents</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>Define the Role</h4>
+                    <p>Set Bob's role and expertise for this mode:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Role Definition</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>You are an expert watsonx Orchestrate agent developer. You specialize in:
+- Building agents using the watsonx Orchestrate Agent Development Kit (ADK)
+- Implementing agentic workflows and patterns
+- Integrating tools and APIs into agents
+- Following watsonx Orchestrate best practices
+- Using Python for agent development
+
+When developing agents:
+1. Always search documentation using the SearchIbmWatsonxOrchestrateAdk tool first
+2. Use the watsonx Orchestrate CLI tools for agent operations
+3. Follow the patterns and examples from the documentation
+4. Ensure proper error handling and logging
+5. Write clean, maintainable code</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4>Configure Access Groups</h4>
+                    <p>Enable the necessary tool access groups:</p>
+                    <div class="result-box">
+                      <ul>
+                        <li><strong>read</strong> - File reading capabilities</li>
+                        <li><strong>edit</strong> - File editing and creation</li>
+                        <li><strong>browser</strong> - Web access for documentation</li>
+                        <li><strong>command</strong> - Shell command execution</li>
+                        <li><strong>mcp</strong> - Model Context Protocol tools</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">5</div>
+                  <div class="step-content">
+                    <h4>Add Custom Instructions</h4>
+                    <p>Provide specific guidance for watsonx Orchestrate development:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Custom Instructions</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>When creating agents:
+- Use SearchIbmWatsonxOrchestrateAdk to find relevant documentation
+- Follow the ADK patterns for agent structure
+- Implement proper tool integration
+- Add comprehensive error handling
+- Include logging for debugging
+- Write unit tests when appropriate
+
+For CLI operations:
+- Use the watsonx Orchestrate CLI MCP tools
+- Verify agent configuration before deployment
+- Test agents locally before deploying
+
+Important: Do NOT include 'ibm-watsonx-orchestrate' in requirements.txt
+as it's handled by the MCP server.</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">6</div>
+                  <div class="step-content">
+                    <h4>Save the Mode</h4>
+                    <p>Click <strong>Save</strong> to create your new mode. You can now switch to "WXO Agent Architect" mode when developing watsonx Orchestrate agents.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-card compliance">
+                <h3>Mode Benefits</h3>
+                <p>This custom mode provides:</p>
+                <ul>
+                  <li><strong>Focused Context:</strong> Bob understands watsonx Orchestrate specifics</li>
+                  <li><strong>Automatic Documentation Search:</strong> Bob knows to search ADK docs</li>
+                  <li><strong>CLI Integration:</strong> Direct access to watsonx Orchestrate commands</li>
+                  <li><strong>Best Practices:</strong> Built-in guidance for agent development</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Documentation MCP -->
+        <section id="docs-mcp" class="section section-alt">
+          <div class="container">
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-number">2</span>
+                <h2>Configure Documentation MCP Server</h2>
+              </div>
+
+              <div class="objective-box">
+                <h3>What You'll Learn</h3>
+                <p>Set up the remote MCP server that gives Bob access to watsonx Orchestrate documentation. This eliminates the need to manually search docs or reference specific pages.</p>
+              </div>
+
+              <div class="demo-flow">
+                <h3>MCP Server Configuration</h3>
+
+                <div class="step-item">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>Open MCP Settings</h4>
+                    <p>In Bob, navigate to:</p>
+                    <ul>
+                      <li><strong>Settings → MCP Servers → Add Server</strong></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>Configure Server Details</h4>
+                    <p>Add the watsonx Orchestrate documentation MCP server:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">MCP Configuration</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code class="language-json">{
+  "name": "wxo-docs",
+  "command": "uvx",
+  "args": ["mcp-proxy"],
+  "transport": "streamablehttp",
+  "url": "https://developer.watson-orchestrate.ibm.com/mcp",
+  "allowed_tools": ["SearchIbmWatsonxOrchestrateAdk"]
+}</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>Understanding the Configuration</h4>
+                    <div class="result-box">
+                      <ul>
+                        <li><strong>command:</strong> Uses uvx to run the MCP proxy</li>
+                        <li><strong>transport:</strong> Streamable HTTP for remote server access</li>
+                        <li><strong>url:</strong> Official watsonx Orchestrate documentation endpoint</li>
+                        <li><strong>allowed_tools:</strong> Restricts to documentation search tool only</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4>Test the Connection</h4>
+                    <p>After saving, test that Bob can access the documentation:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Test Prompt</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Search the watsonx Orchestrate documentation for information about creating a basic agent.</code></pre>
+                    </div>
+                    <p>Bob should use the SearchIbmWatsonxOrchestrateAdk tool and return relevant documentation.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="business-value">
+                <h3>Documentation Access Benefits</h3>
+                <p class="highlight">"<strong>Zero context switching</strong> - Bob automatically searches and applies documentation without you leaving the development environment."</p>
+                <div class="value-comparison">
+                  <div class="value-traditional">
+                    <strong>Without MCP:</strong>
+                    <ul>
+                      <li>Open browser</li>
+                      <li>Search documentation</li>
+                      <li>Read multiple pages</li>
+                      <li>Copy examples</li>
+                      <li>Adapt to your code</li>
+                    </ul>
+                  </div>
+                  <div class="value-bob">
+                    <strong>With MCP:</strong>
+                    <ul>
+                      <li>Ask Bob a question</li>
+                      <li>Bob searches docs automatically</li>
+                      <li>Bob applies patterns correctly</li>
+                      <li>Code generated instantly</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CLI MCP -->
+        <section id="cli-mcp" class="section">
+          <div class="container">
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-number">3</span>
+                <h2>Configure CLI MCP Server</h2>
+              </div>
+
+              <div class="objective-box">
+                <h3>What You'll Learn</h3>
+                <p>Set up the local MCP server that enables Bob to invoke watsonx Orchestrate CLI commands. This allows Bob to list agents, export configurations, and deploy agents directly.</p>
+              </div>
+
+              <div class="demo-flow">
+                <h3>CLI MCP Configuration</h3>
+
+                <div class="step-item">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>Install watsonx Orchestrate Package</h4>
+                    <p>First, ensure the watsonx Orchestrate package is available:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Terminal</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code class="language-bash"># Verify uvx can access the package
+uvx --version
+
+# The ibm-watsonx-orchestrate package will be loaded by the MCP server</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>Add CLI MCP Server</h4>
+                    <p>In Bob's MCP settings, add a new server:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">MCP Configuration</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code class="language-json">{
+  "name": "wxo-cli",
+  "command": "uvx",
+  "args": [
+    "--with",
+    "ibm-watsonx-orchestrate==2.1.0",
+    "ibm-watsonx-orchestrate"
+  ],
+  "env": {
+    "WXO_MCP_WORKING_DIRECTORY": "/path/to/your/wxo-projects"
+  },
+  "allowed_tools": [
+    "list_agents",
+    "export_agent",
+    "list_tools",
+    "list_toolkits",
+    "create_agent",
+    "deploy_agent"
+  ]
+}</code></pre>
+                    </div>
+                    <p class="security-note"><strong>Important:</strong> Replace <code>/path/to/your/wxo-projects</code> with your actual project directory path.</p>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>Understanding CLI Tools</h4>
+                    <div class="result-box">
+                      <p>The CLI MCP server provides these tools:</p>
+                      <ul>
+                        <li><strong>list_agents:</strong> View all agents in your workspace</li>
+                        <li><strong>export_agent:</strong> Export agent configuration</li>
+                        <li><strong>list_tools:</strong> List available tools for agents</li>
+                        <li><strong>list_toolkits:</strong> View available toolkits</li>
+                        <li><strong>create_agent:</strong> Create a new agent</li>
+                        <li><strong>deploy_agent:</strong> Deploy agent to watsonx Orchestrate</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4>Test CLI Access</h4>
+                    <p>Verify Bob can use the CLI tools:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Test Prompt</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/
+2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>List all available agents in my workspace</code></pre>
+                    </div>
+                    <p>Bob should use the list_agents CLI tool and display your agents.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="business-value">
+                <h3>CLI Integration Benefits</h3>
+                <p class="highlight">"<strong>Seamless deployment</strong> - Bob can create, test, and deploy agents without you switching to terminal commands."</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Development Workflow -->
+        <section id="workflow" class="section section-alt">
+          <div class="container">
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-number">4</span>
+                <h2>Development Workflow</h2>
+              </div>
+
+              <div class="objective-box">
+                <h3>What You'll Learn</h3>
+                <p>Understand the end-to-end workflow for developing watsonx Orchestrate agents with Bob, from initial prompt to deployment.</p>
+              </div>
+
+              <div class="demo-flow">
+                <h3>The Bob-Powered Development Cycle</h3>
+
+                <div class="process-flow">
+                  <div class="process-step">
+                    <h4>1. Natural Language Request</h4>
+                    <p>Start with a simple, natural language description of what you want to build:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Example Prompt</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Create a Weather Agent that can retrieve weather information for any city</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="process-step">
+                    <h4>2. Bob Creates To-Do List</h4>
+                    <p>Bob analyzes your request and creates a structured plan:</p>
+                    <div class="result-box">
+                      <ul>
+                        <li>Search documentation for agent patterns</li>
+                        <li>Identify required tools and APIs</li>
+                        <li>Generate agent code structure</li>
+                        <li>Implement weather API integration</li>
+                        <li>Add error handling and validation</li>
+                        <li>Create configuration files</li>
+                        <li>Test the agent locally</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="process-step">
+                    <h4>3. Bob Searches Documentation</h4>
+                    <p>Bob automatically uses the SearchIbmWatsonxOrchestrateAdk tool to find relevant patterns and best practices.</p>
+                  </div>
+
+                  <div class="process-step">
+                    <h4>4. Bob Generates Code</h4>
+                    <p>Bob creates all necessary files following watsonx Orchestrate conventions:</p>
+                    <ul>
+                      <li>Agent definition file</li>
+                      <li>Tool implementations</li>
+                      <li>Configuration files</li>
+                      <li>Requirements (excluding ibm-watsonx-orchestrate)</li>
+                    </ul>
+                  </div>
+
+                  <div class="process-step">
+                    <h4>5. Review and Iterate</h4>
+                    <p>Review Bob's work and provide feedback for refinements:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Refinement Example</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Add support for temperature units (Celsius/Fahrenheit) and include forecast data</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="process-step">
+                    <h4>6. Deploy with CLI Tools</h4>
+                    <p>Bob can deploy your agent using the CLI MCP tools:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Deployment Prompt</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Deploy the Weather Agent to watsonx Orchestrate</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="business-value">
+                <h3>Workflow Efficiency</h3>
+                <div class="value-comparison">
+                  <div class="value-traditional">
+                    <strong>Traditional Workflow:</strong>
+                    <p>Research → Plan → Code → Debug → Document → Deploy</p>
+                    <p><strong>Time:</strong> 4-8 hours per agent</p>
+                  </div>
+                  <div class="value-bob">
+                    <strong>Bob Workflow:</strong>
+                    <p>Describe → Review → Refine → Deploy</p>
+                    <p><strong>Time:</strong> 5-15 minutes per agent</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Weather Agent Example -->
+        <section id="weather-agent" class="section">
+          <div class="container">
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-number">5</span>
+                <h2>Build a Weather Agent</h2>
+              </div>
+
+              <div class="objective-box">
+                <h3>What You'll Build</h3>
+                <p>Create a complete Weather Agent that retrieves weather information for any city. This exercise demonstrates the full power of Bob + watsonx Orchestrate integration.</p>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Step-by-Step Agent Creation</h3>
+
+                <div class="step-item">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>Switch to WXO Agent Architect Mode</h4>
+                    <p>In Bob, switch to the custom mode you created earlier:</p>
+                    <ul>
+                      <li>Click the mode selector</li>
+                      <li>Select "🤖 WXO Agent Architect"</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>Provide the Initial Prompt</h4>
+                    <p>Give Bob a clear, concise description:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Prompt</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Create a Weather Agent for watsonx Orchestrate that:
+1. Accepts a city name as input
+2. Retrieves current weather information
+3. Returns temperature, conditions, and humidity
+4. Uses a free weather API (like OpenWeatherMap)
+5. Includes proper error handling</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>Bob Searches Documentation</h4>
+                    <p>Watch as Bob automatically:</p>
+                    <ul>
+                      <li>Uses SearchIbmWatsonxOrchestrateAdk to find agent patterns</li>
+                      <li>Identifies the correct ADK structure</li>
+                      <li>Locates tool integration examples</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4>Bob Generates the Agent</h4>
+                    <p>Bob creates all necessary files:</p>
+                    <div class="demo-window">
+                      <div class="window-header">
+                        <span class="window-title">Generated Files</span>
+                        <div class="window-controls">
+                          <span class="control close"></span>
+                          <span class="control minimize"></span>
+                          <span class="control maximize"></span>
+                        </div>
+                      </div>
+                      <div class="window-content">
+                        <pre><code class="language-python"># weather_agent.py
+from ibm_watsonx_orchestrate import Agent, Tool
+import requests
+import os
+
+class WeatherAgent(Agent):
+    """Agent that retrieves weather information for cities"""
+    
+    def __init__(self):
+        super().__init__(
+            name="Weather Agent",
+            description="Retrieves current weather information for any city"
+        )
+        self.api_key = os.getenv('OPENWEATHER_API_KEY')
+        self.base_url = "https://api.openweathermap.org/data/2.5/weather"
+    
+    @Tool(
+        name="get_weather",
+        description="Get current weather for a city"
+    )
+    def get_weather(self, city: str) -> dict:
+        """
+        Retrieve weather information for a specified city.
+        
+        Args:
+            city: Name of the city
+            
+        Returns:
+            Dictionary with weather information
+        """
+        try:
+            params = {
+                'q': city,
+                'appid': self.api_key,
+                'units': 'metric'
+            }
+            
+            response = requests.get(self.base_url, params=params)
+            response.raise_for_status()
+            
+            data = response.json()
+            
+            return {
+                'city': data['name'],
+                'temperature': data['main']['temp'],
+                'conditions': data['weather'][0]['description'],
+                'humidity': data['main']['humidity'],
+                'status': 'success'
+            }
+            
+        except requests.exceptions.RequestException as e:
+            return {
+                'status': 'error',
+                'message': f'Failed to retrieve weather: {str(e)}'
+            }
+        except KeyError as e:
+            return {
+                'status': 'error',
+                'message': f'Invalid response format: {str(e)}'
+            }
+
+# Initialize the agent
+agent = WeatherAgent()</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">5</div>
+                  <div class="step-content">
+                    <h4>Review and Test</h4>
+                    <p>Bob also creates configuration and test files:</p>
+                    <div class="result-box">
+                      <ul>
+                        <li><strong>config.yaml</strong> - Agent configuration</li>
+                        <li><strong>requirements.txt</strong> - Dependencies (without ibm-watsonx-orchestrate)</li>
+                        <li><strong>.env.example</strong> - Environment variable template</li>
+                        <li><strong>README.md</strong> - Usage documentation</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">6</div>
+                  <div class="step-content">
+                    <h4>Deploy the Agent</h4>
+                    <p>Ask Bob to deploy:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Deployment Prompt</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Deploy the Weather Agent to my watsonx Orchestrate workspace</code></pre>
+                    </div>
+                    <p>Bob uses the deploy_agent CLI tool to complete the deployment.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="business-value">
+                <h3>Development Time Comparison</h3>
+                <div class="real-world-proof">
+                  <h4>Actual Results</h4>
+                  <ul>
+                    <li><strong>Traditional Development:</strong> 2-4 hours (research, code, test, deploy)</li>
+                    <li><strong>With Bob:</strong> 5 minutes (prompt, review, deploy)</li>
+                    <li><strong>Time Saved:</strong> 95%+ reduction in development time</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section id="best-practices" class="section section-alt">
+          <div class="container">
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-number">6</span>
+                <h2>Best Practices</h2>
+              </div>
+
+              <div class="objective-box">
+                <h3>Maximize Your Success</h3>
+                <p>Follow these best practices to get the most out of Bob and watsonx Orchestrate development.</p>
+              </div>
+
+              <div class="demo-flow">
+                <h3>Development Best Practices</h3>
+
+                <div class="step-item">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>Start with Clear Requirements</h4>
+                    <p>Provide Bob with specific, actionable requirements:</p>
+                    <ul>
+                      <li>What the agent should do</li>
+                      <li>What inputs it needs</li>
+                      <li>What outputs it should provide</li>
+                      <li>Any specific APIs or tools to use</li>
+                      <li>Error handling requirements</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>Let Bob Search Documentation First</h4>
+                    <p>Always allow Bob to search the watsonx Orchestrate documentation before generating code. This ensures:</p>
+                    <ul>
+                      <li>Correct ADK patterns are used</li>
+                      <li>Best practices are followed</li>
+                      <li>Latest features are leveraged</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>Iterate Incrementally</h4>
+                    <p>Build agents in stages:</p>
+                    <ol>
+                      <li>Start with basic functionality</li>
+                      <li>Test and verify</li>
+                      <li>Add features incrementally</li>
+                      <li>Refine based on feedback</li>
+                    </ol>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">4</div>
+                  <div class="step-content">
+                    <h4>Exclude ibm-watsonx-orchestrate from requirements.txt</h4>
+                    <p>The MCP server handles this dependency. Including it in requirements.txt can cause conflicts.</p>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">5</div>
+                  <div class="step-content">
+                    <h4>Use Environment Variables for Secrets</h4>
+                    <p>Never hardcode API keys or credentials. Use environment variables:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Python Example</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code class="language-python">import os
+
+api_key = os.getenv('API_KEY')
+if not api_key:
+    raise ValueError("API_KEY environment variable not set")</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">6</div>
+                  <div class="step-content">
+                    <h4>Test Locally Before Deploying</h4>
+                    <p>Always test agents in your local environment before deploying to watsonx Orchestrate:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Test Prompt</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code>Create a test script for the Weather Agent and run it locally</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">7</div>
+                  <div class="step-content">
+                    <h4>Document Your Agents</h4>
+                    <p>Ask Bob to create comprehensive documentation:</p>
+                    <ul>
+                      <li>Agent purpose and capabilities</li>
+                      <li>Required environment variables</li>
+                      <li>Usage examples</li>
+                      <li>Error handling behavior</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="demo-flow">
+                <h3>MCP Configuration Tips</h3>
+
+                <div class="step-item">
+                  <div class="step-number">1</div>
+                  <div class="step-content">
+                    <h4>Keep MCP Servers Updated</h4>
+                    <p>Regularly check for updates to the watsonx Orchestrate MCP servers to access new features and improvements.</p>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">2</div>
+                  <div class="step-content">
+                    <h4>Use Specific Tool Allowlists</h4>
+                    <p>Only enable the MCP tools you need for security and clarity:</p>
+                    <div class="code-block-wrapper">
+                      <div class="code-block-header">
+                        <span class="code-block-language">Good Practice</span>
+                        <button class="copy-button">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                          </svg>
+                          Copy
+                        </button>
+                      </div>
+                      <pre><code class="language-json">"allowed_tools": [
+  "list_agents",
+  "create_agent",
+  "deploy_agent"
+]</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="step-item">
+                  <div class="step-number">3</div>
+                  <div class="step-content">
+                    <h4>Set Correct Working Directory</h4>
+                    <p>Ensure the WXO_MCP_WORKING_DIRECTORY environment variable points to your actual project directory.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-card compliance">
+                <h3>Common Pitfalls to Avoid</h3>
+                <ul>
+                  <li><strong>Including ibm-watsonx-orchestrate in requirements.txt</strong> - This causes dependency conflicts</li>
+                  <li><strong>Hardcoding credentials</strong> - Always use environment variables</li>
+                  <li><strong>Skipping documentation search</strong> - Let Bob search docs for best practices</li>
+                  <li><strong>Deploying without testing</strong> - Always test locally first</li>
+                  <li><strong>Vague prompts</strong> - Be specific about requirements and constraints</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Summary -->
+        <section id="summary" class="section">
+          <div class="container">
+            <div class="info-card">
+              <h2>Congratulations! 🎉</h2>
+              <p>You've learned how to develop watsonx Orchestrate agents using Bob's AI-powered development environment with MCP integration.</p>
+
+              <div class="next-steps">
+                <h3>What You've Accomplished</h3>
+                <ul>
+                  <li>✅ Created a custom "WXO Agent Architect" mode</li>
+                  <li>✅ Configured documentation MCP server for automatic doc access</li>
+                  <li>✅ Set up CLI MCP server for agent operations</li>
+                  <li>✅ Built a complete Weather Agent in minutes</li>
+                  <li>✅ Learned best practices for agent development</li>
+                </ul>
+              </div>
+
+              <div class="business-value">
+                <h3>Key Takeaways</h3>
+                <ul>
+                  <li><strong>80% faster development</strong> - From hours to minutes per agent</li>
+                  <li><strong>Zero context switching</strong> - Bob handles docs and CLI automatically</li>
+                  <li><strong>Best practices built-in</strong> - Bob applies watsonx Orchestrate patterns correctly</li>
+                  <li><strong>Rapid iteration</strong> - Refine agents through natural language feedback</li>
+                </ul>
+              </div>
+
+              <div class="next-steps">
+                <h3>Next Steps</h3>
+                <ol>
+                  <li>Build more complex agents with multiple tools</li>
+                  <li>Integrate with enterprise APIs and data sources</li>
+                  <li>Create agent workflows and orchestrations</li>
+                  <li>Explore advanced ADK features through Bob</li>
+                  <li>Share your custom mode with your team</li>
+                </ol>
+              </div>
+
+              <div class="info-card compliance">
+                <h3>Additional Resources</h3>
+                <ul>
+                  <li><a href="https://heidloff.net/article/bob-orchestrate/" target="_blank">Original Article by Niklas Heidloff</a></li>
+                  <li><a href="https://developer.watson-orchestrate.ibm.com/" target="_blank">watsonx Orchestrate Documentation</a></li>
+                  <li><a href="custom-modes.html">Learn More About Custom Modes</a></li>
+                  <li><a href="mcp.html">Deep Dive into MCP Servers</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>bob-lab</h4>
+          <p>Master IBM Bob through hands-on labs</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../index.html#labs">All Labs</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li><a href="custom-modes.html">Custom Modes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Built by IBM Client Engineering with bob</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../components/component-loader.js"></script>
+  <script src="../components/breadcrumb-helper.js"></script>
+  <script>
+    initBreadcrumb('watsonx Orchestrate Development');
+  </script>
+  <script src="../i18n.js"></script>
+  <script src="../script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      hljs.highlightAll();
+    });
+  </script>
+</body>
+</html>

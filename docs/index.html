@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bob-lab | IBM Bob Development Labs</title>
+  <meta name="description" content="Master IBM Bob through hands-on labs. Learn DevSecOps, custom modes, application modernization, and more with interactive exercises.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light dark">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .home-hero {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #0353e9 100%);
+      color: white;
+      padding: 5rem 2rem;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .home-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .home-hero .subtitle {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      opacity: 0.95;
+    }
+
+    .home-hero .description {
+      font-size: 1.125rem;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .home-section {
+      margin-bottom: 5rem;
+    }
+
+    .home-section-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .home-section-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .home-card {
+      background: var(--bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .home-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      border-color: var(--primary-color);
+    }
+
+    .home-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-primary);
+    }
+
+    .home-card p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .home-card .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .home-card .btn:hover {
+      background: var(--primary-hover);
+      transform: translateX(4px);
+    }
+
+    .home-card .btn-secondary {
+      background: var(--bg-alt);
+      color: var(--text-primary);
+    }
+
+    .home-card .btn-secondary:hover {
+      background: var(--border-color);
+    }
+
+    .featured-card {
+      background: linear-gradient(135deg, #f4f4f4 0%, #ffffff 100%);
+      border: 2px solid var(--primary-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    body.dark-theme .featured-card {
+      background: linear-gradient(135deg, #262626 0%, #1a1a1a 100%);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--primary-color);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .quick-start-card {
+      background: linear-gradient(135deg, var(--success-color) 0%, #0f8a3d 100%);
+      color: white;
+      border: none;
+    }
+
+    .quick-start-card h3,
+    .quick-start-card p {
+      color: white;
+    }
+
+    .quick-start-card .btn {
+      background: white;
+      color: var(--success-color);
+    }
+
+    .quick-start-card .btn:hover {
+      background: rgba(255,255,255,0.9);
+      transform: scale(1.05);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--bg-alt);
+      border-radius: 8px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+      .home-hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .home-hero .subtitle {
+        font-size: 1.25rem;
+      }
+
+      .home-section-title {
+        font-size: 2rem;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Components will be loaded here -->
+  <div data-component="navbar"></div>
+
+  <!-- Hero Section -->
+  <header class="home-hero">
+    <div class="container">
+      <h1>Welcome to bob-lab</h1>
+      <p class="subtitle">Master IBM Bob through hands-on labs and interactive exercises</p>
+      <p class="description">Learn DevSecOps, custom modes, application modernization, and enterprise AI development with real-world scenarios.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container" style="padding: 0 2rem 4rem;">
+    
+    <!-- Quick Start Section -->
+    <section class="home-section">
+      <div class="card-grid" style="grid-template-columns: 1fr;">
+        <div class="home-card quick-start-card">
+          <h3>New to Bob? Start Here!</h3>
+          <p>Begin your journey with IBM Bob. Learn the fundamentals, installation process, and basic usage to get up and running quickly.</p>
+          <a href="labs/getting-started.html" class="btn">Get Started</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="home-section">
+      <h2 class="home-section-title">Core Features</h2>
+      <p class="home-section-subtitle">Explore Bob's powerful capabilities and learn how to leverage them in your workflow</p>
+      
+      <div class="card-grid">
+        
+        <div class="home-card">
+          <h3>BobShell CLI</h3>
+          <p>Master the command-line interface for Bob with advanced terminal capabilities and automation.</p>
+          <a href="labs/bobshell.html" class="btn btn-secondary">Explore BobShell</a>
+        </div>
+
+        <div class="home-card">
+          <h3>Bob Rules</h3>
+          <p>Learn how to configure and customize Bob's behavior with rules and preferences.</p>
+          <a href="labs/bob-rules.html" class="btn btn-secondary">Learn Rules</a>
+        </div>
+
+        <div class="home-card">
+          <h3>Custom Modes</h3>
+          <p>Create specialized modes tailored to your workflow and development patterns.</p>
+          <a href="labs/custom-modes.html" class="btn btn-secondary">Build Modes</a>
+        </div>
+
+        <!--div class="home-card" style="display: none;">
+          <h3>Spec-Driven Development</h3>
+          <p>Transform specifications into working code with Bob's intelligent interpretation.</p>
+          <a href="labs/spec-driven-development.html" class="btn btn-secondary">Start Spec-Driven</a>
+        </div-->
+
+        <div class="home-card">
+          <h3>MCP Development</h3>
+          <p>Integrate Model Context Protocol servers to extend Bob's capabilities.</p>
+          <a href="labs/mcp.html" class="btn btn-secondary">Explore MCP</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="home-section">
+      <h2 class="home-section-title">Real-World Use Cases</h2>
+      <p class="home-section-subtitle">Apply Bob to solve real enterprise challenges with proven patterns and best practices</p>
+      
+      <div class="card-grid">
+        
+        <div class="home-card featured-card">
+          <span class="featured-badge">Popular</span>
+          <h3>DevSecOps</h3>
+          <p>Experience Bob's enterprise-scale DevSecOps capabilities with SSO + MFA implementation.</p>
+          <a href="labs/walkthrough.html" class="btn">Start DevSecOps Lab</a>
+        </div>
+
+        <div class="home-card">
+          <h3>App Modernization</h3>
+          <p>Modernize legacy applications with Bob's intelligent refactoring and migration tools.</p>
+          <a href="labs/appmod.html" class="btn btn-secondary">Modernize Apps</a>
+        </div>
+
+        <div class="home-card">
+          <h3>SDLC Integration</h3>
+          <p>Integrate Bob into your Software Development Lifecycle for continuous improvement.</p>
+          <a href="labs/sdlc.html" class="btn btn-secondary">Explore SDLC</a>
+        </div>
+
+        <div class="home-card">
+          <h3>IBM i Platform Modernization</h3>
+          <p>Modernize RPG and COBOL applications on IBM i with Java upgrades, code analysis, and migration strategies.</p>
+          <a href="labs/ibmi.html" class="btn btn-secondary">Explore IBM i</a>
+        </div>
+
+        <!-- <div class="home-card" style="display: none;">
+          <h3>Carbon React</h3>
+          <p>Build enterprise-grade React applications using IBM's Carbon Design System.</p>
+          <a href="labs/carbon-react.html" class="btn btn-secondary">Build with Carbon</a>
+        </div>
+
+        <div class="home-card" style="display: none;">
+          <h3>IBM i Platform</h3>
+          <p>Develop and modernize applications on IBM i with Bob's platform-specific tools.</p>
+          <a href="labs/ibmi.html" class="btn btn-secondary">Explore IBM i</a>
+        </div>
+
+        <div class="home-card" style="display: none;">
+          <h3>COBOL to Java</h3>
+          <p>Transform legacy COBOL applications into modern Java with automated migration.</p>
+          <a href="labs/cobol2java.html" class="btn btn-secondary">Migrate COBOL</a>
+        </div> -->
+
+        <!-- <div class="home-card featured-card" style="display: none;">
+          <span class="featured-badge">New</span>
+          <h3>watsonx Orchestrate</h3>
+          <p>Develop intelligent agents for watsonx Orchestrate using Bob with MCP integration.</p>
+          <a href="labs/wxo-orchestrate.html" class="btn">Build Agents</a>
+        </div> -->
+
+      </div>
+    </section>
+
+    <!-- Additional Resources -->
+    <section class="home-section" style="display: none;">
+      <h2 class="home-section-title">Additional Resources</h2>
+      <p class="home-section-subtitle">Everything you need to become a Bob expert</p>
+      
+      <div class="card-grid">
+        
+        <div class="home-card">
+          <h3>Documentation</h3>
+          <p>Comprehensive guides and API references for Bob.</p>
+        </div>
+
+        <div class="home-card">
+          <h3>Community</h3>
+          <p>Join the Bob community for support and discussions.</p>
+        </div>
+
+        <div class="home-card">
+          <h3>Video Tutorials</h3>
+          <p>Watch step-by-step video guides and demos.</p>
+        </div>
+
+        <div class="home-card">
+          <h3>Best Practices</h3>
+          <p>Learn industry best practices for using Bob effectively.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div data-component="footer"></div>
+
+  <!-- Scripts -->
+  <script src="components/component-loader.js"></script>
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

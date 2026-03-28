@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COBOL to Java Modernization - bob-lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+  <div data-component="breadcrumb"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>COBOL to Java Modernization with Bob</h1>
+      <p class="page-subtitle">Transform Legacy COBOL Financial Applications to Modern Java</p>
+      <p class="page-description">Learn AI-assisted code conversion, test generation, and modernization best practices</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>Lab Steps</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#sample-downloads" class="capability-link">Sample Code</a>
+        <a href="#understand-cobol" class="capability-link">Understand COBOL Code</a>
+        <a href="#convert-java" class="capability-link">Convert to Java</a>
+        <a href="#create-tests" class="capability-link">Create Tests</a>
+        <a href="#build-ui" class="capability-link">Build UI (Optional)</a>
+        <a href="#rest-api" class="capability-link">REST API (Optional)</a>
+        <a href="#success-criteria" class="capability-link">Success Criteria</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="#sample-downloads" class="sidebar-link">
+          <span class="github-text">Download Sample Code</span>
+          <span class="github-arrow">&rarr;</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="walkthrough-main">
+
+    <section id="overview" class="section">
+      <div class="container">
+        <h2>Overview</h2>
+        <div class="capability-content">
+          <p>Learn how to use IBM Bob to modernize legacy COBOL financial applications to modern Java in 30-45 minutes. This hands-on lab demonstrates AI-assisted code conversion, test generation, and modernization best practices.</p>
+          <strong>Duration</strong>: 30-45 minutes  
+<strong>Difficulty</strong>: Intermediate  
+<strong>What You'll Build</strong>: Convert a COBOL financial calculator to Java with tests and modern UI
+          <p>---</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sample Code Downloads -->
+    <section id="sample-downloads" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">0</span>
+          <h2>Sample Code Downloads</h2>
+          <span class="capability-badge">Resources</span>
+        </div>
+        <div class="capability-content">
+          <p>Download these sample files to practice COBOL to Java conversion with Bob:</p>
+          
+          <div class="download-grid">
+            <div class="download-card">
+              <h3>COBOL Hello World</h3>
+              <p>Simple COBOL program with basic structure and I/O operations</p>
+              <a href="../samples/hello.cob" download class="download-button btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5zm-7-4.5a1 1 0 0 0 1 1v8a1 1 0 0 0 1 1h.096l.014.007 2.001.023L12.354 8c.285-.288.5-.298 1.001-.017A1 1 0 0 0 11.002 7.5v-1c0-.276.111-.555.288-.815l-1.254-1.363L5.364 2.681A1.998 1.998 0 0 0 3 1.72 1.72H2a1 1 0 0 0-1-1V4a1 1 0 0 1 1 1h7.172L3.653 7.354a.999.999 0 0 0-.001.997-.506 1.508l2.144 2.506A1 1 0 0 0 6.01 10l-2.144 2.494A.997.997 0 0 0 3.007 12h4.99a.998.998 0 0 0 .006-1.002L11.99 7.34A2 2 0 0 0 11.002 5.99H7.002c-.001 0-.002-.003-.002-.004A1.994 1.994 0 0 0 6 4a2 2 0 0 0-2 2z"/>
+                </svg>
+                Download .cob
+              </a>
+            </div>
+            
+            <div class="download-card">
+              <h3>COBOL Customer Records</h3>
+              <p>Complete COBOL application with file processing, business logic, and reporting</p>
+              <a href="../samples/customer-records.cob" download class="download-button btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5zm-7-4.5a1 1 0 0 0 1 1v8a1 1 0 0 0 1 1h.096l.014.007 2.001.023L12.354 8c.285-.288.5-.298 1.001-.017A1 1 0 0 0 11.002 7.5v-1c0-.276.111-.555.288-.815l-1.254-1.363L5.364 2.681A1.998 1.998 0 0 0 3 1.72 1.72H2a1 1 0 0 0-1-1V4a1 1 0 0 1 1 1h7.172L3.653 7.354a.999.999 0 0 0-.001.997-.506 1.508l2.144 2.506A1 1 0 0 0 6.01 10l-2.144 2.494A.997.997 0 0 0 3.007 12h4.99a.998.998 0 0 0 .006-1.002L11.99 7.34A2 2 0 0 0 11.002 5.99H7.002c-.001 0-.002-.003-.002-.004A1.994 1.994 0 0 0 6 4a2 2 0 0 0-2 2z"/>
+                </svg>
+                Download .cob
+              </a>
+            </div>
+            
+            <div class="download-card">
+              <h3>Java Hello World</h3>
+              <p>Modern Java implementation with multiple constructors and utility methods</p>
+              <a href="../samples/HelloWorld.java" download class="download-button btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5zm-7-4.5a1 1 0 0 0 1 1v8a1 1 0 0 0 1 1h.096l.014.007 2.001.023L12.354 8c.285-.288.5-.298 1.001-.017A1 1 0 0 0 11.002 7.5v-1c0-.276.111-.555.288-.815l-1.254-1.363L5.364 2.681A1.998 1.998 0 0 0 3 1.72 1.72H2a1 1 0 0 0-1-1V4a1 1 0 0 1 1 1h7.172L3.653 7.354a.999.999 0 0 0-.001.997-.506 1.508l2.144 2.506A1 1 0 0 0 6.01 10l-2.144 2.494A.997.997 0 0 0 3.007 12h4.99a.998.998 0 0 0 .006-1.002L11.99 7.34A2 2 0 0 0 11.002 5.99H7.002c-.001 0-.002-.003-.002-.004A1.994 1.994 0 0 0 6 4a2 2 0 0 0-2 2z"/>
+                </svg>
+                Download .java
+              </a>
+            </div>
+            
+            <div class="download-card">
+              <h3>Java Customer Records</h3>
+              <p>Converted Java application with file processing, proper OOP structure, and reporting</p>
+              <a href="../samples/CustomerRecords.java" download class="download-button btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5zm-7-4.5a1 1 0 0 0 1 1v8a1 1 0 0 0 1 1h.096l.014.007 2.001.023L12.354 8c.285-.288.5-.298 1.001-.017A1 1 0 0 0 11.002 7.5v-1c0-.276.111-.555.288-.815l-1.254-1.363L5.364 2.681A1.998 1.998 0 0 0 3 1.72 1.72H2a1 1 0 0 0-1-1V4a1 1 0 0 1 1 1h7.172L3.653 7.354a.999.999 0 0 0-.001.997-.506 1.508l2.144 2.506A1 1 0 0 0 6.01 10l-2.144 2.494A.997.997 0 0 0 3.007 12h4.99a.998.998 0 0 0 .006-1.002L11.99 7.34A2 2 0 0 0 11.002 5.99H7.002c-.001 0-.002-.003-.002-.004A1.994 1.994 0 0 0 6 4a2 2 0 0 0-2 2z"/>
+                </svg>
+                Download .java
+              </a>
+            </div>
+            
+            <div class="download-card featured">
+              <h3>Complete Application: GenApp (COBOL+Java)</h3>
+              <p>Full enterprise application with database operations, business logic, and multi-layer architecture</p>
+              <a href="../samples/GenApp_SRC.zip" download class="download-button btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5zm-7-4.5a1 1 0 0 0 1 1v8a1 1 0 0 0 1 1h.096l.014.007 2.001.023L12.354 8c.285-.288.5-.298 1.001-.017A1 1 0 0 0 11.002 7.5v-1c0-.276.111-.555.288-.815l-1.254-1.363L5.364 2.681A1.998 1.998 0 0 0 3 1.72 1.72H2a1 1 0 0 0-1-1V4a1 1 0 0 1 1 1h7.172L3.653 7.354a.999.999 0 0 0-.001.997-.506 1.508l2.144 2.506A1 1 0 0 0 6.01 10l-2.144 2.494A.997.997 0 0 0 3.007 12h4.99a.998.998 0 0 0 .006-1.002L11.99 7.34A2 2 0 0 0 11.002 5.99H7.002c-.001 0-.002-.003-.002-.004A1.994 1.994 0 0 0 6 4a2 2 0 0 0-2 2z"/>
+                </svg>
+                Download .zip (Complete)
+              </a>
+            </div>
+            
+            <div class="download-card featured">
+              <h3>WebSphere Module: modresorts-twas-j8 (Java)</h3>
+              <p>J2EE application with JMX beans, resource management, and deployment configuration</p>
+              <a href="../samples/modresorts-twas-j8.zip" download class="download-button btn btn-primary">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5zm-7-4.5a1 1 0 0 0 1 1v8a1 1 0 0 0 1 1h.096l.014.007 2.001.023L12.354 8c.285-.288.5-.298 1.001-.017A1 1 0 0 0 11.002 7.5v-1c0-.276.111-.555.288-.815l-1.254-1.363L5.364 2.681A1.998 1.998 0 0 0 3 1.72 1.72H2a1 1 0 0 0-1-1V4a1 1 0 0 1 1 1h7.172L3.653 7.354a.999.999 0 0 0-.001.997-.506 1.508l2.144 2.506A1 1 0 0 0 6.01 10l-2.144 2.494A.997.997 0 0 0 3.007 12h4.99a.998.998 0 0 0 .006-1.002L11.99 7.34A2 2 0 0 0 11.002 5.99H7.002c-.001 0-.002-.003-.002-.004A1.994 1.994 0 0 0 6 4a2 2 0 0 0-2 2z"/>
+                </svg>
+                Download .zip (Complete)
+              </a>
+            </div>
+          </div>
+          
+          <div class="info-card info">
+            <h3>Using These Samples</h3>
+            <p>These files demonstrate key concepts in COBOL to Java conversion:</p>
+            <ul>
+              <li><strong>hello.cob/HelloWorld.java</strong> - Basic structure, I/O, and simple methods</li>
+              <li><strong>customer-records.cob/CustomerRecords.java</strong> - File processing, business logic, and reporting patterns</li>
+              <li><strong>GenApp_SRC.zip</strong> - Complete enterprise application with database operations, including:
+                <ul>
+                  <li>8 COBOL programs (LGACDB*, LGAP*, etc.) with database operations</li>
+                  <li>Corresponding Java implementation with Maven project structure</li>
+                  <li>Database DDL scripts and JCL for deployment</li>
+                </ul>
+              </li>
+              <li><strong>modresorts-twas-j8.zip</strong> - WebSphere traditional J2EE application featuring:
+                <ul>
+                  <li>JMX MBeans for resource management and monitoring</li>
+                  <li>Multi-layer architecture with proper separation of concerns</li>
+                  <li>WebSphere deployment configuration (Containerfile)</li>
+                  <li>Integration patterns with enterprise systems</li>
+                </ul>
+              </li>
+              <li>Use these complete applications as reference for enterprise patterns</li>
+              <li>Compare the COBOL and Java approaches to understand conversion strategies</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="understand-cobol" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">1</span>
+          <h2>Understand the COBOL Code</h2>
+          <span class="capability-badge">5 minutes</span>
+        </div>
+        <div class="capability-content">
+          <h3>Why This Step?</h3>
+Before converting legacy code, you must fully understand:
+<ul>
+<li>Business logic and financial calculations</li>
+<li>COBOL-specific patterns (REDEFINES, UNSTRING, LINKAGE SECTION)</li>
+<li>Data type mappings (COMP, DISPLAY, PIC clauses)</li>
+<li>Subprogram calling conventions</li>
+</ul>
+          <h3>Prompt for Bob:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">code</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-plaintext">Analyze the COBOL financial calculator codebase and provide a comprehensive explanation 
+of its functionality. Describe:
+          <p>1. The overall program structure and flow
+2. How COBCALC orchestrates the subprograms
+3. The financial calculations performed (loan payments and present value)
+4. Non-obvious COBOL patterns used (REDEFINES arrays, UNSTRING delimiters, 
+   underscore placeholder technique)
+5. Data type usage (COMP vs DISPLAY, PIC clauses)
+6. The LINKAGE SECTION feedback mechanism</p>
+          <p>Create a Mermaid architecture diagram showing:
+<ul>
+<li>Program relationships and CALL flow</li>
+<li>Data structures and their transformations</li>
+<li>Key methods and their purposes</li>
+<li>The calculation pipeline from input to output</li>
+</ul>
+</code></pre></div></p>
+          <h3>What to Look For:</h3>
+Bob should identify:
+<ul>
+<li>✅ Hardcoded test data pattern (not production-ready)</li>
+<li>✅ REDEFINES technique for array simulation</li>
+<li>✅ Monthly rate conversion requirement (INTEREST / 12)</li>
+<li>✅ Two-character feedback mechanism ("OK"/"NO")</li>
+<li>✅ Underscore placeholder formatting technique</li>
+<li>✅ Case-insensitive input handling via FUNCTION UPPER-CASE</li>
+</ul>
+          <h3>Key COBOL Patterns:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">cobol</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-cobol">* REDEFINES for array simulation
+05  BUFFER-DATA.
+    10  FILLER PIC X(10) VALUE "LOAN".
+    10  FILLER PIC X(10) VALUE "PVALUE".
+05  BUFFER-ARRAY REDEFINES BUFFER-DATA
+                 OCCURS 4 TIMES PIC X(10).
+          <p>* LINKAGE SECTION for subprogram feedback
+LINKAGE SECTION.
+01  PARM-1.
+    05  CALL-FEEDBACK PIC XX.</p>
+          <p>* Financial calculation with intrinsic function
+COMPUTE PAYMENT = LOAN-AMOUNT *
+    FUNCTION ANNUITY((INTEREST / 12) NO-OF-PERIODS).
+</code></pre></div></p>
+          <p>---</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="convert-java" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">2</span>
+          <h2>Convert to Java</h2>
+          <span class="capability-badge">10 minutes</span>
+        </div>
+        <div class="capability-content">
+          <h3>Why This Step?</h3>
+Modern Java provides:
+<ul>
+<li>Better maintainability and testability</li>
+<li>Precise financial calculations with BigDecimal</li>
+<li>Integration with modern systems</li>
+<li>Object-oriented design patterns</li>
+</ul>
+          <h3>Prompt for Bob:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">code</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-plaintext">Convert the COBOL financial calculator to Java with the following requirements:
+          <p>1. Use BigDecimal for all financial calculations (avoid floating-point errors)
+2. Create separate classes for each calculator (LoanCalculator, PresentValueCalculator)
+3. Implement a CalculationResult class to replace LINKAGE SECTION feedback
+4. Preserve the original calculation logic exactly
+5. Handle edge cases (zero interest, negative values, empty arrays)
+6. Create a Main class that mimics COBCALC's orchestration
+7. Use Maven for build management with JUnit 5 dependencies</p>
+          <p>Provide:
+<ul>
+<li>Complete Java source code for all classes</li>
+<li>Maven pom.xml configuration</li>
+<li>Package structure (com.financial.calculator)</li>
+<li>Proper error handling and validation</li>
+</ul>
+</code></pre></div></p>
+          <h3>Key Conversion Patterns:</h3>
+          <p>| COBOL | Java |
+|-------|------|
+| <code>PIC S9(9)V99 COMP</code> | <code>BigDecimal</code> with scale 2 |
+| <code>PIC XX</code> | <code>String</code> or custom enum |
+| <code>FUNCTION ANNUITY</code> | Custom annuity formula |
+| <code>FUNCTION PRESENT-VALUE</code> | NPV calculation loop |
+| <code>UNSTRING ... DELIMITED BY</code> | <code>String.split()</code> |
+| <code>INSPECT REPLACING</code> | <code>String.replace()</code> |</p>
+          <h3>Expected Deliverables:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">code</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-plaintext">src/main/java/com/financial/calculator/
+├── Main.java                      # Main controller
+├── CalculationResult.java         # Result wrapper
+├── LoanCalculator.java            # Loan payment calculator
+└── PresentValueCalculator.java    # Present value calculator
+pom.xml                            # Maven configuration
+</code></pre></div>
+          <h3>Sample Java Code Structure:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">java</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-java">public class CalculationResult {
+    private final boolean success;
+    private final String message;
+    private final BigDecimal value;
+    
+    // Constructor, getters...
+}
+          <p>public class LoanCalculator {
+    public static CalculationResult calculate(
+        BigDecimal loanAmount,
+        BigDecimal annualRate,
+        int periods) {
+        
+        // Validation
+        if (loanAmount.compareTo(BigDecimal.ZERO) <= 0) {
+            return new CalculationResult(false, 
+                "Loan amount must be positive", null);
+        }
+        
+        // Calculate monthly rate
+        BigDecimal monthlyRate = annualRate.divide(
+            BigDecimal.valueOf(12), 10, RoundingMode.HALF_UP);
+        
+        // Calculate payment using annuity formula
+        BigDecimal payment = calculateAnnuity(
+            loanAmount, monthlyRate, periods);
+        
+        return new CalculationResult(true, 
+            formatMessage(loanAmount, annualRate, periods), 
+            payment);
+    }
+}
+</code></pre></div></p>
+          <p>---</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="create-tests" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">3</span>
+          <h2>Create Comprehensive Tests</h2>
+          <span class="capability-badge">8 minutes</span>
+        </div>
+        <div class="capability-content">
+          <h3>Why This Step?</h3>
+Tests ensure:
+<ul>
+<li>Conversion accuracy (matches COBOL output)</li>
+<li>Proper error handling</li>
+<li>Edge case coverage</li>
+<li>Safe refactoring capability</li>
+</ul>
+          <h3>Prompt for Bob:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">code</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-plaintext">Create a comprehensive JUnit 5 test suite for the financial calculators:
+          <p>1. Test with original COBOL test data to verify conversion accuracy
+2. Test edge cases:
+   - Zero interest rates
+   - Single period loans
+   - Negative cash flows
+   - Empty input arrays
+   - Very large numbers
+3. Test error conditions:
+   - Negative loan amounts
+   - Invalid discount rates (≤ -1)
+   - Zero or negative periods
+4. Verify message formatting matches COBOL output
+5. Test currency formatting ($X,XXX.XX)</p>
+          <p>Provide:
+<ul>
+<li>LoanCalculatorTest.java with 8+ test cases</li>
+<li>PresentValueCalculatorTest.java with 10+ test cases</li>
+<li>Clear test names describing what is being tested</li>
+<li>Assertions that validate both values and messages</li>
+</ul>
+</code></pre></div></p>
+          <h3>Test Categories:</h3>
+<ul>
+<li><strong>Accuracy Tests</strong>: Verify calculations match COBOL results</li>
+<li><strong>Edge Case Tests</strong>: Zero interest, single cash flow, etc.</li>
+<li><strong>Validation Tests</strong>: Reject invalid inputs appropriately</li>
+<li><strong>Format Tests</strong>: Verify output message formatting</li>
+<li><strong>Boundary Tests</strong>: Test with extreme values</li>
+</ul>
+          <h3>Sample Test Structure:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">java</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-java">@Test
+void testLoanCalculation_WithCOBOLTestData() {
+    // Test with original COBOL values: 30000, 0.09, 24
+    CalculationResult result = LoanCalculator.calculate(
+        new BigDecimal("30000"),
+        new BigDecimal("0.09"),
+        24
+    );
+    
+    assertTrue(result.isSuccess());
+    assertEquals(new BigDecimal("1370.54"), 
+        result.getValue().setScale(2, RoundingMode.HALF_UP));
+}
+          <p>@Test
+void testLoanCalculation_WithZeroInterest() {
+    CalculationResult result = LoanCalculator.calculate(
+        new BigDecimal("12000"),
+        BigDecimal.ZERO,
+        12
+    );
+    
+    assertTrue(result.isSuccess());
+    assertEquals(new BigDecimal("1000.00"), 
+        result.getValue().setScale(2, RoundingMode.HALF_UP));
+}
+</code></pre></div></p>
+          <h3>Run Tests:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">bash</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-bash">mvn test
+</code></pre></div>
+          <h3>Expected Results:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">code</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-plaintext">Tests run: 19, Failures: 0, Errors: 0, Skipped: 0
+<ul>
+<li>LoanCalculatorTest: 8 tests passed</li>
+<li>PresentValueCalculatorTest: 11 tests passed</li>
+</ul>
+</code></pre></div>
+          <p>---</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="build-ui" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">4</span>
+          <h2>Build Interactive UI (Optional - 10 minutes)</h2>
+          <span class="capability-badge"></span>
+        </div>
+        <div class="capability-content">
+          <h3>Why This Step?</h3>
+Legacy COBOL uses hardcoded test data. Modern applications need interactive user interfaces.
+          <h3>Prompt for Bob:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">code</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-plaintext">Create a JavaFX or Swing GUI for the financial calculator with:
+          <p>1. Tabbed interface with two tabs:
+   - "Loan Calculator" tab
+   - "Present Value Calculator" tab</p>
+          <p>2. Loan Calculator tab should have:
+   - Input fields: Loan Amount, Annual Interest Rate (%), Number of Months
+   - "Calculate" button
+   - Results display area showing monthly payment
+   - Input validation with error messages</p>
+          <p>3. Present Value Calculator tab should have:
+   - Input fields: Discount Rate (%), Number of Periods
+   - Dynamic cash flow input fields (add/remove capability)
+   - "Calculate" button
+   - Results display area showing present value
+   - Input validation</p>
+          <p>4. Features:
+   - Clear/Reset buttons
+   - Currency formatting in results
+   - Keyboard shortcuts (Enter to calculate)
+   - Professional styling with proper layout
+   - Error dialogs for invalid inputs</p>
+          <p>Provide complete source code and instructions to run the GUI.
+</code></pre></div></p>
+          <h3>Run GUI:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">bash</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-bash">mvn javafx:run
+# or
+mvn exec:java -Dexec.mainClass="com.financial.calculator.FinancialCalculatorGUI"
+</code></pre></div>
+          <p>---</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="rest-api" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">5</span>
+          <h2>Add REST API (Optional - 7 minutes)</h2>
+          <span class="capability-badge"></span>
+        </div>
+        <div class="capability-content">
+          <h3>Why This Step?</h3>
+Modern architectures use microservices. Wrap calculators in REST API for integration.
+          <h3>Prompt for Bob:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">code</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-plaintext">Create a Spring Boot REST API for the financial calculators:
+          <p>1. Endpoints:
+   - POST /api/loan/calculate
+     Request: { "loanAmount": 30000, "annualRate": 0.09, "periods": 24 }
+     Response: { "monthlyPayment": 1370.54, "message": "..." }
+   
+   - POST /api/presentvalue/calculate
+     Request: { "discountRate": 0.12, "cashFlows": [50, 69, 83, 75, 44] }
+     Response: { "presentValue": 231.36, "message": "..." }</p>
+          <p>2. Features:
+   - Input validation with proper HTTP status codes
+   - JSON request/response bodies
+   - Error handling with meaningful messages
+   - CORS configuration for web clients
+   - Swagger/OpenAPI documentation</p>
+          <p>3. Provide:
+   - REST controller classes
+   - Request/Response DTOs
+   - Updated pom.xml with Spring Boot dependencies
+   - application.properties configuration
+   - Instructions to run and test the API
+</code></pre></div></p>
+          <h3>Run API:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">bash</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-bash">mvn spring-boot:run
+</code></pre></div>
+          <h3>Test API:</h3>
+<div class="code-block-wrapper"><div class="code-block-header"><span class="code-block-language">bash</span><button class="copy-button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>Copy</button></div><pre><code class="language-bash">curl -X POST http://localhost:8080/api/loan/calculate \
+  -H "Content-Type: application/json" \
+  -d '{"loanAmount": 30000, "annualRate": 0.09, "periods": 24}'
+</code></pre></div>
+          <p>---</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="success-criteria" class="section">
+      <div class="container">
+        <h2>Success Criteria</h2>
+        <div class="capability-content">
+          <h3>Step 1 - Understanding ✅</h3>
+<ul>
+<li>[ ] Bob explained COBOL program structure</li>
+<li>[ ] Identified key patterns (REDEFINES, LINKAGE SECTION)</li>
+<li>[ ] Understood financial calculation logic</li>
+<li>[ ] Generated architecture diagram</li>
+</ul>
+          <h3>Step 2 - Conversion ✅</h3>
+<ul>
+<li>[ ] Java classes created with proper structure</li>
+<li>[ ] BigDecimal used for financial calculations</li>
+<li>[ ] Maven pom.xml configured correctly</li>
+<li>[ ] Code compiles without errors</li>
+</ul>
+          <h3>Step 3 - Testing ✅</h3>
+<ul>
+<li>[ ] 19+ test cases created</li>
+<li>[ ] All tests pass</li>
+<li>[ ] Edge cases covered</li>
+<li>[ ] Conversion accuracy verified</li>
+</ul>
+          <h3>Step 4 - UI (Optional) ✅</h3>
+<ul>
+<li>[ ] GUI runs successfully</li>
+<li>[ ] Input validation works</li>
+<li>[ ] Results display correctly</li>
+<li>[ ] User-friendly error messages</li>
+</ul>
+          <h3>Step 5 - API (Optional) ✅</h3>
+<ul>
+<li>[ ] REST endpoints functional</li>
+<li>[ ] JSON request/response working</li>
+<li>[ ] Swagger documentation available</li>
+<li>[ ] Error handling implemented</li>
+</ul>
+          <p>---</p>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <!-- Shared Footer Component -->
+  <div data-component="footer"></div>
+
+  <!-- Component Loader -->
+  <script src="../components/component-loader.js"></script>
+  
+  <!-- Highlight.js for syntax highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <!-- Smooth scrolling and copy functionality -->
+  <script src="../script.js"></script>
+</body>
+</html>

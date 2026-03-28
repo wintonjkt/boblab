@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BobShell - bob-lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+  
+  <!-- Breadcrumb Navigation -->
+  <div data-component="breadcrumb"></div>
+  
+  <header class="page-header">
+    <div class="container">
+      <h1>Master BobShell</h1>
+      <p class="page-subtitle">Command-Line Interface for Bob</p>
+      <p class="page-description">Learn to use BobShell for powerful terminal-based AI assistance, automation, and integration with your development workflow</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>BobShell Guide</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#installation" class="capability-link">Installation & Setup</a>
+        <a href="#basic-commands" class="capability-link">Basic Commands</a>
+        <a href="#interactive-mode" class="capability-link">Interactive Mode</a>
+        <a href="#automation" class="capability-link">Automation & Scripting</a>
+        <a href="#integrations" class="capability-link">IDE & CI/CD Integration</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="https://internal.bob.ibm.com/docs/shell" target="_blank" class="sidebar-github-link">
+          <span class="github-text">Documentation</span>
+          <span class="github-arrow">&rarr;</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="walkthrough-main">
+      <!-- Enhanced Progress -->
+      <div data-component="enhanced-progress"></div>
+      
+      <!-- Table of Contents -->
+      <div data-component="table-of-contents"></div>
+      
+      <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="info-card compliance">
+          <h2>What is BobShell?</h2>
+          <p>BobShell is Bob's native command-line interface that provides powerful AI assistance directly in your terminal. It enables seamless automation, scripting capabilities, and integrates naturally with Unix-style workflows.</p>
+
+
+          <p><strong>Estimated Time:</strong> 20-25 minutes to master BobShell fundamentals</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation & Setup -->
+    <section id="installation" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">1</span>
+          <h2>Installation & Setup</h2>
+          <span class="capability-badge">Getting Started</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="demo-flow">
+            <h3>System Requirements & Installation</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Prerequisites</h4>
+                <p>Before installing BobShell, ensure you have:</p>
+                
+                <div class="result-box" style="margin-bottom: 1rem;">
+                  <p><strong>Bob IDE Required:</strong> Install Bob first from <a href="https://ibm.biz/get-bob" target="_blank" style="color: #0f62fe; text-decoration: underline;">https://ibm.biz/get-bob</a> for the easiest BobShell setup experience.</p>
+                </div>
+
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">System Requirements</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Node.js version 22.25.0 or later
+node --version  # Should be v22.25.0+
+
+# Supported Operating Systems:
+# - macOS
+# - Linux
+# - Windows
+# - z/OS
+# - Linux on Z</code></pre>
+                </div>
+
+                <h4>Installation Methods</h4>
+                <p>Choose the installation method that works best for your environment:</p>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Via Command Palette (Recommended)</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># If you have Bob IDE installed:
+# 1. Open Command Palette (Ctrl+Shift+P / Cmd+Shift+P)
+# 2. Type and select: run bobshell</code></pre>
+                </div>
+
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">macOS and Linux</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Standard installation
+curl -s https://s3.us-south.cloud-object-storage.appdomain.cloud/bobshell/install-bobshell.sh | bash
+
+# With specific package manager (pnpm, npm, yarn)
+curl -s https://s3.us-south.cloud-object-storage.appdomain.cloud/bobshell/install-bobshell.sh | bash -s -- --pm pnpm</code></pre>
+                </div>
+
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Windows</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Standard installation
+powershell -ep Bypass 'irm -Uri "https://s3.us-south.cloud-object-storage.appdomain.cloud/bobshell/install-bobshell.ps1" | iex'
+
+# With specific package manager (requires PowerShell v3+)
+powershell -ep Bypass 'iex "& {$(irm "https://s3.us-south.cloud-object-storage.appdomain.cloud/bobshell/install-bobshell.ps1")} -pm pnpm"'</code></pre>
+                </div>
+
+                <p><strong>Note:</strong> Bob Shell updates automatically. When a new update is available, restart Bob Shell to apply the update.</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Authentication Setup</h4>
+                <p>To use Bob Shell, you need to authenticate with your Bob API key:</p>
+                
+                <div class="demo-window">
+                  <div class="window-header">
+                    <span class="window-title">Get Your API Key</span>
+                    <div class="window-controls">
+                      <span class="control close"></span>
+                      <span class="control minimize"></span>
+                      <span class="control maximize"></span>
+                    </div>
+                  </div>
+                  <div class="window-content">
+                    <pre><code class="language-bash"># Step 1: Get your API key
+# Your API key is the same one you use for Bob IDE
+# Check your Slack history for a welcome message from Ask Bob
+# that includes your API key
+
+# Step 2: Set the environment variable
+# In the terminal where you want to start Bob Shell:
+export BOBSHELL_API_KEY=abc123
+
+# For permanent setup, add to your shell profile:
+# For bash (~/.bashrc or ~/.bash_profile):
+echo 'export BOBSHELL_API_KEY=your_api_key_here' >> ~/.bashrc
+source ~/.bashrc
+
+# For zsh (~/.zshrc):
+echo 'export BOBSHELL_API_KEY=your_api_key_here' >> ~/.zshrc
+source ~/.zshrc
+
+# For fish (~/.config/fish/config.fish):
+echo 'set -x BOBSHELL_API_KEY your_api_key_here' >> ~/.config/fish/config.fish
+source ~/.config/fish/config.fish</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Using File References</h4>
+                <p>Bob Shell supports file references using the @ symbol, just like in Bob's interactive mode:</p>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">File Reference Examples</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Reference a file in your prompt
+bob -p "Explain the code in @src/main.js"
+
+# Reference multiple files
+bob -p "Compare @src/old.js and @src/new.js"
+
+# Use with any prompt
+bob -p "What Java version is this application for? Use the info in @pom.xml"</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Safety Features</h4>
+                <p>Bob Shell includes safety features to protect your code:</p>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Non-Destructive by Default</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># By default, Bob Shell only uses "non-destructive" tools
+# (e.g., "read file") in non-interactive mode
+
+# To enable writing and updating files, use --yolo flag:
+bob -p "Fix the bugs in @src/main.js" --yolo
+
+# Note: Even with --yolo mode enabled, Bob Shell will NOT
+# write or update files outside the directory where
+# Bob Shell was started</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h4>Processing Output</h4>
+                <p>Bob Shell output contains both the answer and "thinking" steps. For easier processing:</p>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Output Processing</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Add instruction to enclose answer in markdown tags
+bob -p "What Java version is this application for? Use the info in @pom.xml. Enclose the answer in markdown tags" > ../bobresp.txt
+
+# Example result:
+# I'll check the Java version specified in the pom.xml file...
+# ```markdown
+# This application is built for Java 8, as specified in the
+# pom.xml file with the following compiler settings:
+# <maven.compiler.source>1.8</maven.compiler.source>
+# <maven.compiler.target>1.8</maven.compiler.target>
+# ```</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">6</div>
+              <div class="step-content">
+                <h4>Shell Integration (Optional)</h4>
+                <p>Set up shell completion for enhanced productivity:</p>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Shell Integration</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Bash/Zsh - Auto completion
+echo 'eval "$(bob completion bash)"' >> ~/.bashrc
+source ~/.bashrc
+
+# Fish shell
+echo 'eval "$(bob completion fish)"' >> ~/.config/fish/config.fish
+
+# PowerShell
+Add-Content -Path $PROFILE -Value '(& bob completion powershell | Out-String | Invoke-Expression)'
+
+# Initialize completion immediately
+eval "$(bob completion bash)"
+
+# Optional aliases for convenience
+echo '# BobShell aliases' >> ~/.bash_aliases
+echo 'alias bob="bob shell"' >> ~/.bash_aliases
+echo 'alias bobi="bob interactive"' >> ~/.bash_aliases
+echo 'alias boba="bob analyze"' >> ~/.bash_aliases
+echo 'alias bobg="bob generate"' >> ~/.bash_aliases
+echo 'alias bobt="bob test"' >> ~/.bash_aliases</code></pre>
+                </div>
+
+                <div class="demo-window">
+                  <div class="window-header">
+                    <span class="window-title">Shell Integration Test</span>
+                    <div class="window-controls">
+                      <span class="control close"></span>
+                      <span class="control minimize"></span>
+                      <span class="control maximize"></span>
+                    </div>
+                  </div>
+                  <div class="window-content">
+                    <pre><code class="language-bash">$ bob completion install
+Installing shell completions...
+
+Bash completion installed to: ~/.local/share/bash-completion/completions/bob
+Zsh completion installed to: ~/.local/share/zsh/site-functions/_bob
+Fish completion installed to: ~/.config/fish/completions/bob.fish
+
+$ bob <tab><tab>
+analyze          docker          git              interactive
+auth             docs             generate         project
+completion       env              help             init
+config           exec             install           shell
+test             workspace
+
+$ bob gen<tab><tab>
+generate         get              git
+generate api    get-context      git-hook
+generate compo get-workspace   git-status
+generate config  get-secret       git-
+generate deploy  help             init</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">7</div>
+              <div class="step-content">
+                <h4>Verify Installation</h4>
+                <p>Confirm Bob Shell is installed and working:</p>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Verification</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Check Bob Shell version
+bob --version
+
+# Test with a simple prompt
+bob -p "Hello, what can you help me with?"
+
+# Test file reference (if you have a file)
+bob -p "Summarize @README.md"</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Basic Commands -->
+    <section id="basic-commands" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">2</span>
+          <h2>Basic Usage</h2>
+          <span class="capability-badge">Essential Skills</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="demo-flow">
+            <h3>Non-Interactive Mode</h3>
+            <p>Use Bob Shell in non-interactive mode by providing prompts with the `-p` flag:</p>
+            
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-language">Basic Command Syntax</span>
+                <button class="copy-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code># Basic syntax
+bob -p "your prompt here"
+
+# With file references
+bob -p "Explain the code in @src/main.js"
+
+# Enable file modifications (use with caution)
+bob -p "Fix the bugs in @src/main.js" --yolo</code></pre>
+            </div>
+
+            <div class="command-categories">
+              <div class="command-category">
+                <h4>Code Analysis Examples</h4>
+                
+                <div class="command-example">
+                  <div class="command-line">
+                    <span class="prompt">$</span> bob -p "Explain the code in @src/main.js"
+                  </div>
+                  <p>Get detailed explanation of code in a file</p>
+                </div>
+
+                <div class="command-example">
+                  <div class="command-line">
+                    <span class="prompt">$</span> bob -p "What are the security issues in @app.py?"
+                  </div>
+                  <p>Analyze code for security vulnerabilities</p>
+                </div>
+
+                <div class="command-example">
+                  <div class="command-line">
+                    <span class="prompt">$</span> bob -p "Compare @src/old.js and @src/new.js"
+                  </div>
+                  <p>Compare two files and explain differences</p>
+                </div>
+              </div>
+
+              <div class="command-category">
+                <h4>Code Modification Examples</h4>
+                
+                <div class="command-example">
+                  <div class="command-line">
+                    <span class="prompt">$</span> bob -p "Fix the bugs in @src/main.js" --yolo
+                  </div>
+                  <p>Fix bugs in a file (requires --yolo flag)</p>
+                </div>
+
+                <div class="command-example">
+                  <div class="command-line">
+                    <span class="prompt">$</span> bob -p "Add error handling to @api/routes.js" --yolo
+                  </div>
+                  <p>Add features to existing code</p>
+                </div>
+
+                <div class="command-example">
+                  <div class="command-line">
+                    <span class="prompt">$</span> bob -p "Refactor @utils/helpers.js for better performance" --yolo
+                  </div>
+                  <p>Refactor code for improvements</p>
+                </div>
+              </div>
+
+              <div class="command-category">
+                <h4>Information Extraction</h4>
+                
+                <div class="command-example">
+                  <div class="command-line">
+                    <span class="prompt">$</span> bob -p "What Java version is this application for? Use @pom.xml"
+                  </div>
+                  <p>Extract specific information from files</p>
+                </div>
+
+                <div class="command-example">
+                  <div class="command-line">
+                    <span class="prompt">$</span> bob -p "List all API endpoints defined in @routes/"
+                  </div>
+                  <p>Analyze directory contents</p>
+                </div>
+
+                <div class="command-example">
+                  <div class="command-line">
+                    <span class="prompt">$</span> bob -p "Summarize the changes in @CHANGELOG.md"
+                  </div>
+                  <p>Summarize documentation</p>
+                </div>
+              </div>
+
+              <div class="command-category">
+                <h4>Structured Output</h4>
+                
+                <div class="command-example">
+                  <div class="command-line">
+                    <span class="prompt">$</span> bob -p "List dependencies in @package.json. Enclose answer in markdown tags" > deps.txt
+                  </div>
+                  <p>Get structured output for processing</p>
+                </div>
+
+                <div class="command-example">
+                  <div class="command-line">
+                    <span class="prompt">$</span> bob -p "Generate test cases for @src/calculator.js. Format as JSON"
+                  </div>
+                  <p>Request specific output formats</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="real-world-example">
+              <h4>Real-World Workflow Example</h4>
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">BobShell Workflow</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash"># Analyze a file for issues
+$ bob -p "What are the potential bugs in @src/payment.js?"
+
+Bob is analyzing the code...
+
+Found 3 potential issues:
+1. Missing null check on line 45
+2. Unhandled promise rejection on line 67
+3. SQL injection vulnerability on line 89
+
+# Get detailed explanation
+$ bob -p "Explain the SQL injection issue in @src/payment.js line 89"
+
+The SQL injection vulnerability occurs because user input
+is directly concatenated into the SQL query...
+
+# Fix the issue (with --yolo flag)
+$ bob -p "Fix the SQL injection in @src/payment.js" --yolo
+
+Applying fix...
+✓ Updated src/payment.js
+✓ Added parameterized query
+✓ Added input validation
+
+# Verify the fix
+$ bob -p "Check if @src/payment.js still has security issues"
+
+No security issues found. The code now uses:
+- Parameterized queries
+- Input validation
+- Proper error handling
+
+# Extract information for documentation
+$ bob -p "What Java version is this for? Use @pom.xml. Enclose answer in markdown tags" > version.txt
+
+$ cat version.txt
+I'll check the Java version...
+```markdown
+This application is built for Java 8, as specified in:
+<maven.compiler.source>1.8</maven.compiler.source>
+<maven.compiler.target>1.8</maven.compiler.target>
+```</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="business-value">
+              <h3>Simple Yet Powerful</h3>
+              <div class="value-comparison">
+                <div class="value-traditional">
+                  <strong>Traditional Approach:</strong>
+                  <p>Manual code review → Search documentation → Write fixes → Test</p>
+                </div>
+                <div class="value-bob">
+                  <strong>BobShell:</strong>
+                  <p>Natural language prompts → AI analysis → Automated fixes → Instant feedback</p>
+                </div>
+              </div>
+              <p class="highlight">"<strong>AI-Powered CLI</strong> - BobShell brings AI assistance directly to your terminal with simple, intuitive commands.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Mode -->
+    <section id="interactive-mode" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">3</span>
+          <h2>Interactive Mode</h2>
+          <span class="capability-badge">Advanced Usage</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>BobShell Interactive Sessions</h3>
+            <p>Start an interactive session with Bob Shell for conversational AI assistance. Perfect for complex tasks requiring back-and-forth dialogue and context preservation.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Starting an Interactive Session</h3>
+            <p>Interactive mode allows you to have a conversation with Bob, maintaining context throughout the session.</p>
+
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-language">Starting Interactive Mode</span>
+                <button class="copy-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code># Start an interactive session
+bob
+
+# Or explicitly start interactive mode
+bob -i
+
+# Start with a specific prompt
+bob -i -p "Help me refactor my code"</code></pre>
+            </div>
+
+            <div class="demo-window">
+              <div class="window-header">
+                <span class="window-title">Interactive Session Example</span>
+                <div class="window-controls">
+                  <span class="control close"></span>
+                  <span class="control minimize"></span>
+                  <span class="control maximize"></span>
+                </div>
+              </div>
+              <div class="window-content">
+                <pre><code class="language-bash">$ bob
+Welcome to Bob Shell Interactive Mode
+Type 'exit' or press Ctrl+D to quit
+
+> I need help optimizing my database queries in @src/db/queries.js
+
+Let me analyze the queries in that file...
+
+I found several optimization opportunities:
+1. Query on line 45 has an N+1 problem
+2. Missing index usage on line 67
+3. Inefficient JOIN on line 89
+
+> Can you explain the N+1 problem in detail?
+
+The N+1 problem occurs when you make one query to fetch
+a list of items, then make N additional queries (one for
+each item) to fetch related data...
+
+[Detailed explanation follows]
+
+> Fix the N+1 problem for me
+
+I'll need to modify the file. Should I proceed? (yes/no)
+
+> yes
+
+Applying changes to src/db/queries.js...
+✓ Refactored query to use JOIN
+✓ Reduced queries from N+1 to 1
+✓ Added comments explaining the optimization
+
+The changes have been applied. Would you like me to
+explain the changes or help with the other issues?
+
+> Show me the other issues
+
+[Continues with interactive dialogue...]
+
+> exit
+Goodbye!</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="interactive-commands">
+            <h4>Interactive Mode Features</h4>
+            <div class="command-categories">
+              <div class="command-category">
+                <h5>Context Preservation</h5>
+                <p>Bob remembers the conversation context throughout the session, allowing you to reference previous discussions and build on earlier work.</p>
+              </div>
+
+              <div class="command-category">
+                <h5>File References</h5>
+                <p>Use @ symbol to reference files in your prompts, just like in non-interactive mode:</p>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">File References in Interactive Mode</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>> Analyze @src/main.js for bugs
+
+> Compare @src/old.js and @src/new.js
+
+> Refactor @utils/helpers.js</code></pre>
+                </div>
+              </div>
+
+              <div class="command-category">
+                <h5>Exiting Interactive Mode</h5>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Exit Commands</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code># Type 'exit' to quit
+> exit
+
+# Or press Ctrl+D
+# (Ctrl+Z on Windows)</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Interactive Mode Benefits</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Non-Interactive:</strong>
+                <p>Single command → Single response → Start over for follow-up</p>
+              </div>
+              <div class="value-bob">
+                <strong>Interactive Mode:</strong>
+                <p>Continuous conversation → Context preserved → Natural dialogue flow</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Conversational Development</strong> - Interactive mode enables natural back-and-forth dialogue with Bob, perfect for complex problem-solving and iterative development.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Automation & Scripting -->
+    <section id="automation" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">4</span>
+          <h2>Automation & Scripting</h2>
+          <span class="capability-badge">Power Users</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>Scriptable AI Power</h3>
+            <p>BobShell is designed for automation with native support for piping, scripting, and integration. Build intelligent workflows that combine AI with traditional tools.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Scripting Patterns</h3>
+
+            <div class="script-example">
+              <h4>Pipeline Integration Example</h4>
+              <div class="code-block-wrapper">
+                <div class="code-block-header">
+                  <span class="code-block-language">analyze-code.sh</span>
+                  <button class="copy-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code>#!/bin/bash
+# Simple script to analyze code files
+
+set -e
+
+echo "Analyzing code files..."
+
+# Analyze each file and save results
+for file in src/*.js; do
+    echo "Analyzing $file..."
+    bob -p "What are the potential issues in @$file? Enclose answer in markdown tags" > "reports/$(basename $file .js)-analysis.md"
+done
+
+echo "Analysis complete. Check reports/ directory."</code></pre>
+              </div>
+            </div>
+
+            <div class="script-example">
+              <h4>Output Processing</h4>
+              <div class="code-block-wrapper">
+                <div class="code-block-header">
+                  <span class="code-block-language">extract-info.sh</span>
+                  <button class="copy-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code>#!/bin/bash
+# Extract structured information from files
+
+# Get Java version from pom.xml
+bob -p "What Java version is this for? Use @pom.xml. Enclose answer in markdown tags" > java-version.txt
+
+# Extract dependencies
+bob -p "List all dependencies in @package.json. Format as a bullet list. Enclose answer in markdown tags" > dependencies.txt
+
+# Get API endpoints
+bob -p "List all API endpoints defined in @src/routes/. Enclose answer in markdown tags" > api-endpoints.txt
+
+echo "Information extracted to:"
+echo "  - java-version.txt"
+echo "  - dependencies.txt"
+echo "  - api-endpoints.txt"</code></pre>
+              </div>
+            </div>
+
+            <div class="script-example">
+              <h4>Batch File Processing</h4>
+              <div class="code-block-wrapper">
+                <div class="code-block-header">
+                  <span class="code-block-language">batch-refactor.sh</span>
+                  <button class="copy-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code>#!/bin/bash
+# Batch process files with Bob Shell
+
+set -e
+
+echo "Starting batch refactoring..."
+
+# Process each file
+for file in src/legacy/*.js; do
+    echo "Processing $file..."
+    
+    # Use --yolo to enable file modifications
+    bob -p "Refactor @$file to use modern JavaScript syntax. Add error handling." --yolo
+    
+    echo "✓ Completed $file"
+done
+
+echo "Batch refactoring complete!"</code></pre>
+              </div>
+            </div>
+
+            <div class="script-example">
+              <h4>CI/CD Integration Example</h4>
+              <div class="code-block-wrapper">
+                <div class="code-block-header">
+                  <span class="code-block-language">pre-commit-check.sh</span>
+                  <button class="copy-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code>#!/bin/bash
+# Pre-commit hook using Bob Shell
+
+set -e
+
+echo "Running pre-commit checks with Bob Shell..."
+
+# Get list of staged files
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|ts|py)$' || true)
+
+if [ -z "$STAGED_FILES" ]; then
+    echo "No code files to check"
+    exit 0
+fi
+
+# Check each staged file
+for file in $STAGED_FILES; do
+    echo "Checking $file..."
+    
+    # Ask Bob to check for issues
+    RESULT=$(bob -p "Check @$file for security issues and bugs. Answer with 'OK' if no issues, or list issues found.")
+    
+    if [[ ! "$RESULT" =~ "OK" ]]; then
+        echo "Issues found in $file:"
+        echo "$RESULT"
+        echo ""
+        echo "Commit aborted. Please fix the issues above."
+        exit 1
+    fi
+done
+
+echo "✓ All checks passed!"
+exit 0</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Automation Benefits</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Manual Process:</strong>
+                <p>Review each file → Make changes → Test → Repeat</p>
+              </div>
+              <div class="value-bob">
+                <strong>Bob Shell Automation:</strong>
+                <p>Script the workflow → AI handles analysis → Batch processing → Consistent results</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>AI-Powered Automation</strong> - Integrate Bob Shell into your scripts to add intelligent code analysis and modification capabilities to your automation workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integrations -->
+    <section id="integrations" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">5</span>
+          <h2>IDE Integration</h2>
+          <span class="capability-badge">Developer Experience</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>Connect Bob Shell to Your Code Editor</h3>
+            <p>Connect Bob Shell directly to your code editor for a seamless development experience. This integration enhances Bob Shell's capabilities by providing real-time workspace awareness and enabling powerful features like in-editor diff viewing.</p>
+          </div>
+
+          <!-- Overview Table -->
+          <div class="info-card">
+            <h3>Overview</h3>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+              <thead>
+                <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Feature</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Description</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Benefit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Workspace awareness</strong></td>
+                  <td style="padding: 12px;">Bob Shell sees your recent files and cursor position</td>
+                  <td style="padding: 12px;">More contextually relevant assistance</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Native diff viewing</strong></td>
+                  <td style="padding: 12px;">Review code changes in your editor's diff tool</td>
+                  <td style="padding: 12px;">Easier code review and modification</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Command integration</strong></td>
+                  <td style="padding: 12px;">Access Bob Shell features from editor commands</td>
+                  <td style="padding: 12px;">Streamlined workflow</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px;"><strong>Seamless file editing</strong></td>
+                  <td style="padding: 12px;">Accept changes directly in your editor</td>
+                  <td style="padding: 12px;">Faster implementation of suggestions</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="margin-top: 1rem; padding: 12px; background-color: #e8f4fd; border-left: 4px solid #0f62fe; border-radius: 4px;">
+              <strong>Note:</strong> Currently, Bob IDE and compatible editors are supported. Additional editor support may be added in future releases.
+            </p>
+          </div>
+
+          <!-- Getting Started -->
+          <div class="integration-card">
+            <h4>Getting Started</h4>
+            <div class="integration-content">
+              <ol style="line-height: 1.8;">
+                <li>Start Bob Shell from your Bob IDE terminal</li>
+                <li>Accept the automatic integration prompt when it appears</li>
+                <li>Use Bob Shell normally - it now has access to your workspace context</li>
+                <li>When Bob Shell suggests code changes, they'll appear in Bob IDE's diff viewer</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Benefits of IDE Integration -->
+          <div class="info-card">
+            <h3>Benefits of IDE Integration</h3>
+            
+            <h4>Enhanced Context Awareness</h4>
+            <p>Without IDE integration, Bob Shell only knows about files you explicitly reference. With integration enabled, Bob Shell automatically gains:</p>
+            <ul style="line-height: 1.8;">
+              <li>Access to your 10 most recently accessed files</li>
+              <li>Knowledge of your current cursor position</li>
+              <li>Visibility of your selected text (up to 16KB)</li>
+            </ul>
+            <p style="margin-top: 1rem; padding: 12px; background-color: #f4f4f4; border-radius: 4px;">
+              This contextual awareness allows Bob Shell to provide more relevant assistance without requiring you to manually reference files.
+            </p>
+
+            <h4 style="margin-top: 2rem;">Seamless Code Modifications</h4>
+            <p>When Bob Shell suggests code changes:</p>
+            <div class="code-block-wrapper">
+              <pre><code>┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│                 │     │                 │     │                 │
+│  Bob Shell      │────▶│  Bob IDE        │────▶│  Your codebase  │
+│  suggests       │     │  diff viewer    │     │  with changes   │
+│  changes        │     │  shows changes  │     │  applied        │
+│                 │     │                 │     │                 │
+└─────────────────┘     └─────────────────┘     └─────────────────┘</code></pre>
+            </div>
+            <p>This workflow allows you to:</p>
+            <ul style="line-height: 1.8;">
+              <li>Review changes in your familiar editor environment</li>
+              <li>Edit the suggested changes before accepting them</li>
+              <li>Accept or reject changes using standard editor commands</li>
+              <li>Keep your hands on the keyboard throughout the process</li>
+            </ul>
+          </div>
+
+          <!-- Installation Methods -->
+          <div class="integration-grid">
+            <div class="integration-card">
+              <h4>Method 1: Automatic Setup (Recommended)</h4>
+              <div class="integration-content">
+                <p>When you run Bob Shell inside Bob IDE's integrated terminal, it automatically detects the environment and offers to set up integration:</p>
+                <div class="code-block-wrapper">
+                  <pre><code>┌─────────────────────────────────────────────────────────────────────────────┐
+│ > Do you want to connect Bob IDE to Bob Shell?                               │
+│ If you select Yes, we'll install an extension that allows the CLI to ac ... │
+│                                                                             │
+│   1. Yes                                                                    │
+│   2. No                                                                     │
+│   3. No, don't ask again                                                    │
+└─────────────────────────────────────────────────────────────────────────────┘</code></pre>
+                </div>
+                <p>Selecting "Yes" will:</p>
+                <ul style="line-height: 1.8;">
+                  <li>Install the Bob Shell Companion extension</li>
+                  <li>Configure the necessary connection settings</li>
+                  <li>Establish the connection automatically</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="integration-card">
+              <h4>Method 2: Command-Line Installation</h4>
+              <div class="integration-content">
+                <p>If you dismissed the automatic prompt or need to reinstall, use the built-in command:</p>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Bob Shell Command</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>/ide install</code></pre>
+                </div>
+                <p>This command:</p>
+                <ul style="line-height: 1.8;">
+                  <li>Detects your current IDE</li>
+                  <li>Finds the appropriate extension</li>
+                  <li>Installs it automatically</li>
+                  <li>Provides setup instructions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Managing the Connection -->
+          <div class="info-card">
+            <h3>Managing the Connection</h3>
+            
+            <h4>Connection Commands</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+              <thead>
+                <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Command</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Purpose</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><code>/ide enable</code></td>
+                  <td style="padding: 12px;">Activate the IDE connection</td>
+                  <td style="padding: 12px;"><code>/ide enable</code></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><code>/ide disable</code></td>
+                  <td style="padding: 12px;">Deactivate the IDE connection</td>
+                  <td style="padding: 12px;"><code>/ide disable</code></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><code>/ide status</code></td>
+                  <td style="padding: 12px;">Check connection status and context</td>
+                  <td style="padding: 12px;"><code>/ide status</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px;"><code>/ide install</code></td>
+                  <td style="padding: 12px;">Install the companion extension</td>
+                  <td style="padding: 12px;"><code>/ide install</code></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 style="margin-top: 2rem;">Checking Connection Status</h4>
+            <p>To verify your connection and see what context Bob Shell has access to:</p>
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-language">Bob Shell Command</span>
+                <button class="copy-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                  </svg>
+                  Copy
+                </button>
+              </div>
+              <pre><code>/ide status</code></pre>
+            </div>
+            <p>Example output:</p>
+            <div class="code-block-wrapper">
+              <pre><code>🟢 Connected to Bob IDE
+Recent files:
+- src/components/Header.tsx
+- src/utils/api.js
+- package.json</code></pre>
+            </div>
+          </div>
+
+          <!-- Working with Code Changes -->
+          <div class="info-card">
+            <h3>Working with Code Changes</h3>
+            <p>When Bob Shell suggests code modifications, you'll see them in your editor's diff viewer.</p>
+
+            <h4>Accepting Changes</h4>
+            <p>You have multiple ways to accept suggested changes:</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+              <thead>
+                <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Method</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Editor UI</strong></td>
+                  <td style="padding: 12px;">Click the ✓ checkmark in the diff editor's title bar</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Keyboard</strong></td>
+                  <td style="padding: 12px;">Press Cmd+S (macOS) or Ctrl+S (Windows/Linux)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Command Palette</strong></td>
+                  <td style="padding: 12px;">Run Bob Shell: Accept Diff</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px;"><strong>Bob Shell CLI</strong></td>
+                  <td style="padding: 12px;">Type <code>yes</code> when prompted</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 style="margin-top: 2rem;">Rejecting Changes</h4>
+            <p>To reject suggested changes:</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+              <thead>
+                <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Method</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Editor UI</strong></td>
+                  <td style="padding: 12px;">Click the ✗ icon in the diff editor's title bar</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Keyboard</strong></td>
+                  <td style="padding: 12px;">Close the diff editor tab</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Command Palette</strong></td>
+                  <td style="padding: 12px;">Run Bob Shell: Close Diff Editor</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px;"><strong>Bob Shell CLI</strong></td>
+                  <td style="padding: 12px;">Type <code>no</code> when prompted</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 style="margin-top: 2rem;">Modifying Suggestions</h4>
+            <p>You can edit the suggested code directly in the diff editor before accepting it. This allows you to:</p>
+            <ul style="line-height: 1.8;">
+              <li>Fix minor issues in the suggestion</li>
+              <li>Adapt the code to your specific needs</li>
+              <li>Add comments or additional logic</li>
+              <li>Ensure the changes match your coding style</li>
+            </ul>
+            <p style="margin-top: 1rem; padding: 12px; background-color: #e8f4fd; border-left: 4px solid #0f62fe; border-radius: 4px;">
+              <strong>Tip:</strong> For frequently repeated changes, select "Yes, allow always" in Bob Shell to auto-accept similar changes in the future.
+            </p>
+          </div>
+
+          <!-- Advanced Usage -->
+          <div class="info-card">
+            <h3>Advanced Usage</h3>
+            
+            <h4>Bob IDE Commands</h4>
+            <p>Access Bob Shell features directly from Bob IDE's Command Palette (Cmd+Shift+P or Ctrl+Shift+P):</p>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+              <thead>
+                <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Command</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Function</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Bob Shell: Run</strong></td>
+                  <td style="padding: 12px;">Start a new Bob Shell session in the terminal</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Bob Shell: Accept Diff</strong></td>
+                  <td style="padding: 12px;">Accept changes in the active diff editor</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;"><strong>Bob Shell: Close Diff Editor</strong></td>
+                  <td style="padding: 12px;">Reject changes and close the diff editor</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px;"><strong>Bob Shell: View Third-Party Notices</strong></td>
+                  <td style="padding: 12px;">Show third-party notices</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 style="margin-top: 2rem;">Using with Sandboxed Environments</h4>
+            
+            <h5>macOS Sandboxing</h5>
+            <p>When using Bob Shell with macOS Seatbelt sandboxing:</p>
+            <ul style="line-height: 1.8;">
+              <li>The IDE integration requires network access</li>
+              <li>Use a Seatbelt profile that allows network connections</li>
+              <li>The default permissive-open profile works with IDE integration</li>
+            </ul>
+
+            <h5 style="margin-top: 1rem;">Docker Containers</h5>
+            <p>When running Bob Shell in a Docker container:</p>
+            <ul style="line-height: 1.8;">
+              <li>The integration can still connect to Bob IDE on your host machine</li>
+              <li>Bob Shell automatically finds the IDE server via host.docker.internal</li>
+              <li>Ensure your Docker networking allows container-to-host connections</li>
+            </ul>
+          </div>
+
+          <!-- Troubleshooting -->
+          <div class="info-card">
+            <h3>Troubleshooting</h3>
+            
+            <h4>Common Issues and Solutions</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+              <thead>
+                <tr style="background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Issue</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Possible Causes</th>
+                  <th style="padding: 12px; text-align: left; font-weight: 600;">Solution</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;">Connection fails</td>
+                  <td style="padding: 12px;">Extension not installed or running</td>
+                  <td style="padding: 12px;">Install extension and run <code>/ide enable</code></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;">Directory mismatch</td>
+                  <td style="padding: 12px;">Bob Shell running outside workspace</td>
+                  <td style="padding: 12px;">cd to your workspace directory</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                  <td style="padding: 12px;">Connection lost</td>
+                  <td style="padding: 12px;">Network issue or IDE restart</td>
+                  <td style="padding: 12px;">Run <code>/ide enable</code> to reconnect</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px;">No workspace open</td>
+                  <td style="padding: 12px;">Missing workspace in IDE</td>
+                  <td style="padding: 12px;">Open a folder/workspace in your IDE</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h4 style="margin-top: 2rem;">Error Message Reference</h4>
+            
+            <h5>Connection Errors</h5>
+            <div style="margin-top: 1rem; padding: 12px; background-color: #fff1f1; border-left: 4px solid #da1e28; border-radius: 4px;">
+              <strong>🔴 Disconnected: Failed to connect to IDE companion extension in [IDE Name]</strong>
+              <p style="margin-top: 0.5rem;"><strong>Solution:</strong></p>
+              <ul style="line-height: 1.8;">
+                <li>Verify the Bob Shell Companion extension is installed and enabled</li>
+                <li>Open a new terminal in your IDE</li>
+                <li>Run <code>/ide enable</code></li>
+              </ul>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 12px; background-color: #fff1f1; border-left: 4px solid #da1e28; border-radius: 4px;">
+              <strong>🔴 Disconnected: IDE connection error. The connection was lost unexpectedly</strong>
+              <p style="margin-top: 0.5rem;"><strong>Solution:</strong></p>
+              <ul style="line-height: 1.8;">
+                <li>Run <code>/ide enable</code> to reconnect</li>
+                <li>If the issue persists, restart your IDE</li>
+              </ul>
+            </div>
+
+            <h5 style="margin-top: 1.5rem;">Configuration Errors</h5>
+            <div style="margin-top: 1rem; padding: 12px; background-color: #fff1f1; border-left: 4px solid #da1e28; border-radius: 4px;">
+              <strong>🔴 Disconnected: Directory mismatch</strong>
+              <p style="margin-top: 0.5rem;"><strong>Solution:</strong></p>
+              <ul style="line-height: 1.8;">
+                <li>Navigate to the same directory that's open in your IDE</li>
+                <li>Restart Bob Shell</li>
+              </ul>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 12px; background-color: #fff1f1; border-left: 4px solid #da1e28; border-radius: 4px;">
+              <strong>🔴 Disconnected: To use this feature, please open a workspace folder</strong>
+              <p style="margin-top: 0.5rem;"><strong>Solution:</strong></p>
+              <ul style="line-height: 1.8;">
+                <li>Open a folder or workspace in your IDE</li>
+                <li>Restart Bob Shell</li>
+              </ul>
+            </div>
+
+            <h5 style="margin-top: 1.5rem;">General Errors</h5>
+            <div style="margin-top: 1rem; padding: 12px; background-color: #fff1f1; border-left: 4px solid #da1e28; border-radius: 4px;">
+              <strong>IDE integration is not supported in your current environment</strong>
+              <p style="margin-top: 0.5rem;"><strong>Solution:</strong> Run Bob Shell from within a supported IDE's integrated terminal</p>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 12px; background-color: #fff1f1; border-left: 4px solid #da1e28; border-radius: 4px;">
+              <strong>No installer is available for IDE</strong>
+              <p style="margin-top: 0.5rem;"><strong>Solution:</strong> Install the Bob Shell Companion extension manually from your IDE's marketplace</p>
+            </div>
+          </div>
+
+          <!-- Best Practices -->
+          <div class="business-value">
+            <h3>Best Practices</h3>
+            <ul style="line-height: 1.8;">
+              <li>Start Bob Shell from your IDE's terminal for automatic integration</li>
+              <li>Keep your workspace focused on relevant files for better context</li>
+              <li>Review diffs carefully before accepting changes</li>
+              <li>Use keyboard shortcuts for faster workflow</li>
+              <li>Check connection status if Bob Shell seems to be missing context</li>
+            </ul>
+            <p class="highlight" style="margin-top: 1.5rem;"><strong>Seamless Workflow</strong> - Bob Shell integrates naturally into your development environment, providing AI assistance with enhanced context awareness and native diff viewing capabilities.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <!-- Summary -->
+      <section id="summary" class="section">
+        <div class="container">
+          <div class="info-card">
+            <h2>Bob Shell Mastery!</h2>
+            <p>You've learned the fundamentals of Bob Shell - from installation and authentication to using it for code analysis, interactive sessions, and automation.</p>
+            
+            <div class="achievement-badges">
+              <div class="badge">
+                <div class="badge-icon"></div>
+                <div class="badge-title">Installation Expert</div>
+              </div>
+              <div class="badge">
+                <div class="badge-icon"></div>
+                <div class="badge-title">CLI Master</div>
+              </div>
+              <div class="badge">
+                <div class="badge-icon"></div>
+                <div class="badge-title">Interactive Pro</div>
+              </div>
+              <div class="badge">
+                <div class="badge-icon"></div>
+                <div class="badge-title">Automation Builder</div>
+              </div>
+              <div class="badge">
+                <div class="badge-icon"></div>
+                <div class="badge-title">IDE Integrator</div>
+              </div>
+            </div>
+
+            <div class="next-steps">
+              <h3>Key Takeaways</h3>
+              <ol>
+                <li><strong>Installation:</strong> Use curl script or Command Palette to install Bob Shell</li>
+                <li><strong>Authentication:</strong> Set BOBSHELL_API_KEY environment variable</li>
+                <li><strong>File References:</strong> Use @ symbol to reference files in prompts</li>
+                <li><strong>Safety:</strong> Use --yolo flag to enable file modifications</li>
+                <li><strong>Interactive Mode:</strong> Start with `bob` for conversational sessions</li>
+                <li><strong>Automation:</strong> Integrate Bob Shell into scripts for AI-powered workflows</li>
+              </ol>
+            </div>
+
+            <div class="resources-section">
+              <h3>Additional Resources</h3>
+              <div class="resource-links">
+                <div class="resource-card">
+                  <h4>Official Documentation</h4>
+                  <p>Complete Bob Shell documentation and guides</p>
+                  <a href="https://internal.bob.ibm.com/docs/shell" target="_blank">View Docs →</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Getting Started Guide</h4>
+                  <p>Step-by-step installation and setup instructions</p>
+                  <a href="https://internal.bob.ibm.com/docs/shell/getting-started" target="_blank">Get Started →</a>
+                </div>
+                <div class="resource-card">
+                  <h4>Usage Examples</h4>
+                  <p>Real-world examples and use cases</p>
+                  <a href="https://internal.bob.ibm.com/docs/shell/usage-examples" target="_blank">View Examples →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    </div>
+  </main>
+
+  <!-- Shared Footer Component -->
+  <div data-component="footer"></div>
+
+  <!-- Scripts -->
+  <script src="../components/component-loader.js"></script>
+  <script>
+    initBreadcrumb('BobShell');
+  </script>
+  <script src="../i18n.js"></script>
+  <script src="../script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Copy button functionality
+    document.querySelectorAll('.copy-button').forEach(button => {
+      button.addEventListener('click', async () => {
+        const codeBlock = button.closest('.code-block-wrapper').querySelector('code');
+        const text = codeBlock.textContent;
+        
+        try {
+          await navigator.clipboard.writeText(text);
+          button.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Copied!
+          `;
+          
+          setTimeout(() => {
+            button.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+              Copy
+            `;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    });
+
+    // Sidebar navigation active state
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.capability-link');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -35% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    // Smooth scroll for navigation links
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

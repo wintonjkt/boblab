@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDLC Automation - bob-lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+  <div data-component="breadcrumb"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>SDLC Automation with Bob</h1>
+      <p class="page-subtitle">Accelerate Your Software Development Lifecycle</p>
+      <p class="page-description">Learn how Bob automates code understanding, review, testing, and deployment integration</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>SDLC Steps</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#code-understanding" class="capability-link">Code Understanding</a>
+        <a href="#code-review" class="capability-link">Code Review</a>
+        <a href="#code-fixes" class="capability-link">Iterative Fixes</a>
+        <a href="#testing" class="capability-link">Test Generation</a>
+      </nav>
+    </aside>
+
+    <div class="walkthrough-main">
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="info-card compliance">
+          <h2>What You'll Experience</h2>
+          <p>This walkthrough demonstrates Bob's SDLC automation capabilities through a realistic scenario: taking an existing codebase and automating the entire development lifecycle from understanding to deployment.</p>
+
+          <div class="capabilities-overview">
+            <div class="cap-card">
+              <h4>Code Understanding</h4>
+              <p>Bob analyzes your codebase and generates comprehensive documentation</p>
+            </div>
+            <div class="cap-card">
+              <h4>Code Review</h4>
+              <p>Automated review with actionable suggestions for improvements</p>
+            </div>
+            <div class="cap-card">
+              <h4>Iterative Fixes</h4>
+              <p>Bob applies fixes iteratively until code quality standards are met</p>
+            </div>
+            <div class="cap-card">
+              <h4>Test Generation</h4>
+              <p>Creates comprehensive test suites and validates functionality</p>
+            </div>
+          </div>
+
+          <p><strong>Estimated Time:</strong> 15-20 minutes to complete the full SDLC workflow</p>
+          
+          <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #0f62fe 0%, #0353e9 100%); border-radius: 8px; text-align: center;">
+            <h3 style="color: white; margin: 0 0 0.5rem 0; font-size: 1.25rem;">📦 Download Sample Application</h3>
+            <p style="color: rgba(255, 255, 255, 0.9); margin: 0 0 1rem 0;">Get the ModResorts WebSphere Traditional (tWAS) Java 8 application to follow along</p>
+            <a href="../samples/modresorts-twas-j8.zip" download style="display: inline-block; padding: 0.75rem 2rem; background: white; color: #0f62fe; text-decoration: none; border-radius: 4px; font-weight: 600; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 0.5rem;">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download modresorts-twas-j8.zip
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 1: Code Understanding & Documentation -->
+    <section id="code-understanding" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">1</span>
+          <h2>Code Understanding & Documentation</h2>
+          <span class="capability-badge">AI-Powered Analysis</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Understanding unfamiliar codebases is time-consuming. Developers spend days reading code, tracing dependencies, and understanding business logic before they can contribute effectively.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Try It Yourself</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Provide Your Codebase</h4>
+                <p>Point Bob to your repository or upload your code. For this lab, we'll use the ModResorts sample application.</p>
+                <div class="prompt-box">
+                  <div class="prompt-content">
+                    <p>Example: ModResorts - A WebSphere Application Server Traditional (tWAS) Java 8 application with servlets, JSP views, JMX MBeans, and JDBC connections. Download from <a href="../samples/modresorts-twas-j8.zip" download >samples/modresorts-twas-j8.zip</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Ask Bob to Analyze and Document</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Analyze this codebase and generate documentation including:
+- High-level architecture overview
+- Component responsibilities and interactions
+- Data flow and API endpoints
+- Key business logic and algorithms
+- Dependencies and external integrations
+- Setup and configuration instructions</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Review Generated Documentation</h4>
+                <p>Bob creates comprehensive documentation:</p>
+                
+                <div class="repo-plan">
+                  <div class="repo-phase">
+                    <span class="phase-label">Architecture Overview</span>
+                    <ul>
+                      <li>J2EE monolithic application with servlet-based architecture</li>
+                      <li>WebSphere Application Server Traditional (tWAS) runtime</li>
+                      <li>JMX MBeans for management and monitoring</li>
+                      <li>Custom security implementations and filters</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Key Components</span>
+                    <ul>
+                      <li><strong>servlets/</strong> - WelcomeServlet, WeatherServlet, AvailabilityCheckerServlet</li>
+                      <li><strong>filters/</strong> - FirstFilter, SecondFilter for request processing</li>
+                      <li><strong>mbean/</strong> - JMX beans for reservation management and app info</li>
+                      <li><strong>security/</strong> - Custom permission handling and SSL utilities</li>
+                      <li><strong>db/</strong> - Customer information and data access layer</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Key Features</span>
+                    <ul>
+                      <li>Resort booking and availability checking</li>
+                      <li>Weather data integration for resort locations</li>
+                      <li>User authentication and session management</li>
+                      <li>JMX-based reservation management</li>
+                    </ul>
+                  </div>
+
+                  <div class="repo-phase">
+                    <span class="phase-label">Generated Files</span>
+                    <ul>
+                      <li>README.md - Project overview and quick start</li>
+                      <li>ARCHITECTURE.md - Detailed system design</li>
+                      <li>API.md - Servlet endpoints documentation</li>
+                      <li>SETUP.md - WebSphere setup guide</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Generate Architecture Diagrams</h4>
+                <p>Bob can create visual diagrams to help understand system architecture and data flows:</p>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Generate an architecture diagram for this application showing:
+- Component relationships and dependencies
+- Data flow between layers
+- External integrations
+Use Mermaid format so it can be embedded in documentation.</code></pre>
+                </div>
+
+                <div class="result-box">
+                  <h5>Bob's Response:</h5>
+                  <p>Bob generates a Mermaid diagram that can be embedded directly in your documentation:</p>
+                  
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Generated Mermaid Diagram</span>
+                      <button class="copy-button" onclick="navigator.clipboard.writeText(this.parentElement.nextElementSibling.querySelector('.mermaid-source').textContent)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <div style="background: var(--bg-alt); padding: 1rem; border-radius: 4px; overflow-x: auto;">
+                      <pre class="mermaid">
+graph TB
+    subgraph "Client Layer"
+        Browser[Web Browser]
+    end
+    
+    subgraph "Presentation Layer"
+        JSP[JSP Views]
+        WelcomeServlet[WelcomeServlet]
+        WeatherServlet[WeatherServlet]
+        AvailabilityServlet[AvailabilityCheckerServlet]
+    end
+    
+    subgraph "Security Layer"
+        FirstFilter[FirstFilter]
+        SecondFilter[SecondFilter]
+        CustomSecurity[Custom Security]
+    end
+    
+    subgraph "Business Logic"
+        ReservationMBean[Reservation MBean]
+        AppInfoMBean[AppInfo MBean]
+        DateChecker[Date Checker]
+    end
+    
+    subgraph "Data Layer"
+        CustomerDB[Customer Information]
+        ReservationData[Reservation Data]
+    end
+    
+    subgraph "External Services"
+        WeatherAPI[Weather API]
+    end
+    
+    Browser --> FirstFilter
+    FirstFilter --> SecondFilter
+    SecondFilter --> WelcomeServlet
+    SecondFilter --> WeatherServlet
+    SecondFilter --> AvailabilityServlet
+    
+    WelcomeServlet --> JSP
+    WeatherServlet --> WeatherAPI
+    AvailabilityServlet --> ReservationMBean
+    
+    ReservationMBean --> DateChecker
+    ReservationMBean --> ReservationData
+    WelcomeServlet --> CustomerDB
+    
+    CustomSecurity -.-> FirstFilter
+    CustomSecurity -.-> SecondFilter
+                      </pre>
+                      <details >
+                        <summary style="cursor: pointer; color: var(--primary-color); font-weight: 500;">View Mermaid Source Code</summary>
+                        <pre class="mermaid-source" style="background: var(--bg-color); padding: 1rem; border-radius: 4px; margin-top: 0.5rem; overflow-x: auto;"><code>```mermaid
+graph TB
+    subgraph "Client Layer"
+        Browser[Web Browser]
+    end
+    
+    subgraph "Presentation Layer"
+        JSP[JSP Views]
+        WelcomeServlet[WelcomeServlet]
+        WeatherServlet[WeatherServlet]
+        AvailabilityServlet[AvailabilityCheckerServlet]
+    end
+    
+    subgraph "Security Layer"
+        FirstFilter[FirstFilter]
+        SecondFilter[SecondFilter]
+        CustomSecurity[Custom Security]
+    end
+    
+    subgraph "Business Logic"
+        ReservationMBean[Reservation MBean]
+        AppInfoMBean[AppInfo MBean]
+        DateChecker[Date Checker]
+    end
+    
+    subgraph "Data Layer"
+        CustomerDB[Customer Information]
+        ReservationData[Reservation Data]
+    end
+    
+    subgraph "External Services"
+        WeatherAPI[Weather API]
+    end
+    
+    Browser --> FirstFilter
+    FirstFilter --> SecondFilter
+    SecondFilter --> WelcomeServlet
+    SecondFilter --> WeatherServlet
+    SecondFilter --> AvailabilityServlet
+    
+    WelcomeServlet --> JSP
+    WeatherServlet --> WeatherAPI
+    AvailabilityServlet --> ReservationMBean
+    
+    ReservationMBean --> DateChecker
+    ReservationMBean --> ReservationData
+    WelcomeServlet --> CustomerDB
+    
+    CustomSecurity -.-> FirstFilter
+    CustomSecurity -.-> SecondFilter
+```</code></pre>
+                      </details>
+                    </div>
+                  </div>
+
+                  <div class="info-card" >
+                    <h5>Diagram Formats Supported:</h5>
+                    <ul>
+                      <li><strong>Mermaid:</strong> Best for embedding in Markdown/GitHub - supports flowcharts, sequence diagrams, class diagrams, and more</li>
+                      <li><strong>PlantUML:</strong> Comprehensive UML diagrams with detailed syntax</li>
+                      <li><strong>ASCII Art:</strong> Simple text-based diagrams for quick visualization</li>
+                      <li><strong>DOT/Graphviz:</strong> Advanced graph layouts and complex relationships</li>
+                    </ul>
+                    <p style="margin-top: 0.5rem;"><em>Tip: Mermaid diagrams render automatically in GitHub, GitLab, and many documentation tools!</em></p>
+                  </div>
+                </div>
+
+                <div class="prompt-box" >
+                  <div class="prompt-content">
+                    <h5>Other Diagram Examples:</h5>
+                    <ul>
+                      <li><strong>Sequence Diagram:</strong> "Generate a sequence diagram showing the user login flow"</li>
+                      <li><strong>Data Flow:</strong> "Create a data flow diagram for the reservation process"</li>
+                      <li><strong>Class Diagram:</strong> "Generate a class diagram for the MBean hierarchy"</li>
+                      <li><strong>Deployment Diagram:</strong> "Show the deployment architecture on WebSphere"</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>3-5 days - manual code reading, documentation writing, team interviews</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>5 minutes - comprehensive documentation generated from code analysis</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>99% faster onboarding</strong> - New developers understand the codebase in minutes instead of days."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 2: Code Review -->
+    <section id="code-review" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">2</span>
+          <h2>Automated Code Review</h2>
+          <span class="capability-badge">Quality Assurance</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Manual code reviews are time-consuming and inconsistent. Teams struggle to catch all issues, and reviews can take days to complete.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Get Instant Code Review</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Code Review</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Review this codebase and provide suggestions for:
+- Code quality and maintainability issues
+- Security vulnerabilities
+- Performance bottlenecks
+- Best practice violations
+- Potential bugs and edge cases
+- Opportunities for refactoring</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Review Bob's Findings</h4>
+                <p>Bob provides detailed analysis with actionable suggestions:</p>
+
+                <div class="table-responsive">
+                  <table class="compliance-table">
+                    <thead>
+                      <tr>
+                        <th>Category</th>
+                        <th>Issue</th>
+                        <th>Severity</th>
+                        <th>Suggestion</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Security</td>
+                        <td>Password stored in plaintext</td>
+                        <td style="color: var(--danger-color);">Critical</td>
+                        <td>Use bcrypt for password hashing</td>
+                      </tr>
+                      <tr>
+                        <td>Security</td>
+                        <td>SQL injection vulnerability</td>
+                        <td style="color: var(--danger-color);">Critical</td>
+                        <td>Use parameterized queries</td>
+                      </tr>
+                      <tr>
+                        <td>Performance</td>
+                        <td>N+1 query problem in /api/orders</td>
+                        <td style="color: var(--warning-color);">High</td>
+                        <td>Use populate() to eager load relations</td>
+                      </tr>
+                      <tr>
+                        <td>Code Quality</td>
+                        <td>Duplicate validation logic</td>
+                        <td style="color: var(--warning-color);">Medium</td>
+                        <td>Extract to shared validator middleware</td>
+                      </tr>
+                      <tr>
+                        <td>Best Practice</td>
+                        <td>Missing error handling in async routes</td>
+                        <td style="color: var(--warning-color);">Medium</td>
+                        <td>Wrap with try-catch or use express-async-errors</td>
+                      </tr>
+                      <tr>
+                        <td>Maintainability</td>
+                        <td>Large controller functions (>100 lines)</td>
+                        <td style="color: #0f62fe;">Low</td>
+                        <td>Split into smaller, focused functions</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Detailed Recommendations</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Example: Security Fix Recommendation</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>// ❌ Current Code (Vulnerable)
+const user = await User.findOne({ 
+  email: req.body.email,
+  password: req.body.password 
+});
+
+// ✅ Recommended Fix
+const bcrypt = require('bcrypt');
+
+// During registration
+const hashedPassword = await bcrypt.hash(password, 10);
+await User.create({ email, password: hashedPassword });
+
+// During login
+const user = await User.findOne({ email: req.body.email });
+const isValid = await bcrypt.compare(req.body.password, user.password);
+if (!isValid) throw new Error('Invalid credentials');</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>2-3 days - manual review, back-and-forth discussions, inconsistent standards</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>2 minutes - comprehensive review with specific, actionable recommendations</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Instant quality assurance</strong> - Bob catches issues that would take senior developers hours to find."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 3: Iterative Code Fixes -->
+    <section id="code-fixes" class="section section-alt">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">3</span>
+          <h2>Iterative Code Fixes</h2>
+          <span class="capability-badge">Automated Remediation</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Fixing code issues manually is tedious and error-prone. Each fix can introduce new bugs, requiring multiple iterations to get it right.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Let Bob Fix Issues Iteratively</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Automated Fixes</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Fix all critical and high-severity issues found in the code review.
+Apply fixes iteratively:
+1. Fix security vulnerabilities first
+2. Validate each fix doesn't break existing functionality
+3. Fix performance issues
+4. Refactor for code quality
+5. Re-run analysis after each iteration until all issues resolved</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Bob's Iterative Fix Process</h4>
+                
+                <div class="result-box">
+                  <h5>Iteration 1: Security Fixes</h5>
+                  <ul>
+                    <li>✓ Implemented bcrypt password hashing</li>
+                    <li>✓ Fixed SQL injection with parameterized queries</li>
+                    <li>✓ Added input validation middleware</li>
+                    <li>✓ Implemented rate limiting for auth endpoints</li>
+                    <li><strong>Validation:</strong> All security tests passing ✓</li>
+                  </ul>
+                </div>
+
+                <div class="result-box" >
+                  <h5>Iteration 2: Performance Optimization</h5>
+                  <ul>
+                    <li>✓ Fixed N+1 queries with eager loading</li>
+                    <li>✓ Added database indexes for frequent queries</li>
+                    <li>✓ Implemented response caching for static data</li>
+                    <li><strong>Validation:</strong> Response time reduced by 65% ✓</li>
+                  </ul>
+                </div>
+
+                <div class="result-box" >
+                  <h5>Iteration 3: Code Quality Improvements</h5>
+                  <ul>
+                    <li>✓ Extracted duplicate validation logic to middleware</li>
+                    <li>✓ Split large controllers into focused functions</li>
+                    <li>✓ Added comprehensive error handling</li>
+                    <li>✓ Improved code documentation</li>
+                    <li><strong>Validation:</strong> Code quality score: A+ ✓</li>
+                  </ul>
+                </div>
+
+                <div class="result-box" >
+                  <h5>Final Validation</h5>
+                  <ul>
+                    <li>✓ All tests passing (127/127)</li>
+                    <li>✓ No critical or high-severity issues</li>
+                    <li>✓ Code coverage: 89%</li>
+                    <li>✓ Performance benchmarks met</li>
+                    <li>✓ Security scan: 0 vulnerabilities</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Before & After Comparison</h4>
+                
+                <div class="code-comparison">
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">Before (Vulnerable)</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        Copy
+                      </button>
+                    </div>
+                    <pre><code>app.post('/api/login', async (req, res) => {
+  const user = await User.findOne({
+    email: req.body.email,
+    password: req.body.password
+  });
+  
+  if (user) {
+    res.json({ token: generateToken(user) });
+  } else {
+    res.status(401).send('Invalid credentials');
+  }
+});</code></pre>
+                  </div>
+
+                  <div class="code-block-wrapper">
+                    <div class="code-block-header">
+                      <span class="code-block-language">After (Secure & Optimized)</span>
+                      <button class="copy-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                    </div>
+                    <pre><code>const rateLimit = require('express-rate-limit');
+const { body, validationResult } = require('express-validator');
+
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 5
+});
+
+app.post('/api/login',
+  loginLimiter,
+  [
+    body('email').isEmail().normalizeEmail(),
+    body('password').isLength({ min: 8 })
+  ],
+  async (req, res, next) => {
+    try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      }
+
+      const user = await User.findOne({ 
+        email: req.body.email 
+      }).select('+password');
+      
+      if (!user) {
+        return res.status(401).json({ 
+          error: 'Invalid credentials' 
+        });
+      }
+
+      const isValidPassword = await bcrypt.compare(
+        req.body.password, 
+        user.password
+      );
+      
+      if (!isValidPassword) {
+        return res.status(401).json({ 
+          error: 'Invalid credentials' 
+        });
+      }
+
+      const token = generateToken(user);
+      res.json({ token });
+    } catch (error) {
+      next(error);
+    }
+  }
+);</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>1-2 weeks - manual fixes, testing, debugging, multiple review cycles</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>15 minutes - automated fixes with validation at each iteration</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Self-healing code</strong> - Bob iteratively fixes issues until quality standards are met, with validation at every step."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 4: Test Generation & Execution -->
+    <section id="testing" class="section">
+      <div class="container">
+        <div class="capability-header">
+          <span class="capability-number">4</span>
+          <h2>Test Generation & Execution</h2>
+          <span class="capability-badge">Quality Validation</span>
+        </div>
+
+        <div class="capability-content">
+          <div class="objective-box">
+            <h3>The Challenge</h3>
+            <p>Writing comprehensive tests is time-consuming. Many codebases lack adequate test coverage, making changes risky and deployments stressful.</p>
+          </div>
+
+          <div class="demo-flow">
+            <h3>Generate & Run Tests Automatically</h3>
+
+            <div class="step-item">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Request Test Generation</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Generate comprehensive test suite for this codebase:
+- Unit tests for all functions and methods
+- Integration tests for API endpoints
+- Edge cases and error scenarios
+- Security test cases
+- Performance benchmarks
+- Use Jest and Supertest frameworks
+- Target >85% code coverage</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Bob Generates Test Suite</h4>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Generated Test Example</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>const request = require('supertest');
+const app = require('../app');
+const User = require('../models/User');
+
+describe('POST /api/login', () => {
+  beforeEach(async () => {
+    await User.deleteMany({});
+  });
+
+  it('should login with valid credentials', async () => {
+    const user = await User.create({
+      email: 'test@example.com',
+      password: await bcrypt.hash('password123', 10)
+    });
+
+    const response = await request(app)
+      .post('/api/login')
+      .send({
+        email: 'test@example.com',
+        password: 'password123'
+      })
+      .expect(200);
+
+    expect(response.body).toHaveProperty('token');
+    expect(response.body.token).toBeTruthy();
+  });
+
+  it('should reject invalid email format', async () => {
+    const response = await request(app)
+      .post('/api/login')
+      .send({
+        email: 'invalid-email',
+        password: 'password123'
+      })
+      .expect(400);
+
+    expect(response.body.errors).toBeDefined();
+  });
+
+  it('should reject wrong password', async () => {
+    await User.create({
+      email: 'test@example.com',
+      password: await bcrypt.hash('password123', 10)
+    });
+
+    await request(app)
+      .post('/api/login')
+      .send({
+        email: 'test@example.com',
+        password: 'wrongpassword'
+      })
+      .expect(401);
+  });
+
+  it('should enforce rate limiting', async () => {
+    const requests = Array(6).fill().map(() =>
+      request(app)
+        .post('/api/login')
+        .send({
+          email: 'test@example.com',
+          password: 'password123'
+        })
+    );
+
+    const responses = await Promise.all(requests);
+    const rateLimited = responses.some(r => r.status === 429);
+    expect(rateLimited).toBe(true);
+  });
+});</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Run Tests & View Results</h4>
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Test Execution Results</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>PASS  tests/auth.test.js
+  POST /api/login
+    ✓ should login with valid credentials (245ms)
+    ✓ should reject invalid email format (89ms)
+    ✓ should reject wrong password (156ms)
+    ✓ should enforce rate limiting (423ms)
+
+PASS  tests/users.test.js
+  GET /api/users/:id
+    ✓ should return user profile (134ms)
+    ✓ should return 404 for non-existent user (67ms)
+    ✓ should require authentication (45ms)
+
+PASS  tests/products.test.js
+  POST /api/products
+    ✓ should create product with valid data (198ms)
+    ✓ should validate required fields (78ms)
+    ✓ should prevent duplicate SKUs (112ms)
+
+Test Suites: 8 passed, 8 total
+Tests:       127 passed, 127 total
+Snapshots:   0 total
+Time:        12.456s
+
+Coverage Summary:
+  Statements   : 89.23% ( 1247/1398 )
+  Branches     : 86.15% ( 337/391 )
+  Functions    : 91.47% ( 189/207 )
+  Lines        : 89.12% ( 1198/1344 )</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="business-value">
+            <h3>Business Value</h3>
+            <div class="value-comparison">
+              <div class="value-traditional">
+                <strong>Traditional Approach:</strong>
+                <p>1-2 weeks - write tests, achieve coverage, debug failures</p>
+              </div>
+              <div class="value-bob">
+                <strong>With Bob:</strong>
+                <p>10 minutes - comprehensive test suite with >85% coverage</p>
+              </div>
+            </div>
+            <p class="highlight">"<strong>Instant test coverage</strong> - Bob generates production-ready tests that validate functionality and prevent regressions."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Complete SDLC Automation</h2>
+
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Phase</th>
+                <th>Traditional Timeline</th>
+                <th>With Bob</th>
+                <th>Time Savings</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Code Understanding</td>
+                <td>3-5 days</td>
+                <td>5 minutes</td>
+                <td class="check">99.9%</td>
+              </tr>
+              <tr>
+                <td>Code Review</td>
+                <td>2-3 days</td>
+                <td>2 minutes</td>
+                <td class="check">99.9%</td>
+              </tr>
+              <tr>
+                <td>Fixing Issues</td>
+                <td>1-2 weeks</td>
+                <td>15 minutes</td>
+                <td class="check">99.8%</td>
+              </tr>
+              <tr>
+                <td>Test Generation</td>
+                <td>1-2 weeks</td>
+                <td>10 minutes</td>
+                <td class="check">99.9%</td>
+              </tr>
+              <tr style="font-weight: 600; background: var(--bg-alt);">
+                <td><strong>Total</strong></td>
+                <td><strong>4-6 weeks</strong></td>
+                <td><strong>~30 minutes</strong></td>
+                <td class="check"><strong>99.8%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-alt); border-left: 4px solid var(--primary-color);">
+          <h3>Why Bob for SDLC Automation?</h3>
+          <ul>
+            <li><strong>Complete Automation:</strong> From code understanding to deployment, Bob handles the entire lifecycle</li>
+            <li><strong>Quality Assurance:</strong> Iterative fixes ensure code meets quality and security standards</li>
+            <li><strong>Developer Productivity:</strong> Developers focus on features, not repetitive tasks</li>
+            <li><strong>Continuous Improvement:</strong> Bob learns from your codebase and improves over time</li>
+          </ul>
+        </div>
+
+        <div class="cta-box">
+          <h3>Ready to Automate Your SDLC?</h3>
+          <p>Transform your development workflow with Bob's AI-powered automation across the entire software lifecycle.</p>
+          <div class="cta-buttons">
+            <a href="narrative.html" class="btn btn-primary">Seller Conversations</a>
+            <a href="walkthrough.html" class="btn btn-secondary">DevSecOps Capabilities</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <div data-component="footer"></div>
+  </footer>
+
+  <script src="../components/component-loader.js"></script>
+  <script src="../script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>

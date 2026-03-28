@@ -1,6 +1,44 @@
 # bob-lab
 
-A modern, responsive static website showcasing the IBM Bob Enterprise AI Development Workshop as an interactive lab experience with progress tracking, built as a GitHub Pages site.
+A modern, interactive learning platform showcasing the IBM Bob Enterprise AI Development Workshop through hands-on lab exercises with progress tracking.
+
+## 🚀 Quick Start
+
+**Recommended:** Use the **React version** for the best experience:
+
+```bash
+cd react-app
+bun install
+bun run dev
+```
+
+Visit http://localhost:5173 to start learning!
+
+## 📦 Two Versions Available
+
+This repository contains **two versions** of the Bob Lab application:
+
+### 1. **React Application** (Recommended) 🌟
+- **Location:** [`/react-app/`](react-app/)
+- **Technology:** React + TypeScript + Vite
+- **Design System:** Carbon Design System
+- **Status:** ✅ **Active Development**
+- **Documentation:** [react-app/README.md](react-app/README.md)
+
+**Features:**
+- Modern React architecture with TypeScript
+- Enhanced performance and maintainability
+- Comprehensive testing suite
+- Better developer experience
+- Production-ready deployment
+
+### 2. **HTML Version** (Legacy)
+- **Location:** [`/docs/`](docs/)
+- **Technology:** Vanilla HTML/CSS/JavaScript
+- **Status:** 📚 **Preserved for Reference**
+- **Documentation:** [docs/README.md](docs/README.md)
+
+**Note:** The HTML version is no longer actively maintained. New features and improvements are added to the React version.
 
 ## 🌐 Live Demo
 
@@ -45,48 +83,62 @@ This site uses the **Carbon Design System** - IBM's open-source design system:
 
 ```
 boblab/
-├── index.html              # Landing page
-├── narrative.html          # Customer conversation guide
-├── styles.css              # Carbon Design System styles
-├── narrative.css           # Additional page styles
-├── script.js               # Progress tracking & interactivity
-├── i18n.js                 # Internationalization support
 ├── README.md               # This file
-├── components/             # Reusable UI components
-│   ├── navbar.html         # Navigation bar
-│   ├── breadcrumb.html     # Breadcrumb navigation
-│   ├── footer.html         # Page footer
-│   ├── enhanced-progress.html  # Progress tracking sidebar
-│   ├── table-of-contents.html  # Table of contents
-│   ├── theme-toggle.html   # Dark/light theme toggle
-│   ├── component-loader.js # Component loading system
-│   ├── search.js           # Search functionality
-│   ├── theme-manager.js    # Theme management
-│   └── collapsible-sections.js  # Collapsible sections
-├── labs/                   # Interactive lab exercises
-│   ├── getting-started.html
-│   ├── walkthrough.html
-│   ├── bob-rules.html
-│   ├── custom-modes.html
-│   ├── mcp.html
-│   ├── carbon-react.html
-│   ├── spec-driven-development.html
-│   ├── cobol2java.html
-│   ├── ibmi.html
-│   ├── appmod.html
-│   ├── sdlc.html
-│   ├── bobshell.html
-│   └── wxo-orchestrate.html
-├── translations/           # i18n translation files
-└── samples/                # Sample code and resources
+├── .gitignore              # Git exclusions
+├── react-app/              # 🌟 React application (recommended)
+│   ├── src/                # React source code
+│   ├── public/             # Static assets
+│   ├── package.json        # Dependencies
+│   ├── vite.config.ts      # Vite configuration
+│   └── README.md           # React app documentation
+├── docs/                   # 📚 Original HTML version (legacy)
+│   ├── index.html          # Landing page
+│   ├── narrative.html      # Customer conversation guide
+│   ├── styles.css          # Carbon Design System styles
+│   ├── script.js           # Progress tracking & interactivity
+│   ├── i18n.js             # Internationalization support
+│   ├── components/         # Reusable UI components
+│   ├── labs/               # Interactive lab exercises
+│   ├── css/                # Additional stylesheets
+│   └── README.md           # HTML version documentation
+├── translations/           # 🌐 Shared i18n translation files
+├── samples/                # 📦 Shared sample code and resources
+└── scripts/                # 🛠️ Utility scripts
 ```
 
+### Key Directories
+
+- **`/react-app/`** - Modern React application (primary version)
+- **`/docs/`** - Legacy HTML version (preserved for reference)
+- **`/translations/`** - Shared translation files for both versions
+- **`/samples/`** - Shared sample code used in labs
+- **`/scripts/`** - Utility scripts for maintenance
+
 ## 🛠️ Local Development
+
+### React Application (Recommended)
 
 1. Clone the repository:
 ```bash
 git clone https://github.com/[your-username]/boblab.git
-cd boblab
+cd boblab/react-app
+```
+
+2. Install dependencies and run:
+```bash
+bun install
+bun run dev
+```
+
+3. Open http://localhost:5173 in your browser
+
+For more details, see [react-app/README.md](react-app/README.md)
+
+### HTML Version (Legacy)
+
+1. Navigate to the docs folder:
+```bash
+cd docs
 ```
 
 2. Open `index.html` in your browser or use a local server:
@@ -102,6 +154,8 @@ php -S localhost:8000
 ```
 
 3. Open http://localhost:8000 in your browser
+
+For more details, see [docs/README.md](docs/README.md)
 
 ## 🚢 Deployment to GitHub Pages
 

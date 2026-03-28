@@ -1,0 +1,12 @@
+# Proper MIME types for code files
+AddType application/x-java .java
+AddType text/x-cobol .cob
+
+# Force download behavior
+<Files *.java>
+    Header set Content-Disposition attachment
+</Files>
+
+<Files *.cob>
+    Header set Content-Disposition attachment
+</Files>

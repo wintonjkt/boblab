@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "conversations": "Hội thoại",
+    "walkthrough": "Hướng dẫn"
+  },
+  "hero": {
+    "title": "Hội nghị Phát triển AI Doanh nghiệp",
+    "subtitle": "Chuyển đổi 7-8 tuần phát triển doanh nghiệp thành 10 phút điều phối được hỗ trợ bởi AI",
+    "tagline": "Tìm hiểu cách IBM Bob xử lý thay đổi đa kho lưu trữ, tự động hóa tuân thủ và bảo mật tích hợp",
+    "btn_conversations": "Hội thoại Người bán",
+    "btn_walkthrough": "Hướng dẫn Tính năng"
+  },
+  "intro": {
+    "title": "Hai Cách để Khám phá Bob",
+    "conversations_title": "Hội thoại",
+    "conversations_desc": "Hướng dẫn kiểu trò chuyện cho các cuộc thảo luận với khách hàng. Khám phá các câu hỏi điển hình, điểm nói chuyện và cách giải quyết các mối quan tâm phổ biến về IBM Bob.",
+    "btn_conversations": "Xem Hội thoại",
+    "walkthrough_title": "Hướng dẫn",
+    "walkthrough_desc": "Hành trình dựa trên các tính năng chính của Bob. Xem bản demo, hiểu giá trị kinh doanh và xem lại các điểm bằng chứng thực tế.",
+    "btn_walkthrough": "Bắt đầu Hướng dẫn"
+  },
+  "engagement": {
+    "title": "Quan tâm đến Bobathon hoặc Thử nghiệm?",
+    "description": "Liên hệ với IBM Client Engineering để thảo luận về cơ hội tham gia và xem Bob có thể chuyển đổi quy trình phát triển của bạn như thế nào.",
+    "btn_learn_more": "Tìm hiểu thêm về IBM Client Engineering"
+  },
+  "footer": {
+    "title": "bob-lab",
+    "description": "Phát triển AI doanh nghiệp đơn giản",
+    "links": "Liên kết",
+    "attribution": "Được xây dựng bởi IBM Client Engineering với bob"
+  },
+  "walkthrough": {
+    "page_title": "Hướng dẫn",
+    "title": "Hướng dẫn Tính năng Bob",
+    "subtitle": "Trải nghiệm Tính năng Quy mô Doanh nghiệp của Bob",
+    "description": "Tìm hiểu cách Bob chuyển đổi phát triển doanh nghiệp thông qua các bản demo thực hành",
+    "sidebar_title": "Tính năng",
+    "nav_overview": "Tổng quan",
+    "nav_requirements": "Yêu cầu Kinh doanh",
+    "nav_compliance": "Tự động hóa Tuân thủ",
+    "nav_multirepo": "Điều phối Đa Kho lưu trữ",
+    "nav_security": "Bảo mật Tích hợp",
+    "nav_deployment": "Lập kế hoạch Triển khai",
+    "nav_bobalytics": "Tính minh bạch Bobalytics",
+    "github_link": "Lấy Mã nguồn",
+    "overview_title": "Những gì Bạn sẽ Trải nghiệm",
+    "overview_desc": "Hướng dẫn này thể hiện các khả năng chính của Bob thông qua một kịch bản thực tế: triển khai SSO + MFA trên 3 hệ thống cũ để vượt qua kiểm toán SOC 2.",
+    "estimated_time": "Thời gian ước tính:",
+    "estimated_time_value": "10-15 phút để hoàn thành tất cả bản demo tính năng",
+    "copy": "Sao chép",
+    "copied": "Đã sao chép!",
+    "prompt_to_bob": "Nhắc nhở Bob"
+  },
+  "narrative": {
+    "page_title": "Hướng dẫn Hội thoại Người bán",
+    "title": "Hướng dẫn Hội thoại Khách hàng",
+    "subtitle": "Các điểm Thuyết phục cho Thảo luận Bán hàng Bob",
+    "description": "Câu hỏi phổ biến của khách hàng và phản hồi được đề xuất dựa trên các khả năng độc đáo của Bob",
+    "topics_title": "Chủ đề Hội thoại",
+    "topic_intro": "Giới thiệu",
+    "topic_productivity": "Cải tiến Năng suất",
+    "topic_security": "Bảo mật và Tuân thủ",
+    "topic_multirepo": "Đa Kho lưu trữ",
+    "topic_cost": "Tính minh bạch về Chi phí",
+    "topic_integration": "Tích hợp",
+    "topic_competition": "so với Đối thủ cạnh tranh",
+    "topic_proof": "Điểm bằng chứng"
+  }
+}

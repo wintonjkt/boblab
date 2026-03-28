@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Modes - bob-lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+  <div data-component="breadcrumb"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Bob Custom Modes</h1>
+      <p class="page-subtitle">Create Specialized AI Workflows</p>
+      <p class="page-description">Learn how to create and use custom modes in Bob IDE for tailored AI experiences</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>Custom Modes Guide</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#overview" class="capability-link active">Overview</a>
+        <a href="#what-are-modes" class="capability-link">What Are Custom Modes</a>
+        <a href="#built-in-modes" class="capability-link">Built-in Modes</a>
+        <a href="#creating-modes" class="capability-link">Creating Custom Modes</a>
+        <a href="#mode-configuration" class="capability-link">Mode Configuration</a>
+        <a href="#examples" class="capability-link">Real-World Examples</a>
+        <a href="#best-practices" class="capability-link">Best Practices</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="https://github.ibm.com/bob-ide/custom-modes" target="_blank" class="sidebar-github-link">
+          <span class="github-text">Mode Templates</span>
+          <span class="github-arrow">&rarr;</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="walkthrough-main">
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="info-card compliance">
+          <h2>Custom Modes in Bob IDE</h2>
+          <p>Custom modes allow you to create specialized AI workflows tailored to specific tasks, domains, or workflows, enhancing productivity and consistency.</p>
+
+          <div class="capabilities-overview">
+            <div class="cap-card">
+              <h4>Task Specialization</h4>
+              <p>Modes optimized for specific development tasks</p>
+            </div>
+            <div class="cap-card">
+              <h4>Consistent Workflows</h4>
+              <p>Standardized approaches to common problems</p>
+            </div>
+            <div class="cap-card">
+              <h4>Team Alignment</h4>
+              <p>Shared modes ensure team consistency</p>
+            </div>
+            <div class="cap-card">
+              <h4>Quick Context Switch</h4>
+              <p>Instantly adapt Bob to your current task</p>
+            </div>
+          </div>
+
+          <p><strong>Estimated Time:</strong> 20-25 minutes to master custom modes and create your first specialized workflow</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Are Custom Modes -->
+    <section id="what-are-modes" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>What Are Custom Modes?</h2>
+          <p>Custom modes are predefined configurations that shape Bob's behavior, context, and capabilities for specific scenarios.</p>
+          
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Bob IDE - Mode Selection</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-bash">Available Modes:
+├── Default (General Purpose)
+├── Code Review
+├── Documentation
+├── Debugging
+├── Testing
+├── Migration
+└── Custom Modes
+    ├── API Development
+    ├── Frontend React
+    ├── Python Data Science
+    └── DevOps Automation</code></pre>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Mode Components</h3>
+            <ul>
+              <li><strong>System Prompts:</strong> Define Bob's role and behavior</li>
+              <li><strong>Context Templates:</strong> Pre-configured context for specific tasks</li>
+              <li><strong>Tool Preferences:</strong> Optimize tool selection for the mode</li>
+              <li><strong>Response Formats:</strong> Standardize output structure</li>
+              <li><strong>Guardrails:</strong> Apply specific constraints and guidelines</li>
+            </ul>
+          </div>
+        </div>
+
+    <!-- Built-in Modes -->
+    <section id="built-in-modes" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Understanding Built-in Modes</h2>
+          <p>Bob IDE comes with five powerful built-in modes, each optimized for specific workflows. Understanding when and how to use each mode is key to maximizing your productivity.</p>
+          
+          <div class="info-card compliance">
+            <h3>Why Use Different Modes?</h3>
+            <div class="capabilities-overview">
+              <div class="cap-card">
+                <h4>Task Specialization</h4>
+                <p>Get precisely the type of assistance needed for your current task</p>
+              </div>
+              <div class="cap-card">
+                <h4>Safety Controls</h4>
+                <p>Prevent unintended file modifications with mode-specific restrictions</p>
+              </div>
+              <div class="cap-card">
+                <h4>Focused Interactions</h4>
+                <p>Responses optimized for your current activity</p>
+              </div>
+              <div class="cap-card">
+                <h4>Workflow Optimization</h4>
+                <p>Seamless transitions between planning, implementing, debugging, and learning</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Switching Between Modes</h3>
+            <p>Bob provides four convenient ways to switch modes:</p>
+            <ul>
+              <li><strong>Dropdown Menu:</strong> Click the mode selector to the left of the chat input</li>
+              <li><strong>Slash Commands:</strong> Type <code>/plan</code>, <code>/ask</code>, <code>/code</code>, <code>/advanced</code>, or <code>/orchestrator</code></li>
+              <li><strong>Keyboard Shortcut:</strong> Press <code>⌘+.</code> (macOS) or <code>Ctrl+.</code> (Windows/Linux) to toggle between modes</li>
+              <li><strong>Accept Suggestions:</strong> Click on mode switch suggestions that Bob offers during conversations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Built-in Modes Details -->
+    <section id="mode-details" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Built-in Modes Overview</h2>
+          <p>Each built-in mode is designed for specific scenarios. Here's a detailed look at each one:</p>
+          
+          <!-- Code Mode -->
+          <div class="mode-detail-card">
+            <div class="mode-header">
+              <h3>💻 Code Mode</h3>
+              <span class="mode-badge">General Purpose</span>
+            </div>
+            <div class="mode-content">
+              <div class="mode-description">
+                <p><strong>Role:</strong> Highly skilled software engineer</p>
+                <p><strong>Description:</strong> Write, modify, and refactor code efficiently</p>
+              </div>
+              <div class="mode-details-grid">
+                <div class="detail-item">
+                  <h4>Tool Access</h4>
+                  <ul>
+                    <li>Read files</li>
+                    <li>Edit files</li>
+                    <li>Execute commands</li>
+                  </ul>
+                </div>
+                <div class="detail-item">
+                  <h4>Best For</h4>
+                  <ul>
+                    <li>Day-to-day coding tasks</li>
+                    <li>Bug fixes and refactoring</li>
+                    <li>Cost-efficient development</li>
+                    <li>Most common use case</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Code Mode Example</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">User: Refactor this function to use async/await
+
+Bob: [Reading] function implementation...
+[Analyzing] current structure...
+[Refactoring] to async/await pattern...
+[Complete] Function refactored successfully!</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ask Mode -->
+          <div class="mode-detail-card">
+            <div class="mode-header">
+              <h3>❓ Ask Mode</h3>
+              <span class="mode-badge">Information</span>
+            </div>
+            <div class="mode-content">
+              <div class="mode-description">
+                <p><strong>Role:</strong> Knowledgeable technical assistant</p>
+                <p><strong>Description:</strong> Get answers and explanations without modifying files</p>
+              </div>
+              <div class="mode-details-grid">
+                <div class="detail-item">
+                  <h4>Tool Access</h4>
+                  <ul>
+                    <li>Read files</li>
+                    <li>Browser access</li>
+                    <li>MCP integrations</li>
+                    <li><em>No file editing</em></li>
+                  </ul>
+                </div>
+                <div class="detail-item">
+                  <h4>Best For</h4>
+                  <ul>
+                    <li>Understanding code</li>
+                    <li>Learning concepts</li>
+                    <li>Safe exploration</li>
+                    <li>Documentation research</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Ask Mode Example</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">User: Explain how this authentication flow works
+
+Bob: [Reading] authentication code...
+[Analyzing] flow structure...
+
+This authentication flow uses JWT tokens with a refresh mechanism:
+1. User submits credentials
+2. Server validates and generates access + refresh tokens
+3. Access token expires in 15 minutes
+4. Refresh token used to obtain new access token
+5. Refresh token rotates on each use for security</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plan Mode -->
+          <div class="mode-detail-card">
+            <div class="mode-header">
+              <h3>📝 Plan Mode</h3>
+              <span class="mode-badge">Strategy</span>
+            </div>
+            <div class="mode-content">
+              <div class="mode-description">
+                <p><strong>Role:</strong> Experienced technical leader, inquisitive, excellent planner</p>
+                <p><strong>Description:</strong> Plan and design before implementation</p>
+              </div>
+              <div class="mode-details-grid">
+                <div class="detail-item">
+                  <h4>Tool Access</h4>
+                  <ul>
+                    <li>Read files</li>
+                    <li>Edit markdown only</li>
+                    <li>Browser access</li>
+                    <li>MCP integrations</li>
+                  </ul>
+                </div>
+                <div class="detail-item">
+                  <h4>Best For</h4>
+                  <ul>
+                    <li>High-level planning</li>
+                    <li>Architecture design</li>
+                    <li>Technical leadership</li>
+                    <li>Big picture thinking</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Plan Mode Example</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">User: Help me plan a microservices migration
+
+Bob: [Analyzing] current monolith architecture...
+[Researching] microservices best practices...
+[Creating] migration plan...
+
+## Migration Strategy
+
+### Phase 1: Assessment (2 weeks)
+- Identify service boundaries
+- Map dependencies
+- Evaluate data separation
+
+### Phase 2: Infrastructure (3 weeks)
+- Set up container orchestration
+- Configure service mesh
+- Implement API gateway
+
+### Phase 3: Gradual Migration (12 weeks)
+- Extract user service first (lowest dependencies)
+- Implement event-driven communication
+- Migrate remaining services incrementally
+
+[Saved] plan to MIGRATION_PLAN.md</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Advanced Mode -->
+          <div class="mode-detail-card">
+            <div class="mode-header">
+              <h3>🛠️ Advanced Mode</h3>
+              <span class="mode-badge">Power User</span>
+            </div>
+            <div class="mode-content">
+              <div class="mode-description">
+                <p><strong>Role:</strong> Highly skilled software engineer with unrestricted access</p>
+                <p><strong>Description:</strong> Advanced version of Code mode with all tools available</p>
+              </div>
+              <div class="mode-details-grid">
+                <div class="detail-item">
+                  <h4>Tool Access</h4>
+                  <ul>
+                    <li>Read files</li>
+                    <li>Edit files</li>
+                    <li>Browser access</li>
+                    <li>Execute commands</li>
+                    <li>MCP integrations</li>
+                    <li><strong>All tools enabled</strong></li>
+                  </ul>
+                </div>
+                <div class="detail-item">
+                  <h4>Best For</h4>
+                  <ul>
+                    <li>Complex integrations</li>
+                    <li>Tasks requiring MCP</li>
+                    <li>Browser-assisted coding</li>
+                    <li>Full flexibility needed</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Advanced Mode Example</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">User: Integrate with the GitHub API and update our deployment workflow
+
+Bob: [Browsing] GitHub API documentation...
+[Reading] current workflow files...
+[Connecting] to GitHub via MCP...
+[Implementing] API integration...
+[Updating] deployment scripts...
+[Testing] workflow execution...
+[Complete] GitHub integration ready!</code></pre>
+                </div>
+              </div>
+              <div class="info-card">
+                <p><strong>Special Features:</strong> No tool restrictions—full flexibility for power users who need access to all capabilities simultaneously.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Orchestrator Mode -->
+          <div class="mode-detail-card">
+            <div class="mode-header">
+              <h3>🔀 Orchestrator Mode</h3>
+              <span class="mode-badge">Multi-Domain</span>
+            </div>
+            <div class="mode-content">
+              <div class="mode-description">
+                <p><strong>Role:</strong> Strategic workflow orchestrator</p>
+                <p><strong>Description:</strong> Coordinate complex tasks across multiple modes</p>
+              </div>
+              <div class="mode-details-grid">
+                <div class="detail-item">
+                  <h4>Tool Access</h4>
+                  <ul>
+                    <li><em>No direct tools</em></li>
+                    <li>Delegates to other modes</li>
+                    <li>Coordinates workflows</li>
+                    <li>Manages subtasks</li>
+                  </ul>
+                </div>
+                <div class="detail-item">
+                  <h4>Best For</h4>
+                  <ul>
+                    <li>Complex projects</li>
+                    <li>Multi-step workflows</li>
+                    <li>Cross-domain tasks</li>
+                    <li>Strategic coordination</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Orchestrator Mode Example</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">User: Build a new feature: user authentication with email verification
+
+Bob: [Orchestrating] multi-phase feature development...
+
+## Task Breakdown:
+1. Planning phase (Plan mode)
+2. Database schema (Code mode)
+3. API endpoints (Code mode)
+4. Email service integration (Advanced mode)
+5. Frontend components (Code mode)
+6. Testing suite (Code mode)
+
+[Switching to Plan mode] for architecture design...
+[Plan mode] Creating technical specification...
+[Switching to Code mode] for database implementation...
+[Code mode] Implementing user schema...
+[Switching to Advanced mode] for email service...
+[Advanced mode] Integrating SendGrid API...
+
+[Complete] Feature implemented across 6 coordinated tasks!</code></pre>
+                </div>
+              </div>
+              <div class="info-card">
+                <p><strong>Special Features:</strong> Automatically switches modes based on task requirements, manages subtasks, and coordinates work across different specialties.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mode Comparison -->
+    <section id="mode-comparison" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Mode Comparison Table</h2>
+          <p>Quick reference guide to help you choose the right mode for your task.</p>
+          
+          <div class="table-container">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Mode</th>
+                  <th>Primary Purpose</th>
+                  <th>When to Use</th>
+                  <th>Key Capabilities</th>
+                  <th>Tool Access</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>💻 Code</strong></td>
+                  <td>General coding</td>
+                  <td>Day-to-day development tasks</td>
+                  <td>Write, modify, refactor code</td>
+                  <td>Read, Edit, Command</td>
+                </tr>
+                <tr>
+                  <td><strong>❓ Ask</strong></td>
+                  <td>Information & learning</td>
+                  <td>Understanding code without changes</td>
+                  <td>Explain, research, answer questions</td>
+                  <td>Read, Browser, MCP</td>
+                </tr>
+                <tr>
+                  <td><strong>📝 Plan</strong></td>
+                  <td>Strategic planning</td>
+                  <td>Architecture and design decisions</td>
+                  <td>Plan, design, document</td>
+                  <td>Read, Edit (MD only), Browser, MCP</td>
+                </tr>
+                <tr>
+                  <td><strong>🛠️ Advanced</strong></td>
+                  <td>Complex tasks</td>
+                  <td>Need all tools simultaneously</td>
+                  <td>Full flexibility, no restrictions</td>
+                  <td>All tools enabled</td>
+                </tr>
+                <tr>
+                  <td><strong>🔀 Orchestrator</strong></td>
+                  <td>Multi-domain coordination</td>
+                  <td>Complex, multi-step projects</td>
+                  <td>Coordinate across modes</td>
+                  <td>None (delegates to other modes)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mode Selection Guidelines -->
+    <section id="mode-guidelines" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Mode Selection Guidelines</h2>
+          <p>Follow these guidelines to choose the most effective mode for your workflow.</p>
+          
+          <div class="guidelines-grid">
+            <div class="guideline-card">
+              <div class="guideline-icon">🚀</div>
+              <h3>Starting New Projects</h3>
+              <p>Begin with <strong>Plan mode</strong> to establish architecture and design before diving into implementation.</p>
+              <div class="example-box">
+                <strong>Example:</strong> "I need to build a REST API for a todo application"
+                <br><em>→ Use Plan mode to design endpoints, data models, and architecture</em>
+              </div>
+            </div>
+
+            <div class="guideline-card">
+              <div class="guideline-icon">💼</div>
+              <h3>Daily Development</h3>
+              <p>Use <strong>Code mode</strong> for routine coding tasks—it's cost-efficient and handles most development needs.</p>
+              <div class="example-box">
+                <strong>Example:</strong> "Fix the bug in the login validation"
+                <br><em>→ Use Code mode for straightforward bug fixes</em>
+              </div>
+            </div>
+
+            <div class="guideline-card">
+              <div class="guideline-icon">📚</div>
+              <h3>Learning & Understanding</h3>
+              <p>Switch to <strong>Ask mode</strong> when you need explanations without risking file modifications.</p>
+              <div class="example-box">
+                <strong>Example:</strong> "How does this caching mechanism work?"
+                <br><em>→ Use Ask mode to safely explore and learn</em>
+              </div>
+            </div>
+
+            <div class="guideline-card">
+              <div class="guideline-icon">⚡</div>
+              <h3>Power User Tasks</h3>
+              <p>Use <strong>Advanced mode</strong> when you need unrestricted access to all tools, especially for MCP integrations.</p>
+              <div class="example-box">
+                <strong>Example:</strong> "Integrate Slack notifications with our CI/CD pipeline"
+                <br><em>→ Use Advanced mode for complex integrations</em>
+              </div>
+            </div>
+
+            <div class="guideline-card">
+              <div class="guideline-icon">🎯</div>
+              <h3>Complex Features</h3>
+              <p>Use <strong>Orchestrator mode</strong> for multi-step projects that span different domains and require coordination.</p>
+              <div class="example-box">
+                <strong>Example:</strong> "Build a complete user authentication system with email verification"
+                <br><em>→ Use Orchestrator mode to coordinate planning, implementation, and testing</em>
+              </div>
+            </div>
+
+            <div class="guideline-card">
+              <div class="guideline-icon">🔄</div>
+              <h3>Mode Switching</h3>
+              <p>Don't hesitate to switch modes mid-conversation—Bob will suggest switches when appropriate.</p>
+              <div class="example-box">
+                <strong>Example:</strong> Start in Ask mode to understand, then switch to Code mode to implement
+                <br><em>→ Seamless transitions optimize your workflow</em>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Pro Tips</h3>
+            <ul>
+              <li><strong>Trust Bob's suggestions:</strong> When Bob suggests switching modes, it's usually for good reason</li>
+              <li><strong>Start conservative:</strong> Begin with Ask or Plan mode, then move to Code or Advanced as needed</li>
+              <li><strong>Use keyboard shortcuts:</strong> <code>⌘+.</code> or <code>Ctrl+.</code> for quick mode toggling</li>
+              <li><strong>Experiment:</strong> Try different modes for the same task to find what works best for your workflow</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customizing Modes -->
+    <section id="customizing-built-in" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Beyond Built-in Modes</h2>
+          <p>While built-in modes cover most scenarios, you can create custom modes for specialized workflows.</p>
+          
+          <div class="info-card compliance">
+            <h3>When to Create Custom Modes</h3>
+            <ul>
+              <li><strong>Domain-specific tasks:</strong> Specialized workflows unique to your project or industry</li>
+              <li><strong>Team standardization:</strong> Ensure consistent approaches across your team</li>
+              <li><strong>Repeated patterns:</strong> Automate frequently used workflows and configurations</li>
+              <li><strong>Compliance requirements:</strong> Enforce specific guardrails and quality checks</li>
+            </ul>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Custom Mode Example</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-bash">User: Create a custom mode for COBOL to Java migration
+
+Bob: [Creating] specialized migration mode...
+[Configuring] COBOL analysis tools...
+[Adding] Java best practices...
+[Setting] migration-specific guardrails...
+
+Custom mode "COBOL Migration" created!
+- Analyzes COBOL code structure
+- Suggests Java equivalents
+- Validates migration patterns
+- Includes testing workflows
+
+Ready to use: /cobol-migration</code></pre>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <p><strong>Learn More:</strong> Continue reading the sections below to learn how to create and configure your own custom modes for specialized workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+      </div>
+    </section>
+
+    <!-- Creating Custom Modes -->
+    <section id="creating-modes" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Creating Custom Modes</h2>
+          <p>Learn how to create your own custom modes using Bob's mode configuration system.</p>
+          
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Creating a Mode with Bob</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-bash">User: Create a custom mode for Kubernetes debugging
+
+Bob: I'll create a Kubernetes debugging mode for you. Here's what I'll include:
+
+[Configuring] Kubernetes debug mode...
+[Adding] relevant tools and contexts...
+[Setting] specialized prompts...
+[Complete] Kubernetes Debug Mode ready!
+
+Mode created: ~/.bob/modes/k8s-debug.json</code></pre>
+            </div>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Generated Mode Configuration</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-json">{
+  "name": "Kubernetes Debugging",
+  "description": "Specialized mode for debugging Kubernetes deployments",
+  "version": "1.0.0",
+  "icon": "tool",
+  "color": "#326CE5",
+  
+  "systemPrompt": "You are a Kubernetes debugging expert. Focus on diagnosing and resolving issues with Kubernetes clusters, deployments, and applications. Use kubectl commands, analyze logs, and provide step-by-step debugging guidance.",
+  
+  "context": [
+    "Load recent kubectl commands",
+    "Include cluster status information",
+    "Show relevant deployment configurations"
+  ],
+  
+  "tools": {
+    "preferred": ["kubectl", "helm", "docker"],
+    "autoExecute": ["kubectl get", "kubectl describe"]
+  },
+  
+  "responseFormat": {
+    "includeCommands": true,
+    "stepByStep": true,
+    "codeBlocks": true
+  },
+  
+  "guardrails": {
+    "requireConfirmation": ["kubectl delete", "helm uninstall"],
+    "warnDestructive": true
+  },
+  
+  "shortcuts": {
+    "pod-status": "kubectl get pods -A",
+    "events": "kubectl get events --sort-by=.metadata.creationTimestamp",
+    "logs": "kubectl logs -f deployment/"
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Mode Creation Process</h3>
+            <ul>
+              <li><strong>Define Purpose:</strong> Clearly state the mode's objective</li>
+              <li><strong>Configure System Prompt:</strong> Set Bob's role and behavior</li>
+              <li><strong>Select Tools:</strong> Choose relevant tools and auto-execution</li>
+              <li><strong>Add Context:</strong> Include relevant background information</li>
+              <li><strong>Set Guardrails:</strong> Define safety constraints</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mode Configuration -->
+    <section id="mode-configuration" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Advanced Mode Configuration</h2>
+          <p>Explore advanced configuration options for creating powerful custom modes.</p>
+          
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">API Development Mode</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+              <pre><code class="language-json">{
+  "name": "API Development",
+  "description": "Mode for designing, implementing, and testing APIs",
+  "version": "2.0.0",
+  "icon": "plug",
+  "color": "#FF6B6B",
+  
+  "systemPrompt": "You are an API development specialist. Focus on RESTful API design, implementation best practices, security considerations, and comprehensive testing. Always consider OpenAPI specifications and documentation standards.",
+  
+  "contextTemplates": [
+    {
+      "name": "API Design",
+      "template": "Load existing API specs and similar endpoints"
+    },
+    {
+      "name": "Implementation",
+      "template": "Include framework-specific patterns and conventions"
+    },
+    {
+      "name": "Testing",
+      "template": "Load test cases and API testing frameworks"
+    }
+  ],
+  
+  "workflows": [
+    {
+      "name": "Create New Endpoint",
+      "steps": [
+        "Analyze requirements",
+        "Design endpoint structure",
+        "Implement controller logic",
+        "Add validation",
+        "Write tests",
+        "Update documentation"
+      ]
+    },
+    {
+      "name": "Debug API Issue",
+      "steps": [
+        "Reproduce the issue",
+        "Check logs and metrics",
+        "Analyze request/response",
+        "Identify root cause",
+        "Implement fix",
+        "Verify resolution"
+      ]
+    }
+  ],
+  
+  "codeSnippets": {
+    "express-endpoint": {
+      "description": "Express.js endpoint template",
+      "code": "app.${method}('${path}', async (req, res) => {\n  try {\n    // Implementation\n  } catch (error) {\n    res.status(500).json({ error: error.message });\n  }\n});"
+    },
+    "openapi-schema": {
+      "description": "OpenAPI schema template",
+      "code": "/${path}:\n  ${method}:\n    summary: \"${summary}\"\n    responses:\n      200:\n        description: Success"
+    }
+  },
+  
+  "qualityChecks": {
+    "required": [
+      "validate input parameters",
+      "include error handling",
+      "add authentication checks",
+      "write unit tests"
+    ],
+    "recommended": [
+      "add rate limiting",
+      "include logging",
+      "document endpoints"
+    ]
+  }
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Advanced Features</h3>
+            <ul>
+              <li><strong>Workflows:</strong> Predefined step-by-step processes</li>
+              <li><strong>Context Templates:</strong> Dynamic context based on current task</li>
+              <li><strong>Code Snippets:</strong> Reusable code templates</li>
+              <li><strong>Quality Checks:</strong> Automated validation of outputs</li>
+              <li><strong>Integration Points:</strong> Connect with external tools</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real-World Examples -->
+    <section id="examples" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Real-World Examples</h2>
+          <p>Explore practical custom modes used in real development scenarios.</p>
+          
+          <div class="examples-grid">
+            <div class="example-card">
+              <h3>Frontend React Mode</h3>
+              <div class="demo-window">
+                <div class="window-content">
+                  <pre><code class="language-json">{
+  "name": "React Development",
+  "systemPrompt": "You are a React expert. Focus on component architecture, hooks, state management, and performance optimization.",
+  "context": ["Load component tree", "Include useState/useEffect patterns"],
+  "tools": {
+    "preferred": ["npm", "yarn", "create-react-app"],
+    "autoExecute": ["npm run test", "npm run lint"]
+  },
+  "snippets": {
+    "component": "import React from 'react';\n\nconst ${ComponentName} = () => {\n  return <div>${content}</div>;\n};\n\nexport default ${ComponentName};"
+  }
+}</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="example-card">
+              <h3>Python Data Science Mode</h3>
+              <div class="demo-window">
+                <div class="window-content">
+                  <pre><code class="language-json">{
+  "name": "Data Science",
+  "systemPrompt": "You are a data science expert. Focus on data analysis, visualization, and machine learning using Python.",
+  "context": ["Load dataset info", "Include relevant libraries"],
+  "tools": {
+    "preferred": ["pandas", "numpy", "matplotlib", "scikit-learn"],
+    "autoExecute": ["python -m pytest", "jupyter nbconvert"]
+  },
+  "snippets": {
+    "analysis": "import pandas as pd\nimport matplotlib.pyplot as plt\n\ndata = pd.read_csv('${file}')\nprint(data.head())"
+  }
+}</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="example-card">
+              <h3>Security Review Mode</h3>
+              <div class="demo-window">
+                <div class="window-content">
+                  <pre><code class="language-json">{
+  "name": "Security Review",
+  "systemPrompt": "You are a security expert. Focus on identifying vulnerabilities, security best practices, and compliance requirements.",
+  "context": ["Load security standards", "Include vulnerability databases"],
+  "guardrails": {
+    "requireConfirmation": ["deploy", "merge"],
+    "warnDestructive": true,
+    "securityFocus": true
+  },
+  "checklist": [
+    "Input validation",
+    "Authentication/Authorization",
+    "Data encryption",
+    "Error handling",
+    "Logging and monitoring"
+  ]
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <h3>Mode Sharing</h3>
+            <ul>
+              <li><strong>Team Repository:</strong> Share modes through Git repositories</li>
+              <li><strong>Marketplace:</strong> Browse community-contributed modes</li>
+              <li><strong>Version Control:</strong> Track mode evolution and improvements</li>
+              <li><strong>Feedback Loop:</strong> Collect usage data and suggestions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section id="best-practices" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Best Practices</h2>
+          <p>Guidelines for creating effective and maintainable custom modes.</p>
+          
+          <div class="best-practices-grid">
+            <div class="practice-card">
+              <h3>Focused Purpose</h3>
+              <ul>
+                <li>Define a clear, specific objective</li>
+                <li>Avoid overly broad modes</li>
+                <li>Consider splitting complex modes</li>
+                <li>Test with real scenarios</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h3>Clear Documentation</h3>
+              <ul>
+                <li>Describe mode purpose clearly</li>
+                <li>Provide usage examples</li>
+                <li>Document all configuration options</li>
+                <li>Include troubleshooting tips</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h3>Proper Configuration</h3>
+              <ul>
+                <li>Set appropriate guardrails</li>
+                <li>Configure relevant tools</li>
+                <li>Optimize response formats</li>
+                <li>Include quality checks</li>
+              </ul>
+            </div>
+            
+            <div class="practice-card">
+              <h3>Continuous Improvement</h3>
+              <ul>
+                <li>Gather user feedback</li>
+                <li>Monitor mode effectiveness</li>
+                <li>Update based on new tools</li>
+                <li>Share improvements</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="demo-window">
+            <div class="window-header">
+              <span class="window-title">Bob - Mode Review</span>
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+            </div>
+            <div class="window-content">
+               <pre><code class="language-bash">User: Review my custom mode for improvements
+
+Bob: [Analyzing] your mode configuration...
+
+[OK] Purpose: Well-defined and focused
+[Warning] Guardrails: Consider adding more safety checks
+[OK] Tools: Good selection for domain
+[Suggestion] Add workflow templates
+[OK] Documentation: Clear and comprehensive
+
+[Implement] Would you like me to implement the suggested improvements?</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hands-On Lab -->
+    <section id="lab-exercise" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Hands-On Lab: Create Your First Custom Mode</h2>
+          <p>Follow this guided exercise to create your own custom mode for Bob IDE.</p>
+          
+          <div class="lab-exercise-container">
+            <div class="exercise-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Choose Your Use Case</h3>
+                <p>Select a specific task or workflow you frequently perform. Examples:</p>
+                <ul>
+                  <li>Database schema migrations</li>
+                  <li>CI/CD pipeline troubleshooting</li>
+                  <li>Code review automation</li>
+                  <li>Test case generation</li>
+                </ul>
+                
+                <div class="prompt-box">
+                  <div class="prompt-content">
+                    <p><strong>Exercise:</strong> Identify one repetitive task in your current project that could benefit from a custom mode.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Define Mode Structure</h3>
+                <p>Use Bob to create the initial mode configuration:</p>
+                
+                <div class="code-block-wrapper">
+                  <div class="code-block-header">
+                    <span class="code-block-language">Prompt to Bob</span>
+                    <button class="copy-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                      </svg>
+                      Copy
+                    </button>
+                  </div>
+                  <pre><code>Create a custom mode for [your chosen task]. Include:
+1. Clear system prompt defining the role
+2. Relevant tools and commands
+3. Common workflows for this task
+4. Safety guardrails
+5. Useful code snippets</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Refine and Customize</h3>
+                <p>Review and enhance the generated configuration:</p>
+                
+                <div class="demo-window">
+                  <div class="window-header">
+                    <span class="window-title">Mode Configuration Review</span>
+                    <div class="window-controls">
+                      <span class="control close"></span>
+                      <span class="control minimize"></span>
+                      <span class="control maximize"></span>
+                    </div>
+                  </div>
+                  <div class="window-content">
+                    <pre><code class="language-bash">Bob: [Reviewing] your mode configuration...
+
+✅ System prompt is clear and specific
+✅ Tools are relevant to the task
+⚠️  Consider adding more shortcuts
+✅ Guardrails are properly configured
+📝 Adding context templates...
+🔧 Optimizing response format...
+
+Your mode is ready! Saved to: ~/.bob/modes/[mode-name].json</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3>Test Your Mode</h3>
+                <p>Switch to your new mode and test it with a real task:</p>
+                
+                <div class="demo-window">
+                  <div class="window-header">
+                    <span class="window-title">Bob IDE - Mode Testing</span>
+                    <div class="window-controls">
+                      <span class="control close"></span>
+                      <span class="control minimize"></span>
+                      <span class="control maximize"></span>
+                    </div>
+                  </div>
+                  <div class="window-content">
+                    <pre><code class="language-bash">[Mode: Your Custom Mode]
+[Context: Loaded relevant files and tools]
+
+User: [Enter your test task]
+
+Bob: [Processing with custom mode configuration...]
+
+[Generated output optimized for your specific task]
+[Includes relevant tools and workflows]
+[Follows your defined format and standards]</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lab-completion">
+            <h3>Congratulations! 🎉</h3>
+            <p>You've successfully created and tested your first custom mode.</p>
+            <div class="next-actions">
+              <h4>Next Steps:</h4>
+              <ul>
+                <li>Share your mode with your team</li>
+                <li>Create additional modes for other tasks</li>
+                <li>Document your mode for future reference</li>
+                <li>Contribute to the community mode repository</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mode Management -->
+    <section id="mode-management" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Mode Management</h2>
+          <p>Learn how to organize, update, and distribute your custom modes effectively.</p>
+          
+          <div class="management-features">
+            <div class="feature-card">
+              <h3>Mode Repository</h3>
+              <p>Organize modes in a Git repository for team collaboration:</p>
+              
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Mode Repository Structure</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">team-modes/
+├── frontend/
+│   ├── react-development.json
+│   ├── vue-components.json
+│   └── angular-services.json
+├── backend/
+│   ├── nodejs-api.json
+│   ├── python-django.json
+│   └── java-spring.json
+├── devops/
+│   ├── kubernetes.json
+│   ├── ci-cd.json
+│   └── monitoring.json
+├── security/
+│   ├── code-review.json
+│   └── vulnerability-scan.json
+└── README.md
+    └── mode-templates/</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <h3>Version Control</h3>
+              <p>Track changes and maintain mode versions:</p>
+              
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Bob - Version Management</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">Bob: [Managing] mode versions...
+
+Current mode: API Development v2.1.0
+Available versions: v1.0.0, v2.0.0, v2.1.0
+
+Changelog v2.1.0:
+  + Added OpenAPI 3.1 support
+  + Improved validation templates
+  * Updated code snippets for Node.js 18
+  - Deprecated old authentication patterns
+
+Actions:
+  [upgrade] Upgrade to latest version
+  [rollback] Revert to previous version
+  [diff] Compare versions
+  [export] Download specific version</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <h3>Team Distribution</h3>
+              <p>Distribute modes to your team efficiently:</p>
+              
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Team Mode Distribution</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-bash">Bob: [Distributing] modes to team...
+
+Distribution Methods:
+1. Git Repository (Recommended)
+   - Central source of truth
+   - Version control
+   - Collaboration features
+
+2. Package Manager
+   bob install @company/mode-collection
+
+3. Direct Share
+   bob share --mode react-dev --team frontend
+
+4. Marketplace
+   Publish to Bob Mode Marketplace
+
+Selected: Git Repository
+Cloning repository...
+Installing modes for 12 team members...
+Complete! All team members now have updated modes.</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advanced Topics -->
+    <section id="advanced-topics" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Advanced Topics</h2>
+          <p>Explore advanced features and techniques for power users.</p>
+          
+          <div class="advanced-grid">
+            <div class="advanced-card">
+              <h3>Dynamic Modes</h3>
+              <p>Create modes that adapt based on context and environment:</p>
+              
+              <div class="code-block-wrapper">
+                <div class="code-block-header">
+                  <span class="code-block-language">Dynamic Mode Configuration</span>
+                  <button class="copy-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code class="language-json">{
+  "dynamic": true,
+  "conditions": {
+    "environment": {
+      "development": {
+        "systemPrompt": "Focus on debugging and rapid iteration",
+        "tools": ["nodemon", "debugger"]
+      },
+      "production": {
+        "systemPrompt": "Focus on monitoring and stability",
+        "tools": ["prometheus", "grafana"]
+      }
+    },
+    "projectType": {
+      "microservice": "Include service discovery patterns",
+      "monolith": "Include legacy system considerations"
+    }
+  }
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="advanced-card">
+              <h3>Integration Modes</h3>
+              <p>Connect modes with external tools and services:</p>
+              
+              <div class="code-block-wrapper">
+                <div class="code-block-header">
+                  <span class="code-block-language">Integration Configuration</span>
+                  <button class="copy-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code class="language-json">{
+  "integrations": {
+    "jira": {
+      "enabled": true,
+      "actions": ["create-ticket", "update-status"],
+      "autoLink": true
+    },
+    "slack": {
+      "enabled": true,
+      "channels": ["#dev-alerts", "#code-reviews"],
+      "notifications": ["mode-usage", "errors"]
+    },
+    "github": {
+      "enabled": true,
+      "autoPR": true,
+      "issueTracking": true
+    }
+  },
+  "webhooks": {
+    "onModeSwitch": "https://api.company.com/track-usage",
+    "onError": "https://alerts.company.com/notify"
+  }
+}</code></pre>
+              </div>
+            </div>
+
+            <div class="advanced-card">
+              <h3>AI-Enhanced Modes</h3>
+              <p>Leverage multiple AI models for specialized tasks:</p>
+              
+              <div class="code-block-wrapper">
+                <div class="code-block-header">
+                  <span class="code-block-language">Multi-Model Configuration</span>
+                  <button class="copy-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code class="language-json">{
+  "aiModel": {
+    "routing": "intelligent",
+    "models": {
+      "codeGeneration": "gpt-4-turbo",
+      "codeReview": "claude-3-opus",
+      "documentation": "gemini-pro",
+      "debugging": "codex-updated"
+    },
+    "fallback": "gpt-3.5-turbo",
+    "contextWindow": "32k",
+    "temperature": {
+      "creative": 0.8,
+      "analytical": 0.2,
+      "coding": 0.3
+    }
+  }
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section id="summary" class="section">
+      <div class="container">
+        <div class="step-card">
+          <h2>Custom Modes Mastery!</h2>
+          <p>You've learned how to create, configure, and deploy custom modes in Bob IDE.</p>
+          
+          <div class="achievement-badges">
+            <div class="badge">
+              <div class="badge-icon">✓</div>
+              <div class="badge-title">Mode Creation</div>
+            </div>
+            <div class="badge">
+              <div class="badge-icon">⚙</div>
+              <div class="badge-title">Configuration</div>
+            </div>
+            <div class="badge">
+              <div class="badge-icon">↑</div>
+              <div class="badge-title">Deployment</div>
+            </div>
+            <div class="badge">
+              <div class="badge-icon">★</div>
+              <div class="badge-title">Optimization</div>
+            </div>
+          </div>
+
+            <div class="next-steps">
+              <h3>Next Steps</h3>
+              <ol>
+                <li>Create your first custom mode for your current project</li>
+                <li>Share modes with your team for consistency</li>
+                <li>Explore community mode marketplace</li>
+                <li>Contribute your modes back to the community</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Troubleshooting -->
+    <section id="troubleshooting" class="section section-alt">
+      <div class="container">
+        <div class="step-card">
+          <h2>Troubleshooting</h2>
+          <p>Common issues and solutions when working with custom modes.</p>
+          
+          <div class="troubleshooting-grid">
+            <div class="issue-card">
+              <h3>Mode Not Loading</h3>
+              <div class="issue-solution">
+                <p><strong>Symptoms:</strong> Mode appears in list but doesn't activate</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                  <li>Check JSON syntax with `bob validate-mode [file]`</li>
+                  <li>Verify required fields are present</li>
+                  <li>Clear Bob cache: `bob cache --clear`</li>
+                  <li>Restart Bob IDE</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="issue-card">
+              <h3>Tools Not Working</h3>
+              <div class="issue-solution">
+                <p><strong>Symptoms:</strong> Configured tools don't execute or show errors</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                  <li>Verify tool installation: `bob check-tools`</li>
+                  <li>Check tool paths in configuration</li>
+                  <li>Review permissions for tool execution</li>
+                  <li>Test tools manually outside Bob</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="issue-card">
+              <h3>Performance Issues</h3>
+              <div class="issue-solution">
+                <p><strong>Symptoms:</strong> Mode responses are slow or timeout</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                  <li>Reduce context window size</li>
+                  <li>Optimize system prompt length</li>
+                  <li>Disable unused integrations</li>
+                  <li>Check network connectivity for API calls</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="issue-card">
+              <h3>Team Sync Issues</h3>
+              <div class="issue-solution">
+                <p><strong>Symptoms:</strong> Team members have different mode versions</p>
+                <p><strong>Solutions:</strong></p>
+                <ul>
+                  <li>Force sync: `bob sync --force`</li>
+                  <li>Check Git repository status</li>
+                  <li>Verify distribution method is working</li>
+                  <li>Review team access permissions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="help-resources">
+            <h3>Additional Help Resources</h3>
+            <div class="resource-links">
+              <div class="resource-card">
+                <h4>Mode Hub Repository</h4>
+                <p>Browse and download community-contributed custom modes</p>
+                <a href="https://ibm.biz/modehub" target="_blank">Explore Mode Hub →</a>
+              </div>
+              <div class="resource-card">
+                <h4>Bob Documentation</h4>
+                <p>Comprehensive guides and API references</p>
+                <a href="https://internal.bob.ibm.com/docs" target="_blank">Visit Documentation →</a>
+              </div>
+              <div class="resource-card">
+                <h4>Community Forums</h4>
+                <p>Get help from other Bob users</p>
+                <a href="https://internal.bob.ibm.com/community" target="_blank">Join Community →</a>
+              </div>
+              <div class="resource-card">
+                <h4>Support Channel</h4>
+                <p>Direct support from Bob team</p>
+                <a href="https://internal.bob.ibm.com/support" target="_blank">Get Support →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="../components/component-loader.js"></script>
+  <script src="../script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      hljs.highlightAll();
+    });
+  </script>
+</body>
+</html>

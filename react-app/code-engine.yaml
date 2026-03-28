@@ -1,0 +1,70 @@
+# IBM Code Engine Application Configuration
+# This file defines the deployment configuration for the React SPA
+
+apiVersion: codeengine.cloud.ibm.com/v1beta1
+kind: Application
+metadata:
+  name: bob-lab-app
+  labels:
+    app: bob-lab
+    environment: production
+spec:
+  # Image configuration
+  imageReference: us.icr.io/YOUR_NAMESPACE/bob-lab:latest
+  imagePullPolicy: Always
+  
+  # Port configuration
+  port: 8080
+  
+  # Resource limits
+  resources:
+    limits:
+      cpu: "1"
+      memory: 512Mi
+    requests:
+      cpu: "0.25"
+      memory: 256Mi
+  
+  # Scaling configuration
+  scale:
+    minScale: 1
+    maxScale: 5
+    concurrency: 100
+    concurrencyTarget: 80
+  
+  # Health checks
+  probes:
+    liveness:
+      httpGet:
+        path: /health
+        port: 8080
+      initialDelaySeconds: 10
+      periodSeconds: 30
+      timeoutSeconds: 3
+      failureThreshold: 3
+    readiness:
+      httpGet:
+        path: /health
+        port: 8080
+      initialDelaySeconds: 5
+      periodSeconds: 10
+      timeoutSeconds: 3
+      failureThreshold: 3
+  
+  # Environment variables (optional)
+  env:
+    - name: NODE_ENV
+      value: production
+    - name: TZ
+      value: UTC
+  
+  # Service account (optional)
+  # serviceAccountName: default
+  
+  # Visibility
+  visibility: public
+  
+  # Request timeout (in seconds)
+  timeout: 300
+
+# Made with Bob

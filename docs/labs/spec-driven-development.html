@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spec-Driven Development - bob-lab</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../narrative.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+</head>
+<body>
+  <!-- Shared Navigation Component -->
+  <div data-component="navbar"></div>
+  <div data-component="breadcrumb"></div>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Spec-Driven Development with Bob</h1>
+      <p class="page-subtitle">Building Software from Clear Specifications</p>
+      <p class="page-description">Learn how to use specifications to drive your development workflow with Bob, ensuring clarity, consistency, and quality throughout the software development lifecycle</p>
+    </div>
+  </header>
+
+  <main class="walkthrough-container">
+    <!-- Sidebar Navigation -->
+    <aside class="walkthrough-sidebar">
+      <div class="sidebar-header">
+        <h3>Spec-Driven Learning Path</h3>
+      </div>
+      <nav class="capability-nav">
+        <a href="#introduction" class="capability-link active">Introduction</a>
+        <a href="#what-is-spec-driven" class="capability-link">What is Spec-Driven Development</a>
+        <a href="#workflow" class="capability-link">The Spec-Driven Workflow</a>
+        <a href="#creating-specs" class="capability-link">Creating Effective Specs</a>
+        <a href="#using-bob" class="capability-link">Using Bob for Spec-Driven Dev</a>
+        <a href="#practical-example" class="capability-link">Practical Example</a>
+        <a href="#organization" class="capability-link">Spec File Organization</a>
+        <a href="#tips" class="capability-link">Tips for Success</a>
+        <a href="#pitfalls" class="capability-link">Common Pitfalls</a>
+        <a href="#conclusion" class="capability-link">Next Steps</a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="../index.html" class="sidebar-github-link">
+          <span class="github-text">Back to Home</span>
+          <span class="github-arrow">&rarr;</span>
+        </a>
+      </div>
+    </aside>
+
+    <div class="walkthrough-main">
+      <!-- Introduction -->
+      <section id="introduction" class="section">
+        <div class="container">
+          <div class="info-card compliance">
+            <h2>Welcome to Spec-Driven Development</h2>
+            <p>Spec-driven development is a methodology where clear, detailed specifications guide the entire development process. By starting with well-defined requirements and acceptance criteria, teams can build software more efficiently, reduce miscommunication, and ensure that the final product meets stakeholder expectations.</p>
+
+            <div class="capabilities-overview">
+              <div class="cap-card">
+                <h4>Clear Requirements</h4>
+                <p>Document what needs to be built before writing code</p>
+              </div>
+              <div class="cap-card">
+                <h4>Reduced Ambiguity</h4>
+                <p>Eliminate confusion through precise specifications</p>
+              </div>
+              <div class="cap-card">
+                <h4>Better Planning</h4>
+                <p>Estimate effort and plan sprints more accurately</p>
+              </div>
+              <div class="cap-card">
+                <h4>Living Documentation</h4>
+                <p>Maintain specs as the single source of truth</p>
+              </div>
+            </div>
+
+            <p><strong>Estimated Time:</strong> 30-35 minutes to master spec-driven development with Bob</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- What is Spec-Driven Development -->
+      <section id="what-is-spec-driven" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">1</span>
+            <h2>What is Spec-Driven Development</h2>
+            <span class="capability-badge">Foundation</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>Definition</h3>
+              <p>Spec-driven development is an approach where you start with clear, comprehensive specifications before implementation. These specifications serve as a contract between stakeholders, designers, and developers, ensuring everyone has a shared understanding of what needs to be built.</p>
+            </div>
+
+            <div class="info-card">
+              <h3>Key Benefits</h3>
+              <div class="best-practices-grid">
+                <div class="practice-card">
+                  <h4>📋 Clear Requirements</h4>
+                  <p>Everyone knows exactly what needs to be built, reducing back-and-forth and rework.</p>
+                </div>
+                <div class="practice-card">
+                  <h4>🎯 Reduced Ambiguity</h4>
+                  <p>Precise specifications eliminate misunderstandings and misinterpretations.</p>
+                </div>
+                <div class="practice-card">
+                  <h4>📊 Better Planning</h4>
+                  <p>Accurate effort estimation and sprint planning based on detailed specs.</p>
+                </div>
+                <div class="practice-card">
+                  <h4>✅ Easier Testing</h4>
+                  <p>Acceptance criteria in specs translate directly to test cases.</p>
+                </div>
+                <div class="practice-card">
+                  <h4>🤝 Improved Collaboration</h4>
+                  <p>Shared understanding across product, design, and engineering teams.</p>
+                </div>
+                <div class="practice-card">
+                  <h4>📚 Living Documentation</h4>
+                  <p>Specs serve as up-to-date documentation for the entire system.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-card compliance">
+              <h3>When to Use Spec-Driven Development</h3>
+              <ul>
+                <li><strong>Complex Features:</strong> When building features with multiple components and interactions</li>
+                <li><strong>Team Collaboration:</strong> When multiple developers work on related functionality</li>
+                <li><strong>API Development:</strong> When defining contracts between services or systems</li>
+                <li><strong>Regulated Industries:</strong> When compliance and audit trails are required</li>
+                <li><strong>Long-term Projects:</strong> When maintainability and knowledge transfer are critical</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Spec-Driven Workflow -->
+      <section id="workflow" class="section">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">2</span>
+            <h2>The Spec-Driven Workflow</h2>
+            <span class="capability-badge">Process</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>Six-Step Process</h3>
+              <p>Follow this structured workflow to implement spec-driven development effectively.</p>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 1: Write the Specification</h3>
+              <p>Document requirements, features, user stories, and acceptance criteria before writing any code.</p>
+              <div class="example-box">
+                <strong>What to Include:</strong>
+                <ul>
+                  <li>Feature overview and purpose</li>
+                  <li>User stories and use cases</li>
+                  <li>Functional requirements</li>
+                  <li>Technical requirements</li>
+                  <li>Acceptance criteria</li>
+                  <li>Edge cases and error handling</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 2: Review and Refine</h3>
+              <p>Collaborate with stakeholders, designers, and team members to validate and improve the specification.</p>
+              <div class="example-box">
+                <strong>Review Checklist:</strong>
+                <ul>
+                  <li>Are requirements clear and unambiguous?</li>
+                  <li>Are all edge cases covered?</li>
+                  <li>Do acceptance criteria align with user needs?</li>
+                  <li>Are technical constraints documented?</li>
+                  <li>Is the scope well-defined?</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 3: Plan Implementation</h3>
+              <p>Break down the specification into actionable tasks, estimate effort, and create a development plan.</p>
+              <div class="example-box">
+                <strong>Planning Activities:</strong>
+                <ul>
+                  <li>Identify components and modules</li>
+                  <li>Define dependencies and order</li>
+                  <li>Estimate development time</li>
+                  <li>Assign tasks to team members</li>
+                  <li>Create milestones and checkpoints</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 4: Implement</h3>
+              <p>Build the feature according to the specification, referencing it throughout development.</p>
+              <div class="example-box">
+                <strong>Implementation Best Practices:</strong>
+                <ul>
+                  <li>Reference spec sections in code comments</li>
+                  <li>Implement one requirement at a time</li>
+                  <li>Write tests based on acceptance criteria</li>
+                  <li>Ask questions when spec is unclear</li>
+                  <li>Document deviations from spec</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 5: Validate</h3>
+              <p>Ensure the implementation matches the specification and meets all acceptance criteria.</p>
+              <div class="example-box">
+                <strong>Validation Methods:</strong>
+                <ul>
+                  <li>Run tests against acceptance criteria</li>
+                  <li>Perform manual testing of user flows</li>
+                  <li>Review code against spec requirements</li>
+                  <li>Conduct stakeholder demos</li>
+                  <li>Verify edge cases and error handling</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 6: Update</h3>
+              <p>Keep the specification in sync with any changes made during or after implementation.</p>
+              <div class="example-box">
+                <strong>Maintenance Tasks:</strong>
+                <ul>
+                  <li>Document approved changes to requirements</li>
+                  <li>Update acceptance criteria if modified</li>
+                  <li>Add lessons learned and gotchas</li>
+                  <li>Archive outdated sections</li>
+                  <li>Keep spec as single source of truth</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Creating Effective Specifications -->
+      <section id="creating-specs" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">3</span>
+            <h2>Creating Effective Specifications</h2>
+            <span class="capability-badge">Best Practices</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>Writing Specs That Work</h3>
+              <p>Learn how to write specifications that are clear, comprehensive, and actionable.</p>
+            </div>
+
+            <div class="guidelines-grid">
+              <div class="guideline-card">
+                <div class="guideline-icon">📝</div>
+                <h3>Use Clear Language</h3>
+                <p>Write in simple, unambiguous terms that everyone can understand.</p>
+                <div class="example-box">
+                  <strong>Good:</strong> "The system shall display an error message when the user enters an invalid email address."<br><br>
+                  <strong>Bad:</strong> "Handle email validation appropriately."
+                </div>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon">👤</div>
+                <h3>Include User Stories</h3>
+                <p>Frame requirements from the user's perspective to maintain focus on value.</p>
+                <div class="example-box">
+                  <strong>Format:</strong> "As a [user type], I want to [action] so that [benefit]."<br><br>
+                  <strong>Example:</strong> "As a customer, I want to reset my password so that I can regain access to my account."
+                </div>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon">✅</div>
+                <h3>Define Acceptance Criteria</h3>
+                <p>Specify measurable conditions that must be met for the feature to be considered complete.</p>
+                <div class="example-box">
+                  <strong>Example Criteria:</strong>
+                  <ul>
+                    <li>User can submit form with valid data</li>
+                    <li>Error messages appear for invalid fields</li>
+                    <li>Success message displays on submission</li>
+                    <li>Form data is saved to database</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon">⚙️</div>
+                <h3>Specify Technical Requirements</h3>
+                <p>Document technical constraints, dependencies, and implementation details.</p>
+                <div class="example-box">
+                  <strong>Include:</strong>
+                  <ul>
+                    <li>Performance requirements (response time, throughput)</li>
+                    <li>Security requirements (authentication, authorization)</li>
+                    <li>Integration points (APIs, databases)</li>
+                    <li>Technology stack and frameworks</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon">🔍</div>
+                <h3>Include Examples</h3>
+                <p>Provide concrete examples and edge cases to clarify requirements.</p>
+                <div class="example-box">
+                  <strong>Example:</strong> "Valid email formats: user@example.com, user.name@example.co.uk<br>
+                  Invalid formats: user@, @example.com, user@example"
+                </div>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon">📐</div>
+                <h3>Document Assumptions</h3>
+                <p>Clearly state assumptions and constraints that affect the implementation.</p>
+                <div class="example-box">
+                  <strong>Example Assumptions:</strong>
+                  <ul>
+                    <li>Users have JavaScript enabled</li>
+                    <li>Maximum file upload size is 10MB</li>
+                    <li>System supports modern browsers only</li>
+                    <li>API rate limit is 100 requests/minute</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="demo-window">
+              <div class="window-header">
+                <span class="window-title">Example Specification Structure</span>
+                <div class="window-controls">
+                  <span class="control close"></span>
+                  <span class="control minimize"></span>
+                  <span class="control maximize"></span>
+                </div>
+              </div>
+              <div class="window-content">
+                <pre><code class="language-markdown"># User Authentication Feature
+
+## Overview
+Implement secure user authentication with email/password login.
+
+## User Stories
+- As a user, I want to log in with my email and password
+- As a user, I want to reset my password if I forget it
+- As a user, I want to stay logged in across sessions
+
+## Functional Requirements
+1. Login form with email and password fields
+2. "Remember me" checkbox for persistent sessions
+3. "Forgot password" link to password reset flow
+4. Input validation with clear error messages
+5. Redirect to dashboard after successful login
+
+## Technical Requirements
+- Use JWT tokens for authentication
+- Hash passwords with bcrypt (cost factor: 12)
+- Session timeout: 24 hours (7 days if "remember me")
+- Rate limiting: 5 failed attempts per 15 minutes
+- HTTPS required for all authentication endpoints
+
+## Acceptance Criteria
+- [ ] User can log in with valid credentials
+- [ ] Invalid credentials show appropriate error
+- [ ] "Remember me" extends session to 7 days
+- [ ] Password reset email sent within 1 minute
+- [ ] Account locked after 5 failed attempts
+- [ ] All authentication uses HTTPS
+
+## Edge Cases
+- Empty email or password fields
+- Email not found in system
+- Incorrect password
+- Account already locked
+- Expired password reset token
+- Concurrent login attempts
+
+## API Endpoints
+POST /api/auth/login
+POST /api/auth/logout
+POST /api/auth/forgot-password
+POST /api/auth/reset-password
+
+## Dependencies
+- User database table
+- Email service for password reset
+- Redis for rate limiting
+
+## Assumptions
+- Users have valid email addresses
+- Email service is reliable
+- Users can receive and click email links</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Using Bob for Spec-Driven Development -->
+      <section id="using-bob" class="section">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">4</span>
+            <h2>Using Bob for Spec-Driven Development</h2>
+            <span class="capability-badge">Workflow</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>Bob as Your Spec-Driven Partner</h3>
+              <p>Learn how to leverage Bob's different modes throughout the spec-driven development workflow.</p>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 1: Creating Specifications with Bob</h3>
+              <p>Use <strong>Plan mode</strong> to draft and structure your specifications.</p>
+              
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Example Prompts for Spec Creation</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-text">💬 "Help me create a specification for a user authentication system with email/password login, password reset, and session management."
+
+💬 "Draft a spec for an API endpoint that handles user registration. Include validation rules, error responses, and success criteria."
+
+💬 "Create a specification for a dashboard that displays user analytics with charts, filters, and export functionality."
+
+💬 "Write a spec for a file upload feature that supports multiple file types, validates file size, and shows upload progress."</code></pre>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <h4>What Bob Will Help With:</h4>
+                <ul>
+                  <li>Structure the specification with proper sections</li>
+                  <li>Suggest user stories and use cases</li>
+                  <li>Identify technical requirements</li>
+                  <li>Define acceptance criteria</li>
+                  <li>Highlight potential edge cases</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 2: Reviewing Specifications</h3>
+              <p>Use <strong>Ask mode</strong> to review and validate your specifications.</p>
+              
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Example Prompts for Spec Review</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-text">💬 "Review @specs/authentication.md for completeness. Are there any missing requirements or edge cases?"
+
+💬 "What security considerations am I missing in this API specification?"
+
+💬 "Analyze @specs/user-registration.md and suggest improvements to the acceptance criteria."
+
+💬 "Compare @specs/dashboard.md with industry best practices. What should I add?"
+
+💬 "What edge cases should I consider for the file upload feature in @specs/upload.md?"</code></pre>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <h4>Bob's Review Capabilities:</h4>
+                <ul>
+                  <li>Identify gaps in requirements</li>
+                  <li>Suggest missing edge cases</li>
+                  <li>Validate technical feasibility</li>
+                  <li>Check for security considerations</li>
+                  <li>Ensure acceptance criteria are measurable</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 3: Planning Implementation</h3>
+              <p>Use <strong>Plan mode</strong> to break down specifications into actionable tasks.</p>
+              
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Example Prompts for Implementation Planning</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-text">💬 "Based on @specs/authentication.md, create a detailed implementation plan with tasks and milestones."
+
+💬 "Break down the user registration feature in @specs/registration.md into development tasks."
+
+💬 "Create a TODO list for implementing the dashboard according to @specs/dashboard.md."
+
+💬 "What's the recommended order for implementing the features in @specs/api-endpoints.md?"
+
+💬 "Estimate the development effort for each component in @specs/file-upload.md."</code></pre>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <h4>Planning Outputs:</h4>
+                <ul>
+                  <li>Ordered list of implementation tasks</li>
+                  <li>Component and module breakdown</li>
+                  <li>Dependency identification</li>
+                  <li>Effort estimates</li>
+                  <li>Milestone definitions</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 4: Implementing from Specs</h3>
+              <p>Use <strong>Code mode</strong> to implement features according to specifications.</p>
+              
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Example Prompts for Implementation</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-text">💬 "Implement the user authentication system according to @specs/authentication.md."
+
+💬 "Create the login API endpoint as specified in @specs/api-endpoints.md, section 2.1."
+
+💬 "Build the password reset flow following the requirements in @specs/authentication.md."
+
+💬 "Implement input validation for the registration form according to @specs/registration.md."
+
+💬 "Create unit tests based on the acceptance criteria in @specs/authentication.md."</code></pre>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <h4>Implementation Best Practices:</h4>
+                <ul>
+                  <li>Reference specific spec sections in prompts</li>
+                  <li>Implement one requirement at a time</li>
+                  <li>Ask Bob to add spec references in code comments</li>
+                  <li>Request tests based on acceptance criteria</li>
+                  <li>Validate against spec after each component</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 5: Validating Implementation</h3>
+              <p>Use <strong>Ask mode</strong> to verify implementation matches specifications.</p>
+              
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Example Prompts for Validation</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-text">💬 "Does @src/auth/login.js match the requirements in @specs/authentication.md?"
+
+💬 "Compare the implementation in @src/api/registration.js with @specs/registration.md. What's missing?"
+
+💬 "Verify that @src/components/Dashboard.jsx meets all acceptance criteria in @specs/dashboard.md."
+
+💬 "Check if @src/utils/validation.js handles all edge cases from @specs/validation.md."
+
+💬 "Review @tests/auth.test.js against the acceptance criteria in @specs/authentication.md."</code></pre>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <h4>Validation Checks:</h4>
+                <ul>
+                  <li>All requirements implemented</li>
+                  <li>Acceptance criteria met</li>
+                  <li>Edge cases handled</li>
+                  <li>Technical requirements satisfied</li>
+                  <li>Tests cover all scenarios</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Step 6: Updating Specifications</h3>
+              <p>Use <strong>Code mode</strong> to keep specifications in sync with changes.</p>
+              
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Example Prompts for Spec Updates</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-text">💬 "Update @specs/authentication.md to reflect the new session timeout requirement of 48 hours."
+
+💬 "Add the new validation rules we implemented to @specs/registration.md."
+
+💬 "Document the API rate limiting changes in @specs/api-endpoints.md."
+
+💬 "Update the acceptance criteria in @specs/dashboard.md based on stakeholder feedback."
+
+💬 "Add lessons learned from implementation to @specs/file-upload.md."</code></pre>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <h4>Keep Specs Current:</h4>
+                <ul>
+                  <li>Document approved requirement changes</li>
+                  <li>Update acceptance criteria if modified</li>
+                  <li>Add implementation notes and gotchas</li>
+                  <li>Archive deprecated features</li>
+                  <li>Maintain spec as source of truth</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Practical Example -->
+      <section id="practical-example" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">5</span>
+            <h2>Practical Example: Task Management API</h2>
+            <span class="capability-badge">Hands-On</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>Complete Walkthrough</h3>
+              <p>Follow this end-to-end example of building a task management API using spec-driven development with Bob.</p>
+            </div>
+
+            <div class="step-card">
+              <h3>Phase 1: Create the Specification</h3>
+              <p>Start by creating a comprehensive specification for the task management API.</p>
+              
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Prompt to Bob (Plan Mode)</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-text">💬 "Create a specification for a RESTful task management API with the following features:
+- Create, read, update, delete tasks
+- Task properties: title, description, status, priority, due date
+- Filter tasks by status and priority
+- Mark tasks as complete
+- Assign tasks to users
+Include user stories, acceptance criteria, API endpoints, and error handling."</code></pre>
+                </div>
+              </div>
+
+              <div class="code-block-wrapper">
+                <div class="code-header">
+                  <span>Generated Specification (specs/task-api.md)</span>
+                  <button class="copy-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code class="language-markdown"># Task Management API Specification
+
+## Overview
+RESTful API for managing tasks with CRUD operations, filtering, and user assignment.
+
+## User Stories
+- As a user, I want to create tasks with title, description, and due date
+- As a user, I want to view all my tasks
+- As a user, I want to filter tasks by status and priority
+- As a user, I want to mark tasks as complete
+- As a user, I want to assign tasks to team members
+
+## API Endpoints
+
+### Create Task
+POST /api/tasks
+Request Body: { title, description, status, priority, dueDate, assignedTo }
+Response: 201 Created with task object
+
+### Get All Tasks
+GET /api/tasks?status=pending&priority=high
+Response: 200 OK with array of tasks
+
+### Get Task by ID
+GET /api/tasks/:id
+Response: 200 OK with task object or 404 Not Found
+
+### Update Task
+PUT /api/tasks/:id
+Request Body: { title, description, status, priority, dueDate, assignedTo }
+Response: 200 OK with updated task
+
+### Delete Task
+DELETE /api/tasks/:id
+Response: 204 No Content
+
+### Mark Complete
+PATCH /api/tasks/:id/complete
+Response: 200 OK with updated task
+
+## Data Model
+Task {
+  id: string (UUID)
+  title: string (required, max 200 chars)
+  description: string (optional, max 2000 chars)
+  status: enum ['pending', 'in-progress', 'completed']
+  priority: enum ['low', 'medium', 'high']
+  dueDate: ISO 8601 date string
+  assignedTo: string (user ID)
+  createdAt: ISO 8601 timestamp
+  updatedAt: ISO 8601 timestamp
+}
+
+## Acceptance Criteria
+- [ ] Can create task with valid data
+- [ ] Cannot create task without title
+- [ ] Can retrieve all tasks
+- [ ] Can filter by status and priority
+- [ ] Can update task fields
+- [ ] Can delete task
+- [ ] Can mark task as complete
+- [ ] Returns 404 for non-existent task
+- [ ] Returns 400 for invalid data
+
+## Error Responses
+400 Bad Request: Invalid input data
+404 Not Found: Task not found
+500 Internal Server Error: Server error</code></pre>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Phase 2: Review and Refine</h3>
+              <p>Use Bob to review the specification and identify improvements.</p>
+              
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Prompt to Bob (Ask Mode)</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-text">💬 "Review @specs/task-api.md and suggest:
+1. Missing edge cases
+2. Additional validation rules
+3. Security considerations
+4. Performance optimizations"</code></pre>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <h4>Bob's Suggestions Might Include:</h4>
+                <ul>
+                  <li><strong>Edge Cases:</strong> Duplicate titles, past due dates, invalid user IDs</li>
+                  <li><strong>Validation:</strong> Title length limits, date format validation, enum value checks</li>
+                  <li><strong>Security:</strong> Authentication required, authorization for task access, rate limiting</li>
+                  <li><strong>Performance:</strong> Pagination for task lists, database indexing, caching strategy</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Phase 3: Plan Implementation</h3>
+              <p>Break down the specification into implementation tasks.</p>
+              
+              <div class="demo-window">
+                <div class="window-header">
+                  <span class="window-title">Prompt to Bob (Plan Mode)</span>
+                  <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                  </div>
+                </div>
+                <div class="window-content">
+                  <pre><code class="language-text">💬 "Based on @specs/task-api.md, create an implementation plan with:
+1. Database schema
+2. API route structure
+3. Controller functions
+4. Validation middleware
+5. Test cases
+6. Implementation order"</code></pre>
+                </div>
+              </div>
+
+              <div class="code-block-wrapper">
+                <div class="code-header">
+                  <span>Implementation Plan</span>
+                  <button class="copy-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copy
+                  </button>
+                </div>
+                <pre><code class="language-text">Implementation Order:
+
+1. Database Setup
+   - Create tasks table with schema
+   - Add indexes for status, priority, assignedTo
+   - Set up migrations
+
+2. Data Models
+   - Create Task model with validation
+   - Define enums for status and priority
+   - Add timestamp handling
+
+3. Validation Middleware
+   - Title validation (required, max length)
+   - Status/priority enum validation
+   - Date format validation
+   - User ID validation
+
+4. Controllers
+   - createTask: Handle POST /api/tasks
+   - getTasks: Handle GET /api/tasks with filters
+   - getTaskById: Handle GET /api/tasks/:id
+   - updateTask: Handle PUT /api/tasks/:id
+   - deleteTask: Handle DELETE /api/tasks/:id
+   - markComplete: Handle PATCH /api/tasks/:id/complete
+
+5. Routes
+   - Set up Express routes
+   - Apply validation middleware
+   - Add error handling
+
+6. Tests
+   - Unit tests for each controller
+   - Integration tests for API endpoints
+   - Test all acceptance criteria
+   - Test edge cases and error scenarios</code></pre>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <h3>Phase 4-6: Implement, Validate, Update</h3>
+              <p>Continue with implementation, validation, and spec updates using the prompts shown in the "Using Bob" section above.</p>
+              
+              <div class="info-card compliance">
+                <h4>Key Takeaways from This Example:</h4>
+                <ul>
+                  <li>Start with a clear, comprehensive specification</li>
+                  <li>Review and refine before implementation</li>
+                  <li>Break down into manageable tasks</li>
+                  <li>Implement incrementally, referencing the spec</li>
+                  <li>Validate against acceptance criteria</li>
+                  <li>Keep the spec updated with changes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Spec File Organization -->
+      <section id="organization" class="section">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">6</span>
+            <h2>Spec File Organization</h2>
+            <span class="capability-badge">Structure</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="objective-box">
+              <h3>Organizing Your Specifications</h3>
+              <p>A well-organized spec directory makes it easy to find, maintain, and reference specifications.</p>
+            </div>
+
+            <div class="demo-window">
+              <div class="window-header">
+                <span class="window-title">Recommended Directory Structure</span>
+                <div class="window-controls">
+                  <span class="control close"></span>
+                  <span class="control minimize"></span>
+                  <span class="control maximize"></span>
+                </div>
+              </div>
+              <div class="window-content">
+                <pre><code class="language-text">project/
+├── specs/
+│   ├── README.md                    # Overview of all specs
+│   ├── features/                    # Feature specifications
+│   │   ├── authentication.md
+│   │   ├── user-management.md
+│   │   ├── task-management.md
+│   │   ├── notifications.md
+│   │   └── reporting.md
+│   ├── technical/                   # Technical specifications
+│   │   ├── architecture.md
+│   │   ├── database-schema.md
+│   │   ├── api-design.md
+│   │   ├── security.md
+│   │   └── performance.md
+│   ├── testing/                     # Test specifications
+│   │   ├── test-strategy.md
+│   │   ├── test-scenarios.md
+│   │   └── acceptance-tests.md
+│   └── archive/                     # Deprecated specs
+│       └── old-features/
+├── src/                             # Source code
+├── tests/                           # Test files
+└── docs/                            # Additional documentation</code></pre>
+              </div>
+            </div>
+
+            <div class="best-practices-grid">
+              <div class="practice-card">
+                <h3>Naming Conventions</h3>
+                <ul>
+                  <li>Use kebab-case for file names</li>
+                  <li>Be descriptive: <code>user-authentication.md</code> not <code>auth.md</code></li>
+                  <li>Group related specs in subdirectories</li>
+                  <li>Use consistent prefixes for related specs</li>
+                </ul>
+              </div>
+
+              <div class="practice-card">
+                <h3>README.md Structure</h3>
+                <ul>
+                  <li>List all specifications with brief descriptions</li>
+                  <li>Indicate spec status (draft, approved, implemented)</li>
+                  <li>Link to related specs and dependencies</li>
+                  <li>Include last updated date</li>
+                </ul>
+              </div>
+
+              <div class="practice-card">
+                <h3>Version Control</h3>
+                <ul>
+                  <li>Keep specs in Git alongside code</li>
+                  <li>Use meaningful commit messages for spec changes</li>
+                  <li>Tag spec versions for major releases</li>
+                  <li>Review spec changes in pull requests</li>
+                </ul>
+              </div>
+
+              <div class="practice-card">
+                <h3>Cross-Referencing</h3>
+                <ul>
+                  <li>Link related specs using relative paths</li>
+                  <li>Reference spec sections in code comments</li>
+                  <li>Maintain a dependency map between specs</li>
+                  <li>Use consistent section IDs for linking</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tips for Success -->
+      <section id="tips" class="section section-alt">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">7</span>
+            <h2>Tips for Success</h2>
+            <span class="capability-badge">Pro Tips</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="guidelines-grid">
+              <div class="guideline-card">
+                <div class="guideline-icon">🎯</div>
+                <h3>Start High-Level</h3>
+                <p>Begin with high-level requirements and progressively add details as you understand the problem better.</p>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon">📚</div>
+                <h3>Version Control</h3>
+                <p>Keep specs in version control alongside your code. Treat spec changes with the same rigor as code changes.</p>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon">👥</div>
+                <h3>Regular Reviews</h3>
+                <p>Review specs regularly with stakeholders to ensure alignment and catch issues early.</p>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon">🔄</div>
+                <h3>Keep Updated</h3>
+                <p>Update specs when requirements change. Don't let specs become outdated documentation.</p>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon">✅</div>
+                <h3>Test from Specs</h3>
+                <p>Use acceptance criteria as the basis for your test cases. This ensures complete coverage.</p>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon">💬</div>
+                <h3>Reference in Code</h3>
+                <p>Add comments in your code referencing relevant spec sections for better traceability.</p>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon">🌐</div>
+                <h3>Make Accessible</h3>
+                <p>Ensure specs are easily accessible to the entire team, not buried in obscure locations.</p>
+              </div>
+
+              <div class="guideline-card">
+                <div class="guideline-icon">📊</div>
+                <h3>Track Progress</h3>
+                <p>Use checkboxes in acceptance criteria to track implementation progress visually.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Common Pitfalls -->
+      <section id="pitfalls" class="section">
+        <div class="container">
+          <div class="capability-header">
+            <span class="capability-number">8</span>
+            <h2>Common Pitfalls to Avoid</h2>
+            <span class="capability-badge">Watch Out</span>
+          </div>
+
+          <div class="capability-content">
+            <div class="best-practices-grid">
+              <div class="practice-card">
+                <h3>❌ Vague Specifications</h3>
+                <p><strong>Problem:</strong> Writing specs that are too general or ambiguous.</p>
+                <p><strong>Solution:</strong> Use specific language, concrete examples, and measurable criteria.</p>
+              </div>
+
+              <div class="practice-card">
+                <h3>❌ Over-Specification</h3>
+                <p><strong>Problem:</strong> Specifying implementation details too rigidly, limiting flexibility.</p>
+                <p><strong>Solution:</strong> Focus on what needs to be achieved, not how to achieve it.</p>
+              </div>
+
+              <div class="practice-card">
+                <h3>❌ Stale Specs</h3>
+                <p><strong>Problem:</strong> Not updating specs when code changes, leading to drift.</p>
+                <p><strong>Solution:</strong> Make spec updates part of your development workflow.</p>
+              </div>
+
+              <div class="practice-card">
+                <h3>❌ One-Time Documents</h3>
+                <p><strong>Problem:</strong> Treating specs as write-once documents that are never revisited.</p>
+                <p><strong>Solution:</strong> Maintain specs as living documents throughout the project lifecycle.</p>
+              </div>
+
+              <div class="practice-card">
+                <h3>❌ Skipping Reviews</h3>
+                <p><strong>Problem:</strong> Not getting stakeholder buy-in before implementation.</p>
+                <p><strong>Solution:</strong> Always review and approve specs with stakeholders first.</p>
+              </div>
+
+              <div class="practice-card">
+                <h3>❌ Missing Acceptance Criteria</h3>
+                <p><strong>Problem:</strong> Not defining clear success criteria for features.</p>
+                <p><strong>Solution:</strong> Always include measurable acceptance criteria in every spec.</p>
+              </div>
+
+              <div class="practice-card">
+                <h3>❌ Ignoring Edge Cases</h3>
+                <p><strong>Problem:</strong> Focusing only on happy paths and missing error scenarios.</p>
+                <p><strong>Solution:</strong> Explicitly document edge cases and error handling.</p>
+              </div>
+
+              <div class="practice-card">
+                <h3>❌ Isolated Specs</h3>
+                <p><strong>Problem:</strong> Creating specs in isolation without team collaboration.</p>
+                <p><strong>Solution:</strong> Involve developers, designers, and stakeholders in spec creation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Conclusion -->
+      <section id="conclusion" class="section section-alt">
+        <div class="container">
+          <div class="info-card compliance">
+            <h2>You're Ready for Spec-Driven Development!</h2>
+            <p>You've learned how to use spec-driven development with Bob to build better software. You now know how to:</p>
+            
+            <div class="checklist">
+              <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <span>Understand the benefits of spec-driven development</span>
+              </div>
+              <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <span>Follow the six-step spec-driven workflow</span>
+              </div>
+              <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <span>Write clear, comprehensive specifications</span>
+              </div>
+              <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <span>Use Bob's modes throughout the workflow</span>
+              </div>
+              <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <span>Organize and maintain spec files effectively</span>
+              </div>
+              <div class="checklist-item">
+                <span class="checkmark">✓</span>
+                <span>Avoid common pitfalls and apply best practices</span>
+              </div>
+            </div>
+
+            <div class="next-steps-box">
+              <h3>Next Steps</h3>
+              <p>Now that you've mastered spec-driven development, try these challenges:</p>
+              <ol>
+                <li><strong>Create Your First Spec:</strong> Write a specification for a feature in your current project</li>
+                <li><strong>Practice the Workflow:</strong> Follow the complete six-step process with Bob</li>
+                <li><strong>Organize Your Specs:</strong> Set up a proper spec directory structure</li>
+                <li><strong>Review Existing Code:</strong> Create specs for existing features to document them</li>
+                <li><strong>Share with Your Team:</strong> Introduce spec-driven development to your team</li>
+              </ol>
+            </div>
+
+            <div class="cta-box">
+              <h3>Continue Learning</h3>
+              <p>Explore more Bob capabilities and advanced features:</p>
+              <div class="cta-buttons">
+                <a href="custom-modes.html" class="cta-button primary">Learn About Custom Modes</a>
+                <a href="getting-started.html" class="cta-button secondary">Getting Started Guide</a>
+                <a href="mcp.html" class="cta-button secondary">MCP Integration</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Shared Footer Component -->
+  <div data-component="footer"></div>
+
+  <!-- Scripts -->
+  <script src="../components/component-loader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Copy button functionality
+    document.querySelectorAll('.copy-button').forEach(button => {
+      button.addEventListener('click', async () => {
+        const codeBlock = button.closest('.code-block-wrapper').querySelector('code');
+        const text = codeBlock.textContent;
+        
+        try {
+          await navigator.clipboard.writeText(text);
+          button.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            Copied!
+          `;
+          
+          setTimeout(() => {
+            button.innerHTML = `
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+              Copy
+            `;
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      });
+    });
+
+    // Sidebar navigation active state
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.capability-link');
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -35% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    // Smooth scroll for navigation links
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

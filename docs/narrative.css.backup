@@ -1,0 +1,1629 @@
+/* ============================================
+   BOB LAB STYLES
+   ============================================ */
+
+/* ============================================
+   WALKTHROUGH LAYOUT
+   ============================================ */
+
+/* Walkthrough Container Layout */
+.walkthrough-container {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+}
+
+/* Walkthrough Sidebar */
+.walkthrough-sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  position: sticky;
+  top: var(--spacing-lg);
+  height: fit-content;
+  background: white;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  padding: var(--spacing-lg);
+}
+
+.walkthrough-sidebar h3 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.capability-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.capability-link {
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 0;
+  font-size: 0.875rem;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.capability-link::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.capability-link:hover {
+  background: var(--bg-alt);
+  color: var(--text-primary);
+}
+
+.capability-link.active {
+  background: var(--primary-color);
+  color: white;
+  font-weight: 400;
+}
+
+.capability-link.active::before {
+  background: white;
+}
+
+/* Sidebar Footer - GitHub Link */
+.sidebar-footer {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  transition: background 0.15s ease;
+}
+
+.sidebar-link:hover {
+  background: var(--primary-hover);
+  text-decoration: none;
+  color: white;
+}
+
+.github-text {
+  flex: 1;
+}
+
+.github-arrow {
+  font-size: 1rem;
+  transition: transform 0.15s ease;
+}
+
+.sidebar-link:hover .github-arrow {
+  transform: translateX(4px);
+}
+
+/* Walkthrough Main Content */
+.walkthrough-main {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ============================================
+   CAPABILITY SECTION STYLES
+   ============================================ */
+
+/* Section Styles */
+.section {
+  padding: var(--spacing-2xl) 0;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+}
+
+.capability-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.capability-number {
+  width: 64px;
+  height: 64px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 300;
+  flex-shrink: 0;
+}
+
+.capability-header h2 {
+  flex: 1;
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+.capability-badge {
+  background: var(--warning-color);
+  color: var(--text-primary);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.capability-content {
+  max-width: 100%;
+}
+
+.objective-box {
+  background: #d0e2ff;
+  border-radius: 0;
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  border-left: 4px solid var(--primary-color);
+}
+
+.objective-box h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.demo-flow {
+  margin: var(--spacing-xl) 0;
+}
+
+.demo-flow h3 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   CAPABILITIES OVERVIEW
+   ============================================ */
+
+.capabilities-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.cap-card {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  border-top: 4px solid var(--primary-color);
+}
+
+.cap-card h4 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.cap-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   INFO CARDS
+   ============================================ */
+
+.info-card {
+  background: white;
+  border-radius: 0;
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  border-left: 4px solid var(--primary-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.info-card.warning {
+  border-left-color: var(--danger-color);
+  background: #ffd7d9;
+}
+
+.info-card.compliance {
+  border-left-color: var(--success-color);
+  background: #defbe6;
+}
+
+.info-card h2 {
+  margin-top: 0;
+  color: var(--text-primary);
+}
+
+.info-card h3,
+.info-card h4 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.info-card ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+.info-card li {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================
+   PROMPT BOXES
+   ============================================ */
+
+/**
+ * Prompt Box Component
+ * Dark container with light text for displaying prompts, examples, and instructions
+ * All colors use CSS variables for consistent theming
+ */
+
+.prompt-box {
+  background: var(--prompt-bg);
+  border-radius: 0;
+  overflow: hidden;
+  margin: var(--spacing-lg) 0;
+}
+
+.prompt-content {
+  padding: var(--spacing-md);
+  color: var(--prompt-text);
+}
+
+/* Typography - all text colors use CSS variables */
+.prompt-content p,
+.prompt-content h1,
+.prompt-content h2,
+.prompt-content h3,
+.prompt-content h4,
+.prompt-content h5,
+.prompt-content h6 {
+  color: var(--prompt-text);
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.prompt-content h1:last-child,
+.prompt-content h2:last-child,
+.prompt-content h3:last-child,
+.prompt-content h4:last-child,
+.prompt-content h5:last-child,
+.prompt-content h6:last-child,
+.prompt-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Links */
+.prompt-content a {
+  color: var(--prompt-link);
+  text-decoration: underline;
+}
+
+.prompt-content a:hover {
+  color: var(--prompt-link-hover);
+}
+
+/* Inline code within prompt boxes */
+.prompt-content code {
+  background: var(--prompt-code-bg);
+  color: var(--prompt-code-text);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875em;
+}
+
+/* Lists */
+.prompt-content ul,
+.prompt-content ol {
+  margin: 0 0 var(--spacing-sm) 0;
+  padding-left: var(--spacing-lg);
+}
+
+.prompt-content li {
+  color: var(--prompt-text);
+  margin-bottom: var(--spacing-xs);
+}
+
+.prompt-content li:last-child {
+  margin-bottom: 0;
+}
+
+/* Text formatting */
+.prompt-content strong,
+.prompt-content b {
+  color: var(--prompt-text);
+  font-weight: 600;
+}
+
+.prompt-content em,
+.prompt-content i {
+  color: var(--prompt-text-muted);
+}
+
+/* ============================================
+   STEP ITEMS
+   ============================================ */
+
+.step-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.step-item {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: var(--spacing-md);
+}
+
+.result-box {
+  background: var(--bg-alt);
+  border-radius: 0;
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.result-box ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+/* ============================================
+   CODE BLOCKS
+   ============================================ */
+
+.code-block-wrapper {
+  margin: var(--spacing-lg) 0;
+  background: var(--code-bg);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.code-block-wrapper pre {
+  margin: 0;
+  padding: var(--spacing-md);
+  overflow-x: auto;
+}
+
+.code-block-wrapper code,
+.code-block-wrapper pre code,
+.code-block-wrapper pre code.hljs {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8125rem;
+  color: var(--code-text) !important;
+  background-color: transparent !important;
+}
+
+/* Syntax highlighting overrides for code blocks - dark theme colors */
+.code-block-wrapper .hljs-comment,
+.code-block-wrapper .hljs-quote {
+  color: #6a9955 !important; /* Green for comments */
+}
+
+.code-block-wrapper .hljs-keyword,
+.code-block-wrapper .hljs-selector-tag,
+.code-block-wrapper .hljs-subst {
+  color: #569cd6 !important; /* Blue for keywords */
+}
+
+.code-block-wrapper .hljs-number,
+.code-block-wrapper .hljs-literal {
+  color: #b5cea8 !important; /* Light green for numbers */
+}
+
+.code-block-wrapper .hljs-string,
+.code-block-wrapper .hljs-doctag {
+  color: #ce9178 !important; /* Orange for strings */
+}
+
+.code-block-wrapper .hljs-title,
+.code-block-wrapper .hljs-section,
+.code-block-wrapper .hljs-selector-id {
+  color: #dcdcaa !important; /* Yellow for titles */
+}
+
+.code-block-wrapper .hljs-type,
+.code-block-wrapper .hljs-class .hljs-title {
+  color: #4ec9b0 !important; /* Teal for types */
+}
+
+.code-block-wrapper .hljs-variable,
+.code-block-wrapper .hljs-template-variable {
+  color: #9cdcfe !important; /* Light blue for variables */
+}
+
+.code-block-wrapper .hljs-tag,
+.code-block-wrapper .hljs-name {
+  color: #569cd6 !important; /* Blue for tags */
+}
+
+.code-block-header {
+  background: #393939;
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.code-block-language {
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.copy-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.875rem;
+  transition: opacity 0.15s ease;
+}
+
+.copy-button:hover {
+  opacity: 0.8;
+}
+
+/* ============================================
+   DEMO WINDOWS
+   ============================================ */
+
+.demo-window {
+  margin: var(--spacing-lg) 0;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.window-header {
+  background: #393939;
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.window-title {
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.window-controls {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.control.close {
+  background: #ff5f56;
+}
+
+.control.minimize {
+  background: #ffbd2e;
+}
+
+.control.maximize {
+  background: #27c93f;
+}
+
+.window-content {
+  background: var(--code-bg);
+  padding: 0;
+}
+
+.window-content pre {
+  margin: 0;
+  padding: var(--spacing-md);
+  overflow-x: auto;
+}
+
+.window-content code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8125rem;
+  color: var(--code-text);
+}
+
+/* ============================================
+   TABLES
+   ============================================ */
+
+.table-responsive {
+  overflow-x: auto;
+  margin: var(--spacing-lg) 0;
+}
+
+.compliance-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.compliance-table thead {
+  background: var(--primary-color);
+  color: white;
+}
+
+.compliance-table th {
+  padding: var(--spacing-md);
+  text-align: left;
+  font-weight: 400;
+}
+
+.compliance-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.compliance-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.compliance-table tbody tr:nth-child(even) {
+  background: var(--bg-alt);
+}
+
+/* ============================================
+   BUSINESS VALUE COMPARISON
+   ============================================ */
+
+.business-value {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  margin: var(--spacing-xl) 0;
+}
+
+.business-value h3 {
+  margin-top: 0;
+  color: var(--text-primary);
+}
+
+.value-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.value-traditional,
+.value-bob {
+  padding: var(--spacing-lg);
+  border-radius: 0;
+}
+
+.value-traditional {
+  background: #ffd7d9;
+  border-left: 4px solid var(--danger-color);
+}
+
+.value-bob {
+  background: #defbe6;
+  border-left: 4px solid var(--success-color);
+}
+
+.value-traditional strong,
+.value-bob strong {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.highlight {
+  background: #d0e2ff;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin: var(--spacing-lg) 0;
+  border-left: 4px solid var(--primary-color);
+  font-weight: 400;
+}
+
+/* ============================================
+   REAL-WORLD PROOF
+   ============================================ */
+
+.real-world-proof {
+  background: #defbe6;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin: var(--spacing-lg) 0;
+  border-left: 4px solid var(--success-color);
+}
+
+.real-world-proof h3 {
+  margin-top: 0;
+  color: var(--success-color);
+}
+
+/* ============================================
+   SECURITY EXAMPLES
+   ============================================ */
+
+.security-demo {
+  margin: var(--spacing-lg) 0;
+}
+
+.security-issue {
+  margin-bottom: var(--spacing-lg);
+}
+
+.security-issue h5 {
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.code-comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--spacing-md);
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.arrow {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.security-note {
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-top: var(--spacing-sm);
+}
+
+/* ============================================
+   RUNBOOK SECTIONS
+   ============================================ */
+
+.runbook-section {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin-bottom: var(--spacing-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.runbook-section h5 {
+  margin-top: 0;
+  color: var(--text-primary);
+}
+
+.runbook-section ul {
+  margin-bottom: 0;
+  padding-left: var(--spacing-lg);
+}
+
+.runbook-section.warning {
+  background: #ffd7d9;
+  border-left: 4px solid var(--danger-color);
+}
+
+/* ============================================
+   REPO PLAN
+   ============================================ */
+
+.repo-plan {
+  margin: var(--spacing-lg) 0;
+}
+
+.repo-phase {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin-bottom: var(--spacing-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.phase-label {
+  display: inline-block;
+  background: var(--primary-color);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-weight: 400;
+  margin-bottom: var(--spacing-md);
+}
+
+.repo-phase ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+/* ============================================
+   BOBATLYICS DASHBOARD
+   ============================================ */
+
+.bobalytics-dashboard {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  margin: var(--spacing-lg) 0;
+}
+
+.bobalytics-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.bobalytics-header h4 {
+  margin-top: 0;
+  color: var(--text-primary);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.metric-card {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background: var(--bg-alt);
+  border-radius: 0;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-sm);
+}
+
+.metric-label {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.metric-change {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   ROI SUMMARY
+   ============================================ */
+
+.roi-summary {
+  background: #defbe6;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin: var(--spacing-lg) 0;
+  border-left: 4px solid var(--success-color);
+}
+
+.roi-summary h4 {
+  margin-top: 0;
+  color: var(--success-color);
+}
+
+.roi-summary ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+/* ============================================
+   COMPARISON TABLE
+   ============================================ */
+
+.comparison-table {
+  margin: var(--spacing-lg) 0;
+  overflow-x: auto;
+}
+
+.comparison-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison-table th {
+  background: var(--primary-color);
+  color: white;
+  padding: var(--spacing-md);
+  text-align: left;
+  font-weight: 400;
+}
+
+.comparison-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.check {
+  background: var(--success-color);
+  color: white;
+  text-align: center;
+  font-weight: 400;
+}
+
+.cross {
+  background: var(--danger-color);
+  color: white;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* ============================================
+   UNIQUE FEATURES
+   ============================================ */
+
+.unique-features {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin: var(--spacing-lg) 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.unique-features h3 {
+  margin-top: 0;
+  color: var(--text-primary);
+}
+
+.unique-features ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+/* ============================================
+   CTA BOX
+   ============================================ */
+
+.cta-box {
+  background: var(--primary-color);
+  color: white;
+  padding: var(--spacing-xl);
+  border-radius: 0;
+  text-align: center;
+  margin: var(--spacing-xl) 0;
+}
+
+.cta-box h3 {
+  margin-top: 0;
+  color: white;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-lg);
+}
+
+/* ============================================
+   CUSTOM MODES LAB STYLES
+   ============================================ */
+
+/* Lab Exercise Container */
+.lab-exercise-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin: var(--spacing-lg) 0;
+}
+
+.exercise-step {
+  display: flex;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: white;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.lab-completion {
+  background: linear-gradient(135deg, #defbe6 0%, #b7ebc9 100%);
+  padding: var(--spacing-xl);
+  border-radius: 0;
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+.lab-completion h3 {
+  margin-top: 0;
+  color: var(--success-color);
+  font-size: 1.5rem;
+}
+
+.next-actions {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  margin-top: var(--spacing-lg);
+  text-align: left;
+  display: inline-block;
+}
+
+.next-actions h4 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+.next-actions ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+/* Management Features */
+.management-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.feature-card {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.feature-card h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+/* Advanced Grid */
+.advanced-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.advanced-card {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+/* Troubleshooting Grid */
+.troubleshooting-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.issue-card {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.issue-card h3 {
+  margin-top: 0;
+  color: var(--danger-color);
+}
+
+.issue-solution {
+  background: var(--bg-alt);
+  padding: var(--spacing-md);
+  border-radius: 0;
+}
+
+.issue-solution ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+/* Help Resources */
+.resource-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.resource-card {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  border-left: 4px solid var(--primary-color);
+}
+
+.resource-card h4 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.resource-card a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.resource-card a:hover {
+  text-decoration: underline;
+}
+
+/* Examples Grid */
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.example-card {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.example-card h3 {
+  margin-top: 0;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Best Practices Grid */
+.best-practices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.practice-card {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.practice-card h3 {
+  margin-top: 0;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.practice-card ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+.practice-card li {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .walkthrough-container {
+    flex-direction: column;
+  }
+  
+  .walkthrough-sidebar {
+    width: 100%;
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .capabilities-overview {
+    grid-template-columns: 1fr;
+  }
+  
+  .value-comparison {
+    grid-template-columns: 1fr;
+  }
+  
+  .code-comparison {
+    grid-template-columns: 1fr;
+  }
+  
+  .arrow {
+    transform: rotate(90deg);
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .management-features,
+  .advanced-grid,
+  .troubleshooting-grid,
+  .resource-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   ACHIEVEMENT BADGES
+   ============================================ */
+
+.achievement-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  margin: var(--spacing-xl) 0;
+}
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-lg);
+  background: white;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  min-width: 120px;
+  transition: transform 0.2s ease;
+}
+
+.badge:hover {
+  transform: translateY(-4px);
+}
+
+.badge-icon {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.badge-title {
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Next Steps */
+.next-steps {
+  background: var(--bg-alt);
+  padding: var(--spacing-xl);
+  border-radius: 0;
+  margin: var(--spacing-xl) 0;
+}
+
+.next-steps h3 {
+  margin-top: 0;
+  color: var(--text-primary);
+}
+
+.next-steps ol {
+  padding-left: var(--spacing-lg);
+}
+
+.next-steps li {
+  margin-bottom: var(--spacing-md);
+  font-size: 1rem;
+}
+
+/* ============================================
+   BOBSHELL LAB STYLES
+   ============================================ */
+
+/* Command Categories */
+.command-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.command-category {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.command-category h4 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-lg);
+  color: var(--primary-color);
+}
+
+.command-example {
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: var(--bg-alt);
+  border-radius: 0;
+}
+
+.command-line {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.prompt {
+  color: var(--success-color);
+  margin-right: var(--spacing-sm);
+}
+
+.command-example p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* Script Examples */
+.script-example {
+  margin: var(--spacing-xl) 0;
+}
+
+.script-example h4 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+}
+
+/* Integration Grid */
+.integration-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.integration-card {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.integration-card h4 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-color);
+}
+
+.integration-content h5 {
+  color: var(--text-primary);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.integration-content ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+.integration-content li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Use Cases */
+.use-cases {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.use-case {
+  padding: var(--spacing-md);
+  background: var(--bg-alt);
+  border-radius: 0;
+}
+
+.use-case strong {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.use-case p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* Resources Section */
+.resources-section {
+  margin-top: var(--spacing-xl);
+}
+
+.resources-section h3 {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-primary);
+}
+
+/* ============================================
+   END OF STYLES
+   ============================================ */
+
+/* ============================================
+   BUILT-IN MODES STYLES
+   ============================================ */
+
+/* Mode Detail Cards */
+.mode-detail-card {
+  background: white;
+  border-radius: 0;
+  padding: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+  border-left: 4px solid var(--primary-color);
+}
+
+.mode-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.mode-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.mode-badge {
+  background: var(--primary-color);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mode-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.mode-description {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.mode-description p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.mode-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.detail-item h4 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.detail-item ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+  list-style-type: disc;
+}
+
+.detail-item li {
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-secondary);
+}
+
+/* Comparison Table */
+.table-container {
+  overflow-x: auto;
+  margin: var(--spacing-lg) 0;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.comparison-table thead {
+  background: var(--primary-color);
+  color: white;
+}
+
+.comparison-table th {
+  padding: var(--spacing-md);
+  text-align: left;
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+.comparison-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.875rem;
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+  background: var(--bg-alt);
+}
+
+.comparison-table strong {
+  color: var(--text-primary);
+}
+
+/* Guidelines Grid */
+.guidelines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.guideline-card {
+  background: white;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  border-top: 4px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.guideline-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.guideline-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.guideline-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.example-box {
+  background: var(--bg-alt);
+  padding: var(--spacing-md);
+  border-radius: 0;
+  border-left: 3px solid var(--primary-color);
+  font-size: 0.8125rem;
+}
+
+.example-box strong {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-primary);
+}
+
+.example-box em {
+  color: var(--text-secondary);
+  font-style: normal;
+}
+
+/* Step Card */
+.step-card {
+  background: white;
+  padding: var(--spacing-xl);
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
+}
+
+.step-card h2 {
+  margin-top: 0;
+  color: var(--text-primary);
+}
+
+.step-card p {
+  color: var(--text-secondary);
+}
+
+/* Code inline */
+code {
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.875em;
+  color: var(--text-primary);
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mode-details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .guidelines-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .comparison-table {
+    font-size: 0.75rem;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: var(--spacing-sm);
+  }
+}

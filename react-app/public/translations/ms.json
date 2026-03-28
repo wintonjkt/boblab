@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "home": "Utama",
+    "conversations": "Perbualan",
+    "walkthrough": "Panduan",
+    "bobathon": "Bobathon/Percubaan"
+  },
+  "hero": {
+    "title": "Bengkel Pembangunan AI Perusahaan",
+    "subtitle": "Tukar 7-8 minggu pembangunan perusahaan menjadi 10 minit orkestrasi berkuasa AI",
+    "tagline": "Ketahui bagaimana IBM Bob mengendalikan perubahan berbilang repositori, automasi pematuhan, dan keselamatan dalam talian",
+    "btn_conversations": "Perbualan Penjual",
+    "btn_walkthrough": "Panduan Keupayaan"
+  },
+  "intro": {
+    "title": "Dua Cara untuk Meneroka Bob",
+    "conversations_title": "Perbualan",
+    "conversations_desc": "Panduan gaya sembang untuk perbincangan pelanggan. Terokai soalan biasa, poin perbualan, dan cara menangani kebimbangan biasa tentang IBM Bob.",
+    "btn_conversations": "Lihat Perbualan",
+    "walkthrough_title": "Panduan",
+    "walkthrough_desc": "Perjalanan berdasarkan keupayaan melalui ciri-ciri utama Bob. Lihat demo, fahami nilai perniagaan, dan semak poin bukti dunia sebenar.",
+    "btn_walkthrough": "Mula Panduan"
+  },
+  "engagement": {
+    "title": "Berminat dengan Bobathon atau Pilot?",
+    "description": "Hubungi IBM Client Engineering untuk membincangkan peluang keterlibatan dan lihat bagaimana Bob boleh mengubah aliran kerja pembangunan anda.",
+    "btn_learn_more": "Ketahui Lebih Lanjut tentang IBM Client Engineering"
+  },
+  "footer": {
+    "title": "bob-lab",
+    "description": "Pembangunan AI perusahaan menjadi mudah",
+    "links": "Pautan",
+    "attribution": "Dibina oleh IBM Client Engineering dengan bob"
+  },
+  "walkthrough": {
+    "page_title": "Panduan",
+    "title": "Panduan Keupayaan Bob",
+    "subtitle": "Alami Ciri-ciri Skala Perusahaan Bob",
+    "description": "Ketahui bagaimana Bob mengubah pembangunan perusahaan melalui demonstrasi praktikal",
+    "sidebar_title": "Keupayaan",
+    "nav_overview": "Gambaran Keseluruhan",
+    "nav_requirements": "Keperluan Perniagaan",
+    "nav_compliance": "Automasi Pematuhan",
+    "nav_multirepo": "Orkestrasi Berbilang Repositori",
+    "nav_security": "Keselamatan Dalam Talian",
+    "nav_deployment": "Perancangan Penempatan",
+    "nav_bobalytics": "Ketelusan Bobalytics",
+    "github_link": "Dapatkan Kod Sumber",
+    "overview_title": "Apa yang Anda Alami",
+    "overview_desc": "Panduan ini menunjukkan keupayaan utama Bob melalui senario realistik: melaksanakan SSO + MFA merentasi 3 sistem warisan untuk lulus audit SOC 2.",
+    "estimated_time": "Anggaran Masa:",
+    "estimated_time_value": "10-15 minit untuk menyelesaikan semua demo keupayaan",
+    "copy": "Salin",
+    "copied": "Disalin!",
+    "prompt_to_bob": "Promp kepada Bob"
+  },
+  "narrative": {
+    "page_title": "Panduan Perbualan Penjual",
+    "title": "Panduan Perbualan Pelanggan",
+    "subtitle": "Titik Perbualan untuk Perbincangan Jualan Bob",
+    "description": "Soalan pelanggan biasa dan respons yang disyorkan berdasarkan keupayaan unik Bob",
+    "topics_title": "Topik Perbualan",
+    "topic_intro": "Pengenalan",
+    "topic_productivity": "Peningkatan Produktiviti",
+    "topic_security": "Keselamatan & Pematuhan",
+    "topic_multirepo": "Berbilang Repositori",
+    "topic_cost": "Ketelusan Kos",
+    "topic_integration": "Integrasi",
+    "topic_competition": "vs Pesaing",
+    "topic_proof": "Poin Bukti"
+  }
+}

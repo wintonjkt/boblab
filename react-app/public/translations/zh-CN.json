@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "home": "首页",
+    "conversations": "对话",
+    "walkthrough": "演示",
+    "bobathon": "Bobathon/试点"
+  },
+  "hero": {
+    "title": "企业AI开发工作坊",
+    "subtitle": "将7-8周的企业开发转换为10分钟的AI驱动编排",
+    "tagline": "了解IBM Bob如何处理多仓库变更、合规自动化和内联安全性",
+    "btn_conversations": "销售对话",
+    "btn_walkthrough": "功能演示"
+  },
+  "intro": {
+    "title": "探索Bob的两种方式",
+    "conversations_title": "对话",
+    "conversations_desc": "客户讨论的聊天式指南。探索典型问题、谈话要点以及如何解决对IBM Bob的常见担忧。",
+    "btn_conversations": "查看对话",
+    "walkthrough_title": "演示",
+    "walkthrough_desc": "基于功能的Bob关键特性之旅。查看演示、了解商业价值并审查真实世界的证明点。",
+    "btn_walkthrough": "开始演示"
+  },
+  "engagement": {
+    "title": "对Bobathon或试点感兴趣？",
+    "description": "联系IBM客户工程讨论参与机会，了解Bob如何转变您的开发工作流程。",
+    "btn_learn_more": "了解更多关于IBM客户工程的信息"
+  },
+  "footer": {
+    "title": "bob-lab",
+    "description": "企业AI开发变得简单",
+    "links": "链接",
+    "attribution": "由IBM客户工程与bob构建"
+  },
+  "walkthrough": {
+    "page_title": "演示",
+    "title": "Bob功能演示",
+    "subtitle": "体验Bob的企业级功能",
+    "description": "通过实际演示了解Bob如何转变企业开发",
+    "sidebar_title": "功能",
+    "nav_overview": "概述",
+    "nav_requirements": "业务需求",
+    "nav_compliance": "合规自动化",
+    "nav_multirepo": "多仓库编排",
+    "nav_security": "内联安全",
+    "nav_deployment": "部署计划",
+    "nav_bobalytics": "Bobalytics透明度",
+    "github_link": "获取源代码",
+    "overview_title": "您将体验的内容",
+    "overview_desc": "此演示通过现实场景展示Bob的关键功能：在3个遗留系统中实施SSO + MFA以通过SOC 2审计。",
+    "estimated_time": "预计时间：",
+    "estimated_time_value": "完成所有功能演示需要10-15分钟",
+    "copy": "复制",
+    "copied": "已复制！",
+    "prompt_to_bob": "向Bob提示"
+  },
+  "narrative": {
+    "page_title": "销售对话指南",
+    "title": "客户对话指南",
+    "subtitle": "Bob销售讨论谈话要点",
+    "description": "基于Bob独特功能的常见客户问题和推荐回答",
+    "topics_title": "对话主题",
+    "topic_intro": "介绍",
+    "topic_productivity": "生产力提升",
+    "topic_security": "安全与合规",
+    "topic_multirepo": "多仓库",
+    "topic_cost": "成本透明度",
+    "topic_integration": "集成",
+    "topic_competition": "与竞争对手比较",
+    "topic_proof": "证明点"
+  }
+}
