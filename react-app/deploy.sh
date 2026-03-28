@@ -2,7 +2,11 @@
 
 ################################################################################
 # IBM Code Engine Deployment Script for Bob Lab React App
-# 
+#
+# IMPORTANT: This script requires manual IBM Cloud login.
+# For automated deployment with API key authentication, use:
+#   ./deploy-with-apikey.sh
+#
 # This script automates the deployment process:
 # 1. Builds the Docker image
 # 2. Tags and pushes to IBM Container Registry
@@ -59,6 +63,29 @@ print_error() {
 check_prerequisites() {
     print_info "Checking prerequisites..."
     
+    # Check if .env file exists in parent directory
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+    ENV_FILE="$PROJECT_ROOT/.env"
+    
+    if [ -f "$ENV_FILE" ]; then
+        echo ""
+        print_warning "Found .env file with IBM Cloud credentials at: $ENV_FILE"
+        print_info "For automated deployment with API key authentication, use:"
+        echo ""
+        echo -e "  ${GREEN}./deploy-with-apikey.sh${NC}"
+        echo ""
+        print_info "This script (deploy.sh) requires manual IBM Cloud login."
+        echo ""
+        read -p "Continue with manual deployment? (y/N) " -n 1 -r
+        echo ""
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            print_info "Deployment cancelled. Use ./deploy-with-apikey.sh for automated deployment."
+            exit 0
+        fi
+        echo ""
+    fi
+    
     # Check if IBM Cloud CLI is installed
     if ! command -v ibmcloud &> /dev/null; then
         print_error "IBM Cloud CLI is not installed. Please install it from https://cloud.ibm.com/docs/cli"
@@ -80,6 +107,7 @@ check_prerequisites() {
     # Check if logged in to IBM Cloud
     if ! ibmcloud target &> /dev/null; then
         print_error "Not logged in to IBM Cloud. Please run 'ibmcloud login'"
+        print_info "Or use ./deploy-with-apikey.sh for automated login with API key"
         exit 1
     fi
     

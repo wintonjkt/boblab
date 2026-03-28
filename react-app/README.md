@@ -128,6 +128,34 @@ bun run type-check
 
 The application is containerized and ready for deployment to IBM Code Engine. It uses a multi-stage Docker build with Bun for building and nginx for serving.
 
+### Quick Start: Automated Deployment with API Key
+
+**NEW**: Deploy automatically using API key authentication from your `.env` file!
+
+1. **Set up your `.env` file** in the project root with IBM Cloud credentials:
+   ```bash
+   IBM_CLOUD_API_KEY=your_api_key_here
+   IBM_CLOUD_REGION=us-south
+   IBM_CLOUD_RESOURCE_GROUP=default
+   CODE_ENGINE_PROJECT=bob-lab-project
+   CODE_ENGINE_APP_NAME=bob-lab-app
+   CONTAINER_REGISTRY_NAMESPACE=your_namespace_here
+   ```
+
+2. **Run the automated deployment script**:
+   ```bash
+   cd react-app
+   ./deploy-with-apikey.sh
+   ```
+
+That's it! The script will:
+- ✅ Authenticate using your API key
+- ✅ Build and push the Docker image
+- ✅ Deploy to Code Engine
+- ✅ Show you the application URL
+
+📖 **For detailed setup instructions, see [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md)**
+
 ### Prerequisites
 
 Before deploying, ensure you have:
@@ -154,6 +182,8 @@ Before deploying, ensure you have:
 4. **Docker** - [Installation Guide](https://docs.docker.com/get-docker/)
 
 5. **IBM Cloud Account** - [Sign up](https://cloud.ibm.com/registration)
+
+6. **IBM Cloud API Key** - [Create one](https://cloud.ibm.com/iam/apikeys)
 
 ### Configuration
 
@@ -191,11 +221,33 @@ Before deploying, ensure you have:
 
 ### Deployment Methods
 
-#### Method 1: Using the Deployment Script (Recommended)
+#### Method 1: Automated Deployment with API Key (Recommended)
 
-The easiest way to deploy is using the provided script:
+The easiest and most secure way to deploy using API key authentication:
 
 ```bash
+# Deploy using API key from .env file
+./deploy-with-apikey.sh
+```
+
+**Features:**
+- ✅ Non-interactive authentication with API key
+- ✅ Automatic project and namespace creation
+- ✅ Comprehensive error handling
+- ✅ Colored output for better UX
+- ✅ Idempotent (safe to run multiple times)
+- ✅ Loads configuration from parent directory's `.env` file
+
+**See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for complete setup instructions.**
+
+#### Method 2: Manual Deployment Script
+
+For manual control with interactive login:
+
+```bash
+# Requires manual IBM Cloud login first
+ibmcloud login
+
 # Deploy with 'latest' tag
 ./deploy.sh
 
@@ -210,9 +262,9 @@ The script will:
 4. ✅ Deploy to Code Engine
 5. ✅ Display the application URL
 
-#### Method 2: Manual Deployment
+#### Method 3: Complete Manual Deployment
 
-If you prefer manual control:
+If you prefer complete manual control:
 
 1. **Build the Docker image**
    ```bash
@@ -253,6 +305,34 @@ If you prefer manual control:
    ```bash
    ibmcloud ce app get --name bob-lab-app
    ```
+
+### Example .env Configuration
+
+Create a `.env` file in the project root (`/Users/yingkitw/Desktop/ceproject/boblab/.env`):
+
+```bash
+# IBM Cloud Authentication
+IBM_CLOUD_API_KEY=your_actual_api_key_here
+
+# IBM Cloud Configuration
+IBM_CLOUD_REGION=us-south
+IBM_CLOUD_RESOURCE_GROUP=default
+
+# Code Engine Configuration
+CODE_ENGINE_PROJECT=bob-lab-project
+CODE_ENGINE_APP_NAME=bob-lab-app
+
+# Container Registry Configuration
+CONTAINER_REGISTRY_NAMESPACE=your_namespace_here
+CONTAINER_IMAGE_NAME=bob-lab
+CONTAINER_IMAGE_TAG=latest
+```
+
+**Important Security Notes:**
+- ⚠️ Never commit `.env` files to version control
+- ⚠️ The `.env` file is already in `.gitignore`
+- ⚠️ Keep your API key secure and rotate it regularly
+- ⚠️ See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for security best practices
 
 ### Local Docker Testing
 
