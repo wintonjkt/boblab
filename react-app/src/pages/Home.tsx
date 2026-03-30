@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Column } from '@carbon/react';
 import { useI18n } from '@/hooks/useI18n';
 import FeatureCard from '@/components/common/FeatureCard';
-import '@/styles/home.css';
+import '@/styles/home.scss';
 
 const Home: React.FC = () => {
   const { t } = useI18n();

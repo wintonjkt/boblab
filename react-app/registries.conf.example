@@ -1,0 +1,68 @@
+# Podman Registry Configuration Example
+# This file configures alternative container registries and mirrors
+# to avoid Docker Hub rate limiting and timeout issues.
+#
+# Installation:
+#   mkdir -p ~/.config/containers
+#   cp registries.conf.example ~/.config/containers/registries.conf
+#
+# For system-wide configuration (requires root):
+#   sudo cp registries.conf.example /etc/containers/registries.conf
+
+# Default search registries for unqualified images
+unqualified-search-registries = ["docker.io", "quay.io"]
+
+# Docker Hub configuration with mirrors
+[[registry]]
+prefix = "docker.io"
+location = "docker.io"
+
+# Mirror 1: Google Container Registry Mirror
+[[registry.mirror]]
+location = "mirror.gcr.io"
+insecure = false
+
+# Mirror 2: Quay.io as fallback
+[[registry.mirror]]
+location = "quay.io"
+insecure = false
+
+# Quay.io (Red Hat's registry) - primary alternative
+[[registry]]
+prefix = "quay.io"
+location = "quay.io"
+insecure = false
+
+# GitHub Container Registry
+[[registry]]
+prefix = "ghcr.io"
+location = "ghcr.io"
+insecure = false
+
+# IBM Container Registry (for IBM Cloud deployments)
+[[registry]]
+prefix = "icr.io"
+location = "icr.io"
+insecure = false
+
+[[registry]]
+prefix = "us.icr.io"
+location = "us.icr.io"
+insecure = false
+
+# Red Hat Registry
+[[registry]]
+prefix = "registry.access.redhat.com"
+location = "registry.access.redhat.com"
+insecure = false
+
+# Alpine Linux official registry
+[[registry]]
+prefix = "alpine"
+location = "docker.io/library/alpine"
+insecure = false
+
+# Configuration notes:
+# - Mirrors are tried in order before the main registry
+# - Set insecure = true only for testing/development
+# - Restart Podman after changing this file (macOS: podman machine restart)

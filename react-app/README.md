@@ -126,6 +126,9 @@ bun run type-check
 
 ## Deployment to IBM Code Engine
 
+
+> **Note**: The Dockerfile has been optimized to use AWS ECR Public Gallery (public.ecr.aws) instead of Docker Hub to avoid timeout and rate limiting issues. All base images are pulled from AWS ECR Public Gallery for excellent reliability and fast downloads. See [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) for details.
+
 The application is containerized and ready for deployment to IBM Code Engine. It uses a multi-stage container build with Bun for building and nginx for serving, compatible with both Podman and Docker.
 
 ### Quick Start: Automated Deployment with API Key

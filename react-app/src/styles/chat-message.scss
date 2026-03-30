@@ -1,0 +1,131 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+
+.chat-message {
+  display: flex;
+  gap: $spacing-05;
+  margin-bottom: $spacing-06;
+  align-items: flex-start;
+}
+
+.chat-message__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: $text-on-color;
+}
+
+.chat-message__avatar--customer {
+  background-color: $support-info;
+}
+
+.chat-message__avatar--seller {
+  background-color: $interactive;
+}
+
+.chat-message__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.chat-message__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-03;
+}
+
+.chat-message__sender {
+  @include type-style('heading-compact-01');
+  color: $text-primary;
+  font-weight: 600;
+}
+
+.chat-message__time {
+  @include type-style('label-01');
+  color: $text-secondary;
+}
+
+.chat-message__body {
+  @include type-style('body-01');
+  color: $text-primary;
+  line-height: 1.6;
+
+  p {
+    margin-bottom: $spacing-05;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul, ol {
+    margin-left: $spacing-06;
+    margin-bottom: $spacing-05;
+  }
+
+  li {
+    margin-bottom: $spacing-03;
+  }
+
+  strong {
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  h4, h5 {
+    @include type-style('heading-compact-01');
+    color: $text-primary;
+    margin-top: $spacing-05;
+    margin-bottom: $spacing-03;
+  }
+
+  .talk-points,
+  .time-breakdown,
+  .proof-box,
+  .security-response,
+  .multi-repo-example,
+  .bobalytics-features,
+  .roi-example,
+  .integration-list,
+  .comparison-grid,
+  .unique-to-bob,
+  .proof-points,
+  .case-study,
+  .deployment-box {
+    margin: $spacing-05 0;
+    padding: $spacing-05;
+    background-color: $layer-accent;
+    border-left: 4px solid $border-interactive;
+    border-radius: 4px;
+  }
+
+  .roi-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: $spacing-05 0;
+
+    td {
+      padding: $spacing-03;
+      border-bottom: 1px solid $border-subtle;
+    }
+
+    .success-row {
+      background-color: $support-success-inverse;
+      font-weight: 600;
+    }
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-05;
+  }
+}
+
+// Made with Bob

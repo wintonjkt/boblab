@@ -1,5 +1,20 @@
 # IBM Code Engine Deployment Guide
 
+
+## Important: Container Registry Changes
+
+**Updated: March 2026**
+
+This deployment has been optimized to use AWS ECR Public Gallery (public.ecr.aws) instead of Docker Hub (docker.io) to avoid timeout and rate limiting issues:
+
+- **Alpine Linux**: `public.ecr.aws/docker/library/alpine:3.19` (AWS ECR Public Gallery)
+- **nginx**: `public.ecr.aws/docker/library/nginx:1.27-alpine` (AWS ECR Public Gallery)
+- **Bun**: Installed directly from official source (https://bun.sh/install)
+
+Using AWS ECR Public Gallery provides excellent reliability, fast downloads, and no rate limiting for public images. See the [Container Registry Troubleshooting](#issue-container-registry-timeout-or-failed-to-pull-image) section for more details.
+
+---
+
 Complete guide for deploying the Bob Lab React application to IBM Code Engine using automated API key authentication.
 
 ## Table of Contents
@@ -504,6 +519,62 @@ ibmcloud ce app update --name bob-lab-app \
    podman machine init --cpus 4 --memory 8192 --disk-size 50
    podman machine start
    ```
+#### Issue: "Container registry timeout" or "Failed to pull image"
+
+**Cause**: Docker Hub (docker.io) rate limiting or network timeouts
+
+**Solution**:
+
+The Dockerfile has been updated to use alternative container registries that are more reliable:
+
+1. **Alpine base image**: Uses official Alpine Linux registry (mirrored on multiple CDNs)
+2. **nginx image**: Uses `quay.io/nginx/nginx` (Red Hat's Quay registry)
+
+**Alternative Registry Options**:
+
+If you still experience issues, you can configure Podman to use registry mirrors:
+
+```bash
+# Create or edit registries.conf
+mkdir -p ~/.config/containers
+cat > ~/.config/containers/registries.conf << 'EOF'
+unqualified-search-registries = ["docker.io"]
+
+[[registry]]
+prefix = "docker.io"
+location = "docker.io"
+
+[[registry.mirror]]
+location = "mirror.gcr.io"
+
+[[registry.mirror]]
+location = "quay.io"
+EOF
+```
+
+**Registry Fallback Strategy**:
+
+The Dockerfile uses the following strategy:
+1. **Alpine**: Official Alpine Linux (available on multiple mirrors)
+2. **nginx**: `quay.io/nginx/nginx:1.27-alpine` (Red Hat's registry)
+3. **Bun**: Installed from official source (https://bun.sh/install)
+
+**Verify Registry Access**:
+
+```bash
+# Test pulling from alternative registries
+podman pull quay.io/nginx/nginx:1.27-alpine
+podman pull alpine:3.19
+
+# Check registry configuration
+podman info | grep -A 10 registries
+```
+
+**Why Alternative Registries?**:
+- **quay.io**: Red Hat's container registry, highly reliable and fast
+- **alpine official**: Distributed via CDN, no rate limiting
+- **Direct installation**: Bun installed from official source, bypassing registry issues
+
 
 #### Issue: "Permission denied" when running script
 

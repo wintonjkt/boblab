@@ -1,0 +1,138 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/breakpoint' as *;
+
+/* Narrative Page Styles */
+
+.narrative-page {
+  width: 100%;
+}
+
+/* Chat Container Layout */
+.chat-container {
+  display: flex;
+  gap: $spacing-07;
+  max-width: 1584px;
+  margin: 0 auto;
+  padding: $spacing-07 $spacing-05;
+}
+
+/* Chat Topics Sidebar */
+.chat-topics {
+  flex: 0 0 250px;
+  position: sticky;
+  top: $spacing-09;
+  height: fit-content;
+  background-color: $layer;
+  border-radius: 8px;
+  padding: $spacing-06;
+  border: 1px solid $border-subtle;
+
+  h3 {
+    @include type-style('heading-02');
+    margin-bottom: $spacing-05;
+    color: $text-primary;
+  }
+}
+
+.topic-nav {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-02;
+}
+
+.topic-link {
+  padding: $spacing-03 $spacing-04;
+  border-radius: 4px;
+  color: $text-secondary;
+  text-decoration: none;
+  @include type-style('body-compact-01');
+  transition: background-color 0.2s, color 0.2s;
+
+  &:hover {
+    background-color: $layer-hover;
+    color: $text-primary;
+  }
+
+  &.active {
+    background-color: $layer-selected;
+    color: $text-primary;
+    font-weight: 600;
+  }
+}
+
+/* Chat History */
+.chat-history {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Chat Section */
+.chat-section {
+  margin-bottom: $spacing-09;
+}
+
+.chat-section-header {
+  margin-bottom: $spacing-06;
+
+  h2 {
+    @include type-style('expressive-heading-04');
+    margin-bottom: $spacing-03;
+    color: $text-primary;
+  }
+
+  p {
+    @include type-style('body-01');
+    color: $text-secondary;
+  }
+}
+
+/* Chat CTA */
+.chat-cta {
+  text-align: center;
+  padding: $spacing-09 $spacing-05;
+  background: linear-gradient(135deg, $background-brand 0%, $layer-accent 100%);
+  border-radius: 8px;
+  margin-top: $spacing-09;
+
+  h2 {
+    @include type-style('expressive-heading-04');
+    margin-bottom: $spacing-03;
+    color: $text-primary;
+  }
+
+  p {
+    @include type-style('body-01');
+    color: $text-secondary;
+    margin-bottom: $spacing-06;
+  }
+}
+
+/* Responsive Design */
+@include breakpoint-down('lg') {
+  .chat-container {
+    flex-direction: column;
+  }
+
+  .chat-topics {
+    position: static;
+    flex: 1;
+  }
+}
+
+@include breakpoint-down('md') {
+  .chat-container {
+    padding: $spacing-05 $spacing-03;
+  }
+
+  .chat-section-header {
+    h2 {
+      @include type-style('expressive-heading-03');
+    }
+  }
+}
+
+/* Made with Bob */
+
+// Made with Bob

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { Theme as CarbonTheme } from '@carbon/react';
 import { Theme, ThemeMode, ThemeContextType } from '@/types';
 
 const THEME_STORAGE_KEY = 'theme-preference';
@@ -51,14 +52,18 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     return resolveTheme(themeMode);
   });
 
-  // Apply theme class to document.body
+  // Apply theme class to document.documentElement for Carbon
   useEffect(() => {
-    const root = document.body;
+    const root = document.documentElement;
     
+    // Set data-carbon-theme attribute for Carbon components
+    root.setAttribute('data-carbon-theme', theme === 'dark' ? 'g100' : 'white');
+    
+    // Also maintain body class for backward compatibility
     if (theme === 'dark') {
-      root.classList.add('dark-theme');
+      document.body.classList.add('dark-theme');
     } else {
-      root.classList.remove('dark-theme');
+      document.body.classList.remove('dark-theme');
     }
   }, [theme]);
 
@@ -108,7 +113,9 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         setTheme: handleSetTheme
       }}
     >
-      {children}
+      <CarbonTheme theme={theme === 'dark' ? 'g100' : 'white'}>
+        {children}
+      </CarbonTheme>
     </ThemeContext.Provider>
   );
 };

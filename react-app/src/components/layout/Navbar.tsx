@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import {
   Header,
@@ -14,6 +14,8 @@ import {
   HeaderSideNavItems,
   HeaderMenuItem,
   HeaderMenu,
+  OverflowMenu,
+  OverflowMenuItem,
 } from '@carbon/react';
 import { Translate } from '@carbon/icons-react';
 import { useI18n } from '@/hooks/useI18n';
@@ -59,12 +61,10 @@ const LAB_ITEMS = [
  */
 const Navbar: React.FC = () => {
   const { language, changeLanguage } = useI18n();
-  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
 
   const handleLanguageChange = async (lang: Language) => {
     try {
       await changeLanguage(lang);
-      setIsLanguageMenuOpen(false);
     } catch (error) {
       console.error('Failed to change language:', error);
     }
@@ -112,73 +112,30 @@ const Navbar: React.FC = () => {
             {/* Global Actions */}
             <HeaderGlobalBar>
               {/* Language Selector */}
-              <div style={{ position: 'relative' }}>
-                <HeaderGlobalAction
-                  aria-label="Change language"
-                  tooltipAlignment="end"
-                  onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
-                >
-                  <Translate size={20} />
-                </HeaderGlobalAction>
-                
-                {isLanguageMenuOpen && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: '100%',
-                      right: 0,
-                      backgroundColor: 'var(--cds-layer)',
-                      border: '1px solid var(--cds-border-subtle)',
-                      borderRadius: '4px',
-                      marginTop: '4px',
-                      minWidth: '200px',
-                      maxHeight: '400px',
-                      overflowY: 'auto',
-                      zIndex: 9999,
-                      boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
-                    }}
-                  >
-                    {LANGUAGE_OPTIONS.map(option => (
-                      <button
-                        key={option.code}
-                        onClick={() => handleLanguageChange(option.code)}
-                        style={{
-                          width: '100%',
-                          padding: '0.75rem 1rem',
-                          border: 'none',
-                          backgroundColor: language === option.code 
-                            ? 'var(--cds-layer-selected)' 
-                            : 'transparent',
-                          color: 'var(--cds-text-primary)',
-                          textAlign: 'left',
-                          cursor: 'pointer',
-                          fontSize: '0.875rem',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          gap: '0.25rem',
-                        }}
-                        onMouseEnter={(e) => {
-                          if (language !== option.code) {
-                            e.currentTarget.style.backgroundColor = 'var(--cds-layer-hover)';
-                          }
-                        }}
-                        onMouseLeave={(e) => {
-                          if (language !== option.code) {
-                            e.currentTarget.style.backgroundColor = 'transparent';
-                          }
-                        }}
-                      >
-                        <span style={{ fontWeight: language === option.code ? 600 : 400 }}>
+              <OverflowMenu
+                renderIcon={Translate}
+                iconDescription="Change language"
+                flipped
+                aria-label="Language selector"
+              >
+                {LANGUAGE_OPTIONS.map(option => (
+                  <OverflowMenuItem
+                    key={option.code}
+                    itemText={
+                      <div>
+                        <div style={{ fontWeight: language === option.code ? 600 : 400 }}>
                           {option.nativeName}
-                        </span>
-                        <span style={{ fontSize: '0.75rem', opacity: 0.7 }}>
+                        </div>
+                        <div style={{ fontSize: '0.75rem', opacity: 0.7 }}>
                           {option.name}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
+                        </div>
+                      </div>
+                    }
+                    onClick={() => handleLanguageChange(option.code)}
+                    hasDivider={false}
+                  />
+                ))}
+              </OverflowMenu>
 
               {/* Theme Toggle */}
               <ThemeToggle />

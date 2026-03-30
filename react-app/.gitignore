@@ -198,9 +198,26 @@ temp/
 .serverless/
 
 # ============================================================================
-# Docker
+# Docker & Containers
 # ============================================================================
-.dockerignore
+# Keep .dockerignore in repo (it's needed for builds)
+# !.dockerignore
+
+# ============================================================================
+# IBM Code Engine & Cloud
+# ============================================================================
+# Deployment artifacts
+*.tar
+*.tar.gz
+deployment-logs/
+code-engine-logs/
+
+# IBM Cloud CLI cache
+.bluemix/
+.ibmcloud/
+
+# Container registry credentials
+registry-credentials.json
 
 # ============================================================================
 # Vite

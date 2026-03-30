@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { Button } from '@carbon/react';
 import { Copy, Checkmark } from '@carbon/icons-react';
 
 interface CodeBlockProps {
@@ -32,14 +33,16 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
     <div className="code-block-wrapper">
       <div className="code-block-header">
         <span className="code-block-language">{title || language}</span>
-        <button
-          className="copy-button"
+        <Button
+          kind="ghost"
+          size="sm"
+          renderIcon={copied ? Checkmark : Copy}
+          iconDescription={copied ? 'Copied' : 'Copy code'}
           onClick={handleCopy}
-          aria-label={copied ? 'Copied' : 'Copy code'}
+          hasIconOnly={false}
         >
-          {copied ? <Checkmark size={16} /> : <Copy size={16} />}
-          <span>{copied ? 'Copied' : 'Copy'}</span>
-        </button>
+          {copied ? 'Copied' : 'Copy'}
+        </Button>
       </div>
       <SyntaxHighlighter
         language={language}

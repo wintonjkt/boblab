@@ -1,0 +1,629 @@
+/* Global styles for Bob Lab React App */
+
+/* Import Carbon Design System styles */
+@use '@carbon/react';
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+@use '@carbon/react/scss/breakpoint' as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* App container layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  max-width: 1584px;
+  width: 100%;
+  margin: 0 auto;
+  padding: $spacing-07 $spacing-05;
+}
+
+/* Lab page styling */
+.lab-page {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h1 {
+    @include type-style('expressive-heading-05');
+    margin-bottom: $spacing-06;
+    color: $text-primary;
+  }
+
+  h2 {
+    @include type-style('expressive-heading-04');
+    margin-top: $spacing-07;
+    margin-bottom: $spacing-05;
+    color: $text-primary;
+  }
+
+  h3 {
+    @include type-style('heading-03');
+    margin-top: $spacing-06;
+    margin-bottom: $spacing-04;
+    color: $text-primary;
+  }
+
+  p {
+    @include type-style('body-01');
+    line-height: 1.6;
+    margin-bottom: $spacing-05;
+    color: $text-secondary;
+  }
+
+  ul,
+  ol {
+    margin-left: $spacing-06;
+    margin-bottom: $spacing-05;
+    color: $text-secondary;
+  }
+
+  li {
+    margin-bottom: $spacing-03;
+    line-height: 1.6;
+  }
+
+  code {
+    background-color: $layer-accent;
+    padding: $spacing-01 $spacing-03;
+    border-radius: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.875rem;
+  }
+
+  pre {
+    background-color: $layer;
+    border: 1px solid $border-subtle;
+    border-radius: 4px;
+    padding: $spacing-05;
+    overflow-x: auto;
+    margin-bottom: $spacing-05;
+
+    code {
+      background-color: transparent;
+      padding: 0;
+    }
+  }
+}
+
+/* Dark theme support */
+body.dark-theme {
+  background-color: $background;
+  color: $text-primary;
+}
+
+/* Responsive design */
+@include breakpoint-down('md') {
+  .main-content {
+    padding: $spacing-05 $spacing-03;
+  }
+
+  .lab-page {
+    h1 {
+      @include type-style('expressive-heading-04');
+    }
+
+    h2 {
+      @include type-style('expressive-heading-03');
+    }
+
+    h3 {
+      @include type-style('heading-02');
+    }
+  }
+}
+
+/* Loading state */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Link styling */
+a {
+  color: $link-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: $link-visited;
+  }
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid $focus;
+  outline-offset: 2px;
+}
+
+/* Code Block Styles */
+.code-block-wrapper {
+  margin: $spacing-05 0;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid $border-subtle;
+}
+
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-03 $spacing-05;
+  background-color: $layer-accent;
+  border-bottom: 1px solid $border-subtle;
+}
+
+.code-block-language {
+  @include type-style('label-01');
+  font-weight: 600;
+  color: $text-secondary;
+}
+
+/* Lab Page Specific Styles */
+.page-header {
+  background: linear-gradient(135deg, $background-brand 0%, $layer-accent 100%);
+  padding: $spacing-08 $spacing-05;
+  margin-bottom: $spacing-07;
+  text-align: center;
+
+  h1 {
+    @include type-style('expressive-heading-05');
+    margin-bottom: $spacing-03;
+    color: $text-primary;
+  }
+}
+
+.page-subtitle {
+  @include type-style('heading-03');
+  color: $text-secondary;
+  margin-bottom: $spacing-03;
+}
+
+.page-description {
+  @include type-style('body-01');
+  color: $text-secondary;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Walkthrough Container */
+.walkthrough-container {
+  display: flex;
+  gap: $spacing-07;
+  max-width: 1584px;
+  margin: 0 auto;
+  padding: 0 $spacing-05;
+}
+
+.walkthrough-sidebar {
+  flex: 0 0 250px;
+  position: sticky;
+  top: $spacing-09;
+  height: fit-content;
+  background-color: $layer;
+  border-radius: 8px;
+  padding: $spacing-06;
+}
+
+.sidebar-header h3 {
+  @include type-style('heading-02');
+  margin-bottom: $spacing-05;
+  color: $text-primary;
+}
+
+.capability-nav {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-03;
+}
+
+.capability-link {
+  padding: $spacing-03 $spacing-04;
+  border-radius: 4px;
+  color: $text-secondary;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+
+  &:hover {
+    background-color: $layer-hover;
+    color: $text-primary;
+  }
+
+  &.active {
+    background-color: $layer-selected;
+    color: $text-primary;
+    font-weight: 600;
+  }
+}
+
+.sidebar-footer {
+  margin-top: $spacing-07;
+  padding-top: $spacing-05;
+  border-top: 1px solid $border-subtle;
+}
+
+.sidebar-github-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-04;
+  background-color: $layer-accent;
+  border-radius: 4px;
+  color: $link-primary;
+  text-decoration: none;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: $layer-accent-hover;
+  }
+}
+
+.walkthrough-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.walkthrough-content {
+  background-color: $layer;
+  border-radius: 8px;
+  padding: $spacing-07;
+}
+
+/* Section Styles */
+.section {
+  margin-bottom: $spacing-08;
+}
+
+.section-alt {
+  background-color: $layer-accent;
+  padding: $spacing-07;
+  border-radius: 8px;
+  margin: $spacing-07 0;
+}
+
+.capability-header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-05;
+  margin-bottom: $spacing-06;
+}
+
+.capability-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: $background-brand;
+  color: $text-on-color;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.capability-badge {
+  padding: $spacing-02 $spacing-04;
+  background-color: $layer-accent;
+  border-radius: 12px;
+  @include type-style('label-01');
+  font-weight: 600;
+  color: $text-secondary;
+}
+
+.capability-content {
+  margin-top: $spacing-06;
+}
+
+/* Info Cards */
+.info-card {
+  background-color: $layer;
+  border: 1px solid $border-subtle;
+  border-radius: 8px;
+  padding: $spacing-07;
+  margin-bottom: $spacing-07;
+
+  &.compliance {
+    border-left: 4px solid $support-success;
+  }
+}
+
+.objective-box {
+  background-color: $layer-accent;
+  border-radius: 8px;
+  padding: $spacing-06;
+  margin-bottom: $spacing-07;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: $spacing-04;
+    color: $text-primary;
+  }
+}
+
+/* Capabilities Overview */
+.capabilities-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-05;
+  margin: $spacing-07 0;
+}
+
+.cap-card {
+  background-color: $layer-accent;
+  border-radius: 8px;
+  padding: $spacing-06;
+  border: 1px solid $border-subtle;
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: $spacing-03;
+    color: $text-primary;
+  }
+
+  p {
+    margin: 0;
+    color: $text-secondary;
+    @include type-style('body-compact-01');
+  }
+}
+
+/* Demo Flow */
+.demo-flow {
+  margin: $spacing-07 0;
+
+  h3 {
+    margin-bottom: $spacing-06;
+    color: $text-primary;
+  }
+}
+
+.step-item {
+  display: flex;
+  gap: $spacing-05;
+  margin-bottom: $spacing-07;
+}
+
+.step-number {
+  flex: 0 0 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $background-brand;
+  color: $text-on-color;
+  border-radius: 50%;
+  font-weight: 600;
+}
+
+.step-content {
+  flex: 1;
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: $spacing-04;
+    color: $text-primary;
+  }
+}
+
+/* Result Box */
+.result-box {
+  background-color: $layer-accent;
+  border-left: 4px solid $support-info;
+  border-radius: 4px;
+  padding: $spacing-05;
+  margin: $spacing-05 0;
+
+  ul {
+    margin: $spacing-03 0 0 $spacing-06;
+  }
+}
+
+/* Business Value */
+.business-value {
+  background-color: $layer-accent;
+  border-radius: 8px;
+  padding: $spacing-06;
+  margin-top: $spacing-07;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: $spacing-05;
+    color: $text-primary;
+  }
+}
+
+.value-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-05;
+  margin: $spacing-05 0;
+}
+
+.value-traditional,
+.value-bob {
+  padding: $spacing-05;
+  border-radius: 4px;
+  background-color: $layer;
+}
+
+.value-traditional {
+  border-left: 4px solid $support-warning;
+}
+
+.value-bob {
+  border-left: 4px solid $support-success;
+}
+
+.highlight {
+  font-style: italic;
+  color: $text-secondary;
+  margin-top: $spacing-05;
+}
+
+.security-note {
+  @include type-style('body-compact-01');
+  color: $text-secondary;
+  margin-top: $spacing-03;
+}
+
+/* Next Steps */
+.next-steps {
+  margin-top: $spacing-06;
+
+  h3 {
+    margin-bottom: $spacing-05;
+    color: $text-primary;
+  }
+
+  ul,
+  ol {
+    margin-left: $spacing-06;
+  }
+
+  li {
+    margin-bottom: $spacing-04;
+    line-height: 1.6;
+  }
+}
+
+/* CTA Box */
+.cta-box {
+  background: linear-gradient(135deg, $background-brand 0%, $layer-accent 100%);
+  border-radius: 8px;
+  padding: $spacing-07;
+  text-align: center;
+  margin-top: $spacing-07;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: $spacing-03;
+    color: $text-primary;
+  }
+
+  p {
+    margin-bottom: $spacing-06;
+    color: $text-secondary;
+  }
+}
+
+.cta-buttons {
+  display: flex;
+  gap: $spacing-05;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: $spacing-04 $spacing-07;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-primary {
+  background-color: $button-primary;
+  color: $text-on-color;
+
+  &:hover {
+    background-color: $button-primary-hover;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-secondary {
+  background-color: $button-secondary;
+  color: $text-primary;
+
+  &:hover {
+    background-color: $button-secondary-hover;
+    transform: translateY(-2px);
+  }
+}
+
+/* Responsive Design for Lab Pages */
+@include breakpoint-down('lg') {
+  .walkthrough-container {
+    flex-direction: column;
+  }
+
+  .walkthrough-sidebar {
+    position: static;
+    flex: 1;
+  }
+
+  .value-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .capabilities-overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+@include breakpoint-down('md') {
+  .page-header {
+    padding: $spacing-07 $spacing-05;
+
+    h1 {
+      @include type-style('expressive-heading-04');
+    }
+  }
+
+  .walkthrough-content {
+    padding: $spacing-05;
+  }
+
+  .step-item {
+    flex-direction: column;
+  }
+
+  .step-number {
+    align-self: flex-start;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+/* Made with Bob */
+
+// Made with Bob

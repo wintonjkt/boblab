@@ -1,0 +1,98 @@
+@use '@carbon/react/scss/spacing' as *;
+@use '@carbon/react/scss/theme' as *;
+@use '@carbon/react/scss/type' as *;
+
+.footer {
+  background-color: $layer;
+  border-top: 1px solid $border-subtle;
+  margin-top: auto;
+  padding: $spacing-09 0;
+}
+
+.footer__content {
+  margin-bottom: $spacing-07;
+}
+
+.footer__heading {
+  @include type-style('heading-compact-01');
+  color: $text-primary;
+  margin-bottom: $spacing-05;
+}
+
+.footer__text {
+  @include type-style('body-compact-01');
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+.footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-03;
+}
+
+.footer__link {
+  @include type-style('body-compact-01');
+  color: $link-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.footer__social {
+  display: flex;
+  gap: $spacing-05;
+}
+
+.footer__social-link {
+  color: $icon-primary;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $icon-secondary;
+  }
+}
+
+.footer__bottom {
+  border-top: 1px solid $border-subtle;
+  padding-top: $spacing-06;
+}
+
+.footer__bottom-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-05;
+}
+
+.footer__copyright {
+  @include type-style('label-01');
+  color: $text-secondary;
+  margin: 0;
+}
+
+.footer__legal-links {
+  display: flex;
+  gap: $spacing-06;
+  flex-wrap: wrap;
+}
+
+.footer__legal-link {
+  @include type-style('label-01');
+  color: $link-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Made with Bob

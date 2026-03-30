@@ -1,4 +1,7 @@
 import React from 'react';
+import { Tile } from '@carbon/react';
+import { User, Bot } from '@carbon/icons-react';
+import '@/styles/chat-message.scss';
 
 interface ChatMessageProps {
   type: 'customer' | 'seller';
@@ -14,19 +17,19 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
   children,
 }) => {
   return (
-    <div className={`chat-message ${type}`}>
-      <div className={`message-avatar ${type}-avatar`}>
-        {type === 'customer' ? 'C' : 'B'}
+    <div className={`chat-message chat-message--${type}`}>
+      <div className={`chat-message__avatar chat-message__avatar--${type}`}>
+        {type === 'customer' ? <User size={20} /> : <Bot size={20} />}
       </div>
-      <div className="message-content">
-        <div className="message-header">
-          <span className={`message-${type === 'customer' ? 'sender' : 'seller'}`}>
+      <Tile className="chat-message__content">
+        <div className="chat-message__header">
+          <span className="chat-message__sender">
             {sender}
           </span>
-          {time && <span className="message-time">{time}</span>}
+          {time && <span className="chat-message__time">{time}</span>}
         </div>
-        <div className="message-body">{children}</div>
-      </div>
+        <div className="chat-message__body">{children}</div>
+      </Tile>
     </div>
   );
 };

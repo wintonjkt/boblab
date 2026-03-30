@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Outlet, Link } from 'react-router-dom';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { I18nProvider } from '@/contexts/I18nContext';
 import Navbar from '@/components/layout/Navbar';
@@ -7,7 +7,8 @@ import Footer from '@/components/layout/Footer';
 import Breadcrumb from '@/components/layout/Breadcrumb';
 import Home from '@/pages/Home';
 import Narrative from '@/pages/Narrative';
-import { Loading } from '@carbon/react';
+import { Loading, Grid, Column, Button } from '@carbon/react';
+import { ArrowLeft } from '@carbon/icons-react';
 
 // Lazy load lab pages for better performance
 const GettingStarted = lazy(() => import('@/pages/labs/GettingStarted'));
@@ -89,10 +90,43 @@ const App: React.FC = () => {
               
               {/* 404 fallback */}
               <Route path="*" element={
-                <div style={{ padding: '2rem', textAlign: 'center' }}>
-                  <h1>404 - Page Not Found</h1>
-                  <p>The page you're looking for doesn't exist.</p>
-                </div>
+                <Grid>
+                  <Column sm={4} md={8} lg={16}>
+                    <div style={{
+                      textAlign: 'center',
+                      padding: 'var(--cds-spacing-09) var(--cds-spacing-05)'
+                    }}>
+                      <h1 style={{
+                        fontSize: '3rem',
+                        marginBottom: 'var(--cds-spacing-05)',
+                        color: 'var(--cds-text-primary)'
+                      }}>
+                        404
+                      </h1>
+                      <h2 style={{
+                        fontSize: '1.5rem',
+                        marginBottom: 'var(--cds-spacing-05)',
+                        color: 'var(--cds-text-secondary)'
+                      }}>
+                        Page Not Found
+                      </h2>
+                      <p style={{
+                        marginBottom: 'var(--cds-spacing-07)',
+                        color: 'var(--cds-text-secondary)'
+                      }}>
+                        The page you're looking for doesn't exist or has been moved.
+                      </p>
+                      <Button
+                        as={Link}
+                        to="/"
+                        renderIcon={ArrowLeft}
+                        kind="primary"
+                      >
+                        Back to Home
+                      </Button>
+                    </div>
+                  </Column>
+                </Grid>
               } />
             </Route>
           </Routes>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Grid, Column } from '@carbon/react';
 import { useI18n } from '@/hooks/useI18n';
 import ChatMessage from '@/components/common/ChatMessage';
-import '@/styles/narrative.css';
+import '@/styles/narrative.scss';
 
 interface ConversationTopic {
   id: string;
